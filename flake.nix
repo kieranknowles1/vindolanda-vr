@@ -57,7 +57,11 @@
         # Shared across all systems
       };
 
-      perSystem = {pkgs, ...}: {
+      perSystem = {
+        pkgs,
+        inputs',
+        ...
+      }: {
         # Per system type
         devShells = {
           # Wrapper that sets the magic DEVSHELL variable, and preserves the user's default shell
@@ -75,8 +79,17 @@
         };
 
         packages = {
-          # Usage: `nix run [.#name=default]`
-          default = pkgs.hello;
+          sync-notes = let
+            home = "/home/kieran";
+          in
+            inputs'.nixcfg.packages.export-notes.override {
+              apiKeyFile = "${home}/.config/sops-nix/secrets/trilium/apikey";
+              destinationDir = "${home}/Documents/src/vindolanda-vr/notes";
+              # ID of my "Dissertation" note
+              rootNote = "cezCWFEiud4n";
+              autoCommit = false;
+              format = "html";
+            };
         };
       };
     };
