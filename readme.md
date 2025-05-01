@@ -1,6 +1,7 @@
-# Template Repository
+# Vindolanda VR
 
-This is a repository based on my
-[NixOS Configuration](https://github.com/kieranknowles1/nixcfg).
+Dissertation project for MSc Computer Game Engineering at Newcastle University
 
-See comments in [flake.nix](./flake.nix) for more information.
+## Documentation
+
+See [notes](./notes/index.html) for loosely-formatted notes on the project.
