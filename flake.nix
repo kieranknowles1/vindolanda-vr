@@ -62,6 +62,11 @@
         inputs',
         ...
       }: {
+        treefmt.settings.global.excludes = [
+          # Managed by Trilium
+          "notes/*"
+        ];
+
         # Per system type
         devShells = {
           # Wrapper that sets the magic DEVSHELL variable, and preserves the user's default shell
