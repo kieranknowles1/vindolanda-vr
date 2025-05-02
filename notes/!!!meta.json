@@ -264,40 +264,57 @@
       },
       {
        "isClone": false,
-       "noteId": "eFJBQbeGmx35",
+       "noteId": "18VLlJF53G6t",
        "notePath": [
         "cezCWFEiud4n",
         "289CD6yOcuG2",
-        "eFJBQbeGmx35"
+        "18VLlJF53G6t"
        ],
        "title": "Locomotion",
        "notePosition": 40,
        "prefix": null,
        "type": "text",
        "mime": "text/html",
-       "attributes": [],
+       "attributes": [
+        {
+         "type": "relation",
+         "name": "partOf",
+         "value": "acXHIs5fvW0E",
+         "isInheritable": false,
+         "position": 60
+        }
+       ],
        "format": "html",
        "dataFileName": "Locomotion.html",
        "attachments": []
+      },
+      {
+       "isClone": false,
+       "noteId": "BB62z4VsTe71",
+       "notePath": [
+        "cezCWFEiud4n",
+        "289CD6yOcuG2",
+        "BB62z4VsTe71"
+       ],
+       "title": "Choose an Engine",
+       "notePosition": 50,
+       "prefix": null,
+       "type": "text",
+       "mime": "text/html",
+       "attributes": [
+        {
+         "type": "relation",
+         "name": "partOf",
+         "value": "acXHIs5fvW0E",
+         "isInheritable": false,
+         "position": 60
+        }
+       ],
+       "format": "html",
+       "dataFileName": "Choose an Engine.html",
+       "attachments": []
       }
      ]
-    },
-    {
-     "isClone": false,
-     "noteId": "hcYJaVV7YFum",
-     "notePath": [
-      "cezCWFEiud4n",
-      "hcYJaVV7YFum"
-     ],
-     "title": "Engine",
-     "notePosition": 30,
-     "prefix": null,
-     "type": "text",
-     "mime": "text/html",
-     "attributes": [],
-     "format": "html",
-     "dataFileName": "Engine.html",
-     "attachments": []
     },
     {
      "isClone": false,
@@ -395,6 +412,13 @@
            "value": "8KPdTZ5FX2r7",
            "isInheritable": false,
            "position": 70
+          },
+          {
+           "type": "relation",
+           "name": "consistsOf",
+           "value": "18VLlJF53G6t",
+           "isInheritable": false,
+           "position": 80
           }
          ],
          "format": "html",
@@ -520,7 +544,7 @@
          "attachments": []
         },
         {
-         "isClone": false,
+         "isClone": true,
          "noteId": "BB62z4VsTe71",
          "notePath": [
           "cezCWFEiud4n",
@@ -529,22 +553,25 @@
           "BB62z4VsTe71"
          ],
          "title": "Choose an Engine",
-         "notePosition": 80,
          "prefix": null,
+         "dataFileName": "Choose an Engine.clone.html",
          "type": "text",
-         "mime": "text/html",
-         "attributes": [
-          {
-           "type": "relation",
-           "name": "partOf",
-           "value": "acXHIs5fvW0E",
-           "isInheritable": false,
-           "position": 60
-          }
+         "format": "html"
+        },
+        {
+         "isClone": true,
+         "noteId": "18VLlJF53G6t",
+         "notePath": [
+          "cezCWFEiud4n",
+          "rPHr1DPtIYH2",
+          "LcobnOJrwqmQ",
+          "18VLlJF53G6t"
          ],
-         "format": "html",
-         "dataFileName": "Choose an Engine.html",
-         "attachments": []
+         "title": "Locomotion",
+         "prefix": null,
+         "dataFileName": "Locomotion.clone.html",
+         "type": "text",
+         "format": "html"
         }
        ]
       },
