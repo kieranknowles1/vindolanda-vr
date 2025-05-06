@@ -419,6 +419,13 @@
            "value": "18VLlJF53G6t",
            "isInheritable": false,
            "position": 80
+          },
+          {
+           "type": "relation",
+           "name": "after",
+           "value": "QnGy4Wax87ps",
+           "isInheritable": false,
+           "position": 90
           }
          ],
          "format": "html",
@@ -518,6 +525,13 @@
            "value": "oVM1HzZXlgxy",
            "isInheritable": false,
            "position": 40
+          },
+          {
+           "type": "relation",
+           "name": "before",
+           "value": "acXHIs5fvW0E",
+           "isInheritable": false,
+           "position": 60
           }
          ],
          "format": "html",
@@ -553,6 +567,25 @@
          "dataFileName": "Locomotion.clone.html",
          "type": "text",
          "format": "html"
+        },
+        {
+         "isClone": false,
+         "noteId": "XvM9sMNaavcy",
+         "notePath": [
+          "cezCWFEiud4n",
+          "rPHr1DPtIYH2",
+          "LcobnOJrwqmQ",
+          "XvM9sMNaavcy"
+         ],
+         "title": "VR Implementation",
+         "notePosition": 100,
+         "prefix": null,
+         "type": "text",
+         "mime": "text/html",
+         "attributes": [],
+         "format": "html",
+         "dataFileName": "VR Implementation.html",
+         "attachments": []
         }
        ]
       },
