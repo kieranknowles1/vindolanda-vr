@@ -1,2 +1,12 @@
 # Nix build outputs
 result
+
+# Oh no not again
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.pdf
+*.synctex.gz
+*.toc
