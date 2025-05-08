@@ -69,17 +69,11 @@
 
         # Per system type
         devShells = {
-          # Wrapper that sets the magic DEVSHELL variable, and preserves the user's default shell
-          # Usage: `nix develop [.#name=default]`
-          default = cfgLib.shell.mkShellEx pkgs.mkShellNoCC {
-            name = "dev";
+          report = cfgLib.shell.mkShellEx pkgs.mkShellNoCC {
+            name = "report";
             packages = with pkgs; [
-              hello
+              texliveFull # Definitely overkill
             ];
-
-            shellHook = ''
-              echo "Hello, world!"
-            '';
           };
         };
 
