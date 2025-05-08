@@ -1,8 +1,12 @@
 \documentclass[12pt, a4paper]{report}
 
-\usepackage{hyperref}
+\usepackage{tabulary}
+\usepackage{booktabs}
 
+% TODO: Remove once no longer needed
 \usepackage{todo}
+
+\usepackage{hyperref}
 
 \title{Vindolandra VR}
 \author{Kieran John Knowles}
@@ -18,7 +22,8 @@
 \todo{Acknowledgments}
 
 \tableofcontents
-\todo{List of tables/figures}
+\listoftables
+\todo{List of figures}
 
 \todo{Use roman numeral page numbers for preliminary pages}
 
@@ -33,6 +38,22 @@
 
 \section{Technical Research}
 \todo{Technical Research}
+
+\subsection{Which Engine?}
+\todo{Which Engine}
+
+\begin{table}
+\caption{The advantages and disadvantages of the considered engines}
+\begin{tabulary}{\textwidth}{cCCC}\toprule
+Feature & Unreal & Unity & Godot \\\midrule
+
+Language & C\# & Blueprints, C++ & GDScript, C++, C\#, etc. \\
+VR Support & De facto standard & Yes, performance could be a concern & Yes \\
+Version Control & Git, text & Perforce, binary & Git, text \\
+Linux Support & Yes & Editor unreliable & Yes \\
+
+\bottomrule\end{tabulary}
+\end{table}
 
 \chapter{Implementation}
 \todo{Implementation}
