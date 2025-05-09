@@ -3,6 +3,9 @@ result
 
 # Oh no not again
 *.aux
+*.bbl
+*.bcf
+*.blg
 *.fdb_latexmk
 *.fls
 *.lof
@@ -10,5 +13,6 @@ result
 *.lot
 *.out
 *.pdf
+*.run.xml
 *.synctex.gz
 *.toc

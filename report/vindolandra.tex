@@ -3,6 +3,9 @@
 \usepackage{xltabular}
 \usepackage{booktabs}
 
+\usepackage{biblatex}
+\addbibresource{vindolanda.bib}
+
 % TODO: Remove once no longer needed
 \usepackage{todo}
 
@@ -105,7 +108,9 @@ Linux Support & Yes & Editor unreliable & Yes \\
 
 \end{xltabular}
 
-\todo{Bibliography}
+\nocite{*}\printbibliography
+\todo{Should this be split into cited/uncited?}
+\todo{Should annotations be included?}
 
 \todos
 \end{document}
