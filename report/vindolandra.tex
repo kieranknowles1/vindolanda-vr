@@ -75,16 +75,19 @@ games tagged as VR and detected as using a specific engine by SteamDB was used
 to determine adoption. \todo{Add to table and cite}
 
 \begin{table}
-\caption{The advantages and disadvantages of the considered engines}
-\label{table:engine_compare}\begin{tabularx}{\textwidth}{cLLL}\toprule
-Feature & Unreal & Unity & Godot \\\midrule
+  \caption{The advantages and disadvantages of the considered engines}
+  \label{table:engine_compare}
+  \begin{tabularx}{\textwidth}{cLLL}\toprule
+    Feature & Unreal & Unity & Godot \\\midrule
 
-Language & C\# & Blueprints, C++ & GDScript, C++, C\#, etc. \\
-VR Support & De facto standard & Yes, performance could be a concern & Yes \\
-Version Control & Git, text & Perforce, binary & Git, text \\
-Linux Support & Yes & Editor unreliable & Yes \\
+    Language & C\# & Blueprints, C++ & GDScript, C++, C\#, etc. \\
+    VR Support & De facto standard & Yes, performance could be a
+    concern & Yes \\
+    Version Control & Git, text & Perforce, binary & Git, text \\
+    Linux Support & Yes & Editor unreliable & Yes \\
 
-\bottomrule\end{tabularx}
+    \bottomrule
+  \end{tabularx}
 \end{table}
 
 \chapter{Implementation}
@@ -96,17 +99,19 @@ Linux Support & Yes & Editor unreliable & Yes \\
 \newcommand{\header}{\toprule{}ID & Name & Priority & Description \\\midrule}
 \newcounter{reqindex}
 \newcommand{\reqtype}{FR}
-\newcommand{\requirement}[3]{\reqtype\stepcounter{reqindex}\arabic{reqindex} & #1 & #2 & #3 \\}
+\newcommand{\requirement}[3]
+{\reqtype\stepcounter{reqindex}\arabic{reqindex} & #1 & #2 & #3 \\}
 
 \begin{xltabular}{\textwidth}{cccL}
-\caption{Requirements using the MoSCoW method}\\\header\endfirsthead
-\header\endhead
+  \caption{Requirements using the MoSCoW method}\\
+  \header\endfirsthead
+  \header\endhead
 
-\renewcommand{\reqtype}{NFR}\setcounter{reqindex}{0}
-\requirement{Performance}{Must have}
-{The game \textbf{must} maintain 90FPS during typical gameplay}
+  \renewcommand{\reqtype}{NFR}\setcounter{reqindex}{0}
+  \requirement{Performance}{Must have}
+  {The game \textbf{must} maintain 90FPS during typical gameplay}
 
-\bottomrule
+  \bottomrule
 
 \end{xltabular}
 
