@@ -6,13 +6,13 @@
 
 \usepackage{parskip} % Replace tab on new paragraph with extra y-spacing
 
-\usepackage{biblatex}
+\usepackage{biblatex} % Citations
 \addbibresource{vindolandra.bib}
 
 % TODO: Remove once no longer needed
 \usepackage{todo}
 
-\usepackage{hyperref}
+\usepackage{hyperref} % Automatic hyperlinks
 
 % Multiline left-aligned column
 \newcolumntype{L}{>{\raggedright\arraybackslash}X}
@@ -99,23 +99,38 @@ to determine adoption. \todo{Add to table and cite}
 \section{Requirement Analysis}
 \todo{Requirement Analysis}
 
+Tables \ref{table:fr} and \ref{table:nfr} contain lists of functional and
+non-functional requirements respectively with priorities assigned using the
+MoSCoW method (Must-have, Should-have, Could-have, and Won't-have).
+
 \newcommand{\header}{\toprule{}ID & Name & Priority & Description \\\midrule}
 \newcounter{reqindex}
 \newcommand{\reqtype}{FR}
 \newcommand{\requirement}[3]
 {\reqtype\stepcounter{reqindex}\arabic{reqindex} & #1 & #2 & #3 \\}
 
+\todo{Functional requirements}
 \begin{xltabular}{\textwidth}{cccL}
-  \caption{Requirements using the MoSCoW method}\\
+  \caption{\label{table:fr}Functional requirements}\\
   \header\endfirsthead
   \header\endhead
 
-  \renewcommand{\reqtype}{NFR}\setcounter{reqindex}{0}
+  \bottomrule
+\end{xltabular}
+
+\todo{Non functional requirements}
+\renewcommand{\reqtype}{NFR}\setcounter{reqindex}{0}
+\begin{xltabular}{\textwidth}{cccL}
+  \caption{\label{table:nfr}Non-functional requirements}\\
+  \header\endfirsthead
+  \header\endhead
+
   \requirement{Performance}{Must have}
   {The game \textbf{must} maintain 90FPS during typical gameplay}
+  \requirement{Linux Support}{Could have}
+  {The game \textbf{could} include native Linux support}
 
   \bottomrule
-
 \end{xltabular}
 
 \nocite{*}\printbibliography
