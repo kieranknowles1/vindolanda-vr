@@ -1,12 +1,15 @@
 \documentclass[12pt, a4paper]{report}
 
-\usepackage{tabulary}
+\usepackage{tabularx}
 \usepackage{booktabs}
 
 % TODO: Remove once no longer needed
 \usepackage{todo}
 
 \usepackage{hyperref}
+
+% Multiline left-aligned column
+\newcolumntype{L}{>{\raggedright\arraybackslash}X}
 
 \title{Vindolanda VR}
 \author{Kieran John Knowles}
@@ -56,7 +59,7 @@ have more resources available to reduce development time.
 
 \begin{table}
 \caption{The advantages and disadvantages of the considered engines}
-\label{table:engine_compare}\begin{tabulary}{\textwidth}{cCCC}\toprule
+\label{table:engine_compare}\begin{tabularx}{\textwidth}{cLLL}\toprule
 Feature & Unreal & Unity & Godot \\\midrule
 
 Language & C\# & Blueprints, C++ & GDScript, C++, C\#, etc. \\
@@ -64,7 +67,7 @@ VR Support & De facto standard & Yes, performance could be a concern & Yes \\
 Version Control & Git, text & Perforce, binary & Git, text \\
 Linux Support & Yes & Editor unreliable & Yes \\
 
-\bottomrule\end{tabulary}
+\bottomrule\end{tabularx}
 \end{table}
 
 \chapter{Implementation}
