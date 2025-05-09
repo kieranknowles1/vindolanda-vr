@@ -1,0 +1,11 @@
+language: en-GB
+
+words:
+  - Godot
+  - Vindolanda
+
+languageSettings:
+  - languageId: latex
+    caseSensitive: true # Check proper nouns
+    ignoreRegExpList:
+      - \\\w+ # Commands
