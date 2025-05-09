@@ -42,9 +42,21 @@
 \subsection{Which Engine?}
 \todo{Which Engine}
 
+Multiple engines were considered, each with their own benefits
+and drawbacks as summarised in Table \ref{table:engine_compare}
+
+Virtual reality is a significantly more demanding environment than other games.
+While 1080p at 60Hz is a common target for flat screens, VR games must render
+two screens at 90-120Hz each, with users often upscaling for enhanced clarity.
+Consequently, performance is a crucial requirement for any VR game.
+
+Given the short deadline of the project, industry adoption was also a major
+consideration based on the assumption that a more widely adopted engine would
+have more resources available to reduce development time.
+
 \begin{table}
 \caption{The advantages and disadvantages of the considered engines}
-\begin{tabulary}{\textwidth}{cCCC}\toprule
+\label{table:engine_compare}\begin{tabulary}{\textwidth}{cCCC}\toprule
 Feature & Unreal & Unity & Godot \\\midrule
 
 Language & C\# & Blueprints, C++ & GDScript, C++, C\#, etc. \\
