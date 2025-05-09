@@ -1,6 +1,6 @@
 \documentclass[12pt, a4paper]{report}
 
-\usepackage{tabularx}
+\usepackage{xltabular}
 \usepackage{booktabs}
 
 % TODO: Remove once no longer needed
@@ -72,6 +72,26 @@ Linux Support & Yes & Editor unreliable & Yes \\
 
 \chapter{Implementation}
 \todo{Implementation}
+
+\section{Requirement Analysis}
+\todo{Requirement Analysis}
+
+\newcommand{\header}{\toprule{}ID & Name & Priority & Description \\\midrule}
+\newcounter{reqindex}
+\newcommand{\reqtype}{FR}
+\newcommand{\requirement}[3]{\reqtype\stepcounter{reqindex}\arabic{reqindex} & #1 & #2 & #3 \\}
+
+\begin{xltabular}{\textwidth}{cccL}
+\caption{Requirements using the MoSCoW method}\\\header\endfirsthead
+\header\endhead
+
+\renewcommand{\reqtype}{NFR}\setcounter{reqindex}{0}
+\requirement{Performance}{Must have}
+{The game \textbf{must} maintain 90FPS during typical gameplay}
+
+\bottomrule
+
+\end{xltabular}
 
 \todo{Bibliography}
 
