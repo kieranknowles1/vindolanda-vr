@@ -7,3 +7,4 @@ languageSettings:
     caseSensitive: true # Check proper nouns
     ignoreRegExpList:
       - \\\w+ # Commands
+      - '%TC:.+' # TexCount
