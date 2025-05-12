@@ -77,26 +77,26 @@ Consequently, performance is a crucial requirement for any VR game.
 Given the short deadline of the project, industry adoption was also a major
 consideration based on the assumption that a more widely adopted engine would
 have more resources available to reduce development time. The total number of
-games tagged as VR, detected as using a specific engine by SteamDB, and released
-in the past 2 years (to include current trends) were used to determine adoption.
+games tagged as VR, detected as using a specific engine by SteamDB \cite{noauthor_steamdb_nodate}, and released
+after May 2023 (to include current trends) were used to determine adoption.
 This methodology has its limitations: by only using SteamDB as a source,
-non-steam releases such as itch.io and the Meta Store are excluded.
-Additionally, SteamDB's engine detection can produce false negatives, for
-example, Godot games can be packaged as a single executable which will not
-be detected.
-\todo{Explain why limitations are acceptable}
+selection bias is introduced as non-steam releases such as itch.io and the Meta
+Store are excluded. Additionally, SteamDB's engine detection can produce false
+negatives, for example, Godot games can be packaged as a single executable which
+will not be detected. Despite these limitations, this methodology was considered
+good enough to get a high-level overview.
 \todo{Figure for false negative of Godot. Doesn't need to be a VR game}
-\todo{Add to table and cite}
 
 \begin{table}
   \caption{The advantages and disadvantages of the considered engines}
   \label{table:engine_compare}
-  \begin{tabularx}{\textwidth}{cLLL}\toprule
-    Feature & Unreal & Unity & Godot \\\midrule
+  \begin{tabularx}{\textwidth}{lLLL}\toprule
+    Feature & Unity & Unreal & Godot \\\midrule
 
     Language & C\# & Blueprints, C++ & GDScript, C++, C\#, etc. \\
     VR Support & De facto standard & Yes, performance could be a
     concern & Yes \\
+    Recent Games & $745 (70\%)$ & $351 (30\%)$ & $8 (<1\%)$ \\
     Version Control & Git, text & Perforce, binary & Git, text \\
     Linux Support & Yes & Editor unreliable & Yes \\
 
