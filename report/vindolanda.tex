@@ -7,6 +7,8 @@
 
 \usepackage{parskip} % Replace tab on new paragraph with extra y-spacing
 
+\usepackage{csquotes} % Fancy quotes
+
 \usepackage{biblatex} % Citations
 \addbibresource{vindolanda.bib}
 
@@ -124,12 +126,12 @@ versioning.
 \subsubsection{Other Games}
 \todo{Other games, focus on visual inspiration}
 
+\section{The Setting}
+\todo{The setting}
+\todo{Set in AD122, year of Hadrian's visit.}
+
 \chapter{Implementation}
 \todo{Implementation}
-
-\todo
-{When to set it? Probably AD122, year of Hadrian's visit. Which section should
-this be in}
 
 \section{Requirement Analysis}
 \todo{Requirement Analysis}
@@ -148,6 +150,14 @@ MoSCoW method (Must-have, Should-have, Could-have, and Won't-have).
 \begin{xltabular}{\textwidth}{ccL}
   \caption{\label{table:fr}Functional requirements}\\
   \header
+
+  \requirement{Recreate Vindolanda}{Must have}
+  {The game \textbf{must} include a recreation of Vindolanda during Hadrian's
+  rule}
+  \requirement{Recreate Hadrian's Wall}{Should have}{The game \textbf{should}
+  include a recreation of Hadrian's wall during Hadrian's rule}
+  \requirement{Before and After}{Should have}{The game \textbf{should}
+  provide past and present representation of locations}
 
   \bottomrule
 \end{xltabular}
