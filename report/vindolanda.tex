@@ -10,6 +10,11 @@
 %TC:envir comment 0 0
 \documentclass[sigconf,authordraft]{acmart}
 
+\usepackage{listings}
+\lstset{
+  basicstyle=\ttfamily\small
+}
+
 \author{Kieran John Knowles}
 \affiliation{%
   \institution{Newcastle University}
@@ -46,8 +51,7 @@
 % \ccsdesc[100]{Do Not Use This Code~Generate the Correct Terms for Your Paper}
 
 % TODO: Keywords
-% \keywords{Do, Not, Us, This, Code, Put, the, Correct, Terms, for,
-%   Your, Paper}
+\keywords{Virtual reality, History, Education}
 
 % TODO: Teaser
 % \begin{teaserfigure}
@@ -108,9 +112,23 @@ This methodology has its limitations: by only using SteamDB as a source,
 selection bias is introduced as non-steam releases such as itch.io and the Meta
 Store are excluded. Additionally, SteamDB's engine detection can produce false
 negatives, for example, Godot games can be packaged as a single executable which
-will not be detected. Despite these limitations, this methodology was considered
-good enough to get a high-level overview.
-% TODO: Figure for false negative of Godot. Doesn't need to be a VR game
+will not be detected as shown in Figure \ref{fig:godot_false_negative}. Despite
+these limitations, this methodology was considered good enough to get a
+high-level overview.
+
+\begin{figure}[h]
+  \begin{lstlisting}
+    $ ./kicksalot --help
+    Godot Engine v4.4 - https://godotengine.org
+    ... (output abridged)
+  \end{lstlisting}
+  \includegraphics[width=0.8\linewidth]{godot-false-negative.png}
+  \caption{\label{fig:godot_false_negative} A game that uses Godot, but is not
+    detected as such by SteamDB visible from the lack of a ``Technologies''
+    field. https://steamdb.info/app/2629230/}
+  \Description{A screenshot of SteamDB's entry for ``The Adventures of Sir
+    Kicksalot''}
+\end{figure}
 
 A smaller, but important, consideration was the engine's support for Git version
 control. While it would have been possible to install and learn Perforce, doing
