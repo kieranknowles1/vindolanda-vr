@@ -118,6 +118,9 @@ so would detract from development time, this made Unreal Engine a less practical
 choice as it uses binary files for assets, which Git is poorly suited at
 versioning.
 
+Based on this analysis, it was determined that Unity best fits the needs of the
+game.
+
 \begin{table*}
   \caption{The advantages and disadvantages of the considered engines}
   \label{table:engine_compare}
@@ -161,11 +164,26 @@ events such as the disappearance of the ninth legion circa 120 AD.
 
 % TODO: The setting}
 
+\subsection{VR Considerations}
+Virtual reality introduces a unique set of challenges to game development. One
+of these is motion sickness, especially for users inexperienced with VR,
+\cite{chattha_motion_2020} which is often worsened by smooth locomotion, but can
+be mitigated by instead using teleport locomotion, although some users may feel
+disoriented after teleporting, the majority find it an easy to use movement
+method. \cite{bozgeyikli_point_2016} Due to the target audience of this game
+being mostly users without prior VR experience, teleport movement was deemed a
+higher priority than smooth movement.
+
+% TODO: Mention difficulties in direct testing due to prior experience
+% TODO: Could I talk about personal experience? Would need to be clear that it's
+% biased by the learning effect: smooth/teleport both ok, but rotation causes
+% disorientation
+
 \subsection{Educational Value}
 % TODO: Educational Value. What makes a good educational game?
 
 
-\section{Requirement Analysis}
+\subsection{Requirement Analysis}
 % TODO: Requirement analysis
 
 A requirement analysis using the MoSCoW method (Must-have, Should-have,
@@ -173,7 +191,7 @@ Could-have, and Won't-have) was performed to determine functional and
 non-functional requirements for the game.
 
 % TODO: Functional requirements}
-\subsection{Functional requirements}
+\subsubsection{Functional requirements}
 
 \paragraph{FR01 Recreate Vindolanda}
 The game \textbf{must} include a recreation of Vindolanda during Hadrian's
@@ -184,9 +202,21 @@ The game \textbf{should} include a recreation of Hadrian's wall during Hadrian's
 rule.
 
 \paragraph{FR03 Before and After}
-The game \textbf{should} provide past and present representation of locations.
+The game \textbf{should} provide past and present representation of locations
+with the option to switch between them.
 
-\subsection{Non-functional requirements}
+\paragraph{FR04 Teleport Locomotion}
+The game \textbf{must} include teleport-based locomotion.
+
+\paragraph{FR05 Smooth Locomotion}
+The game \textbf{should} include smooth locomotion.
+
+\paragraph{FR06 Tutorial}
+The game \textbf{should} begin with a brief tutorial on how to move around
+using the selected locomotion method, and advise them on the motion sickness
+they may experience from smooth locomotion.
+
+\subsubsection{Non-functional requirements}
 
 \paragraph{NFR01 Performance}
 The game \textbf{must} maintain 90FPS during typical gameplay.
