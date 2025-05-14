@@ -205,7 +205,9 @@ primary methods were identified that would be practical here:
 
 Given the variety of preferences among users, locomotion types should be
 configurable such that allow each user may select what they are most comfortable
-with, as well as to add vignette based on their needs.
+with, as well as to add vignette based on their needs. While some games include
+more advanced movement such as climbing or jumping, these were not deemed
+necessary here.
 
 % TODO: Figure on UI sketch
 % TODO: VR inspiration. Mostly in how certain mechanics are implemented}
@@ -240,6 +242,14 @@ disoriented after teleporting, the majority find it an easy to use movement
 method. \cite{bozgeyikli_point_2016} Due to the target audience of this game
 being mostly users without prior VR experience, teleport movement was deemed a
 higher priority than smooth movement.
+
+\label{sec:text_scale}
+Another challenge, especially when using lower resolution headsets, is the
+readability of text. Users require relatively large characters of approximately
+20-25mm per metre of distance (distance independent millimetre or dmm
+\cite{google_for_developers_designing_2017}) to read comfortably on the lower
+resolution HTC Vive, \cite{solum_readability_2019} which is the only headset
+available to the researcher and limits text to roughly 8 words per line.
 
 % TODO: Mention difficulties in direct testing due to prior experience
 % TODO: Could I talk about personal experience? Would need to be clear that it's
@@ -294,6 +304,12 @@ The game \textbf{must} maintain 90FPS during typical gameplay.
 
 \paragraph{NFR02 Linux Support}
 The game \textbf{could} include native Linux support.
+
+\paragraph{NFR03 Text Legibility}
+Text \textbf{must} be displayed using a clear, easily readable font with high
+contrast and a size of at least 25mm per metre of viewing distance to ensure
+comfortable reading on the widest range of headsets, as discussed in Section
+\ref{sec:text_scale}.
 
 \section{Results \& Evaluation}
 % TODO: Results and eval
