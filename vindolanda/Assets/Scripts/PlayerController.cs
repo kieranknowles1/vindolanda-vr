@@ -17,12 +17,37 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private ControllerInputActionManager rightController;
     [SerializeField] private DynamicMoveProvider dynamicMoveProvider;
 
-    public void SetVignetteStrength(float strength)
+    [Header("Movement")]
+    [SerializeField] private MovementType moveType;
+    public MovementType MoveType
     {
-        vignette.defaultParameters.apertureSize = 1.0f - strength;
+        get => moveType;
+        set
+        {
+            moveType = value;
+            UpdateMovementType(value);
+        }
     }
 
-    public void SetMovementType(MovementType type)
+    [SerializeField] private float vignetteStrength;
+    public float VignetteStrength
+    {
+        get => vignetteStrength;
+        set
+        {
+            vignetteStrength = value;
+            vignette.defaultParameters.apertureSize = 1.0f - value;
+        }
+    }
+
+    private void Start()
+    {
+        // Force game state to match defaults given here
+        MoveType = moveType;
+        VignetteStrength = vignetteStrength;
+    }
+
+    private void UpdateMovementType(MovementType type)
     {
         // TODO: Maybe allow selecting controller used for movement
         var movementController = rightController;

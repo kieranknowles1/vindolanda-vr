@@ -13,46 +13,31 @@ public class SettingsMenu : MonoBehaviour
 
     [SerializeField] private GameObject nauseaWarning;
 
-    // TODO: Don't like holding initial values in the settings menu. This should be part of PlayerController
-    [Header("Defaults")]
-    [SerializeField] private PlayerController.MovementType moveType;
-    [SerializeField] private float vignetteStrength;
-
-    private void Start()
+    public void Start()
     {
-        // Force UI and game state to match defaults given here
-        MoveType = moveType;
-        VignetteStrength = vignetteStrength;
+        // Grab values from the player
+        movementTypeDropdown.value = (int)playerController.MoveType;
+        vignetteSlider.value = playerController.VignetteStrength;
+        UpdateDisplayedElements();
     }
 
-    public PlayerController.MovementType MoveType
+    public void SetMoveType(int i)
     {
-        get => moveType;
-        set {
-            moveType = value;
-            movementTypeDropdown.value = (int)value;
-
-            bool smooth = value != PlayerController.MovementType.Teleport;
-
-            // Vignette is only relevant when using smooth movement
-            vignetteSliderParent.SetActive(smooth);
-            nauseaWarning.SetActive(smooth);
-            playerController.SetMovementType(value);
-        }
-    }
-    public void SetMoveTypeInt(int i)
-    {
-        MoveType = (PlayerController.MovementType)i;
+        PlayerController.MovementType type = (PlayerController.MovementType)i;
+        playerController.MoveType = type;
+        UpdateDisplayedElements();
     }
 
-    public float VignetteStrength
+    public void SetVignetteStrength(float strength)
     {
-        get => vignetteStrength;
-        set
-        {
-            vignetteStrength = value;
-            vignetteSlider.value = value;
-            playerController.SetVignetteStrength(value);
-        }
+        playerController.VignetteStrength = strength;
+    }
+
+    private void UpdateDisplayedElements()
+    {
+        // Vignette is only relevant when using smooth movement
+        bool smooth = playerController.MoveType != PlayerController.MovementType.Teleport;
+        vignetteSliderParent.SetActive(smooth);
+        nauseaWarning.SetActive(smooth);
     }
 }
