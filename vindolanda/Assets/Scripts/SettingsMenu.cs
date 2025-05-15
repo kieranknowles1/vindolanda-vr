@@ -1,22 +1,58 @@
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
-    // TODO: Store settings and update the panel to match
-    [SerializeField] private GameObject vignetteSlider;
+    [SerializeField] private GameObject vignetteSliderParent;
+
+    [SerializeField] private Slider vignetteSlider;
+    [SerializeField] private TMP_Dropdown movementTypeDropdown;
+
     [SerializeField] private PlayerController playerController;
 
-    public void SetVignetteStrength(float strength)
+    [SerializeField] private GameObject nauseaWarning;
+
+    // TODO: Don't like holding initial values in the settings menu. This should be part of PlayerController
+    [Header("Defaults")]
+    [SerializeField] private PlayerController.MovementType moveType;
+    [SerializeField] private float vignetteStrength;
+
+    private void Start()
     {
-        playerController.SetVignetteStrength(strength);
+        // Force UI and game state to match defaults given here
+        MoveType = moveType;
+        VignetteStrength = vignetteStrength;
     }
 
-    public void SetMovementType(int i)
+    public PlayerController.MovementType MoveType
     {
-        PlayerController.MovementType type = (PlayerController.MovementType)i;
+        get => moveType;
+        set {
+            moveType = value;
+            movementTypeDropdown.value = (int)value;
 
-        // Vignette is only relevant when using smooth movement
-        vignetteSlider.SetActive(type != PlayerController.MovementType.Teleport);
-        playerController.SetMovementType(type);
+            bool smooth = value != PlayerController.MovementType.Teleport;
+
+            // Vignette is only relevant when using smooth movement
+            vignetteSliderParent.SetActive(smooth);
+            nauseaWarning.SetActive(smooth);
+            playerController.SetMovementType(value);
+        }
+    }
+    public void SetMoveTypeInt(int i)
+    {
+        MoveType = (PlayerController.MovementType)i;
+    }
+
+    public float VignetteStrength
+    {
+        get => vignetteStrength;
+        set
+        {
+            vignetteStrength = value;
+            vignetteSlider.value = value;
+            playerController.SetVignetteStrength(value);
+        }
     }
 }
