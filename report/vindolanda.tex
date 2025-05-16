@@ -133,6 +133,7 @@ Virtual reality is a significantly more demanding environment than other games.
 While 1080p at 60Hz is a common target for flat screens, VR games must render
 two screens at 90-120Hz each, with users often upscaling for enhanced clarity.
 Consequently, performance is a crucial requirement for any VR game.
+(\hyperref[sec:nfr_performance]{NFR01})
 
 Given the short deadline of the project, industry adoption was also a major
 consideration based on the assumption that a more widely adopted engine would
@@ -169,7 +170,9 @@ choice as it uses binary files for assets, which Git is poorly suited at
 versioning.
 
 Based on this analysis, it was determined that Unity best fits the needs of the
-game.
+game as it is an industry standard and provides a VR template that includes all
+locomotion types needed and integration with its UI system. More specifically,
+Unity 6.1 was used as it was the latest stable version at time of development.
 
 \begin{table*}
   \caption{The advantages and disadvantages of the considered engines}
@@ -307,7 +310,7 @@ they may experience from smooth locomotion.
 
 \subsubsection{Non-functional requirements}
 
-\paragraph{NFR01 Performance}
+\paragraph{\label{sec:nfr_performance}NFR01 Performance}
 The game \textbf{must} maintain 90FPS during typical gameplay.
 
 \paragraph{NFR02 Linux Support}
