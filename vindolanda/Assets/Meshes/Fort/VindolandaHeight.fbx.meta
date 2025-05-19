@@ -10,16 +10,6 @@ ModelImporter:
       name: mat_0
     second: {fileID: 2100000, guid: beed486f245237d4ea003df0a51c5fca, type: 2}
   - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: mat_2
-    second: {fileID: 2100000, guid: 8491ff8bb9bfc8c4eb3a9d88dc393de5, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: mat_3
-    second: {fileID: 2100000, guid: a1f1c43cc0096a74a8296d5f0add3f54, type: 2}
-  - first:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: image0
@@ -108,7 +98,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.004
+    globalScale: 0.4
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
