@@ -72,11 +72,20 @@ class Line
 
 public class OSMLoader : MonoBehaviour
 {
+    public enum VisibilityType
+    {
+        Always,
+        Selected,
+        Never
+    }
+
     [SerializeField]
     TextAsset asset;
 
     public OSMData data;
     List<Line> lines = new List<Line>();
+
+    public VisibilityType Visibility = VisibilityType.Always;
 
     void ReadData()
     {
@@ -98,7 +107,7 @@ public class OSMLoader : MonoBehaviour
         }
     }
 
-    private void OnDrawGizmos()
+    private void DrawGizmos()
     {
         if (data == null) { ReadData(); }
         Gizmos.matrix = transform.localToWorldMatrix;
@@ -112,5 +121,14 @@ public class OSMLoader : MonoBehaviour
                 Gizmos.DrawLine(prev, current);
             }
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (Visibility == VisibilityType.Always) DrawGizmos();
+    }
+    private void OnDrawGizmosSelected()
+    {
+        if (Visibility == VisibilityType.Selected) DrawGizmos();
     }
 }
