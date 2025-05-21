@@ -38,6 +38,15 @@ public class OSMData
     {
         [XmlElement("nd")] public List<NodeRef> points;
         [XmlElement("tag")] public List<Tag> tags;
+
+        public string GetTag(string key)
+        {
+            foreach (var tag in tags)
+            {
+                if (tag.key == key) return tag.value;
+            }
+            return null;
+        }
     }
 
     [XmlAttribute("version")] public float version;
@@ -67,9 +76,13 @@ public class OSMData
 
 class Line
 {
+    public bool modern;
     public List<Vector3> points = new List<Vector3>();
 }
 
+/// <summary>
+/// Visualiser for OpenStreetMap datasets. Not the most efficient, but good enough for my needs
+/// </summary>
 public class OSMLoader : MonoBehaviour
 {
     public enum VisibilityType
@@ -86,6 +99,7 @@ public class OSMLoader : MonoBehaviour
     List<Line> lines = new List<Line>();
 
     public VisibilityType Visibility = VisibilityType.Always;
+    public bool ShowModern = false;
 
     void ReadData()
     {
@@ -96,7 +110,16 @@ public class OSMLoader : MonoBehaviour
         }
 
         foreach (var way in data.ways) {
+            // OSM dataset is slightly inconsistent, but combining these two tags
+            // filters out most modern structures with minimal false positive/negative in our case
+
+            // Most of vindolanda and castle nick's exterior has this
+            bool roman = way.GetTag("historic:civilization") == "ancient_roman";
+            // Castle nick's interior is missing historic:civilization
+            bool barrier = way.GetTag("barrier") != null;
+
             var line = new Line();
+            line.modern = !(roman || barrier);
             foreach (var point in way.points)
             {
                 var deref = nodes[point.id];
@@ -114,6 +137,7 @@ public class OSMLoader : MonoBehaviour
 
         foreach (var node in lines)
         {
+            if (node.modern && !ShowModern) continue;
             for (int i = 1; i < node.points.Count; i++)
             {
                 var prev = node.points[i - 1];

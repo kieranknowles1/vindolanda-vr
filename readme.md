@@ -14,7 +14,7 @@ would be incremental and easy to extend. further ideas could be built on top of 
 
 # Tasks
 
-- [ ] Keyboard/mouse movement for flat screens
+- [x] Keyboard/mouse movement for flat screens
 - [ ] Fort/milecastle scene
 - [ ] Quest system
   - [ ] Delivery quests

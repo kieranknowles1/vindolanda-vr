@@ -500,6 +500,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asset: {fileID: 4900000, guid: 4925c138f347c48458cb5acff313af5d, type: 3}
   Visibility: 0
+  ShowModern: 0
 --- !u!4 &918140059
 Transform:
   m_ObjectHideFlags: 0
@@ -1300,6 +1301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   asset: {fileID: 4900000, guid: 88e11e7d3b31c9240900f1d31bad032b, type: 3}
   Visibility: 0
+  ShowModern: 0
 --- !u!1 &1998388075
 GameObject:
   m_ObjectHideFlags: 0
