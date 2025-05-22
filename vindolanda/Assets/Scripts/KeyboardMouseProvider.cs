@@ -34,7 +34,7 @@ public class KeyboardMouseProvider : LocomotionProvider
             TryQueueTransformation(translation);
         }
 
-        var look = input.Keyboard.LockLook.ReadValue<bool>() ? Vector2.zero : input.Keyboard.Look.ReadValue<Vector2>();
+        var look = input.Keyboard.LockLook.IsPressed() ? Vector2.zero : input.Keyboard.Look.ReadValue<Vector2>();
         if (look != Vector2.zero)
         {
             // Default VR input doesn't support rotation since we don't have artificial gravity (yet)
