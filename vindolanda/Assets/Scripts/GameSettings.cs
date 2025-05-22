@@ -55,11 +55,26 @@ public class GameSettings
         SmoothControllerForward = 2
     }
 
+    public event Action<GameSettings> OnChange;
+    /// <summary>
+    /// Save changes to disk and notify all listeners
+    /// Must be called manually after change
+    /// </summary>
+    /// <example><code>
+    /// GameSettings.Instance.Movement.Type = newValue;
+    /// GameSettings.Instance.ApplyChanges();
+    /// </code></example>
+    public void ApplyChanges()
+    {
+        Save();
+        OnChange?.Invoke(this);
+    }
+
     [Serializable]
     public class MovementSettings
     {
         public MovementType Type = MovementType.Teleport;
-        public float VignetteStrength = 0.5f;
+        public float VignetteStrength = 0.3f;
     }
-    public MovementSettings Movement;
+    public MovementSettings Movement = new();
 }

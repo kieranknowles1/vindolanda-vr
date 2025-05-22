@@ -4,65 +4,44 @@ using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 public class PlayerController : MonoBehaviour
 {
-    public enum MovementType
-    {
-        Teleport = 0,
-        SmoothHeadForward = 1,
-        SmoothControllerForward = 2
-    }
-
     [SerializeField] private Camera mainCamera;
     [SerializeField] private TunnelingVignetteController vignette;
     [SerializeField] private ControllerInputActionManager leftController;
     [SerializeField] private ControllerInputActionManager rightController;
     [SerializeField] private DynamicMoveProvider dynamicMoveProvider;
 
-    [Header("Movement")]
-    [SerializeField] private MovementType moveType;
-    public MovementType MoveType
-    {
-        get => moveType;
-        set
-        {
-            moveType = value;
-            UpdateMovementType(value);
-        }
-    }
-
-    [SerializeField] private float vignetteStrength;
-    public float VignetteStrength
-    {
-        get => vignetteStrength;
-        set
-        {
-            vignetteStrength = value;
-            vignette.defaultParameters.apertureSize = 1.0f - value;
-        }
+    private void UpdateSettings(GameSettings settings) {
+        UpdateMovementType(settings.Movement.Type);
+        vignette.defaultParameters.apertureSize = 1.0f - settings.Movement.VignetteStrength;
     }
 
     private void Start()
     {
-        // Force game state to match defaults given here
-        MoveType = moveType;
-        VignetteStrength = vignetteStrength;
+        GameSettings.Instance.OnChange += UpdateSettings;
+        UpdateSettings(GameSettings.Instance);
     }
 
-    private void UpdateMovementType(MovementType type)
+    private void OnDestroy()
+    {
+        GameSettings.Instance.OnChange -= UpdateSettings;
+    }
+
+    private void UpdateMovementType(GameSettings.MovementType type)
     {
         // TODO: Maybe allow selecting controller used for movement
         var movementController = rightController;
 
         // TODO: teleportEnabled field instead of using !smoothMotionEnabled
-        movementController.smoothMotionEnabled = type != MovementType.Teleport;
+        movementController.smoothMotionEnabled = type != GameSettings.MovementType.Teleport;
 
         switch (type)
         {
-            case MovementType.Teleport:
+            case GameSettings.MovementType.Teleport:
                 break;
-            case MovementType.SmoothHeadForward:
+            case GameSettings.MovementType.SmoothHeadForward:
                 dynamicMoveProvider.forwardSource = mainCamera.transform;
                 break;
-            case MovementType.SmoothControllerForward:
+            case GameSettings.MovementType.SmoothControllerForward:
                 dynamicMoveProvider.forwardSource = movementController.transform;
                 break;
         }

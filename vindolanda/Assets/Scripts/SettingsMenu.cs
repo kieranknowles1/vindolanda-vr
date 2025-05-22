@@ -9,34 +9,33 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField] private Slider vignetteSlider;
     [SerializeField] private TMP_Dropdown movementTypeDropdown;
 
-    [SerializeField] private PlayerController playerController;
-
     [SerializeField] private GameObject nauseaWarning;
 
     public void Start()
     {
-        // Grab values from the player
-        movementTypeDropdown.value = (int)playerController.MoveType;
-        vignetteSlider.value = playerController.VignetteStrength;
+        // Grab values from GameSettings
+        movementTypeDropdown.value = (int)GameSettings.Instance.Movement.Type;
+        vignetteSlider.value = GameSettings.Instance.Movement.VignetteStrength;
         UpdateDisplayedElements();
     }
 
     public void SetMoveType(int i)
     {
-        PlayerController.MovementType type = (PlayerController.MovementType)i;
-        playerController.MoveType = type;
+        GameSettings.Instance.Movement.Type = (GameSettings.MovementType)i;
+        GameSettings.Instance.ApplyChanges();
         UpdateDisplayedElements();
     }
 
     public void SetVignetteStrength(float strength)
     {
-        playerController.VignetteStrength = strength;
+        GameSettings.Instance.Movement.VignetteStrength = strength;
+        GameSettings.Instance.ApplyChanges();
     }
 
     private void UpdateDisplayedElements()
     {
         // Vignette is only relevant when using smooth movement
-        bool smooth = playerController.MoveType != PlayerController.MovementType.Teleport;
+        bool smooth = GameSettings.Instance.Movement.Type != GameSettings.MovementType.Teleport;
         vignetteSliderParent.SetActive(smooth);
         nauseaWarning.SetActive(smooth);
     }
