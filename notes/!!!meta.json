@@ -27,6 +27,13 @@
      "value": "289CD6yOcuG2",
      "isInheritable": false,
      "position": 40
+    },
+    {
+     "type": "label",
+     "name": "workspace",
+     "value": "",
+     "isInheritable": false,
+     "position": 20
     }
    ],
    "format": "html",
@@ -313,6 +320,60 @@
        "format": "html",
        "dataFileName": "Choose an Engine.html",
        "attachments": []
+      },
+      {
+       "isClone": false,
+       "noteId": "R24HrL27N3mK",
+       "notePath": [
+        "cezCWFEiud4n",
+        "289CD6yOcuG2",
+        "R24HrL27N3mK"
+       ],
+       "title": "Etymology From Romans",
+       "notePosition": 60,
+       "prefix": null,
+       "type": "text",
+       "mime": "text/html",
+       "attributes": [],
+       "format": "html",
+       "dataFileName": "Etymology From Romans.html",
+       "attachments": []
+      },
+      {
+       "isClone": false,
+       "noteId": "33P2Vj8GrTd2",
+       "notePath": [
+        "cezCWFEiud4n",
+        "289CD6yOcuG2",
+        "33P2Vj8GrTd2"
+       ],
+       "title": "Further Reading",
+       "notePosition": 70,
+       "prefix": null,
+       "type": "text",
+       "mime": "text/html",
+       "attributes": [],
+       "format": "html",
+       "dataFileName": "Further Reading.html",
+       "attachments": []
+      },
+      {
+       "isClone": false,
+       "noteId": "6Y4ZCuIvMiEj",
+       "notePath": [
+        "cezCWFEiud4n",
+        "289CD6yOcuG2",
+        "6Y4ZCuIvMiEj"
+       ],
+       "title": "Fort Tour Notes",
+       "notePosition": 80,
+       "prefix": null,
+       "type": "text",
+       "mime": "text/html",
+       "attributes": [],
+       "format": "html",
+       "dataFileName": "Fort Tour Notes.html",
+       "attachments": []
       }
      ]
     },
@@ -379,7 +440,36 @@
          "prefix": null,
          "type": "text",
          "mime": "text/html",
-         "attributes": [],
+         "attributes": [
+          {
+           "type": "relation",
+           "name": "after",
+           "value": "acXHIs5fvW0E",
+           "isInheritable": false,
+           "position": 60
+          },
+          {
+           "type": "relation",
+           "name": "after",
+           "value": "oVM1HzZXlgxy",
+           "isInheritable": false,
+           "position": 70
+          },
+          {
+           "type": "relation",
+           "name": "consistsOf",
+           "value": "DOs5y85Lra2L",
+           "isInheritable": false,
+           "position": 80
+          },
+          {
+           "type": "relation",
+           "name": "consistsOf",
+           "value": "8mvVE9Mjdbmw",
+           "isInheritable": false,
+           "position": 90
+          }
+         ],
          "format": "html",
          "dataFileName": "Design.html",
          "attachments": []
@@ -426,6 +516,20 @@
            "value": "QnGy4Wax87ps",
            "isInheritable": false,
            "position": 90
+          },
+          {
+           "type": "relation",
+           "name": "before",
+           "value": "ya8W4MpRqo5U",
+           "isInheritable": false,
+           "position": 100
+          },
+          {
+           "type": "relation",
+           "name": "before",
+           "value": "XvM9sMNaavcy",
+           "isInheritable": false,
+           "position": 110
           }
          ],
          "format": "html",
@@ -453,6 +557,20 @@
            "value": "QnGy4Wax87ps",
            "isInheritable": false,
            "position": 40
+          },
+          {
+           "type": "relation",
+           "name": "before",
+           "value": "ya8W4MpRqo5U",
+           "isInheritable": false,
+           "position": 60
+          },
+          {
+           "type": "relation",
+           "name": "consistsOf",
+           "value": "g60DXdAsIiJh",
+           "isInheritable": false,
+           "position": 70
           }
          ],
          "format": "html",
@@ -505,55 +623,6 @@
          ]
         },
         {
-         "isClone": false,
-         "noteId": "QnGy4Wax87ps",
-         "notePath": [
-          "cezCWFEiud4n",
-          "rPHr1DPtIYH2",
-          "LcobnOJrwqmQ",
-          "QnGy4Wax87ps"
-         ],
-         "title": "Set up Zotero",
-         "notePosition": 70,
-         "prefix": null,
-         "type": "text",
-         "mime": "text/html",
-         "attributes": [
-          {
-           "type": "relation",
-           "name": "before",
-           "value": "oVM1HzZXlgxy",
-           "isInheritable": false,
-           "position": 40
-          },
-          {
-           "type": "relation",
-           "name": "before",
-           "value": "acXHIs5fvW0E",
-           "isInheritable": false,
-           "position": 60
-          }
-         ],
-         "format": "html",
-         "dataFileName": "Set up Zotero.html",
-         "attachments": []
-        },
-        {
-         "isClone": true,
-         "noteId": "BB62z4VsTe71",
-         "notePath": [
-          "cezCWFEiud4n",
-          "rPHr1DPtIYH2",
-          "LcobnOJrwqmQ",
-          "BB62z4VsTe71"
-         ],
-         "title": "Choose an Engine",
-         "prefix": null,
-         "dataFileName": "Choose an Engine.clone.html",
-         "type": "text",
-         "format": "html"
-        },
-        {
          "isClone": true,
          "noteId": "18VLlJF53G6t",
          "notePath": [
@@ -582,9 +651,139 @@
          "prefix": null,
          "type": "text",
          "mime": "text/html",
-         "attributes": [],
+         "attributes": [
+          {
+           "type": "relation",
+           "name": "after",
+           "value": "acXHIs5fvW0E",
+           "isInheritable": false,
+           "position": 60
+          }
+         ],
          "format": "html",
          "dataFileName": "VR Implementation.html",
+         "attachments": []
+        },
+        {
+         "isClone": false,
+         "noteId": "DOs5y85Lra2L",
+         "notePath": [
+          "cezCWFEiud4n",
+          "rPHr1DPtIYH2",
+          "LcobnOJrwqmQ",
+          "DOs5y85Lra2L"
+         ],
+         "title": "Level Design",
+         "notePosition": 110,
+         "prefix": null,
+         "type": "text",
+         "mime": "text/html",
+         "attributes": [
+          {
+           "type": "relation",
+           "name": "partOf",
+           "value": "ya8W4MpRqo5U",
+           "isInheritable": false,
+           "position": 60
+          },
+          {
+           "type": "relation",
+           "name": "before",
+           "value": "BEONwca63eJx",
+           "isInheritable": false,
+           "position": 70
+          }
+         ],
+         "format": "html",
+         "dataFileName": "Level Design.html",
+         "attachments": []
+        },
+        {
+         "isClone": false,
+         "noteId": "8mvVE9Mjdbmw",
+         "notePath": [
+          "cezCWFEiud4n",
+          "rPHr1DPtIYH2",
+          "LcobnOJrwqmQ",
+          "8mvVE9Mjdbmw"
+         ],
+         "title": "Quest Design",
+         "notePosition": 120,
+         "prefix": null,
+         "type": "text",
+         "mime": "text/html",
+         "attributes": [
+          {
+           "type": "relation",
+           "name": "partOf",
+           "value": "ya8W4MpRqo5U",
+           "isInheritable": false,
+           "position": 60
+          },
+          {
+           "type": "relation",
+           "name": "before",
+           "value": "Du49if7unVYL",
+           "isInheritable": false,
+           "position": 70
+          }
+         ],
+         "format": "html",
+         "dataFileName": "Quest Design.html",
+         "attachments": []
+        },
+        {
+         "isClone": false,
+         "noteId": "BEONwca63eJx",
+         "notePath": [
+          "cezCWFEiud4n",
+          "rPHr1DPtIYH2",
+          "LcobnOJrwqmQ",
+          "BEONwca63eJx"
+         ],
+         "title": "Level Implementation",
+         "notePosition": 130,
+         "prefix": null,
+         "type": "text",
+         "mime": "text/html",
+         "attributes": [
+          {
+           "type": "relation",
+           "name": "after",
+           "value": "DOs5y85Lra2L",
+           "isInheritable": false,
+           "position": 60
+          }
+         ],
+         "format": "html",
+         "dataFileName": "Level Implementation.html",
+         "attachments": []
+        },
+        {
+         "isClone": false,
+         "noteId": "Du49if7unVYL",
+         "notePath": [
+          "cezCWFEiud4n",
+          "rPHr1DPtIYH2",
+          "LcobnOJrwqmQ",
+          "Du49if7unVYL"
+         ],
+         "title": "Quest Implementation",
+         "notePosition": 140,
+         "prefix": null,
+         "type": "text",
+         "mime": "text/html",
+         "attributes": [
+          {
+           "type": "relation",
+           "name": "after",
+           "value": "8mvVE9Mjdbmw",
+           "isInheritable": false,
+           "position": 60
+          }
+         ],
+         "format": "html",
+         "dataFileName": "Quest Implementation.html",
          "attachments": []
         }
        ]
@@ -659,6 +858,52 @@
          "format": "html",
          "dataFileName": "Will VR Work on NixOS.html",
          "attachments": []
+        },
+        {
+         "isClone": false,
+         "noteId": "g60DXdAsIiJh",
+         "notePath": [
+          "cezCWFEiud4n",
+          "rPHr1DPtIYH2",
+          "a5gZMT79HQCF",
+          "g60DXdAsIiJh"
+         ],
+         "title": "Check Libraries",
+         "notePosition": 30,
+         "prefix": null,
+         "type": "text",
+         "mime": "text/html",
+         "attributes": [
+          {
+           "type": "relation",
+           "name": "partOf",
+           "value": "oVM1HzZXlgxy",
+           "isInheritable": false,
+           "position": 60
+          }
+         ],
+         "format": "html",
+         "dataFileName": "Check Libraries.html",
+         "attachments": []
+        },
+        {
+         "isClone": false,
+         "noteId": "EMw942kW8GsB",
+         "notePath": [
+          "cezCWFEiud4n",
+          "rPHr1DPtIYH2",
+          "a5gZMT79HQCF",
+          "EMw942kW8GsB"
+         ],
+         "title": "What to Focus On?",
+         "notePosition": 40,
+         "prefix": null,
+         "type": "text",
+         "mime": "text/html",
+         "attributes": [],
+         "format": "html",
+         "dataFileName": "What to Focus On.html",
+         "attachments": []
         }
        ]
       },
@@ -692,8 +937,59 @@
         }
        ],
        "format": "html",
-       "dataFileName": "Done.html",
-       "attachments": []
+       "attachments": [],
+       "dirFileName": "Done",
+       "children": [
+        {
+         "isClone": false,
+         "noteId": "QnGy4Wax87ps",
+         "notePath": [
+          "cezCWFEiud4n",
+          "rPHr1DPtIYH2",
+          "Xv8xdSdgzHUU",
+          "QnGy4Wax87ps"
+         ],
+         "title": "Set up Zotero",
+         "notePosition": 10,
+         "prefix": null,
+         "type": "text",
+         "mime": "text/html",
+         "attributes": [
+          {
+           "type": "relation",
+           "name": "before",
+           "value": "oVM1HzZXlgxy",
+           "isInheritable": false,
+           "position": 40
+          },
+          {
+           "type": "relation",
+           "name": "before",
+           "value": "acXHIs5fvW0E",
+           "isInheritable": false,
+           "position": 60
+          }
+         ],
+         "format": "html",
+         "dataFileName": "Set up Zotero.html",
+         "attachments": []
+        },
+        {
+         "isClone": true,
+         "noteId": "BB62z4VsTe71",
+         "notePath": [
+          "cezCWFEiud4n",
+          "rPHr1DPtIYH2",
+          "Xv8xdSdgzHUU",
+          "BB62z4VsTe71"
+         ],
+         "title": "Choose an Engine",
+         "prefix": null,
+         "dataFileName": "Choose an Engine.clone.html",
+         "type": "text",
+         "format": "html"
+        }
+       ]
       }
      ]
     },
