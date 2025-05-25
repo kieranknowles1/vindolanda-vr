@@ -38,7 +38,9 @@ namespace Unity.VRTemplate
         TextMeshProUGUI m_VideoTimeText;
 
         [SerializeField]
-        [Tooltip("If checked, the slider will fade off after a few seconds. If unchecked, the slider will remain on.")]
+        [Tooltip(
+            "If checked, the slider will fade off after a few seconds. If unchecked, the slider will remain on."
+        )]
         bool m_HideSliderAfterFewSeconds;
 
         bool m_IsDragging;
@@ -160,12 +162,14 @@ namespace Unity.VRTemplate
             {
                 var currentTimeTimeSpan = TimeSpan.FromSeconds(m_VideoPlayer.time);
                 var totalTimeTimeSpan = TimeSpan.FromSeconds(m_VideoPlayer.length);
-                var currentTimeString = string.Format("{0:D2}:{1:D2}",
+                var currentTimeString = string.Format(
+                    "{0:D2}:{1:D2}",
                     currentTimeTimeSpan.Minutes,
                     currentTimeTimeSpan.Seconds
                 );
 
-                var totalTimeString = string.Format("{0:D2}:{1:D2}",
+                var totalTimeString = string.Format(
+                    "{0:D2}:{1:D2}",
                     totalTimeTimeSpan.Minutes,
                     totalTimeTimeSpan.Seconds
                 );

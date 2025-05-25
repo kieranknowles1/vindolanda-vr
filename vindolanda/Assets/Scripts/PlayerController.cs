@@ -4,13 +4,23 @@ using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private Camera mainCamera;
-    [SerializeField] private TunnelingVignetteController vignette;
-    [SerializeField] private ControllerInputActionManager leftController;
-    [SerializeField] private ControllerInputActionManager rightController;
-    [SerializeField] private DynamicMoveProvider dynamicMoveProvider;
+    [SerializeField]
+    private Camera mainCamera;
 
-    private void UpdateSettings(GameSettings settings) {
+    [SerializeField]
+    private TunnelingVignetteController vignette;
+
+    [SerializeField]
+    private ControllerInputActionManager leftController;
+
+    [SerializeField]
+    private ControllerInputActionManager rightController;
+
+    [SerializeField]
+    private DynamicMoveProvider dynamicMoveProvider;
+
+    private void UpdateSettings(GameSettings settings)
+    {
         UpdateMovementType(settings.Movement.Type);
         vignette.defaultParameters.apertureSize = 1.0f - settings.Movement.VignetteStrength;
     }

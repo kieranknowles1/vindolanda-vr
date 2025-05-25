@@ -8,7 +8,10 @@ namespace Unity.VRTemplate
     /// Controls the visual states of a boolean toggle switch UI
     /// </summary>
     [RequireComponent(typeof(Toggle))]
-    public class BooleanToggleVisualsController : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+    public class BooleanToggleVisualsController
+        : MonoBehaviour,
+            IPointerEnterHandler,
+            IPointerExitHandler
     {
         const float k_TargetPositionX = 17f;
 
@@ -59,11 +62,19 @@ namespace Unity.VRTemplate
         {
             if (value)
             {
-                m_Knob.localPosition = new Vector3(k_TargetPositionX, m_Knob.localPosition.y, m_Knob.localPosition.z);
+                m_Knob.localPosition = new Vector3(
+                    k_TargetPositionX,
+                    m_Knob.localPosition.y,
+                    m_Knob.localPosition.z
+                );
             }
             else
             {
-                m_Knob.localPosition = new Vector3(-k_TargetPositionX, m_Knob.localPosition.y, m_Knob.localPosition.z);
+                m_Knob.localPosition = new Vector3(
+                    -k_TargetPositionX,
+                    m_Knob.localPosition.y,
+                    m_Knob.localPosition.z
+                );
             }
         }
 

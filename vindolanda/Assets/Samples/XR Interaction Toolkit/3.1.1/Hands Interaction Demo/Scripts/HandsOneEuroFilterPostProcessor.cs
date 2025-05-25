@@ -85,7 +85,11 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.Hands
         }
 
         /// <inheritdoc />
-        public void ProcessJoints(XRHandSubsystem subsystem, XRHandSubsystem.UpdateSuccessFlags successFlags, XRHandSubsystem.UpdateType updateType)
+        public void ProcessJoints(
+            XRHandSubsystem subsystem,
+            XRHandSubsystem.UpdateSuccessFlags successFlags,
+            XRHandSubsystem.UpdateType updateType
+        )
         {
             var leftHand = subsystem.leftHand;
             if (leftHand.isTracked)
@@ -97,7 +101,12 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.Hands
                 }
                 else
                 {
-                    var newLeftPosition = m_LeftHandFilter.Filter(leftHandPose.position, Time.deltaTime, m_FilterMinCutoff, m_FilterBeta);
+                    var newLeftPosition = m_LeftHandFilter.Filter(
+                        leftHandPose.position,
+                        Time.deltaTime,
+                        m_FilterMinCutoff,
+                        m_FilterBeta
+                    );
                     var newLeftPose = new Pose(newLeftPosition, leftHandPose.rotation);
 
                     leftHand.SetRootPose(newLeftPose);
@@ -117,7 +126,12 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.Hands
                 }
                 else
                 {
-                    var newRightPosition = m_RightHandFilter.Filter(rightHandPose.position, Time.deltaTime, m_FilterMinCutoff, m_FilterBeta);
+                    var newRightPosition = m_RightHandFilter.Filter(
+                        rightHandPose.position,
+                        Time.deltaTime,
+                        m_FilterMinCutoff,
+                        m_FilterBeta
+                    );
                     var newRightPose = new Pose(newRightPosition, rightHandPose.rotation);
 
                     rightHand.SetRootPose(newRightPose);
@@ -133,7 +147,10 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.Hands
         /// </summary>
         void Awake()
         {
-            Debug.LogWarning("HandsOneEuroFilterPostProcessor requires XR Hands (com.unity.xr.hands) 1.2.0 or newer. Disabling component.", this);
+            Debug.LogWarning(
+                "HandsOneEuroFilterPostProcessor requires XR Hands (com.unity.xr.hands) 1.2.0 or newer. Disabling component.",
+                this
+            );
             enabled = false;
         }
 #endif

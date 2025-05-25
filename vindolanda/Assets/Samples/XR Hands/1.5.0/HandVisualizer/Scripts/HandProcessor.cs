@@ -31,7 +31,7 @@ namespace UnityEngine.XR.Hands.Samples.VisualizerSample
             /// <summary>
             /// Inverts the left and right hands.
             /// </summary>
-            Invert
+            Invert,
         }
 
         // Variables used for smoothing hand movements.
@@ -58,20 +58,33 @@ namespace UnityEngine.XR.Hands.Samples.VisualizerSample
         // Smoothing factors for the left and right hands.
         [Header("Smoothing parameters")]
         [SerializeField]
-        [Tooltip("The smoothing factor to use when smoothing the root of the left hand in the sample processor. Use 0 for no smoothing.")]
+        [Tooltip(
+            "The smoothing factor to use when smoothing the root of the left hand in the sample processor. Use 0 for no smoothing."
+        )]
         float m_LeftHandSmoothingFactor = 16f;
 
         [SerializeField]
-        [Tooltip("The smoothing factor to use when smoothing the root of the right hand in the sample processor. Use 0 for no smoothing.")]
+        [Tooltip(
+            "The smoothing factor to use when smoothing the root of the right hand in the sample processor. Use 0 for no smoothing."
+        )]
         float m_RightHandSmoothingFactor = 16f;
 
         /// <inheritdoc />
-        public void ProcessJoints(XRHandSubsystem subsystem, XRHandSubsystem.UpdateSuccessFlags successFlags, XRHandSubsystem.UpdateType updateType)
+        public void ProcessJoints(
+            XRHandSubsystem subsystem,
+            XRHandSubsystem.UpdateSuccessFlags successFlags,
+            XRHandSubsystem.UpdateType updateType
+        )
         {
             switch (m_ProcessorExampleMode)
             {
                 case ProcessorExampleMode.Smoothing:
-                    SmoothHandsExample(subsystem, successFlags, updateType, m_LastProcessorExampleMode != m_ProcessorExampleMode);
+                    SmoothHandsExample(
+                        subsystem,
+                        successFlags,
+                        updateType,
+                        m_LastProcessorExampleMode != m_ProcessorExampleMode
+                    );
                     break;
 
                 case ProcessorExampleMode.Invert:
@@ -84,7 +97,12 @@ namespace UnityEngine.XR.Hands.Samples.VisualizerSample
 
         // Smooths the hand movements of an XRHandSubsystem by updating the root
         // pose of the left and right hands with interpolated positions.
-        void SmoothHandsExample(XRHandSubsystem subsystem, XRHandSubsystem.UpdateSuccessFlags successFlags, XRHandSubsystem.UpdateType updateType, bool modeChanged)
+        void SmoothHandsExample(
+            XRHandSubsystem subsystem,
+            XRHandSubsystem.UpdateSuccessFlags successFlags,
+            XRHandSubsystem.UpdateType updateType,
+            bool modeChanged
+        )
         {
             var leftHand = subsystem.leftHand;
             var rightHand = subsystem.rightHand;
@@ -96,7 +114,11 @@ namespace UnityEngine.XR.Hands.Samples.VisualizerSample
                 if (!m_FirstFrame && !modeChanged)
                 {
                     float tweenAmt = Time.deltaTime * m_LeftHandSmoothingFactor;
-                    currentLeftHandPosition = Vector3.Lerp(m_LastLeftHandPosition, currentLeftHandPosition, tweenAmt);
+                    currentLeftHandPosition = Vector3.Lerp(
+                        m_LastLeftHandPosition,
+                        currentLeftHandPosition,
+                        tweenAmt
+                    );
                     m_LeftHandPose.position = currentLeftHandPosition;
                     m_LeftHandPose.rotation = leftPose.rotation;
 
@@ -113,7 +135,11 @@ namespace UnityEngine.XR.Hands.Samples.VisualizerSample
                 if (!m_FirstFrame && !modeChanged)
                 {
                     float tweenAmt = Time.deltaTime * m_RightHandSmoothingFactor;
-                    currentRightHandPosition = Vector3.Lerp(m_LastRightHandPosition, currentRightHandPosition, tweenAmt);
+                    currentRightHandPosition = Vector3.Lerp(
+                        m_LastRightHandPosition,
+                        currentRightHandPosition,
+                        tweenAmt
+                    );
                     m_RightHandPose.position = currentRightHandPosition;
                     m_RightHandPose.rotation = rightPose.rotation;
 
@@ -125,7 +151,11 @@ namespace UnityEngine.XR.Hands.Samples.VisualizerSample
         }
 
         // Call this from process joints to try inverting the user's hands.
-        void InvertHandsExample(XRHandSubsystem subsystem, XRHandSubsystem.UpdateSuccessFlags successFlags, XRHandSubsystem.UpdateType updateType)
+        void InvertHandsExample(
+            XRHandSubsystem subsystem,
+            XRHandSubsystem.UpdateSuccessFlags successFlags,
+            XRHandSubsystem.UpdateType updateType
+        )
         {
             var leftHand = subsystem.leftHand;
             var leftHandPose = leftHand.rootPose;

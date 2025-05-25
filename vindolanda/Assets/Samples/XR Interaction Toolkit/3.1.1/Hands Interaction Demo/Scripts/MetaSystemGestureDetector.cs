@@ -38,7 +38,9 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.Hands
         }
 
         [SerializeField]
-        InputActionProperty m_AimFlagsAction = new InputActionProperty(new InputAction(expectedControlType: "Integer"));
+        InputActionProperty m_AimFlagsAction = new InputActionProperty(
+            new InputAction(expectedControlType: "Integer")
+        );
 
         /// <summary>
         /// The Input System action to read the Aim Flags.
@@ -126,9 +128,11 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.Hands
         /// <seealso cref="SystemGestureState"/>
         /// <seealso cref="systemGestureStarted"/>
         /// <seealso cref="systemGestureEnded"/>
-        public IReadOnlyBindableVariable<SystemGestureState> systemGestureState => m_SystemGestureState;
+        public IReadOnlyBindableVariable<SystemGestureState> systemGestureState =>
+            m_SystemGestureState;
 
-        readonly BindableEnum<SystemGestureState> m_SystemGestureState = new BindableEnum<SystemGestureState>(checkEquality: false);
+        readonly BindableEnum<SystemGestureState> m_SystemGestureState =
+            new BindableEnum<SystemGestureState>(checkEquality: false);
 
 #if XR_HANDS_1_1_OR_NEWER && (ENABLE_VR || UNITY_GAMECORE)
         [NonSerialized] // NonSerialized is required to avoid an "Unsupported enum base type" error about the Flags enum being ulong
@@ -152,7 +156,10 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.Hands
                 UpdateAimFlags((MetaAimFlags)action.ReadValue<int>(), true);
 #endif
 #else
-            Debug.LogWarning("Script requires XR Hands (com.unity.xr.hands) package to monitor Meta Aim Flags. Install using Window > Package Manager or click Fix on the related issue in Edit > Project Settings > XR Plug-in Management > Project Validation.", this);
+            Debug.LogWarning(
+                "Script requires XR Hands (com.unity.xr.hands) package to monitor Meta Aim Flags. Install using Window > Package Manager or click Fix on the related issue in Edit > Project Settings > XR Plug-in Management > Project Validation.",
+                this
+            );
             SetGestureState(SystemGestureState.Ended, true);
 #endif
         }

@@ -264,7 +264,9 @@ namespace Unity.VRTemplate
 
             // We cache the three potential sources of rotation - the position offset, the forward vector of the controller, and up vector of the controller
             // We store any data used for determining which rotation to use, then flatten the vectors to the local xz plane
-            var localOffset = transform.InverseTransformVector(interactorTransform.position - m_Handle.position);
+            var localOffset = transform.InverseTransformVector(
+                interactorTransform.position - m_Handle.position
+            );
             localOffset.y = 0.0f;
             var radiusOffset = transform.TransformVector(localOffset).magnitude;
             localOffset.Normalize();
@@ -330,7 +332,13 @@ namespace Unity.VRTemplate
                 m_ForwardVectorAngles.SetTargetFromVector(localForward);
 
             // Apply offset to base knob rotation to get new knob rotation
-            var knobRotation = m_BaseKnobRotation - ((m_UpVectorAngles.totalOffset + m_ForwardVectorAngles.totalOffset) * m_TwistSensitivity) - m_PositionAngles.totalOffset;
+            var knobRotation =
+                m_BaseKnobRotation
+                - (
+                    (m_UpVectorAngles.totalOffset + m_ForwardVectorAngles.totalOffset)
+                    * m_TwistSensitivity
+                )
+                - m_PositionAngles.totalOffset;
 
             // Clamp to range
             if (m_ClampedMotion)
@@ -348,7 +356,9 @@ namespace Unity.VRTemplate
             if (m_AngleIncrement > 0)
             {
                 var normalizeAngle = angle - m_MinAngle;
-                angle = (Mathf.Round(normalizeAngle / m_AngleIncrement) * m_AngleIncrement) + m_MinAngle;
+                angle =
+                    (Mathf.Round(normalizeAngle / m_AngleIncrement) * m_AngleIncrement)
+                    + m_MinAngle;
             }
 
             if (m_Handle != null)
@@ -374,7 +384,9 @@ namespace Unity.VRTemplate
 
         float ValueToRotation()
         {
-            return m_ClampedMotion ? Mathf.Lerp(m_MinAngle, m_MaxAngle, m_Value) : Mathf.LerpUnclamped(m_MinAngle, m_MaxAngle, m_Value);
+            return m_ClampedMotion
+                ? Mathf.Lerp(m_MinAngle, m_MaxAngle, m_Value)
+                : Mathf.LerpUnclamped(m_MinAngle, m_MaxAngle, m_Value);
         }
 
         void UpdateBaseKnobRotation()
@@ -422,8 +434,14 @@ namespace Unity.VRTemplate
                 segmentCounter++;
                 var endAngle = segmentCounter * k_SegmentRatio * 2.0f * Mathf.PI;
 
-                Gizmos.DrawLine(circleCenter + (Mathf.Cos(startAngle) * circleX + Mathf.Sin(startAngle) * circleY) * m_PositionTrackedRadius,
-                    circleCenter + (Mathf.Cos(endAngle) * circleX + Mathf.Sin(endAngle) * circleY) * m_PositionTrackedRadius);
+                Gizmos.DrawLine(
+                    circleCenter
+                        + (Mathf.Cos(startAngle) * circleX + Mathf.Sin(startAngle) * circleY)
+                            * m_PositionTrackedRadius,
+                    circleCenter
+                        + (Mathf.Cos(endAngle) * circleX + Mathf.Sin(endAngle) * circleY)
+                            * m_PositionTrackedRadius
+                );
             }
         }
 

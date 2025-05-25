@@ -29,7 +29,10 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         protected void Awake()
         {
             if (m_Text == null)
-                Debug.LogWarning("Missing required Text component reference. Use the Inspector window to assign which Text component to increment.", this);
+                Debug.LogWarning(
+                    "Missing required Text component reference. Use the Inspector window to assign which Text component to increment.",
+                    this
+                );
         }
 
         /// <summary>

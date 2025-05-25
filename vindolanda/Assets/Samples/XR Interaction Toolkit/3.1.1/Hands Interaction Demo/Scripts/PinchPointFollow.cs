@@ -1,9 +1,9 @@
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
 #if XR_HANDS_1_2_OR_NEWER
 using Unity.XR.CoreUtils.Bindings;
 using UnityEngine.XR.Hands;
 using UnityEngine.XR.Interaction.Toolkit.Utilities.Tweenables.Primitives;
 #endif
-using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 namespace UnityEngine.XR.Interaction.Toolkit.Samples.Hands
 {
@@ -16,7 +16,9 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.Hands
     {
         [Header("Events")]
         [SerializeField]
-        [Tooltip("The XR Hand Tracking Events component that will be used to subscribe to hand tracking events.")]
+        [Tooltip(
+            "The XR Hand Tracking Events component that will be used to subscribe to hand tracking events."
+        )]
 #if XR_HANDS_1_2_OR_NEWER
         XRHandTrackingEvents m_XRHandTrackingEvents;
 #else
@@ -25,11 +27,15 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.Hands
 
         [Header("Interactor reference (Pick one)")]
         [SerializeField]
-        [Tooltip("The transform will use the XRRayInteractor endpoint position to calculate the transform rotation.")]
+        [Tooltip(
+            "The transform will use the XRRayInteractor endpoint position to calculate the transform rotation."
+        )]
         XRRayInteractor m_RayInteractor;
 
         [SerializeField]
-        [Tooltip("The transform will use the NearFarInteractor endpoint position to calculate the transform rotation.")]
+        [Tooltip(
+            "The transform will use the NearFarInteractor endpoint position to calculate the transform rotation."
+        )]
         NearFarInteractor m_NearFarInteractor;
 
         [Header("Rotation Config")]
@@ -51,7 +57,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.Hands
         OneEuroFilterVector3 m_OneEuroFilterVector3;
 
 #pragma warning disable CS0618 // Type or member is obsolete
-        readonly QuaternionTweenableVariable m_QuaternionTweenableVariable = new QuaternionTweenableVariable();
+        readonly QuaternionTweenableVariable m_QuaternionTweenableVariable =
+            new QuaternionTweenableVariable();
 #pragma warning restore CS0618 // Type or member is obsolete
         readonly BindingsGroup m_BindingsGroup = new BindingsGroup();
 #endif
@@ -77,9 +84,14 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.Hands
                 m_HasRayProvider = true;
             }
             m_HasTargetRotationTransform = m_TargetRotation != null;
-            m_BindingsGroup.AddBinding(m_QuaternionTweenableVariable.Subscribe(newValue => transform.rotation = newValue));
+            m_BindingsGroup.AddBinding(
+                m_QuaternionTweenableVariable.Subscribe(newValue => transform.rotation = newValue)
+            );
 #else
-            Debug.LogWarning("PinchPointFollow requires XR Hands (com.unity.xr.hands) 1.2.0 or newer. Disabling component.", this);
+            Debug.LogWarning(
+                "PinchPointFollow requires XR Hands (com.unity.xr.hands) 1.2.0 or newer. Disabling component.",
+                this
+            );
             enabled = false;
 #endif
         }
@@ -102,17 +114,22 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.Hands
 #if XR_HANDS_1_5_OR_NEWER
             if (args.subsystem != null)
             {
-                var commonHandGestures = args.hand.handedness == Handedness.Left
-                    ? args.subsystem.leftHandCommonGestures
+                var commonHandGestures =
+                    args.hand.handedness == Handedness.Left ? args.subsystem.leftHandCommonGestures
                     : args.hand.handedness == Handedness.Right
                         ? args.subsystem.rightHandCommonGestures
-                        : null;
-                if (commonHandGestures != null && commonHandGestures.TryGetPinchPose(out var pinchPose))
+                    : null;
+                if (
+                    commonHandGestures != null
+                    && commonHandGestures.TryGetPinchPose(out var pinchPose)
+                )
                 {
                     // Protect against platforms returning bad data like (NaN, NaN, NaN)
-                    if (!float.IsNaN(pinchPose.position.x) &&
-                        !float.IsNaN(pinchPose.position.y) &&
-                        !float.IsNaN(pinchPose.position.z))
+                    if (
+                        !float.IsNaN(pinchPose.position.x)
+                        && !float.IsNaN(pinchPose.position.y)
+                        && !float.IsNaN(pinchPose.position.z)
+                    )
                     {
                         position = pinchPose.position;
                         return true;
@@ -176,7 +193,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.Hands
                     m_QuaternionTweenableVariable.target = m_TargetRotation.rotation;
                 }
 
-                var tweenTarget = m_RotationSmoothingSpeed > 0f ? m_RotationSmoothingSpeed * Time.deltaTime : 1f;
+                var tweenTarget =
+                    m_RotationSmoothingSpeed > 0f ? m_RotationSmoothingSpeed * Time.deltaTime : 1f;
                 m_QuaternionTweenableVariable.HandleTween(tweenTarget);
             }
         }

@@ -2,11 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 #if UNITY_ANDROID
 using UnityEngine.Android;
 #endif // UNITY_ANDROID
-using UnityEngine.Events;
+
 
 namespace Unity.VRTemplate
 {
@@ -23,7 +23,10 @@ namespace Unity.VRTemplate
         [Serializable]
         class PermissionRequest
         {
-            [SerializeField, Tooltip("The Android system permission to request when this component starts.")]
+            [
+                SerializeField,
+                Tooltip("The Android system permission to request when this component starts.")
+            ]
             public string m_PermissionId = k_DefaultPermissionId;
 
             [SerializeField, Tooltip("Whether to request permission from the operating system.")]
@@ -63,7 +66,7 @@ namespace Unity.VRTemplate
             var permissions = new List<string>();
 
 #if UNITY_ANDROID
-            for (m_CurrentPermissionIdx = 0; m_CurrentPermissionIdx < m_PermissionRequests.Count;)
+            for (m_CurrentPermissionIdx = 0; m_CurrentPermissionIdx < m_PermissionRequests.Count; )
             {
                 var permission = m_PermissionRequests[m_CurrentPermissionIdx];
                 if (!permission.m_Enabled)
@@ -72,7 +75,10 @@ namespace Unity.VRTemplate
                     continue;
                 }
 
-                if (!Permission.HasUserAuthorizedPermission(permission.m_PermissionId) && !permission.m_Requested)
+                if (
+                    !Permission.HasUserAuthorizedPermission(permission.m_PermissionId)
+                    && !permission.m_Requested
+                )
                 {
                     permissions.Add(permission.m_PermissionId);
                     permission.m_Requested = true;

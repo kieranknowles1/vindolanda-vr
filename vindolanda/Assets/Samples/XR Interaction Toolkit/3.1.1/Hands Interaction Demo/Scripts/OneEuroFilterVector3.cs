@@ -57,7 +57,11 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.Hands
         /// </list>
         /// </remarks>
         /// <seealso cref="Initialize"/>
-        public OneEuroFilterVector3(Vector3 initialRawValue, float minCutoff = 0.1f, float beta = 0.02f)
+        public OneEuroFilterVector3(
+            Vector3 initialRawValue,
+            float minCutoff = 0.1f,
+            float beta = 0.02f
+        )
         {
             m_LastRawValue = initialRawValue;
             m_LastFilteredValue = initialRawValue;
@@ -109,7 +113,11 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.Hands
             Vector3 combinedCutoffs = cutoffs + Vector3.Scale(betaValues, speed);
 
             // Compute alpha for x, y, and z
-            BurstMathUtility.FastSafeDivide(Vector3.one, Vector3.one + combinedCutoffs, out Vector3 alpha);
+            BurstMathUtility.FastSafeDivide(
+                Vector3.one,
+                Vector3.one + combinedCutoffs,
+                out Vector3 alpha
+            );
 
             Vector3 rawFiltered = Vector3.Scale(alpha, rawValue);
             Vector3 lastFiltered = Vector3.Scale(Vector3.one - alpha, m_LastFilteredValue);

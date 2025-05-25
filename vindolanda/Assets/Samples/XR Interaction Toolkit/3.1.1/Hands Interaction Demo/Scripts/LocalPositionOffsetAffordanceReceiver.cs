@@ -8,8 +8,13 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.Hands
     /// Affordance receiver applying a Vector3 (Float3) affordance theme to a Transform local position.
     /// Broadcasts new affordance value with Unity Event.
     /// </summary>
-    [AddComponentMenu("Affordance System/Receiver/Transformation/Local Position Offset Affordance Receiver", 12)]
-    [Obsolete("The Affordance System namespace and all associated classes have been deprecated. The existing affordance system will be moved, replaced and updated with a new interaction feedback system in a future version of XRI.")]
+    [AddComponentMenu(
+        "Affordance System/Receiver/Transformation/Local Position Offset Affordance Receiver",
+        12
+    )]
+    [Obsolete(
+        "The Affordance System namespace and all associated classes have been deprecated. The existing affordance system will be moved, replaced and updated with a new interaction feedback system in a future version of XRI."
+    )]
     public class LocalPositionOffsetAffordanceReceiver : Vector3AffordanceReceiver
     {
         [SerializeField]

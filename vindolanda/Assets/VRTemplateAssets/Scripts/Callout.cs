@@ -17,7 +17,9 @@ namespace Unity.VRTemplate
         GameObject m_Curve;
 
         [SerializeField]
-        [Tooltip("The required time to dwell on this callout before the tooltip and curve are enabled.")]
+        [Tooltip(
+            "The required time to dwell on this callout before the tooltip and curve are enabled."
+        )]
         float m_DwellTime = 1f;
 
         [SerializeField]

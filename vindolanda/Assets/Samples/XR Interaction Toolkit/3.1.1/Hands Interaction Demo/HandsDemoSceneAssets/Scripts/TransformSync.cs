@@ -26,7 +26,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.Hands
 
 #pragma warning disable CS0618 // Type or member is obsolete
         readonly Vector3TweenableVariable m_PositionTweenable = new Vector3TweenableVariable();
-        readonly QuaternionTweenableVariable m_RotationTweenable = new QuaternionTweenableVariable();
+        readonly QuaternionTweenableVariable m_RotationTweenable =
+            new QuaternionTweenableVariable();
 #pragma warning restore CS0618 // Type or member is obsolete
 
         /// <summary>
@@ -36,9 +37,10 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.Hands
         {
             if (m_TargetTransform != null)
             {
-                transform.localPosition = transform.parent == null
-                    ? m_TargetTransform.position
-                    : transform.parent.InverseTransformPoint(m_TargetTransform.position);
+                transform.localPosition =
+                    transform.parent == null
+                        ? m_TargetTransform.position
+                        : transform.parent.InverseTransformPoint(m_TargetTransform.position);
             }
         }
 
@@ -85,7 +87,10 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.Hands
             m_RotationTweenable.HandleTween(tweenTarget);
 
             if (!m_HasRigidbody && m_HasTransform)
-                m_TargetTransform.SetPositionAndRotation(m_PositionTweenable.Value, m_RotationTweenable.Value);
+                m_TargetTransform.SetPositionAndRotation(
+                    m_PositionTweenable.Value,
+                    m_RotationTweenable.Value
+                );
         }
 
         /// <summary>

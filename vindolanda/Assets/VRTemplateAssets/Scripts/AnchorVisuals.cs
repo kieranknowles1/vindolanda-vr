@@ -16,13 +16,24 @@ namespace Unity.VRTemplate
         [SerializeField, Tooltip("The arrow transform, at the center of the platform.")]
         Transform m_Arrow;
 
-        [SerializeField, Tooltip("Height of the arrow transform when teleport ray hovers the teleport pad.")]
+        [
+            SerializeField,
+            Tooltip("Height of the arrow transform when teleport ray hovers the teleport pad.")
+        ]
         float m_TargetArrowHeight = 1.0f;
 
-        [SerializeField, Tooltip("Animation duration of the arrow transform to and from the target arrow height.")]
+        [
+            SerializeField,
+            Tooltip(
+                "Animation duration of the arrow transform to and from the target arrow height."
+            )
+        ]
         float m_ArrowAnimationDuration = 0.2f;
 
-        [SerializeField, Tooltip("Animation curve of hte arrow transform to and from the target arrow height.")]
+        [
+            SerializeField,
+            Tooltip("Animation curve of hte arrow transform to and from the target arrow height.")
+        ]
         AnimationCurve m_AnimationCurve;
 
         Coroutine m_ArrowCoroutine;
@@ -72,7 +83,13 @@ namespace Unity.VRTemplate
                 StopCoroutine(m_ArrowCoroutine);
 
             var arrowPosition = m_Arrow.localPosition;
-            m_ArrowCoroutine = StartCoroutine(m_ArrowHeight.PlaySequence(arrowPosition, new float3(arrowPosition.x, m_TargetArrowHeight, arrowPosition.z), m_ArrowAnimationDuration));
+            m_ArrowCoroutine = StartCoroutine(
+                m_ArrowHeight.PlaySequence(
+                    arrowPosition,
+                    new float3(arrowPosition.x, m_TargetArrowHeight, arrowPosition.z),
+                    m_ArrowAnimationDuration
+                )
+            );
         }
 
         /// <summary>
@@ -94,7 +111,13 @@ namespace Unity.VRTemplate
                 StopCoroutine(m_ArrowCoroutine);
 
             var arrowPosition = m_Arrow.localPosition;
-            m_ArrowCoroutine = StartCoroutine(m_ArrowHeight.PlaySequence(arrowPosition, new float3(arrowPosition.x, 0, arrowPosition.z), m_ArrowAnimationDuration));
+            m_ArrowCoroutine = StartCoroutine(
+                m_ArrowHeight.PlaySequence(
+                    arrowPosition,
+                    new float3(arrowPosition.x, 0, arrowPosition.z),
+                    m_ArrowAnimationDuration
+                )
+            );
         }
 
         /// <summary>

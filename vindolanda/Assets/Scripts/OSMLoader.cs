@@ -1,8 +1,8 @@
-using NUnit.Framework;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
+using NUnit.Framework;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -12,49 +12,76 @@ public class OSMData
 {
     public struct Bounds
     {
-        [XmlAttribute("minlat")] public float minLat;
-        [XmlAttribute("minlon")] public float minLon;
+        [XmlAttribute("minlat")]
+        public float minLat;
+
+        [XmlAttribute("minlon")]
+        public float minLon;
     }
 
     public class Node
     {
-        [XmlAttribute("id")] public string id;
-        [XmlAttribute("visible")] public bool visible;
-        [XmlAttribute("lat")] public float x;
-        [XmlAttribute("lon")] public float y;
+        [XmlAttribute("id")]
+        public string id;
+
+        [XmlAttribute("visible")]
+        public bool visible;
+
+        [XmlAttribute("lat")]
+        public float x;
+
+        [XmlAttribute("lon")]
+        public float y;
     }
 
     public struct NodeRef
     {
-        [XmlAttribute("ref")] public string id;
+        [XmlAttribute("ref")]
+        public string id;
     }
+
     public struct Tag
     {
-        [XmlAttribute("k")] public string key;
-        [XmlAttribute("v")] public string value;
+        [XmlAttribute("k")]
+        public string key;
+
+        [XmlAttribute("v")]
+        public string value;
     }
 
     public struct Way
     {
-        [XmlElement("nd")] public List<NodeRef> points;
-        [XmlElement("tag")] public List<Tag> tags;
+        [XmlElement("nd")]
+        public List<NodeRef> points;
+
+        [XmlElement("tag")]
+        public List<Tag> tags;
 
         public string GetTag(string key)
         {
             foreach (var tag in tags)
             {
-                if (tag.key == key) return tag.value;
+                if (tag.key == key)
+                    return tag.value;
             }
             return null;
         }
     }
 
-    [XmlAttribute("version")] public float version;
-    [XmlAttribute("attribution")] public string attribution;
+    [XmlAttribute("version")]
+    public float version;
 
-    [XmlElement("bounds")] public Bounds bounds;
-    [XmlElement("node")] public List<Node> nodes;
-    [XmlElement("way")] public List<Way> ways;
+    [XmlAttribute("attribution")]
+    public string attribution;
+
+    [XmlElement("bounds")]
+    public Bounds bounds;
+
+    [XmlElement("node")]
+    public List<Node> nodes;
+
+    [XmlElement("way")]
+    public List<Way> ways;
 
     public static OSMData Read(TextAsset asset, float scale = 2000)
     {
@@ -67,7 +94,8 @@ public class OSMData
         {
             node.x -= data.bounds.minLat;
             node.y -= data.bounds.minLon;
-            node.x *= scale; node.y *= scale;
+            node.x *= scale;
+            node.y *= scale;
         }
 
         return data;
@@ -89,7 +117,7 @@ public class OSMLoader : MonoBehaviour
     {
         Always,
         Selected,
-        Never
+        Never,
     }
 
     [SerializeField]
@@ -105,11 +133,13 @@ public class OSMLoader : MonoBehaviour
     {
         data = OSMData.Read(asset);
         var nodes = new Dictionary<string, OSMData.Node>();
-        foreach (var n in data.nodes) {
+        foreach (var n in data.nodes)
+        {
             nodes.Add(n.id, n);
         }
 
-        foreach (var way in data.ways) {
+        foreach (var way in data.ways)
+        {
             // OSM dataset is slightly inconsistent, but combining these two tags
             // filters out most modern structures with minimal false positive/negative in our case
 
@@ -132,12 +162,16 @@ public class OSMLoader : MonoBehaviour
 
     private void DrawGizmos()
     {
-        if (data == null) { ReadData(); }
+        if (data == null)
+        {
+            ReadData();
+        }
         Gizmos.matrix = transform.localToWorldMatrix;
 
         foreach (var node in lines)
         {
-            if (node.modern && !ShowModern) continue;
+            if (node.modern && !ShowModern)
+                continue;
             for (int i = 1; i < node.points.Count; i++)
             {
                 var prev = node.points[i - 1];
@@ -149,10 +183,13 @@ public class OSMLoader : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (Visibility == VisibilityType.Always) DrawGizmos();
+        if (Visibility == VisibilityType.Always)
+            DrawGizmos();
     }
+
     private void OnDrawGizmosSelected()
     {
-        if (Visibility == VisibilityType.Selected) DrawGizmos();
+        if (Visibility == VisibilityType.Selected)
+            DrawGizmos();
     }
 }

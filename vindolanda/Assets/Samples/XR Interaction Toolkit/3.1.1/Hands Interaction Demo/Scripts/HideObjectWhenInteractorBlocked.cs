@@ -43,7 +43,10 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.Hands
             if (m_HasCurveDataProvider)
                 m_ObjectToHide.SetActive(m_CurveInteractionDataProvider.isActive);
             else
-                m_ObjectToHide.SetActive(m_Interactor.isActiveAndEnabled && !m_Interactor.IsBlockedByInteractionWithinGroup());
+                m_ObjectToHide.SetActive(
+                    m_Interactor.isActiveAndEnabled
+                        && !m_Interactor.IsBlockedByInteractionWithinGroup()
+                );
         }
     }
 }

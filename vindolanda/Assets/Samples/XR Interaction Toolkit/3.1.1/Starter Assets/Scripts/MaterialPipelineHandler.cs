@@ -1,5 +1,5 @@
-using UnityEngine.Rendering;
 using System.Collections.Generic;
+using UnityEngine.Rendering;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -55,7 +55,11 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
     /// Will run automatically OnEnable in the editor to set the shaders on project bootup. Can be refreshed manually with editor button.
     /// This exists because while objects render correctly using shadergraph shaders, others do not and using the standard shader resolves various rendering issues.
     /// </summary>
-    [CreateAssetMenu(fileName = "MaterialPipelineHandler", menuName = "XR/MaterialPipelineHandler", order = 0)]
+    [CreateAssetMenu(
+        fileName = "MaterialPipelineHandler",
+        menuName = "XR/MaterialPipelineHandler",
+        order = 0
+    )]
     public class MaterialPipelineHandler : ScriptableObject
     {
         [SerializeField]
@@ -63,7 +67,9 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         List<ShaderContainer> m_ShaderContainers;
 
         [SerializeField]
-        [Tooltip("If true, the shaders will be refreshed automatically when the editor opens and when this scriptable object instance is enabled.")]
+        [Tooltip(
+            "If true, the shaders will be refreshed automatically when the editor opens and when this scriptable object instance is enabled."
+        )]
         bool m_AutoRefreshShaders = true;
 
 #if UNITY_EDITOR
@@ -97,8 +103,12 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
                     continue;
 
                 // Find the appropriate shaders based on the toggle
-                Shader birpShader = info.useBuiltinShaderName ? Shader.Find(info.builtInPipelineShaderName) : info.builtInPipelineShader;
-                Shader srpShader = info.useSRPShaderName ? Shader.Find(info.scriptableRenderPipelineShaderName) : info.scriptableRenderPipelineShader;
+                Shader birpShader = info.useBuiltinShaderName
+                    ? Shader.Find(info.builtInPipelineShaderName)
+                    : info.builtInPipelineShader;
+                Shader srpShader = info.useSRPShaderName
+                    ? Shader.Find(info.scriptableRenderPipelineShaderName)
+                    : info.scriptableRenderPipelineShader;
 
                 // Determine current shader for comparison
                 Shader currentShader = info.material.shader;
@@ -109,7 +119,11 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
                     info.material.shader = birpShader;
                     MarkMaterialModified(info.material);
                 }
-                else if (!isBuiltinRenderPipeline && srpShader != null && currentShader != srpShader)
+                else if (
+                    !isBuiltinRenderPipeline
+                    && srpShader != null
+                    && currentShader != srpShader
+                )
                 {
                     info.material.shader = srpShader;
                     MarkMaterialModified(info.material);
@@ -140,12 +154,24 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
             float verticalSpacing = EditorGUIUtility.standardVerticalSpacing;
 
             SerializedProperty materialProp = property.FindPropertyRelative("material");
-            SerializedProperty useSRPShaderNameProp = property.FindPropertyRelative("useSRPShaderName");
-            SerializedProperty scriptableShaderNameProp = property.FindPropertyRelative("scriptableRenderPipelineShaderName");
-            SerializedProperty scriptableShaderProp = property.FindPropertyRelative("scriptableRenderPipelineShader");
-            SerializedProperty useShaderNameProp = property.FindPropertyRelative("useBuiltinShaderName");
-            SerializedProperty builtInNameProp = property.FindPropertyRelative("builtInPipelineShaderName");
-            SerializedProperty builtInShaderProp = property.FindPropertyRelative("builtInPipelineShader");
+            SerializedProperty useSRPShaderNameProp = property.FindPropertyRelative(
+                "useSRPShaderName"
+            );
+            SerializedProperty scriptableShaderNameProp = property.FindPropertyRelative(
+                "scriptableRenderPipelineShaderName"
+            );
+            SerializedProperty scriptableShaderProp = property.FindPropertyRelative(
+                "scriptableRenderPipelineShader"
+            );
+            SerializedProperty useShaderNameProp = property.FindPropertyRelative(
+                "useBuiltinShaderName"
+            );
+            SerializedProperty builtInNameProp = property.FindPropertyRelative(
+                "builtInPipelineShaderName"
+            );
+            SerializedProperty builtInShaderProp = property.FindPropertyRelative(
+                "builtInPipelineShader"
+            );
 
             // Draw Material without the header.
             position.height = singleLineHeight;
@@ -153,7 +179,11 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
             position.y += singleLineHeight + verticalSpacing;
 
             // SRP Shader header and fields.
-            EditorGUI.LabelField(position, "Scriptable Render Pipeline Shader", EditorStyles.boldLabel);
+            EditorGUI.LabelField(
+                position,
+                "Scriptable Render Pipeline Shader",
+                EditorStyles.boldLabel
+            );
             position.y += EditorGUIUtility.singleLineHeight + verticalSpacing;
 
             EditorGUI.PropertyField(position, useSRPShaderNameProp);
@@ -171,7 +201,11 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
             }
 
             // Built-in Shader header and fields.
-            EditorGUI.LabelField(position, "Built-In Render Pipeline Shader", EditorStyles.boldLabel);
+            EditorGUI.LabelField(
+                position,
+                "Built-In Render Pipeline Shader",
+                EditorStyles.boldLabel
+            );
             position.y += singleLineHeight + verticalSpacing;
 
             EditorGUI.PropertyField(position, useShaderNameProp);
@@ -199,7 +233,9 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
             const int baseFieldCount = 4; // The Material field, the two toggles, and one for an optional field.
-            int extraLineCount = property.FindPropertyRelative("useBuiltinShaderName").boolValue ? 0 : 1;
+            int extraLineCount = property.FindPropertyRelative("useBuiltinShaderName").boolValue
+                ? 0
+                : 1;
             extraLineCount += property.FindPropertyRelative("useSRPShaderName").boolValue ? 0 : 1;
 
             float singleLineHeight = EditorGUIUtility.singleLineHeight;
@@ -207,7 +243,9 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
             float headerHeight = EditorGUIUtility.singleLineHeight; // No longer need extra height for headers.
 
             // Calculate height for fields and headers
-            float fieldsHeight = baseFieldCount * singleLineHeight + (baseFieldCount - 1 + extraLineCount) * verticalSpacing;
+            float fieldsHeight =
+                baseFieldCount * singleLineHeight
+                + (baseFieldCount - 1 + extraLineCount) * verticalSpacing;
 
             // Allow space for header, separator line, and a bit of padding before the line.
             float headersHeight = 2 * (headerHeight + verticalSpacing);

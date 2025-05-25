@@ -53,18 +53,27 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.Hands
             }
 
             m_HoverInteractable = m_PokeFilter.GetComponent<IXRHoverInteractable>();
-            m_InteractionStrengthInteractable = m_PokeFilter.GetComponent<IXRInteractionStrengthInteractable>();
+            m_InteractionStrengthInteractable =
+                m_PokeFilter.GetComponent<IXRInteractionStrengthInteractable>();
 
-            m_BindingsGroup.AddBinding(m_PokeFilter.pokeStateData.Subscribe(data =>
-            {
-                var blendShapeValue = Mathf.Lerp(m_BlendShapeMin, m_BlendShapeMax, data.interactionStrength);
-                m_TweenTarget = blendShapeValue;
-            }));
+            m_BindingsGroup.AddBinding(
+                m_PokeFilter.pokeStateData.Subscribe(data =>
+                {
+                    var blendShapeValue = Mathf.Lerp(
+                        m_BlendShapeMin,
+                        m_BlendShapeMax,
+                        data.interactionStrength
+                    );
+                    m_TweenTarget = blendShapeValue;
+                })
+            );
 
-            m_BindingsGroup.AddBinding(m_TweenableVariable.SubscribeAndUpdate(newValue =>
-            {
-                m_SkinnedMeshRenderer.SetBlendShapeWeight(m_BlendShapeIndex, newValue);
-            }));
+            m_BindingsGroup.AddBinding(
+                m_TweenableVariable.SubscribeAndUpdate(newValue =>
+                {
+                    m_SkinnedMeshRenderer.SetBlendShapeWeight(m_BlendShapeIndex, newValue);
+                })
+            );
         }
 
         /// <summary>
@@ -89,7 +98,9 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.Hands
             for (var index = 0; index < m_HoverInteractable.interactorsHovering.Count; ++index)
             {
                 var interactor = m_HoverInteractable.interactorsHovering[index];
-                var interactionStrength = m_InteractionStrengthInteractable.GetInteractionStrength(interactor);
+                var interactionStrength = m_InteractionStrengthInteractable.GetInteractionStrength(
+                    interactor
+                );
                 var isPokeProvider = interactor is IPokeStateDataProvider;
                 if (isPokeProvider)
                 {
@@ -97,11 +108,15 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.Hands
                 }
                 else
                 {
-                    largestNonPokeInteractorStrength = Mathf.Max(largestNonPokeInteractorStrength, interactionStrength);
+                    largestNonPokeInteractorStrength = Mathf.Max(
+                        largestNonPokeInteractorStrength,
+                        interactionStrength
+                    );
                 }
             }
 
-            m_TweenableVariable.target = pokeInteractorStrength > largestNonPokeInteractorStrength ? m_TweenTarget : 0f;
+            m_TweenableVariable.target =
+                pokeInteractorStrength > largestNonPokeInteractorStrength ? m_TweenTarget : 0f;
         }
     }
 }

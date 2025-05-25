@@ -29,7 +29,11 @@ namespace Unity.VRTemplate
 
         void Start()
         {
-            var renderTexture = new RenderTexture(m_RenderTextureWidth, m_RenderTextureHeight, m_RenderTextureDepth);
+            var renderTexture = new RenderTexture(
+                m_RenderTextureWidth,
+                m_RenderTextureHeight,
+                m_RenderTextureDepth
+            );
             renderTexture.Create();
             var material = new Material(Shader.Find(k_ShaderName));
             material.mainTexture = renderTexture;

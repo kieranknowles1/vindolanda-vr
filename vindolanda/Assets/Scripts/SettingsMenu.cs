@@ -4,12 +4,17 @@ using UnityEngine.UI;
 
 public class SettingsMenu : MonoBehaviour
 {
-    [SerializeField] private GameObject vignetteSliderParent;
+    [SerializeField]
+    private GameObject vignetteSliderParent;
 
-    [SerializeField] private Slider vignetteSlider;
-    [SerializeField] private TMP_Dropdown movementTypeDropdown;
+    [SerializeField]
+    private Slider vignetteSlider;
 
-    [SerializeField] private GameObject nauseaWarning;
+    [SerializeField]
+    private TMP_Dropdown movementTypeDropdown;
+
+    [SerializeField]
+    private GameObject nauseaWarning;
 
     public void Start()
     {

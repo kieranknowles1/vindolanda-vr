@@ -19,7 +19,10 @@ namespace Unity.VRTemplate
             m_SelectInteractable = GetComponent<IXRSelectInteractable>();
             if (m_SelectInteractable as Object == null)
             {
-                Debug.LogError($"Ray Attach Modifier missing required Select Interactable on {name}", this);
+                Debug.LogError(
+                    $"Ray Attach Modifier missing required Select Interactable on {name}",
+                    this
+                );
                 return;
             }
 
@@ -38,7 +41,9 @@ namespace Unity.VRTemplate
                 return;
 
             var attachTransform = args.interactorObject.GetAttachTransform(m_SelectInteractable);
-            var originalAttachPose = args.interactorObject.GetLocalAttachPoseOnSelect(m_SelectInteractable);
+            var originalAttachPose = args.interactorObject.GetLocalAttachPoseOnSelect(
+                m_SelectInteractable
+            );
             attachTransform.SetLocalPose(originalAttachPose);
         }
     }

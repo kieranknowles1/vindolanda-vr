@@ -20,11 +20,15 @@ namespace UnityEngine.XR.Hands.Samples.VisualizerSample
 
         public void NotifyTrackingState(XRHandJointTrackingState jointTrackingState)
         {
-            bool highFidelityJoint = (jointTrackingState & XRHandJointTrackingState.HighFidelityPose) == XRHandJointTrackingState.HighFidelityPose;
+            bool highFidelityJoint =
+                (jointTrackingState & XRHandJointTrackingState.HighFidelityPose)
+                == XRHandJointTrackingState.HighFidelityPose;
             if (m_HighFidelityJoint == highFidelityJoint)
                 return;
 
-            m_JointRenderer.material = highFidelityJoint ? m_HighFidelityJointMaterial : m_LowFidelityJointMaterial;
+            m_JointRenderer.material = highFidelityJoint
+                ? m_HighFidelityJointMaterial
+                : m_LowFidelityJointMaterial;
 
             m_HighFidelityJoint = highFidelityJoint;
         }

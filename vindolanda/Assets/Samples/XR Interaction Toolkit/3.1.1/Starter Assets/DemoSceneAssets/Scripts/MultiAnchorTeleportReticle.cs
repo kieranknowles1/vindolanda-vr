@@ -13,7 +13,9 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
     public class MultiAnchorTeleportReticle : MonoBehaviour, IXRInteractableCustomReticle
     {
         [SerializeField]
-        [Tooltip("Filled image that displays the progress towards evaluating a destination anchor.")]
+        [Tooltip(
+            "Filled image that displays the progress towards evaluating a destination anchor."
+        )]
         Image m_TimerProgressFilledImage;
 
         /// <summary>
@@ -39,7 +41,9 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         }
 
         [SerializeField]
-        [Tooltip("Object that is rotated about its Z axis to point at the potential destination while still evaluating.")]
+        [Tooltip(
+            "Object that is rotated about its Z axis to point at the potential destination while still evaluating."
+        )]
         GameObject m_PotentialDestinationIndicator;
 
         /// <summary>
@@ -52,7 +56,9 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         }
 
         [SerializeField]
-        [Tooltip("The amount of time, in seconds, between updates to the indicator pointing at the potential destination.")]
+        [Tooltip(
+            "The amount of time, in seconds, between updates to the indicator pointing at the potential destination."
+        )]
         float m_PotentialIndicatorUpdateFrequency = 0.1f;
 
         /// <summary>
@@ -68,7 +74,10 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         float m_LastPotentialIndicatorUpdateTime;
 
         /// <inheritdoc/>
-        public void OnReticleAttached(XRBaseInteractable interactable, IXRCustomReticleProvider reticleProvider)
+        public void OnReticleAttached(
+            XRBaseInteractable interactable,
+            IXRCustomReticleProvider reticleProvider
+        )
         {
             m_AnchorVolume = interactable as TeleportationMultiAnchorVolume;
             m_PotentialDestinationIndicator.SetActive(false);
@@ -107,7 +116,10 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
             }
 
             m_TimerProgressFilledImage.fillAmount = m_AnchorVolume.destinationEvaluationProgress;
-            if (Time.time - m_LastPotentialIndicatorUpdateTime >= m_PotentialIndicatorUpdateFrequency)
+            if (
+                Time.time - m_LastPotentialIndicatorUpdateTime
+                >= m_PotentialIndicatorUpdateFrequency
+            )
                 UpdatePotentialDestinationIndicator();
         }
 
@@ -120,7 +132,10 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
                 return;
             }
 
-            var potentialDestinationIndex = m_AnchorVolume.destinationEvaluationFilter.GetDestinationAnchorIndex(m_AnchorVolume);
+            var potentialDestinationIndex =
+                m_AnchorVolume.destinationEvaluationFilter.GetDestinationAnchorIndex(
+                    m_AnchorVolume
+                );
             var anchors = m_AnchorVolume.anchorTransforms;
             if (potentialDestinationIndex < 0 || potentialDestinationIndex >= anchors.Count)
             {
@@ -158,7 +173,10 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
 
         static void PointAtTarget(Transform indicatorTransform, Vector3 targetPosition)
         {
-            indicatorTransform.rotation = Quaternion.LookRotation(indicatorTransform.forward, targetPosition - indicatorTransform.position);
+            indicatorTransform.rotation = Quaternion.LookRotation(
+                indicatorTransform.forward,
+                targetPosition - indicatorTransform.position
+            );
         }
     }
 }

@@ -17,7 +17,9 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.Hands
         float m_CheckDuration = 2f;
 
         [SerializeField]
-        [Tooltip("The object root used to compute local positions relative to. Objects will respawn relative to their position in this transform's hierarchy.")]
+        [Tooltip(
+            "The object root used to compute local positions relative to. Objects will respawn relative to their position in this transform's hierarchy."
+        )]
         Transform m_ObjectRoot = null;
 
         readonly List<Pose> m_OriginalPositions = new List<Pose>();
@@ -42,7 +44,10 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.Hands
                 }
                 else
                 {
-                    Debug.LogWarning("Objects To Reset contained a null element. Update the reference or delete the array element of the missing object.", this);
+                    Debug.LogWarning(
+                        "Objects To Reset contained a null element. Update the reference or delete the array element of the missing object.",
+                        this
+                    );
                     m_OriginalPositions.Add(new Pose());
                 }
             }
@@ -74,7 +79,10 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.Hands
                     if (m_ObjectRoot != null)
                         originalWorldPosition = m_ObjectRoot.TransformPoint(originalWorldPosition);
 
-                    currentTransform.SetPositionAndRotation(originalWorldPosition, m_OriginalPositions[transformIndex].rotation);
+                    currentTransform.SetPositionAndRotation(
+                        originalWorldPosition,
+                        m_OriginalPositions[transformIndex].rotation
+                    );
 
                     var rigidBody = currentTransform.GetComponentInChildren<Rigidbody>();
                     if (rigidBody != null)
@@ -90,7 +98,6 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.Hands
             body.isKinematic = true;
             yield return new WaitForFixedUpdate();
             body.isKinematic = false;
-
         }
     }
 }

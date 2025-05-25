@@ -48,7 +48,10 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.Hands
             m_Subsystem = s_Subsystems[0];
             m_Subsystem.updatedHands += OnUpdatedHands;
 #else
-            Debug.LogError("Script requires XR Hands (com.unity.xr.hands) package. Install using Window > Package Manager or click Fix on the related issue in Edit > Project Settings > XR Plug-in Management > Project Validation.", this);
+            Debug.LogError(
+                "Script requires XR Hands (com.unity.xr.hands) package. Install using Window > Package Manager or click Fix on the related issue in Edit > Project Settings > XR Plug-in Management > Project Validation.",
+                this
+            );
 #endif
         }
 
@@ -67,26 +70,46 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.Hands
         }
 
 #if XR_HANDS_1_1_OR_NEWER
-        void OnUpdatedHands(XRHandSubsystem subsystem, XRHandSubsystem.UpdateSuccessFlags updateSuccessFlags, XRHandSubsystem.UpdateType updateType)
+        void OnUpdatedHands(
+            XRHandSubsystem subsystem,
+            XRHandSubsystem.UpdateSuccessFlags updateSuccessFlags,
+            XRHandSubsystem.UpdateType updateType
+        )
         {
             var wasPoking = m_IsPoking;
             switch (m_Handedness)
             {
                 case Handedness.Left:
-                    if (!HasUpdateSuccessFlag(updateSuccessFlags, XRHandSubsystem.UpdateSuccessFlags.LeftHandJoints))
+                    if (
+                        !HasUpdateSuccessFlag(
+                            updateSuccessFlags,
+                            XRHandSubsystem.UpdateSuccessFlags.LeftHandJoints
+                        )
+                    )
                         return;
 
                     var leftHand = subsystem.leftHand;
-                    m_IsPoking = IsIndexExtended(leftHand) && IsMiddleGrabbing(leftHand) && IsRingGrabbing(leftHand) &&
-                        IsLittleGrabbing(leftHand);
+                    m_IsPoking =
+                        IsIndexExtended(leftHand)
+                        && IsMiddleGrabbing(leftHand)
+                        && IsRingGrabbing(leftHand)
+                        && IsLittleGrabbing(leftHand);
                     break;
                 case Handedness.Right:
-                    if (!HasUpdateSuccessFlag(updateSuccessFlags, XRHandSubsystem.UpdateSuccessFlags.RightHandJoints))
+                    if (
+                        !HasUpdateSuccessFlag(
+                            updateSuccessFlags,
+                            XRHandSubsystem.UpdateSuccessFlags.RightHandJoints
+                        )
+                    )
                         return;
 
                     var rightHand = subsystem.rightHand;
-                    m_IsPoking = IsIndexExtended(rightHand) && IsMiddleGrabbing(rightHand) && IsRingGrabbing(rightHand) &&
-                        IsLittleGrabbing(rightHand);
+                    m_IsPoking =
+                        IsIndexExtended(rightHand)
+                        && IsMiddleGrabbing(rightHand)
+                        && IsRingGrabbing(rightHand)
+                        && IsLittleGrabbing(rightHand);
                     break;
             }
 
@@ -103,7 +126,10 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.Hands
         /// <param name="successFlags">The flags enum instance.</param>
         /// <param name="successFlag">The flag to check if set.</param>
         /// <returns>Returns <see langword="true"/> if the bit field or bit fields are set, otherwise returns <see langword="false"/>.</returns>
-        static bool HasUpdateSuccessFlag(XRHandSubsystem.UpdateSuccessFlags successFlags, XRHandSubsystem.UpdateSuccessFlags successFlag)
+        static bool HasUpdateSuccessFlag(
+            XRHandSubsystem.UpdateSuccessFlags successFlags,
+            XRHandSubsystem.UpdateSuccessFlags successFlag
+        )
         {
             return (successFlags & successFlag) == successFlag;
         }
@@ -115,9 +141,14 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.Hands
         /// <returns>True if the given hand's index finger tip is farther from the wrist than the index intermediate joint, false otherwise.</returns>
         static bool IsIndexExtended(XRHand hand)
         {
-            if (!(hand.GetJoint(XRHandJointID.Wrist).TryGetPose(out var wristPose) &&
-                  hand.GetJoint(XRHandJointID.IndexTip).TryGetPose(out var tipPose) &&
-                  hand.GetJoint(XRHandJointID.IndexIntermediate).TryGetPose(out var intermediatePose)))
+            if (
+                !(
+                    hand.GetJoint(XRHandJointID.Wrist).TryGetPose(out var wristPose)
+                    && hand.GetJoint(XRHandJointID.IndexTip).TryGetPose(out var tipPose)
+                    && hand.GetJoint(XRHandJointID.IndexIntermediate)
+                        .TryGetPose(out var intermediatePose)
+                )
+            )
             {
                 return false;
             }
@@ -134,9 +165,13 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.Hands
         /// <returns>True if the given hand's middle finger tip is closer to the wrist than the middle proximal joint, false otherwise.</returns>
         static bool IsMiddleGrabbing(XRHand hand)
         {
-            if (!(hand.GetJoint(XRHandJointID.Wrist).TryGetPose(out var wristPose) &&
-                  hand.GetJoint(XRHandJointID.MiddleTip).TryGetPose(out var tipPose) &&
-                  hand.GetJoint(XRHandJointID.MiddleProximal).TryGetPose(out var proximalPose)))
+            if (
+                !(
+                    hand.GetJoint(XRHandJointID.Wrist).TryGetPose(out var wristPose)
+                    && hand.GetJoint(XRHandJointID.MiddleTip).TryGetPose(out var tipPose)
+                    && hand.GetJoint(XRHandJointID.MiddleProximal).TryGetPose(out var proximalPose)
+                )
+            )
             {
                 return false;
             }
@@ -153,9 +188,13 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.Hands
         /// <returns>True if the given hand's ring finger tip is closer to the wrist than the ring proximal joint, false otherwise.</returns>
         static bool IsRingGrabbing(XRHand hand)
         {
-            if (!(hand.GetJoint(XRHandJointID.Wrist).TryGetPose(out var wristPose) &&
-                  hand.GetJoint(XRHandJointID.RingTip).TryGetPose(out var tipPose) &&
-                  hand.GetJoint(XRHandJointID.RingProximal).TryGetPose(out var proximalPose)))
+            if (
+                !(
+                    hand.GetJoint(XRHandJointID.Wrist).TryGetPose(out var wristPose)
+                    && hand.GetJoint(XRHandJointID.RingTip).TryGetPose(out var tipPose)
+                    && hand.GetJoint(XRHandJointID.RingProximal).TryGetPose(out var proximalPose)
+                )
+            )
             {
                 return false;
             }
@@ -172,9 +211,13 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.Hands
         /// <returns>True if the given hand's little finger tip is closer to the wrist than the little proximal joint, false otherwise.</returns>
         static bool IsLittleGrabbing(XRHand hand)
         {
-            if (!(hand.GetJoint(XRHandJointID.Wrist).TryGetPose(out var wristPose) &&
-                  hand.GetJoint(XRHandJointID.LittleTip).TryGetPose(out var tipPose) &&
-                  hand.GetJoint(XRHandJointID.LittleProximal).TryGetPose(out var proximalPose)))
+            if (
+                !(
+                    hand.GetJoint(XRHandJointID.Wrist).TryGetPose(out var wristPose)
+                    && hand.GetJoint(XRHandJointID.LittleTip).TryGetPose(out var tipPose)
+                    && hand.GetJoint(XRHandJointID.LittleProximal).TryGetPose(out var proximalPose)
+                )
+            )
             {
                 return false;
             }

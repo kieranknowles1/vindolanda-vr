@@ -40,10 +40,17 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
 
         void OnEnable()
         {
-            if (m_ThumbstickTransform == null || m_GripTransform == null || m_TriggerTransform == null)
+            if (
+                m_ThumbstickTransform == null
+                || m_GripTransform == null
+                || m_TriggerTransform == null
+            )
             {
                 enabled = false;
-                Debug.LogWarning($"Controller Animator component missing references on {gameObject.name}", this);
+                Debug.LogWarning(
+                    $"Controller Animator component missing references on {gameObject.name}",
+                    this
+                );
                 return;
             }
 
@@ -64,20 +71,36 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
             if (m_StickInput != null)
             {
                 var stickVal = m_StickInput.ReadValue();
-                m_ThumbstickTransform.localRotation = Quaternion.Euler(-stickVal.y * m_StickRotationRange.x, 0f, -stickVal.x * m_StickRotationRange.y);
+                m_ThumbstickTransform.localRotation = Quaternion.Euler(
+                    -stickVal.y * m_StickRotationRange.x,
+                    0f,
+                    -stickVal.x * m_StickRotationRange.y
+                );
             }
 
             if (m_TriggerInput != null)
             {
                 var triggerVal = m_TriggerInput.ReadValue();
-                m_TriggerTransform.localRotation = Quaternion.Euler(Mathf.Lerp(m_TriggerXAxisRotationRange.x, m_TriggerXAxisRotationRange.y, triggerVal), 0f, 0f);
+                m_TriggerTransform.localRotation = Quaternion.Euler(
+                    Mathf.Lerp(
+                        m_TriggerXAxisRotationRange.x,
+                        m_TriggerXAxisRotationRange.y,
+                        triggerVal
+                    ),
+                    0f,
+                    0f
+                );
             }
 
             if (m_GripInput != null)
             {
                 var gripVal = m_GripInput.ReadValue();
                 var currentPos = m_GripTransform.localPosition;
-                m_GripTransform.localPosition = new Vector3(Mathf.Lerp(m_GripRightRange.x, m_GripRightRange.y, gripVal), currentPos.y, currentPos.z);
+                m_GripTransform.localPosition = new Vector3(
+                    Mathf.Lerp(m_GripRightRange.x, m_GripRightRange.y, gripVal),
+                    currentPos.y,
+                    currentPos.z
+                );
             }
         }
     }

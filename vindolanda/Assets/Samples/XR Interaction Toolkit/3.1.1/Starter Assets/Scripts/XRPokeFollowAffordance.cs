@@ -20,8 +20,10 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
     public class XRPokeFollowAffordance : MonoBehaviour
     {
         [SerializeField]
-        [Tooltip("Transform that will move in the poke direction when this or a parent GameObject is poked." +
-                 "\nNote: Should be a direct child GameObject.")]
+        [Tooltip(
+            "Transform that will move in the poke direction when this or a parent GameObject is poked."
+                + "\nNote: Should be a direct child GameObject."
+        )]
         Transform m_PokeFollowTransform;
 
         /// <summary>
@@ -36,7 +38,9 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
 
         [SerializeField]
         [Range(0f, 20f)]
-        [Tooltip("Multiplies transform position interpolation as a factor of Time.deltaTime. If 0, no smoothing will be applied.")]
+        [Tooltip(
+            "Multiplies transform position interpolation as a factor of Time.deltaTime. If 0, no smoothing will be applied."
+        )]
         float m_SmoothingSpeed = 16f;
 
         /// <summary>
@@ -49,7 +53,9 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         }
 
         [SerializeField]
-        [Tooltip("When this component is no longer the target of the poke, the Poke Follow Transform returns to the original position.")]
+        [Tooltip(
+            "When this component is no longer the target of the poke, the Poke Follow Transform returns to the original position."
+        )]
         bool m_ReturnToInitialPosition = true;
 
         /// <summary>
@@ -62,8 +68,10 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         }
 
         [SerializeField]
-        [Tooltip("Whether to apply the follow animation if the target of the poke is a child of this transform. " +
-                 "This is useful for UI objects that may have child graphics.")]
+        [Tooltip(
+            "Whether to apply the follow animation if the target of the poke is a child of this transform. "
+                + "This is useful for UI objects that may have child graphics."
+        )]
         bool m_ApplyIfChildIsTarget = true;
 
         /// <summary>
@@ -77,7 +85,9 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         }
 
         [SerializeField]
-        [Tooltip("Whether to keep the Poke Follow Transform from moving past a maximum distance from the poke target.")]
+        [Tooltip(
+            "Whether to keep the Poke Follow Transform from moving past a maximum distance from the poke target."
+        )]
         bool m_ClampToMaxDistance;
 
         /// <summary>
@@ -90,7 +100,9 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         }
 
         [SerializeField]
-        [Tooltip("The maximum distance from this transform that the Poke Follow Transform can move.")]
+        [Tooltip(
+            "The maximum distance from this transform that the Poke Follow Transform can move."
+        )]
         float m_MaxDistance;
 
         /// <summary>
@@ -116,7 +128,8 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         IMultiPokeStateDataProvider m_MultiPokeStateDataProvider;
 
 #pragma warning disable CS0618 // Type or member is obsolete
-        readonly Vector3TweenableVariable m_TransformTweenableVariable = new Vector3TweenableVariable();
+        readonly Vector3TweenableVariable m_TransformTweenableVariable =
+            new Vector3TweenableVariable();
 #pragma warning restore CS0618 // Type or member is obsolete
         readonly BindingsGroup m_BindingsGroup = new BindingsGroup();
         Vector3 m_InitialPosition;
@@ -144,17 +157,28 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
             if (m_PokeFollowTransform != null)
             {
                 m_InitialPosition = m_PokeFollowTransform.localPosition;
-                m_BindingsGroup.AddBinding(m_TransformTweenableVariable.Subscribe(OnTransformTweenableVariableUpdated));
+                m_BindingsGroup.AddBinding(
+                    m_TransformTweenableVariable.Subscribe(OnTransformTweenableVariableUpdated)
+                );
 
                 if (m_MultiPokeStateDataProvider != null)
-                    m_BindingsGroup.AddBinding(m_MultiPokeStateDataProvider.GetPokeStateDataForTarget(transform).Subscribe(OnPokeStateDataUpdated));
+                    m_BindingsGroup.AddBinding(
+                        m_MultiPokeStateDataProvider
+                            .GetPokeStateDataForTarget(transform)
+                            .Subscribe(OnPokeStateDataUpdated)
+                    );
                 else if (m_PokeDataProvider != null)
-                    m_BindingsGroup.AddBinding(m_PokeDataProvider.pokeStateData.SubscribeAndUpdate(OnPokeStateDataUpdated));
+                    m_BindingsGroup.AddBinding(
+                        m_PokeDataProvider.pokeStateData.SubscribeAndUpdate(OnPokeStateDataUpdated)
+                    );
             }
             else
             {
                 enabled = false;
-                Debug.LogWarning($"Missing Poke Follow Transform assignment on {this}. Disabling component.", this);
+                Debug.LogWarning(
+                    $"Missing Poke Follow Transform assignment on {this}. Disabling component.",
+                    this
+                );
             }
         }
 
@@ -179,7 +203,9 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
                 return;
             }
 
-            m_TransformTweenableVariable.HandleTween(m_SmoothingSpeed > 0f ? Time.deltaTime * m_SmoothingSpeed : 1f);
+            m_TransformTweenableVariable.HandleTween(
+                m_SmoothingSpeed > 0f ? Time.deltaTime * m_SmoothingSpeed : 1f
+            );
         }
 
         protected virtual void OnTransformTweenableVariableUpdated(float3 position)
@@ -206,8 +232,13 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
 
             if (applyFollow)
             {
-                var targetPosition = pokeTarget.InverseTransformPoint(data.axisAlignedPokeInteractionPoint);
-                if (m_ClampToMaxDistance && targetPosition.sqrMagnitude > m_MaxDistance * m_MaxDistance)
+                var targetPosition = pokeTarget.InverseTransformPoint(
+                    data.axisAlignedPokeInteractionPoint
+                );
+                if (
+                    m_ClampToMaxDistance
+                    && targetPosition.sqrMagnitude > m_MaxDistance * m_MaxDistance
+                )
                     targetPosition = Vector3.ClampMagnitude(targetPosition, m_MaxDistance);
 
                 m_TransformTweenableVariable.target = targetPosition;

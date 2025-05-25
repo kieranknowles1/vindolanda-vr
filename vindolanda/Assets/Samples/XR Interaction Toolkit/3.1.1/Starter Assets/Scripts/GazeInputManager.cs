@@ -24,7 +24,6 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
             set => m_FallbackIfEyeTrackingUnavailable = value;
         }
 
-
         bool m_EyeTrackingDeviceFound;
 
         /// <summary>
@@ -34,7 +33,10 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         {
             // Check if we have eye tracking support
             var inputDeviceList = new List<InputDevice>();
-            InputDevices.GetDevicesWithCharacteristics(InputDeviceCharacteristics.EyeTracking, inputDeviceList);
+            InputDevices.GetDevicesWithCharacteristics(
+                InputDeviceCharacteristics.EyeTracking,
+                inputDeviceList
+            );
             if (inputDeviceList.Count > 0)
             {
                 Debug.Log("Eye tracking device found!", this);
@@ -52,7 +54,10 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
                 }
             }
 
-            Debug.LogWarning($"Could not find a device that supports eye tracking on Awake. {this} has subscribed to device connected events and will activate the GameObject when an eye tracking device is connected.", this);
+            Debug.LogWarning(
+                $"Could not find a device that supports eye tracking on Awake. {this} has subscribed to device connected events and will activate the GameObject when an eye tracking device is connected.",
+                this
+            );
 
             InputDevices.deviceConnected += OnDeviceConnected;
             InputSystem.InputSystem.onDeviceChange += OnDeviceChange;
@@ -71,7 +76,10 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
 
         void OnDeviceConnected(InputDevice inputDevice)
         {
-            if (m_EyeTrackingDeviceFound || !inputDevice.characteristics.HasFlag(InputDeviceCharacteristics.EyeTracking))
+            if (
+                m_EyeTrackingDeviceFound
+                || !inputDevice.characteristics.HasFlag(InputDeviceCharacteristics.EyeTracking)
+            )
                 return;
 
             Debug.Log("Eye tracking device found!", this);
