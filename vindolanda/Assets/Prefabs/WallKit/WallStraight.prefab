@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8992313341709938249}
   - component: {fileID: 3109330649003643903}
+  - component: {fileID: 3932989388584095378}
   m_Layer: 0
   m_Name: WallStraight
   m_TagString: Untagged
@@ -59,6 +60,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 6, y: 6, z: 3}
   m_Center: {x: 0, y: 3, z: 0.5}
+--- !u!114 &3932989388584095378
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8895322722184248141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e95dc5ff2b64380880dd7ac5922847, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_Size: {x: 6, y: 6.5, z: 3}
+  m_Center: {x: 0, y: 3, z: 0.5}
+  m_Area: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &5998448389787648261
 PrefabInstance:
   m_ObjectHideFlags: 0
