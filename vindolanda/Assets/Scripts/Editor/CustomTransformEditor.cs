@@ -17,13 +17,18 @@ public class CustomTransformEditor : Editor
         if (GUILayout.Button("Snap to Grid"))
         {
             var size = EditorSnapSettings.gridSize;
+            var angle = EditorSnapSettings.rotate;
 
             Undo.RecordObject(transform, "Snap to grid");
-            transform.localPosition = new Vector3(
+            transform.SetLocalPositionAndRotation(new Vector3(
                 RoundToNearest(transform.localPosition.x, size.x),
                 RoundToNearest(transform.localPosition.y, size.y),
                 RoundToNearest(transform.localPosition.z, size.z)
-            );
+            ), Quaternion.Euler(new Vector3(
+                RoundToNearest(transform.localRotation.eulerAngles.x, angle),
+                RoundToNearest(transform.localEulerAngles.y, angle),
+                RoundToNearest(transform.localEulerAngles.z, angle)
+            )));
         }
     }
 }
