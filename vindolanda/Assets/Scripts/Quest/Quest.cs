@@ -6,6 +6,8 @@ using UnityEngine;
 [Serializable]
 public class QuestProgress
 {
+    public event Action OnComplete;
+
     public Quest Quest;
     public Dictionary<QuestObjective, ObjectiveState> Objectives;
 
@@ -18,10 +20,21 @@ public class QuestProgress
         }
     }
 
+    /// <summary>
+    /// Complete an objective. No-op if the objective is
+    /// already complete
+    /// </summary>
+    /// <param name="obj"></param>
     public void CompleteObjective(QuestObjective obj)
     {
+        if (Objectives[obj].IsCompleted) return;
         Objectives[obj].IsCompleted = true;
         Debug.Log($"Completed {obj.Description}");
+
+        if (IsCompleted) {
+            OnComplete?.Invoke();
+            Debug.Log($"{Quest.Name} is completed");
+        }
     }
 
     public bool IsCompleted => Objectives.All(s => s.Value.IsCompleted);

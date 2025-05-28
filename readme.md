@@ -20,4 +20,6 @@ it
 - [ ] Quest system
   - [ ] Delivery quests
   - [ ] Clay tablets
+    - [ ] Show longer text when held
+    - [ ] Inventory system
 - [x] Subtitles
