@@ -21,6 +21,7 @@ public class Speaker : MonoBehaviour
     {
         OnSpeechComplete?.Invoke(currentDialogue, result);
         audio.Stop();
+        GameConstants.Instance.Player.Subtitles.Hide();
         currentDialogue = null;
     }
 
@@ -52,6 +53,7 @@ public class Speaker : MonoBehaviour
 
         var clip = currentDialogue.Lines[nextLineIndex].Clip != null ? currentDialogue.Lines[nextLineIndex].Clip : PlaceholderClip;
         audio.PlayOneShot(clip);
+        GameConstants.Instance.Player.Subtitles.Show(currentDialogue.Lines[nextLineIndex].Text);
         // TODO: Subtitles
         print(currentDialogue.Lines[nextLineIndex].Text);
 

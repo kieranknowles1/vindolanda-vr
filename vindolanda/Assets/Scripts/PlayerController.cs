@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private DynamicMoveProvider dynamicMoveProvider;
 
+    public SubtitlePanel Subtitles;
+
     private void UpdateSettings(GameSettings settings)
     {
         UpdateMovementType(settings.Movement.Type);
@@ -27,6 +29,7 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        GameConstants.Instance.Player = this;
         GameSettings.Instance.OnChange += UpdateSettings;
         UpdateSettings(GameSettings.Instance);
     }

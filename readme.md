@@ -20,3 +20,4 @@ it
 - [ ] Quest system
   - [ ] Delivery quests
   - [ ] Clay tablets
+- [x] Subtitles
