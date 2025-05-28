@@ -16,19 +16,31 @@ public class CustomTransformEditor : Editor
 
         if (GUILayout.Button("Snap to Grid"))
         {
-            var size = EditorSnapSettings.gridSize;
+            var position = EditorSnapSettings.gridSize;
             var angle = EditorSnapSettings.rotate;
+            var scale = EditorSnapSettings.scale;
 
             Undo.RecordObject(transform, "Snap to grid");
             transform.SetLocalPositionAndRotation(new Vector3(
-                RoundToNearest(transform.localPosition.x, size.x),
-                RoundToNearest(transform.localPosition.y, size.y),
-                RoundToNearest(transform.localPosition.z, size.z)
+                RoundToNearest(transform.localPosition.x, position.x),
+                RoundToNearest(transform.localPosition.y, position.y),
+                RoundToNearest(transform.localPosition.z, position.z)
             ), Quaternion.Euler(new Vector3(
-                RoundToNearest(transform.localRotation.eulerAngles.x, angle),
+                RoundToNearest(transform.localEulerAngles.x, angle),
                 RoundToNearest(transform.localEulerAngles.y, angle),
                 RoundToNearest(transform.localEulerAngles.z, angle)
             )));
+            transform.localScale = new Vector3(
+                RoundToNearest(transform.localScale.x, scale),
+                RoundToNearest(transform.localScale.y, scale),
+                RoundToNearest(transform.localScale.z, scale)
+            );
+        }
+
+        if (GUILayout.Button("Randomise yaw"))
+        {
+            Undo.RecordObject(transform, "Randomise yaw");
+            transform.localEulerAngles = transform.localEulerAngles + new Vector3(0, Random.Range(0, 360));
         }
     }
 }
