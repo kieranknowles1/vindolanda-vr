@@ -404,7 +404,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
   m_UseGeometry: 1
   m_DefaultArea: 0
   m_GenerateLinks: 0
@@ -3375,6 +3375,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8992313341709938249, guid: 9f355ac664c2fd545bd5e46ca50a7a44, type: 3}
   m_PrefabInstance: {fileID: 1696335667}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1713347400 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5359315441710049271, guid: 635704659c0b6fe468af26c175b922d0, type: 3}
+  m_PrefabInstance: {fileID: 6407087277085649965}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1713347403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1713347400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de9021041e303e54b9b2b135e190ad45, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Objective: {fileID: 11400000, guid: a5d278edc512eae4b81d0d15bff090bd, type: 2}
 --- !u!1 &1726485576
 GameObject:
   m_ObjectHideFlags: 0
@@ -4315,7 +4333,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 867384938139543040, guid: 635704659c0b6fe468af26c175b922d0, type: 3}
       insertIndex: -1
       addedObject: {fileID: 242768329}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5359315441710049271, guid: 635704659c0b6fe468af26c175b922d0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1713347403}
   m_SourcePrefab: {fileID: 100100000, guid: 635704659c0b6fe468af26c175b922d0, type: 3}
 --- !u!1001 &6422517410382643860
 PrefabInstance:

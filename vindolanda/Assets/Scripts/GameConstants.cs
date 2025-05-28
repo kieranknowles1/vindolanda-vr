@@ -19,4 +19,5 @@ public class GameConstants
     }
 
     public PlayerController Player;
+    public QuestController QuestController;
 }
