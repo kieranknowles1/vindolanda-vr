@@ -10,26 +10,38 @@ public partial class SayAction : Action
 {
     [SerializeReference] public BlackboardVariable<GameObject> Agent;
     [SerializeReference] public BlackboardVariable<Dialogue> Line;
-    int currentIndex = 0;
+    Speaker speaker;
+    Status status;
+
+    void OnComplete(Dialogue dialogue, Speaker.SpeechResult result)
+    {
+        if (dialogue != Line.Value) return;
+        status = result == Speaker.SpeechResult.Success ? Status.Success : Status.Failure;
+    }
 
     protected override Status OnStart()
     {
-        currentIndex = 0;
+        speaker = Agent.Value.GetComponent<Speaker>();
+        if (speaker == null)
+        {
+            Debug.LogError($"Speaker {Agent.Value.name} missing required Speaker component");
+            return Status.Failure;
+        }
+
+        speaker.Say(Line.Value);
+        speaker.OnSpeechComplete += OnComplete;
+        status = Status.Running;
         return Status.Running;
     }
 
     protected override Status OnUpdate()
     {
-        if (currentIndex >= Line.Value.Lines.Count)
-            return Status.Success;
-        
-        Debug.Log(Line.Value.Lines[currentIndex].Text);
-        currentIndex++;
-        return Status.Running;
+        return status;
     }
 
     protected override void OnEnd()
     {
+        speaker.OnSpeechComplete -= OnComplete;
     }
 }
 
