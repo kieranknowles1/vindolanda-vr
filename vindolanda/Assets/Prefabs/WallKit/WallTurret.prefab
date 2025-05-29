@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8992313341709938249}
   - component: {fileID: 3109330649003643903}
-  - component: {fileID: 747312299272086616}
+  - component: {fileID: 882065691208259466}
   m_Layer: 0
   m_Name: WallTurret
   m_TagString: Untagged
@@ -74,9 +74,9 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6, y: 18, z: 6}
-  m_Center: {x: -3, y: -3, z: -3}
---- !u!114 &747312299272086616
+  m_Size: {x: 6, y: 12, z: 6}
+  m_Center: {x: -3, y: -6, z: -3}
+--- !u!114 &882065691208259466
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -85,16 +85,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8895322722184248141}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Script: {fileID: 11500000, guid: 35e95dc5ff2b64380880dd7ac5922847, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_SerializedVersion: 0
-  m_OverrideArea: 1
+  m_Size: {x: 6, y: 6.5999994, z: 6}
+  m_Center: {x: -3, y: -8.700001, z: -3}
   m_Area: 1
-  m_OverrideGenerateLinks: 0
-  m_GenerateLinks: 0
-  m_IgnoreFromBuild: 0
-  m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
 --- !u!1001 &471509332144991418
 PrefabInstance:
@@ -155,13 +152,41 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7290660985370342059, guid: 5c6e46152656de049a069a6b9946cd02, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1120177389147730788}
   m_SourcePrefab: {fileID: 100100000, guid: 5c6e46152656de049a069a6b9946cd02, type: 3}
 --- !u!4 &2107348710669392508 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1996762877525702342, guid: 5c6e46152656de049a069a6b9946cd02, type: 3}
   m_PrefabInstance: {fileID: 471509332144991418}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &7180570368313450001 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7290660985370342059, guid: 5c6e46152656de049a069a6b9946cd02, type: 3}
+  m_PrefabInstance: {fileID: 471509332144991418}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1120177389147730788
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7180570368313450001}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedVersion: 0
+  m_OverrideArea: 1
+  m_Area: 1
+  m_OverrideGenerateLinks: 0
+  m_GenerateLinks: 0
+  m_IgnoreFromBuild: 0
+  m_ApplyToChildren: 1
+  m_AffectedAgents: ffffffff
 --- !u!1001 &734349477905755524
 PrefabInstance:
   m_ObjectHideFlags: 0
