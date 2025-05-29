@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3534731930224020757}
   - component: {fileID: 787498248322767925}
   - component: {fileID: 61679011403195563}
+  - component: {fileID: 6049402015056274685}
   m_Layer: 6
   m_Name: Actor
   m_TagString: Untagged
@@ -167,6 +168,45 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &6049402015056274685
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7881346890042235526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Graph: {fileID: 0}
+  m_BlackboardVariableOverridesList:
+  - rid: 8537436835877486996
+  - rid: 8537436835877486997
+  m_IsInitialised: 0
+  m_IsStarted: 0
+  references:
+    version: 2
+    RefIds:
+    - rid: 8537436835877486996
+      type: {class: 'BlackboardVariable`1[[UnityEngine.GameObject, UnityEngine.CoreModule]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 1
+          m_Value1: 0
+        Name: Self
+        m_Value: {fileID: 7881346890042235526}
+    - rid: 8537436835877486997
+      type: {class: 'BlackboardVariable`1[[System.Collections.Generic.List`1[[UnityEngine.GameObject, UnityEngine.CoreModule]], mscorlib]]', ns: Unity.Behavior, asm: Unity.Behavior}
+      data:
+        GUID:
+          m_Value0: 4533118023711434508
+          m_Value1: 8851818538863313514
+        Name: Waypoints
+        m_Value:
+        - {fileID: 0}
+        - {fileID: 0}
 --- !u!1001 &338497027345915705
 PrefabInstance:
   m_ObjectHideFlags: 0
