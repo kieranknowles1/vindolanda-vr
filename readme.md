@@ -23,3 +23,5 @@ it
     - [ ] Show longer text when held
     - [ ] Inventory system
 - [x] Subtitles
+- [ ] Player IK
+  - [ ] Use IK to create animations
