@@ -1,7 +1,5 @@
 using System;
 using UnityEngine;
-using Newtonsoft.Json;
-
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -43,66 +41,16 @@ public class SaveData
 /// Base class for anything that needs to save its state
 /// By default, only saves the transform (not recursive), but can be extended
 /// </summary>
-public class Saveable : MonoBehaviour
+public class Saveable : GuidComponent
 {
-    // Based on https://github.com/Unity-Technologies/guid-based-reference
-    private Guid uid;
-    [SerializeField] private byte[] uidBytes;
-    public Guid Guid
-    {
-        get => uid;
-    }
-
-    private void Start()
-    {
-        uid = new Guid(uidBytes);
-        if (uid == Guid.Empty)
-        {
-            Debug.LogError($"{this} has no GUID");
-        }
-        bool ok = GuidManager.Instance.Register(this);
-        if (!ok)
-        {
-            Debug.LogError($"{this} has non-unique GUID");
-        }
-    }
-
-    public SaveData Save()
+    public virtual SaveData Save()
     {
         return new SaveData(this);
     }
 
-    public void Load(SaveData data)
+    public virtual void Load(SaveData data)
     {
         transform.SetPositionAndRotation(data.position, data.rotation);
         transform.localScale = data.scale;
     }
-
-#if UNITY_EDITOR
-    bool registered = false;
-
-    private void OnValidate()
-    {
-        // Bit convoluted, but makes sure we are not in the prefab editor
-        var mainStage = StageUtility.GetMainStageHandle();
-        var currentStage = StageUtility.GetStageHandle(gameObject);
-        if (currentStage != mainStage && PrefabStageUtility.GetPrefabStage(gameObject) != null) return;
-        if (PrefabUtility.IsPartOfPrefabAsset(this)) return;
-
-        uid = uidBytes.Length == 16 ? new Guid(uidBytes) : Guid.Empty;
-
-        if (!registered && uid != Guid.Empty) registered = GuidManager.Instance.Register(this);
-
-        // Assign a GUID if we don't have one yet or found a collision (should only happen on copy)
-        if (uid == Guid.Empty || !registered)
-        {
-            Undo.RecordObject(this, "Assign GUID");
-            uid = Guid.NewGuid();
-            uidBytes = uid.ToByteArray();
-            PrefabUtility.RecordPrefabInstancePropertyModifications(this);
-            print($"Auto assigned GUID {uid}");
-            registered = GuidManager.Instance.Register(this);
-        }
-    }
-#endif
 }
