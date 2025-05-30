@@ -3,6 +3,8 @@ using System.Linq;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using NUnit.Framework;
+using System;
+
 
 
 #if UNITY_EDITOR
@@ -47,7 +49,20 @@ public static class SaveLoad
         FileStream stream = new FileStream(path, FileMode.Open);
         var objects = (SaveData[])formatter.Deserialize(stream);
         Debug.Log($"Found {objects.Length} objects");
-        // TODO
+
+        foreach (var obj in objects)
+        {
+            var uid = new Guid(obj.id);
+            var gameObj = GuidManager.Instance.TryFind(uid);
+            if (gameObj == null)
+            {
+                Debug.Log($"Unable to find object with GUID {uid}");
+                continue;
+            }
+
+            gameObj.Load(obj);
+
+        }
 
         stream.Close();
     }

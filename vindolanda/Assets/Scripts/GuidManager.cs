@@ -25,6 +25,11 @@ public class GuidManager
     {
         return objects[guid];
     }
+    public Saveable TryFind(Guid guid)
+    {
+        objects.TryGetValue(guid, out Saveable saveable);
+        return saveable;
+    }
 
     /// <summary>
     /// Try to register an object

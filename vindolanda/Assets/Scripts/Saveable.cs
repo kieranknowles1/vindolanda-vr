@@ -72,6 +72,12 @@ public class Saveable : MonoBehaviour
         return new SaveData(this);
     }
 
+    public void Load(SaveData data)
+    {
+        transform.SetPositionAndRotation(data.position, data.rotation);
+        transform.localScale = data.scale;
+    }
+
 #if UNITY_EDITOR
     bool registered = false;
 
@@ -87,6 +93,7 @@ public class Saveable : MonoBehaviour
 
         if (!registered && uid != Guid.Empty) registered = GuidManager.Instance.Register(this);
 
+        // Assign a GUID if we don't have one yet or found a collision (should only happen on copy)
         if (uid == Guid.Empty || !registered)
         {
             Undo.RecordObject(this, "Assign GUID");
