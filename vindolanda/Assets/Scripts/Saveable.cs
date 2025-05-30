@@ -3,6 +3,7 @@ using UnityEngine;
 
 #if UNITY_EDITOR
 using UnityEditor;
+using UnityEditor.SceneManagement;
 #endif
 
 [Serializable]
@@ -72,11 +73,28 @@ public class Saveable : MonoBehaviour
     }
 
 #if UNITY_EDITOR
+    bool registered = false;
+
     private void OnValidate()
     {
-        if (uid == Guid.Empty)
-        {
+        // Bit convoluted, but makes sure we are not in the prefab editor
+        var mainStage = StageUtility.GetMainStageHandle();
+        var currentStage = StageUtility.GetStageHandle(gameObject);
+        if (currentStage != mainStage && PrefabStageUtility.GetPrefabStage(gameObject) != null) return;
+        if (PrefabUtility.IsPartOfPrefabAsset(this)) return;
 
+        uid = uidBytes.Length == 16 ? new Guid(uidBytes) : Guid.Empty;
+
+        if (!registered && uid != Guid.Empty) registered = GuidManager.Instance.Register(this);
+
+        if (uid == Guid.Empty || !registered)
+        {
+            Undo.RecordObject(this, "Assign GUID");
+            uid = Guid.NewGuid();
+            uidBytes = uid.ToByteArray();
+            PrefabUtility.RecordPrefabInstancePropertyModifications(this);
+            print($"Auto assigned GUID {uid}");
+            registered = GuidManager.Instance.Register(this);
         }
     }
 #endif
