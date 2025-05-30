@@ -15,6 +15,12 @@ public static class SaveLoad
         return GameObject.FindObjectsByType<Saveable>(FindObjectsSortMode.None);
     }
 
+    static JsonSerializerSettings settings = new()
+    {
+        Formatting = Formatting.Indented,
+        TypeNameHandling = TypeNameHandling.All,
+    };
+
 #if UNITY_EDITOR
     [MenuItem("Tools/Select Saveable Objects")]
     static void FilterSaveable()
@@ -31,7 +37,7 @@ public static class SaveLoad
         string path = FinalSavePath(name);
         var objects = GetSaveables().Select(o => o.Save()).ToArray();
         Debug.Log($"Saving {objects.Length} objects to {path}");
-        var json = JsonConvert.SerializeObject(objects);
+        var json = JsonConvert.SerializeObject(objects, settings);
         File.WriteAllText(path, json);
     }
 
@@ -40,12 +46,12 @@ public static class SaveLoad
         string path = FinalSavePath(name);
         Debug.Log($"Loading from {path}");
         var json = File.ReadAllText(path);
-        var objects = JsonConvert.DeserializeObject<SaveData[]>(json);
+        var objects = JsonConvert.DeserializeObject<SaveData[]>(json, settings);
         Debug.Log($"Found {objects.Length} objects");
 
         foreach (var obj in objects)
         {
-            var gameObj = GuidManager.Instance.TryFind(obj.id);
+            var gameObj = (Saveable)GuidManager.Instance.TryFind(obj.id);
             if (gameObj == null)
             {
                 Debug.Log($"Unable to find object with GUID {obj.id}");
@@ -53,7 +59,6 @@ public static class SaveLoad
             }
 
             gameObj.Load(obj);
-
         }
     }
 }

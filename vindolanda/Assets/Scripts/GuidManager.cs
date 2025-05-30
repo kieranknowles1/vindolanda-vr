@@ -63,17 +63,20 @@ public class GuidManager : IUnityObjectResolver<string>
 
     public TSerializedType Resolve<TSerializedType>(string mappedValue) where TSerializedType : UnityEngine.Object
     {
-        var uid = new Guid(mappedValue);
+        var uid = Guid.Parse(mappedValue);
         var obj = TryFind(uid);
 
         if (typeof(TSerializedType) == typeof(GameObject))
         {
-            return obj as TSerializedType;
+            return obj.gameObject as TSerializedType;
         }
         if (typeof(Component).IsAssignableFrom(typeof(TSerializedType)))
         {
-            return obj.GetComponent<TSerializedType>();
+            var cast = obj.GetComponent<TSerializedType>();
+            if (cast != null) return cast;
         }
+
+        Debug.LogWarning($"Failed to find {mappedValue} {uid}");
         return null;
     }
 }
