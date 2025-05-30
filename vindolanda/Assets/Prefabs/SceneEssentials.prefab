@@ -177,9 +177,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d704c74651ca76419d416839325b4c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ActiveQuest:
-    Quest: {fileID: 0}
-    Objectives: []
   testQuest: {fileID: 11400000, guid: e6b797550f6774940918abbfc5d6ef6f, type: 2}
 --- !u!1 &7093690804326199464
 GameObject:
