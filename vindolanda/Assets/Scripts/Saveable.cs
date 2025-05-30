@@ -1,38 +1,38 @@
 using System;
 using UnityEngine;
+using Newtonsoft.Json;
+
 
 #if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.SceneManagement;
 #endif
 
-[Serializable]
 public struct SerialVector3
 {
-    float x, y, z;
+    public float x, y, z;
     public static implicit operator SerialVector3(Vector3 v) => new() { x = v.x, y = v.y, z = v.z };
     public static implicit operator Vector3(SerialVector3 v) => new(v.x, v.y, v.z);
 }
 
-[Serializable]
 public struct SerialQuaternion
 {
-    float x, y, z, w;
+    public float x, y, z, w;
     public static implicit operator SerialQuaternion(Quaternion q) => new() { x = q.x, y = q.y, z = q.z, w = q.w };
     public static implicit operator Quaternion(SerialQuaternion q) => new(q.x, q.y, q.z, q.w);
 }
 
-[Serializable]
 public class SaveData
 {
-    public byte[] id;
+    public Guid id;
     public SerialVector3 position;
     public SerialQuaternion rotation;
     public SerialVector3 scale;
 
+    public SaveData() { }
     public SaveData(Saveable obj)
     {
-        id = obj.Guid.ToByteArray();
+        id = obj.Guid;
         position = obj.transform.position;
         rotation = obj.transform.rotation;
         scale = obj.transform.localScale;

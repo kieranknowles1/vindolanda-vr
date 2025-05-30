@@ -1,11 +1,8 @@
 using UnityEngine;
 using System.Linq;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
-using NUnit.Framework;
 using System;
-
-
+using Newtonsoft.Json;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -31,39 +28,32 @@ public static class SaveLoad
 
     public static void Save(string name)
     {
-        var formatter = new BinaryFormatter();
         string path = FinalSavePath(name);
-        FileStream stream = new FileStream(path, FileMode.Create);
         var objects = GetSaveables().Select(o => o.Save()).ToArray();
         Debug.Log($"Saving {objects.Length} objects to {path}");
-
-        formatter.Serialize(stream, objects);
-        stream.Close();
+        var json = JsonConvert.SerializeObject(objects);
+        File.WriteAllText(path, json);
     }
 
     public static void Load(string name)
     {
-        BinaryFormatter formatter = new BinaryFormatter();
         string path = FinalSavePath(name);
         Debug.Log($"Loading from {path}");
-        FileStream stream = new FileStream(path, FileMode.Open);
-        var objects = (SaveData[])formatter.Deserialize(stream);
+        var json = File.ReadAllText(path);
+        var objects = JsonConvert.DeserializeObject<SaveData[]>(json);
         Debug.Log($"Found {objects.Length} objects");
 
         foreach (var obj in objects)
         {
-            var uid = new Guid(obj.id);
-            var gameObj = GuidManager.Instance.TryFind(uid);
+            var gameObj = GuidManager.Instance.TryFind(obj.id);
             if (gameObj == null)
             {
-                Debug.Log($"Unable to find object with GUID {uid}");
+                Debug.Log($"Unable to find object with GUID {obj.id}");
                 continue;
             }
 
             gameObj.Load(obj);
 
         }
-
-        stream.Close();
     }
 }
