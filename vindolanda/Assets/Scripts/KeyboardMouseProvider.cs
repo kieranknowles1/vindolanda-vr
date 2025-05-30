@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit.Locomotion;
 
 /// <summary>
@@ -20,6 +21,19 @@ public class KeyboardMouseProvider : LocomotionProvider
     {
         input = new InputActions();
         input.Keyboard.Enable();
+
+        // TODO: Find a better place for this
+        input.Keyboard.Quicksave.performed += Quicksave;
+        input.Keyboard.Quickload.performed += Quickload;
+    }
+
+    void Quicksave(InputAction.CallbackContext _)
+    {
+        SaveLoad.Save("Quicksave.sav");
+    }
+    void Quickload(InputAction.CallbackContext _)
+    {
+        SaveLoad.Load("Quicksave.sav");
     }
 
     // Update is called once per frame
