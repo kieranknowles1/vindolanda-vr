@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -19,6 +20,11 @@ public class PatrolRouteEditor : Editor
             route.points.Add(newObj.transform);
 
             Selection.activeObject = newObj;
+        }
+
+        if (route.points.Any(p => p == null) && GUILayout.Button("Fix nulls"))
+        {
+            route.points = route.points.Where(p => p != null).ToList();
         }
     }
 }
