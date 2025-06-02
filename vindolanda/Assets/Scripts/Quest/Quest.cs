@@ -42,17 +42,18 @@ public class QuestProgress
 
 
 [CreateAssetMenu(menuName = "Quests/Quest")]
-public class Quest : ScriptableObject
+public class Quest : GuidSO
 {
     public string Name;
     public string Description;
     public List<QuestObjective> Objectives;
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
+        base.OnEnable();
         foreach (var obj in Objectives)
         {
-            if (obj.Owner != null) Debug.LogError($"{obj.name} has multiple owners");
+            if (obj.Owner != null && obj.Owner != this) Debug.LogError($"{obj.name} has multiple owners");
             obj.Owner = this;
         }
     }

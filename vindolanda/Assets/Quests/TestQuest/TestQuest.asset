@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c1f6d779fc83824088b1c2daae8c237, type: 3}
   m_Name: TestQuest
   m_EditorClassIdentifier: 
-  Name: Grab the stuff
-  Description: Do the thing with the stuff
+  uidBytes: 7d918c7fe9d57340869e95fdc90f0e4e
+  Name: Delivery
+  Description: Deliver the tablet to Castle Nick
   Objectives:
   - {fileID: 11400000, guid: 63e68ce911cd5f44b85905ddbec637dd, type: 2}
   - {fileID: 11400000, guid: a5d278edc512eae4b81d0d15bff090bd, type: 2}

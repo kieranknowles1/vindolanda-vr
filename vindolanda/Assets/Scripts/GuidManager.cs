@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
@@ -22,12 +23,22 @@ public class GuidManager : IUnityObjectResolver<string>
         }
     }
 
+#if UNITY_EDITOR
+    static void ClearInstance()
+    {
+        // Preserve scriptable object registrations, but delete GameObjects
+        // Scriptable objects persist when exiting play mode.
+        // At runtime, the same instance will be kept perpetually.
+        var sos = instance.objects.Where(o => o.Value is ScriptableObject).ToList();
+        instance = new GuidManager();
+        instance.objects.AddRange(sos);
+    }
+
     // Called when entering play mode
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     static void Reset()
     {
-        instance = null;
-
+        ClearInstance();
         EditorApplication.playModeStateChanged += ModeChanged;
     }
 
@@ -37,8 +48,9 @@ public class GuidManager : IUnityObjectResolver<string>
     static void ModeChanged(PlayModeStateChange change)
     {
         if (change != PlayModeStateChange.ExitingPlayMode) return;
-        instance = null;
+        ClearInstance();
     }
+#endif
 
     Dictionary<Guid, IGuidContainer> objects = new();
     public IGuidContainer Find(Guid guid)

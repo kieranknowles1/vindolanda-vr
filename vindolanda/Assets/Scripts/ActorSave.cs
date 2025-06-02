@@ -1,6 +1,4 @@
 using Unity.Behavior;
-using Unity.VisualScripting;
-
 public class ActorSaveData : SaveData
 {
     public static readonly RuntimeSerializationUtility.JsonBehaviorSerializer serializer = new();
@@ -8,10 +6,9 @@ public class ActorSaveData : SaveData
     public string graphData;
 
     public ActorSaveData() { }
-    public ActorSaveData(Saveable obj) : base(obj)
+    public ActorSaveData(ActorSave obj) : base(obj)
     {
-        var actor = (ActorSave)obj;
-        graphData = actor.Agent.Serialize(serializer, GuidManager.Instance);
+        graphData = obj.Agent.Serialize(serializer, GuidManager.Instance);
     }
 }
 

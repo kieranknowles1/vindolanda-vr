@@ -8,10 +8,7 @@ public class GuidComponent : MonoBehaviour, IGuidContainer
 {
     private Guid uid;
     [SerializeField] private byte[] uidBytes;
-    public Guid Guid
-    {
-        get => uid;
-    }
+    public Guid Guid => uid;
 
     protected virtual void Start()
     {
