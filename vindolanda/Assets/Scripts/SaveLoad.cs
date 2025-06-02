@@ -18,7 +18,7 @@ public static class SaveLoad
     static JsonSerializerSettings settings = new()
     {
         Formatting = Formatting.Indented,
-        TypeNameHandling = TypeNameHandling.All,
+        TypeNameHandling = TypeNameHandling.Auto,
     };
 
 #if UNITY_EDITOR
