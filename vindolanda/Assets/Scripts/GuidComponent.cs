@@ -4,7 +4,7 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 
 // Based on https://github.com/Unity-Technologies/guid-based-reference
-public class GuidComponent : MonoBehaviour
+public class GuidComponent : MonoBehaviour, IGuidContainer
 {
     private Guid uid;
     [SerializeField] private byte[] uidBytes;

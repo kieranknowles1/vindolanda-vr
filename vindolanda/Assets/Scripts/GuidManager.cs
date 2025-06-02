@@ -1,8 +1,14 @@
 using System;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 using static Unity.Behavior.RuntimeSerializationUtility;
+
+public interface IGuidContainer
+{
+    public Guid Guid { get; }
+}
 
 public class GuidManager : IUnityObjectResolver<string>
 {
@@ -16,20 +22,32 @@ public class GuidManager : IUnityObjectResolver<string>
         }
     }
 
+    // Called when entering play mode
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     static void Reset()
     {
         instance = null;
+
+        EditorApplication.playModeStateChanged += ModeChanged;
     }
 
-    Dictionary<Guid, GuidComponent> objects = new();
-    public GuidComponent Find(Guid guid)
+    // Called when exiting play mode. Duplicate check will fail ONLY when using
+    // interfaces, assuming this is Unity's fault. Without this we will trigger
+    // duplicate GUID checks, which causes everything to be reassigned :(
+    static void ModeChanged(PlayModeStateChange change)
+    {
+        if (change != PlayModeStateChange.ExitingPlayMode) return;
+        instance = null;
+    }
+
+    Dictionary<Guid, IGuidContainer> objects = new();
+    public IGuidContainer Find(Guid guid)
     {
         return objects[guid];
     }
-    public GuidComponent TryFind(Guid guid)
+    public IGuidContainer TryFind(Guid guid)
     {
-        objects.TryGetValue(guid, out GuidComponent saveable);
+        objects.TryGetValue(guid, out IGuidContainer saveable);
         return saveable;
     }
 
@@ -38,10 +56,10 @@ public class GuidManager : IUnityObjectResolver<string>
     /// </summary>
     /// <param name="saveable"></param>
     /// <returns>True on success, false on collision</returns>
-    public bool Register(GuidComponent saveable)
+    public bool Register(IGuidContainer saveable)
     {
-        objects.TryGetValue(saveable.Guid, out var existing);
-        if (existing && existing != saveable) {
+        if (objects.TryGetValue(saveable.Guid, out var existing) && existing != saveable)
+        {
             Debug.LogWarning($"Attempted to register duplicate GUID {saveable.Guid}");
             return false;
         }
@@ -64,7 +82,7 @@ public class GuidManager : IUnityObjectResolver<string>
     public TSerializedType Resolve<TSerializedType>(string mappedValue) where TSerializedType : UnityEngine.Object
     {
         var uid = Guid.Parse(mappedValue);
-        var obj = TryFind(uid);
+        var obj = (GuidComponent)TryFind(uid);
 
         if (typeof(TSerializedType) == typeof(GameObject))
         {
