@@ -25,3 +25,8 @@ it
 - [x] Subtitles
 - [ ] Player IK
   - [ ] Use IK to create animations
+- [x] Save/load system
+  - [ ] Menu to save/load in VR
+  - [ ] Save actor state
+  - [ ] Save quest state
+  - [ ] Save inventory state

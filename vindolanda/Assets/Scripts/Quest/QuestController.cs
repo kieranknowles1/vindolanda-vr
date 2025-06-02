@@ -1,17 +1,34 @@
 using System;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class QuestController : MonoBehaviour
+public class QuestSaveData : SaveData
 {
-    private Dictionary<Quest, QuestProgress> States = new();
+    public Dictionary<string, QuestProgressSave> States = new();
+
+    public QuestSaveData() { }
+    public QuestSaveData(QuestController obj) : base(obj)
+    {
+        foreach (var quest in obj.States)
+        {
+            States[quest.Key.Guid.ToString()] = new QuestProgressSave(quest.Value);
+        }
+    }
+}
+
+public class QuestController : Saveable
+{
+    public Dictionary<Quest, QuestProgress> States
+    {
+        get; private set;
+    } = new();
 
     // TODO: Remove
     public Quest testQuest;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected override void Start()
     {
+        base.Start();
         GameConstants.Instance.QuestController = this;
         StartQuest(testQuest);
     }
@@ -41,5 +58,22 @@ public class QuestController : MonoBehaviour
     public QuestProgress GetState(Quest q)
     {
         return States[q];
+    }
+
+    public override SaveData Save()
+    {
+        return new QuestSaveData(this);
+    }
+    public override void Load(SaveData data)
+    {
+        base.Load(data);
+        var questData = (QuestSaveData)data;
+        States = new();
+
+        foreach (var state in questData.States)
+        {
+            var quest = (Quest)GuidManager.Instance.Find(new Guid(state.Key));
+            States[quest] = new QuestProgress(quest, state.Value);
+        }
     }
 }

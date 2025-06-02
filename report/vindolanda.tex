@@ -132,6 +132,22 @@ Figure \ref{fig:milecastle}.
 Multiple engines were considered, each with their own benefits
 and drawbacks as summarised in Table \ref{table:engine_compare}
 
+\begin{table*}
+  \caption{The advantages and disadvantages of the considered engines.}
+  \label{table:engine_compare}
+  \begin{tabular}{llll}\toprule
+    Feature & Unity & Unreal & Godot \\\midrule
+
+    Language & C\# & Blueprints, C++ & GDScript, C++, C\#, etc. \\
+    VR Support & De facto standard & Performance concerns & Yes \\
+    Recent Games & $745 (70\%)$ & $351 (30\%)$ & $8 (<1\%)$ \\
+    Version Control & Git, text & Perforce, binary & Git, text \\
+    Linux Support & Yes & Editor unreliable & Yes \\
+
+    \bottomrule
+  \end{tabular}
+\end{table*}
+
 Virtual reality is a significantly more demanding environment than other games.
 While 1080p at 60Hz is a common target for flat screens, VR games must render
 two screens at 90-120Hz each, with users often upscaling for enhanced clarity.
@@ -177,21 +193,14 @@ game as it is an industry standard and provides a VR template that includes all
 locomotion types needed and integration with its UI system. More specifically,
 Unity 6.1 was used as it was the latest stable version at time of development.
 
-\begin{table*}
-  \caption{The advantages and disadvantages of the considered engines.}
-  \label{table:engine_compare}
-  \begin{tabular}{llll}\toprule
-    Feature & Unity & Unreal & Godot \\\midrule
+\subsubsection{Which Controllers?}
 
-    Language & C\# & Blueprints, C++ & GDScript, C++, C\#, etc. \\
-    VR Support & De facto standard & Performance concerns & Yes \\
-    Recent Games & $745 (70\%)$ & $351 (30\%)$ & $8 (<1\%)$ \\
-    Version Control & Git, text & Perforce, binary & Git, text \\
-    Linux Support & Yes & Editor unreliable & Yes \\
-
-    \bottomrule
-  \end{tabular}
-\end{table*}
+There are many distinct controllers available for VR systems with significant
+variance in the inputs available, their locations, and tracking quality. Fully
+supporting each would require bespoke assets for tutorials along with testing,
+which is impractical due to their high cost. Therefore, only the Valve Index
+controllers are fully supported with Unity and SteamVR's remapping used to
+handle other controller types.
 
 \subsubsection{Reference Material}
 % TODO: Which other games were referenced as inspiration?}
