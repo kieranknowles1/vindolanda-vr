@@ -7,13 +7,11 @@ using UnityEngine;
 /// </summary>
 public class GuidSO : ScriptableObject, IGuidContainer
 {
-    private Guid uid;
-    [SerializeField] private byte[] uidBytes;
-    public Guid Guid => uid;
+    [SerializeField] private int id;
+    public int Id => id;
 
     protected virtual void OnEnable()
     {
-        uid = new Guid(uidBytes);
         bool ok = GuidManager.Instance.Register(this);
         if (!ok)
         {
@@ -24,14 +22,11 @@ public class GuidSO : ScriptableObject, IGuidContainer
 #if UNITY_EDITOR
     protected virtual void OnValidate()
     {
-        uid = uidBytes?.Length == 16 ? new Guid(uidBytes) : Guid.Empty;
-
-        if (uid == Guid.Empty || !GuidManager.Instance.Register(this))
+        if (id == IGuidContainer.NoId || !GuidManager.Instance.Register(this))
         {
             Undo.RecordObject(this, "Assign GUID");
-            uid = Guid.NewGuid();
-            uidBytes = uid.ToByteArray();
-            Debug.Log($"Auto assigned GUID {uid}");
+            id = GuidManager.Instance.Allocate();
+            Debug.Log($"Auto assigned ID {id}");
             GuidManager.Instance.Register(this);
         }
     }

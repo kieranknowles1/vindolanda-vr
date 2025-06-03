@@ -6,17 +6,11 @@ using UnityEngine;
 // Based on https://github.com/Unity-Technologies/guid-based-reference
 public class GuidComponent : MonoBehaviour, IGuidContainer
 {
-    private Guid uid;
-    [SerializeField] private byte[] uidBytes;
-    public Guid Guid => uid;
+    [SerializeField] private int id;
+    public int Id => id;
 
     protected virtual void Start()
     {
-        uid = new Guid(uidBytes);
-        if (uid == Guid.Empty)
-        {
-            Debug.LogError($"{this} has no GUID");
-        }
         bool ok = GuidManager.Instance.Register(this);
         if (!ok)
         {
@@ -35,18 +29,15 @@ public class GuidComponent : MonoBehaviour, IGuidContainer
         if (currentStage != mainStage && PrefabStageUtility.GetPrefabStage(gameObject) != null) return;
         if (PrefabUtility.IsPartOfPrefabAsset(this)) return;
 
-        uid = uidBytes?.Length == 16 ? new Guid(uidBytes) : Guid.Empty;
-
-        if (!registered && uid != Guid.Empty) registered = GuidManager.Instance.Register(this);
+        if (!registered && id != IGuidContainer.NoId) registered = GuidManager.Instance.Register(this);
 
         // Assign a GUID if we don't have one yet or found a collision (should only happen on copy)
-        if (uid == Guid.Empty || !registered)
+        if (id == IGuidContainer.NoId || !registered)
         {
             Undo.RecordObject(this, "Assign GUID");
-            uid = Guid.NewGuid();
-            uidBytes = uid.ToByteArray();
+            id = GuidManager.Instance.Allocate();
             PrefabUtility.RecordPrefabInstancePropertyModifications(this);
-            print($"Auto assigned GUID {uid}");
+            print($"Auto assigned ID {id}");
             registered = GuidManager.Instance.Register(this);
         }
     }
