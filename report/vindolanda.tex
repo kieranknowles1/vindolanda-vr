@@ -385,6 +385,22 @@ comfortable reading on the widest range of headsets, as discussed in Section
 \section{Results \& Evaluation}
 % TODO: Results and eval
 
+\subsection{The Bugs}
+
+No good game development is complete without a few bugs, featured here.
+
+Figure \ref{fig:oops_camera}. The player's animator initially had root motion enabled, this caused it to
+move relative to the camera when walking, which was magnified when turning giving
+the appearance of it running away from the camera.
+
+\begin{figure}[h]
+  \includegraphics[width=0.5\linewidth]{out-of-body.png}
+  \caption{
+    \label{fig:oops_camera}The player model running away from the camera.
+    \url{https://www.youtube.com/watch?v=W9Mfbanlegs}}
+  \Description{A screenshot depicting the player model leaving the camera behind.}
+\end{figure}
+
 \section{Conclusion \& Future Work}
 % TODO: Conclusion and future work
 
