@@ -2839,9 +2839,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5900123127216488743, guid: 3834bd3088f54794cbdb48e95cc94a4b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 3834bd3088f54794cbdb48e95cc94a4b, type: 3}
       propertyPath: m_Name
       value: VindolandaHeight
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3834bd3088f54794cbdb48e95cc94a4b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 4490193605748736401, guid: 3834bd3088f54794cbdb48e95cc94a4b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8251951744244848075, guid: 3834bd3088f54794cbdb48e95cc94a4b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8254339228665504862, guid: 3834bd3088f54794cbdb48e95cc94a4b, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -3356,9 +3376,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7161417579439608993, guid: 1fd1f8a4ff562b44d8c76402c97b8272, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: -6418391966046677947, guid: 1fd1f8a4ff562b44d8c76402c97b8272, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1fd1f8a4ff562b44d8c76402c97b8272, type: 3}
       propertyPath: m_Name
       value: MilecastleClose
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 1fd1f8a4ff562b44d8c76402c97b8272, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 7364110547507508882, guid: 1fd1f8a4ff562b44d8c76402c97b8272, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 8727380266212935334, guid: 1fd1f8a4ff562b44d8c76402c97b8272, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -4116,7 +4156,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!64 &1726485577
 MeshCollider:
