@@ -1,6 +1,7 @@
-using System;
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.SceneManagement;
+#endif
 using UnityEngine;
 
 // Based on https://github.com/Unity-Technologies/guid-based-reference
