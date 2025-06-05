@@ -9,6 +9,17 @@ public class BowAnimator : MonoBehaviour
     [SerializeField, Range(0, 1)] float drawLevel;
     float totalFrames;
 
+    float animOffset = 0.33f;
+
+    [SerializeField] Transform connectTopStart;
+    [SerializeField] Transform connectTopEnd;
+
+    [SerializeField] Transform connectBottomStart;
+    [SerializeField] Transform connectBottomEnd;
+
+    [SerializeField] Transform nockStart;
+    [SerializeField] Transform nockEnd;
+
     public float DrawLevel
     {
         get => drawLevel;
@@ -31,7 +42,8 @@ public class BowAnimator : MonoBehaviour
 
     private void UpdateAnimation()
     {
-        float currentFrame = Mathf.Clamp(drawLevel * totalFrames, 0, totalFrames - 1);
+        float modDrawLevel = Mathf.Lerp(animOffset, 1.0f, drawLevel);
+        float currentFrame = Mathf.Clamp(modDrawLevel * totalFrames, 0, totalFrames - 1);
         material.SetFloat(CurrentFrameVar, drawLevel * currentFrame);
     }
 
@@ -39,5 +51,20 @@ public class BowAnimator : MonoBehaviour
     private void Update()
     {
         UpdateAnimation();        
+    }
+
+    // TODO: Proper rendering for bowstring
+    private void DrawBowstring(Transform connectStart, Transform connectEnd, Vector3 nockPosition)
+    {
+        Gizmos.color = Color.black;
+        var connectPosition = Vector3.Lerp(connectStart.position, connectEnd.position, drawLevel);
+        Gizmos.DrawLine(nockPosition, connectPosition);
+    }
+
+    private void OnDrawGizmos()
+    {
+        var nockPosition = Vector3.Lerp(nockStart.position, nockEnd.position, drawLevel);
+        DrawBowstring(connectTopStart, connectTopEnd, nockPosition);
+        DrawBowstring(connectBottomStart, connectBottomEnd, nockPosition);
     }
 }
