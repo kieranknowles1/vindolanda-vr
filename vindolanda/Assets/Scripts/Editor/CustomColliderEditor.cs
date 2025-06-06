@@ -15,17 +15,20 @@ public class CustomColliderEditor : Editor
 
         if (!isTeleportable && GUILayout.Button("Make Teleport Target"))
         {
-            Undo.RecordObject(collider, "Make teleportable");
-            var area = collider.AddComponent<TeleportationArea>();
+            var area = Undo.AddComponent<TeleportationArea>(collider.gameObject);
             area.colliders.Add(collider);
             area.interactionLayers = InteractionLayerMask.GetMask("Teleport");
         }
     }
 }
 
-// Workaround since we can't attach multiple CustomEditor attributes
-[CustomEditor(typeof(TerrainCollider))]
-public class CustomTerrainColliderEditor : CustomColliderEditor { }
+// TODO: Can I avoid replacing the original completely?
+//// Workaround since we can't attach multiple CustomEditor attributes
+//[CustomEditor(typeof(TerrainCollider))]
+//public class CustomTerrainColliderEditor : CustomColliderEditor { }
 
-[CustomEditor(typeof(BoxCollider))]
-public class CustomBoxColliderEditor : CustomColliderEditor { }
+//[CustomEditor(typeof(BoxCollider))]
+//public class CustomBoxColliderEditor : CustomColliderEditor { }
+
+//[CustomEditor(typeof(MeshCollider))]
+//public class MeshColliderEditor : CustomColliderEditor { }
