@@ -100,17 +100,19 @@ public class GuidManager : IUnityObjectResolver<string>
 
     public string Map(UnityEngine.Object obj)
     {
+        if (obj == null) return "";
         var component = obj.GetComponent<GuidComponent>();
         if (component == null)
         {
             Debug.LogError($"{obj} Not saveable");
             throw new Exception("Not saveable");
         }
-        return obj.GetComponent<GuidComponent>().Id.ToString();
+        return component.Id.ToString();
     }
 
     public TSerializedType Resolve<TSerializedType>(string mappedValue) where TSerializedType : UnityEngine.Object
     {
+        if (mappedValue == "") return null;
         var uid = int.Parse(mappedValue);
         var obj = (GuidComponent)TryFind(uid);
 
