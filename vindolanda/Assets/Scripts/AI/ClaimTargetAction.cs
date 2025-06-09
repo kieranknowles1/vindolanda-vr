@@ -13,6 +13,8 @@ public partial class ClaimTargetAction : Action
 
     protected override Status OnStart()
     {
+        if (Manager.Value == null) return Status.Failure;
+
         Target.Value = Manager.Value.Claim();
 
         return Target.Value != null ? Status.Success : Status.Failure;

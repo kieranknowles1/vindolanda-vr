@@ -13,7 +13,10 @@ public partial class ReleaseTargetAction : Action
 
     protected override Status OnStart()
     {
+        // TODO: We don't have any OnEnd event node to call this from automatically. Reservations may be leaked
+        // if a graph is interrupted
         Manager.Value.Release(Target.Value);
+        Target.Value = null;
         return Status.Success;
     }
 }
