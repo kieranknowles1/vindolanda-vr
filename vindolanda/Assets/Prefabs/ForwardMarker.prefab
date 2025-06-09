@@ -63,6 +63,14 @@ PrefabInstance:
       value: EditorOnly
       objectReference: {fileID: 0}
     - target: {fileID: 4578305737810061751, guid: 8629e835ba939414994d2c205eac10bc, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578305737810061751, guid: 8629e835ba939414994d2c205eac10bc, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4578305737810061751, guid: 8629e835ba939414994d2c205eac10bc, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
