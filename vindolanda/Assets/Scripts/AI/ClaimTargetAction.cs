@@ -8,7 +8,7 @@ using Unity.Properties;
 [NodeDescription(name: "ClaimTarget", story: "Claim a [Target] from [Manager]", category: "Action/Find", id: "909a0bac3a62b2f813745178284cb6ed")]
 public partial class ClaimTargetAction : Action
 {
-    [SerializeReference] public BlackboardVariable<Transform> Target;
+    [SerializeReference] public BlackboardVariable<GameObject> Target;
     [SerializeReference] public BlackboardVariable<ClaimManager> Manager;
 
     protected override Status OnStart()
