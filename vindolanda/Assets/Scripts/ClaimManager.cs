@@ -8,8 +8,10 @@ using Random = UnityEngine.Random;
 
 public class ClaimManagerSave : SaveData
 {
-    public List<int> Free;
-    public Dictionary<int, int> Reserved;
+    public List<int> Free = new();
+    public Dictionary<int, int> Reserved = new();
+
+    public ClaimManagerSave() { }
 
     public ClaimManagerSave(ClaimManager obj) : base(obj)
     {
