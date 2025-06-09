@@ -1,15 +1,19 @@
+using System.Text.RegularExpressions;
 using Unity.Behavior;
 using UnityEngine;
 public class ActorSaveData : SaveData
 {
     public static readonly RuntimeSerializationUtility.JsonBehaviorSerializer serializer = new();
+    // HACK: Agent.Serialize is hardcoded to use indentation. Applying this pattern removes it which
+    // reduces output size by 75%
+    static readonly Regex cleanupPattern = new(@"\n *");
 
     public string graphData;
 
     public ActorSaveData() { }
     public ActorSaveData(ActorController obj) : base(obj)
     {
-        graphData = obj.Agent.Serialize(serializer, GuidManager.Instance);
+        graphData = cleanupPattern.Replace(obj.Agent.Serialize(serializer, GuidManager.Instance), "");
     }
 }
 

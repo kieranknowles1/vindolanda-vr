@@ -15,7 +15,7 @@ public static class SaveLoad
         return GameObject.FindObjectsByType<Saveable>(FindObjectsSortMode.None);
     }
 
-    static JsonSerializerSettings settings = new()
+    static readonly JsonSerializerSettings settings = new()
     {
         Formatting = Formatting.Indented,
         TypeNameHandling = TypeNameHandling.Auto,
