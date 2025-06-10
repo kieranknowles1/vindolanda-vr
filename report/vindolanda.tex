@@ -276,10 +276,12 @@ poor hygiene, as documented in a strength report from circa AD 90.
   ninth fort}
 \end{figure}
 
-Although the ninth fort was constructed nearly a century after Hadrian's reign
-and the setting of this game, it is the best documented. As such, it and the
-adjacent town was chosen as the basis for this depiction, prioritising ease of
-development over historical accuracy.
+The ninth fort was constructed from stone and, although it didn't exist until
+a nearly a century after Hadrian's reign and the setting of this game, it is the
+best documented. As such, it and the adjacent town was chosen as the basis for
+this depiction, with stone materials being replaced with the more
+period-appropriate wood to compromise between ease of development and historical
+accuracy.
 
 \subsubsection{The Wall}
 
@@ -382,6 +384,22 @@ comfortable reading on the widest range of headsets, as discussed in Section
 
 \section{Results \& Evaluation}
 % TODO: Results and eval
+
+\subsection{The Bugs}
+
+No good game development is complete without a few bugs, featured here.
+
+Figure \ref{fig:oops_camera}. The player's animator initially had root motion enabled, this caused it to
+move relative to the camera when walking, which was magnified when turning giving
+the appearance of it running away from the camera.
+
+\begin{figure}[h]
+  \includegraphics[width=0.5\linewidth]{out-of-body.png}
+  \caption{
+    \label{fig:oops_camera}The player model running away from the camera.
+    \url{https://www.youtube.com/watch?v=W9Mfbanlegs}}
+  \Description{A screenshot depicting the player model leaving the camera behind.}
+\end{figure}
 
 \section{Conclusion \& Future Work}
 % TODO: Conclusion and future work

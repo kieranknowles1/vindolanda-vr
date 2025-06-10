@@ -8,7 +8,8 @@ using static Unity.Behavior.RuntimeSerializationUtility;
 
 public interface IGuidContainer
 {
-    public Guid Guid { get; }
+    public static readonly int NoId = 0;
+    public int Id { get; }
 }
 
 public class GuidManager : IUnityObjectResolver<string>
@@ -52,12 +53,12 @@ public class GuidManager : IUnityObjectResolver<string>
     }
 #endif
 
-    Dictionary<Guid, IGuidContainer> objects = new();
-    public IGuidContainer Find(Guid guid)
+    Dictionary<int, IGuidContainer> objects = new();
+    public IGuidContainer Find(int guid)
     {
         return objects[guid];
     }
-    public IGuidContainer TryFind(Guid guid)
+    public IGuidContainer TryFind(int guid)
     {
         objects.TryGetValue(guid, out IGuidContainer saveable);
         return saveable;
@@ -70,30 +71,49 @@ public class GuidManager : IUnityObjectResolver<string>
     /// <returns>True on success, false on collision</returns>
     public bool Register(IGuidContainer saveable)
     {
-        if (objects.TryGetValue(saveable.Guid, out var existing) && existing != saveable)
+        if (saveable.Id == IGuidContainer.NoId) return false;
+        if (objects.TryGetValue(saveable.Id, out var existing) && existing != saveable)
         {
-            Debug.LogWarning($"Attempted to register duplicate GUID {saveable.Guid}");
+            Debug.LogWarning($"Attempted to register duplicate GUID {saveable.Id}");
             return false;
         }
 
-        objects[saveable.Guid] = saveable;
+        objects[saveable.Id] = saveable;
         return true;
+    }
+
+    private static readonly System.Random rng = new();
+    private static readonly int maxAllocationAttempts = 128;
+    /// <summary>
+    /// Generate a new ID
+    /// </summary>
+    /// <returns>A random ID that is not yet registered</returns>
+    /// <exception cref="Exception">If allocation fails after a reasonable number of attempts</exception>
+    public int Allocate()
+    {
+        for (int i = 0; i < maxAllocationAttempts; i++) {
+            var id = rng.Next(int.MaxValue);
+            if (!objects.ContainsKey(id)) return id;
+        }
+        throw new Exception("ID allocation failed");
     }
 
     public string Map(UnityEngine.Object obj)
     {
+        if (obj == null) return "";
         var component = obj.GetComponent<GuidComponent>();
         if (component == null)
         {
             Debug.LogError($"{obj} Not saveable");
             throw new Exception("Not saveable");
         }
-        return obj.GetComponent<GuidComponent>().Guid.ToString();
+        return component.Id.ToString();
     }
 
     public TSerializedType Resolve<TSerializedType>(string mappedValue) where TSerializedType : UnityEngine.Object
     {
-        var uid = Guid.Parse(mappedValue);
+        if (mappedValue == "") return null;
+        var uid = int.Parse(mappedValue);
         var obj = (GuidComponent)TryFind(uid);
 
         if (typeof(TSerializedType) == typeof(GameObject))

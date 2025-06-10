@@ -22,7 +22,7 @@ public struct SerialQuaternion
 
 public class SaveData
 {
-    public Guid id;
+    public int id;
     public SerialVector3 position;
     public SerialQuaternion rotation;
     public SerialVector3 scale;
@@ -30,7 +30,7 @@ public class SaveData
     public SaveData() { }
     public SaveData(Saveable obj)
     {
-        id = obj.Guid;
+        id = obj.Id;
         position = obj.transform.position;
         rotation = obj.transform.rotation;
         scale = obj.transform.localScale;

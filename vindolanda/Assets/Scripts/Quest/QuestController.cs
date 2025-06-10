@@ -3,14 +3,14 @@ using System.Collections.Generic;
 
 public class QuestSaveData : SaveData
 {
-    public Dictionary<string, QuestProgressSave> States = new();
+    public Dictionary<int, QuestProgressSave> States = new();
 
     public QuestSaveData() { }
     public QuestSaveData(QuestController obj) : base(obj)
     {
         foreach (var quest in obj.States)
         {
-            States[quest.Key.Guid.ToString()] = new QuestProgressSave(quest.Value);
+            States[quest.Key.Id] = new QuestProgressSave(quest.Value);
         }
     }
 }
@@ -72,7 +72,7 @@ public class QuestController : Saveable
 
         foreach (var state in questData.States)
         {
-            var quest = (Quest)GuidManager.Instance.Find(new Guid(state.Key));
+            var quest = (Quest)GuidManager.Instance.Find(state.Key);
             States[quest] = new QuestProgress(quest, state.Value);
         }
     }

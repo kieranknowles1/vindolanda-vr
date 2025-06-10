@@ -13,7 +13,7 @@ could explore and get to know what it was like and how similar it could be
 would be incremental and easy to extend. further ideas could be built on top of
 it
 
-# Tasks
+## Tasks
 
 - [x] Keyboard/mouse movement for flat screens
 - [ ] Fort/milecastle scene
@@ -30,3 +30,8 @@ it
   - [ ] Save actor state
   - [ ] Save quest state
   - [ ] Save inventory state
+
+## Known Issues
+
+- [ ] Can't teleport
+- [ ] Floor height is based on height of headset at startup

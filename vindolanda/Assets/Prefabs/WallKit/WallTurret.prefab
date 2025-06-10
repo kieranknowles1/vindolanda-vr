@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8992313341709938249}
   - component: {fileID: 3109330649003643903}
   - component: {fileID: 882065691208259466}
+  - component: {fileID: 5597894506584406966}
   m_Layer: 0
   m_Name: WallTurret
   m_TagString: Untagged
@@ -93,6 +94,88 @@ MonoBehaviour:
   m_Center: {x: -3, y: -8.700001, z: -3}
   m_Area: 1
   m_AffectedAgents: ffffffff
+--- !u!114 &5597894506584406966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8895322722184248141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38f6bf3d943ac7945842268c9ef1dca6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_InteractionManager: {fileID: 0}
+  m_Colliders:
+  - {fileID: 3109330649003643903}
+  m_InteractionLayers:
+    m_Bits: 2147483648
+  m_DistanceCalculationMode: 1
+  m_SelectMode: 1
+  m_FocusMode: 1
+  m_CustomReticle: {fileID: 0}
+  m_AllowGazeInteraction: 0
+  m_AllowGazeSelect: 0
+  m_OverrideGazeTimeToSelect: 0
+  m_GazeTimeToSelect: 0.5
+  m_OverrideTimeToAutoDeselectGaze: 0
+  m_TimeToAutoDeselectGaze: 3
+  m_AllowGazeAssistance: 0
+  m_FirstHoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastHoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_HoverExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstSelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastSelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FirstFocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_LastFocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusEntered:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FocusExited:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Deactivated:
+    m_PersistentCalls:
+      m_Calls: []
+  m_StartingHoverFilters: []
+  m_StartingSelectFilters: []
+  m_StartingInteractionStrengthFilters: []
+  m_TeleportationProvider: {fileID: 0}
+  m_MatchOrientation: 0
+  m_MatchDirectionalInput: 0
+  m_TeleportTrigger: 0
+  m_FilterSelectionByHitNormal: 0
+  m_UpNormalToleranceDegrees: 30
+  m_Teleporting:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &471509332144991418
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1097,6 +1180,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Courtine_Door_Arch (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 6091518527819102892, guid: 283aea0d9d128ea428632cf41877fea2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1158,6 +1245,10 @@ PrefabInstance:
     - target: {fileID: 6091518527819102892, guid: 283aea0d9d128ea428632cf41877fea2, type: 3}
       propertyPath: m_Name
       value: Courtine_Door_Arch
+      objectReference: {fileID: 0}
+    - target: {fileID: 6091518527819102892, guid: 283aea0d9d128ea428632cf41877fea2, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1312,6 +1403,10 @@ PrefabInstance:
     - target: {fileID: 2247800179494598144, guid: 5877eb270c4f19c4f96ed8bbde737a56, type: 3}
       propertyPath: m_Name
       value: Courtine_Slits
+      objectReference: {fileID: 0}
+    - target: {fileID: 2247800179494598144, guid: 5877eb270c4f19c4f96ed8bbde737a56, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 7561248296187335065, guid: 5877eb270c4f19c4f96ed8bbde737a56, type: 3}
       propertyPath: m_LocalPosition.x

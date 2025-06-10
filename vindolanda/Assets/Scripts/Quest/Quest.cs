@@ -26,7 +26,7 @@ public class QuestProgress
         Objectives = new();
         foreach (var obj in save.Objectives)
         {
-            var objective = (QuestObjective)GuidManager.Instance.Find(new Guid(obj.Key));
+            var objective = (QuestObjective)GuidManager.Instance.Find(obj.Key);
             Objectives[objective] = new ObjectiveState(objective, obj.Value);
         }
     }
@@ -55,13 +55,13 @@ public class QuestProgress
 [Serializable]
 public class QuestProgressSave
 {
-    public Dictionary<string, QuestObjectiveSave> Objectives = new();
+    public Dictionary<int, QuestObjectiveSave> Objectives = new();
     public QuestProgressSave() { }
     public QuestProgressSave(QuestProgress obj)
     {
         foreach (var objective in obj.Objectives)
         {
-            Objectives[objective.Key.Guid.ToString()] = new QuestObjectiveSave(objective.Value);
+            Objectives[objective.Key.Id] = new QuestObjectiveSave(objective.Value);
         }
     }
 }
