@@ -20,6 +20,21 @@ public struct SerialQuaternion
     public static implicit operator Quaternion(SerialQuaternion q) => new(q.x, q.y, q.z, q.w);
 }
 
+public class RigidBodyData
+{
+    public SerialVector3 linearVelocity;
+    public SerialVector3 angularVelocity;
+    public int constraints;
+
+    public RigidBodyData() { }
+    public RigidBodyData(Rigidbody body)
+    {
+        linearVelocity = body.linearVelocity;
+        angularVelocity = body.angularVelocity;
+        constraints = (int)body.constraints;
+    }
+}
+
 public class SaveData
 {
     public int id;
@@ -27,6 +42,7 @@ public class SaveData
     public SerialQuaternion rotation;
     public SerialVector3 scale;
 
+    public RigidBodyData body;
     public SaveData() { }
     public SaveData(Saveable obj)
     {
@@ -34,6 +50,9 @@ public class SaveData
         position = obj.transform.position;
         rotation = obj.transform.rotation;
         scale = obj.transform.localScale;
+
+        if (obj.TryGetComponent<Rigidbody>(out var rb))
+            body = new RigidBodyData(rb);
     }
 }
 
@@ -52,5 +71,12 @@ public class Saveable : GuidComponent
     {
         transform.SetPositionAndRotation(data.position, data.rotation);
         transform.localScale = data.scale;
+
+        if (TryGetComponent<Rigidbody>(out var rb))
+        {
+            rb.linearVelocity = data.body.linearVelocity;
+            rb.angularVelocity = data.body.angularVelocity;
+            rb.constraints = (RigidbodyConstraints)data.body.constraints;
+        }
     }
 }
