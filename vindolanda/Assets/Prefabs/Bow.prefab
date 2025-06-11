@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 272918538458923922}
   - component: {fileID: 7734834019913766839}
-  - component: {fileID: 224579620788821342}
   - component: {fileID: 4126107155246637533}
   - component: {fileID: 3600526263274093888}
+  - component: {fileID: 6267568001010251641}
   m_Layer: 0
   m_Name: Bow
   m_TagString: Untagged
@@ -68,19 +68,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &224579620788821342
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 613133151845669160}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3eeb26757c92592478119d7c1f1f5222, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 0
 --- !u!23 &4126107155246637533
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -248,6 +235,19 @@ MonoBehaviour:
   m_StartingMultipleGrabTransformers: []
   m_AddDefaultGrabTransformers: 1
   m_FarAttachMode: 0
+--- !u!114 &6267568001010251641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 613133151845669160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f85c5b42766367429d53c79bfcb6278, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
 --- !u!1 &1428978263897924278
 GameObject:
   m_ObjectHideFlags: 0
