@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(MeshRenderer))]
@@ -11,14 +12,19 @@ public class BowAnimator : MonoBehaviour
 
     float animOffset = 0.33f;
 
-    [SerializeField] Transform connectTopStart;
-    [SerializeField] Transform connectTopEnd;
+    [Serializable]
+    struct ReferencePoint
+    {
+        public Transform start;
+        public Transform end;
+        public Transform current;
 
-    [SerializeField] Transform connectBottomStart;
-    [SerializeField] Transform connectBottomEnd;
+        public void LerpPosition(float factor) => current.position = Vector3.Lerp(start.position, end.position, factor);
+    }
 
-    [SerializeField] Transform nockStart;
-    [SerializeField] Transform nockEnd;
+    [SerializeField] ReferencePoint connectTop;
+    [SerializeField] ReferencePoint connectBottom;
+    [SerializeField] ReferencePoint nock;
 
     public float DrawLevel
     {
@@ -45,26 +51,9 @@ public class BowAnimator : MonoBehaviour
         float modDrawLevel = Mathf.Lerp(animOffset, 1.0f, drawLevel);
         float currentFrame = Mathf.Clamp(modDrawLevel * totalFrames, 0, totalFrames - 1);
         material.SetFloat(CurrentFrameVar, drawLevel * currentFrame);
-    }
 
-    // TODO: The property handles animations. This is only useful for the inspector
-    private void Update()
-    {
-        UpdateAnimation();        
-    }
-
-    // TODO: Proper rendering for bowstring
-    private void DrawBowstring(Transform connectStart, Transform connectEnd, Vector3 nockPosition)
-    {
-        Gizmos.color = Color.black;
-        var connectPosition = Vector3.Lerp(connectStart.position, connectEnd.position, drawLevel);
-        Gizmos.DrawLine(nockPosition, connectPosition);
-    }
-
-    private void OnDrawGizmos()
-    {
-        var nockPosition = Vector3.Lerp(nockStart.position, nockEnd.position, drawLevel);
-        DrawBowstring(connectTopStart, connectTopEnd, nockPosition);
-        DrawBowstring(connectBottomStart, connectBottomEnd, nockPosition);
+        connectTop.LerpPosition(DrawLevel);
+        connectBottom.LerpPosition(DrawLevel);
+        nock.LerpPosition(DrawLevel);
     }
 }
