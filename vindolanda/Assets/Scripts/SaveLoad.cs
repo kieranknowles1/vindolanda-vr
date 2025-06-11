@@ -19,6 +19,7 @@ public static class SaveLoad
     {
         Formatting = Formatting.Indented,
         TypeNameHandling = TypeNameHandling.Auto,
+        NullValueHandling = NullValueHandling.Ignore,
     };
 
 #if UNITY_EDITOR

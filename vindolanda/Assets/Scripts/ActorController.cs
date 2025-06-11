@@ -13,6 +13,10 @@ public class ActorSaveData : SaveData
     public ActorSaveData() { }
     public ActorSaveData(ActorController obj) : base(obj)
     {
+        if (obj.Agent.Graph == null) {
+            graphData = null;
+            return;
+        }
         graphData = cleanupPattern.Replace(obj.Agent.Serialize(serializer, GuidManager.Instance), "");
     }
 }
@@ -39,7 +43,8 @@ public class ActorController : Saveable
     {
         base.Load(data);
         var actorData = (ActorSaveData)data;
-        Agent.Deserialize(actorData.graphData, ActorSaveData.serializer, GuidManager.Instance);
+        if (actorData.graphData != null)
+            Agent.Deserialize(actorData.graphData, ActorSaveData.serializer, GuidManager.Instance);
     }
 
     #endregion
