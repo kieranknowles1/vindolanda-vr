@@ -10,6 +10,8 @@ public class GuidComponent : MonoBehaviour, IGuidContainer
     [SerializeField] private int id;
     public int Id => id;
 
+    public bool IsDestroyed => this == null;
+
     protected virtual void Start()
     {
         bool ok = GuidManager.Instance.Register(this);

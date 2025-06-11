@@ -10,6 +10,8 @@ public class GuidSO : ScriptableObject, IGuidContainer
     [SerializeField] private int id;
     public int Id => id;
 
+    public bool IsDestroyed => this == null;
+
     protected virtual void OnEnable()
     {
         bool ok = GuidManager.Instance.Register(this);

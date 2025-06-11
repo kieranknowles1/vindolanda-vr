@@ -22,4 +22,10 @@ public static class ComponentExtensions
     {
         rb.constraints = state ? RigidbodyConstraints.FreezeAll : RigidbodyConstraints.None;
     }
+
+    public static string FullObjectPath(this Transform t)
+    {
+        if (t.parent == null) return t.name;
+        return $"{t.parent.FullObjectPath()}/{t.name}";
+    }
 }

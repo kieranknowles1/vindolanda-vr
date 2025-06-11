@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEditor;
@@ -10,6 +11,12 @@ public interface IGuidContainer
 {
     public static readonly int NoId = 0;
     public int Id { get; }
+
+    [SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "Native Unity method")]
+    public string name { get; }
+
+    // Unity objects overload == null for legacy reasons, but this doesn't propogate to interfaces
+    public bool IsDestroyed { get; }
 }
 
 public class GuidManager : IUnityObjectResolver<string>
@@ -72,9 +79,12 @@ public class GuidManager : IUnityObjectResolver<string>
     public bool Register(IGuidContainer saveable)
     {
         if (saveable.Id == IGuidContainer.NoId) return false;
-        if (objects.TryGetValue(saveable.Id, out var existing) && existing != saveable)
+        if (objects.TryGetValue(saveable.Id, out var existing) && existing != saveable && !existing.IsDestroyed)
         {
-            Debug.LogWarning($"Attempted to register duplicate GUID {saveable.Id}");
+            var fullName = existing is Component cmp ? cmp.transform.FullObjectPath() : existing.name;
+            
+
+            Debug.LogWarning($"Attempted to register duplicate GUID {saveable.Id}. Conflicts with {fullName}");
             return false;
         }
 
