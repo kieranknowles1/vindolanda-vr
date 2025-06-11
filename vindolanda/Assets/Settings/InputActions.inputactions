@@ -3549,6 +3549,34 @@
                     "isPartOfComposite": false
                 }
             ]
+        },
+        {
+            "name": "GameInputs",
+            "id": "56439a2c-792b-4b87-8d94-a27daf570a0d",
+            "actions": [
+                {
+                    "name": "ToggleMenu",
+                    "type": "Button",
+                    "id": "d305dc50-587a-4856-afeb-fb3c5b3519d7",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ba4f501d-6d10-4c5d-ba36-41e2138d728d",
+                    "path": "<XRController>/secondaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit.Locomotion.Comfort;
 using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
@@ -21,6 +22,11 @@ public class PlayerController : MonoBehaviour
 
     public SubtitlePanel Subtitles;
 
+    InputActions input;
+
+    [SerializeField] GameObject settingsMenu;
+    [SerializeField] Transform head;
+
     private void UpdateSettings(GameSettings settings)
     {
         UpdateMovementType(settings.Movement.Type);
@@ -29,14 +35,19 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
+        input = new InputActions();
         GameConstants.Instance.Player = this;
         GameSettings.Instance.OnChange += UpdateSettings;
         UpdateSettings(GameSettings.Instance);
+
+        input.GameInputs.Enable();
+        input.GameInputs.ToggleMenu.performed += ToggleSettings;
     }
 
     private void OnDestroy()
     {
         GameSettings.Instance.OnChange -= UpdateSettings;
+        input.GameInputs.ToggleMenu.performed -= ToggleSettings;
     }
 
     private void UpdateMovementType(GameSettings.MovementType type)
@@ -58,5 +69,15 @@ public class PlayerController : MonoBehaviour
                 dynamicMoveProvider.forwardSource = movementController.transform;
                 break;
         }
+    }
+
+    void ToggleSettings(InputAction.CallbackContext _)
+    {
+        settingsMenu.SetActive(!settingsMenu.activeSelf);
+
+        var planeAngle = Quaternion.AngleAxis(head.eulerAngles.y, Vector3.up);
+
+        settingsMenu.transform.position = head.position + (planeAngle * Vector3.forward * 1.5f);
+        settingsMenu.transform.rotation = head.rotation = planeAngle;
     }
 }
