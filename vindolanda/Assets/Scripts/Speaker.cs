@@ -51,9 +51,13 @@ public class Speaker : MonoBehaviour
             return;
         }
 
-        var clip = currentDialogue.Lines[nextLineIndex].Clip != null ? currentDialogue.Lines[nextLineIndex].Clip : PlaceholderClip;
+        var line = currentDialogue.Lines[nextLineIndex];
+        // TODO: Preload assets at the start of the line
+        var text = line.Text.GetLocalizedString();
+        var clip = line.Clip != null && !line.Clip.IsEmpty ? line.Clip.LoadAsset() : PlaceholderClip;
+
         audio.PlayOneShot(clip);
-        GameConstants.Instance.Player.Subtitles.Show(currentDialogue.Lines[nextLineIndex].Text);
+        GameConstants.Instance.Player.Subtitles.Show(text);
 
         nextLineIndex++;
     }

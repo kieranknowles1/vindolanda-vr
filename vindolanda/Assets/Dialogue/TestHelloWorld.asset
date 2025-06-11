@@ -13,7 +13,40 @@ MonoBehaviour:
   m_Name: TestHelloWorld
   m_EditorClassIdentifier: 
   Lines:
-  - Text: Oi, you
-    Clip: {fileID: 0}
-  - Text: Why don't you deliver that tablet to Castle Nick
-    Clip: {fileID: 0}
+  - Text:
+      m_TableReference:
+        m_TableCollectionName: GUID:bbc577575d755f2468f29145e420373b
+      m_TableEntryReference:
+        m_KeyId: 2611756699648
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    Clip:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+  - Text:
+      m_TableReference:
+        m_TableCollectionName: GUID:bbc577575d755f2468f29145e420373b
+      m_TableEntryReference:
+        m_KeyId: 2678290944000
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    Clip:
+      m_TableReference:
+        m_TableCollectionName: 
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+  references:
+    version: 2
+    RefIds: []
