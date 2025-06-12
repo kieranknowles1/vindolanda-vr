@@ -16,22 +16,16 @@ public class FreezeUntilFirstGrab : MonoBehaviour
 
         body.SetFrozen(true);
 
-        interactable.activated.AddListener(OnActivate);
+        interactable.selectEntered.AddListener(OnGrab);
     }
 
     private void OnDestroy()
     {
-        interactable.activated.RemoveListener(OnActivate);
+        interactable.selectEntered.RemoveListener(OnGrab);
     }
 
-    void OnActivate(ActivateEventArgs args)
+    void OnGrab(SelectEnterEventArgs args)
     {
         body.SetFrozen(false);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
