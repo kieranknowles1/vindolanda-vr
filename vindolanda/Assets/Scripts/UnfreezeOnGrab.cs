@@ -4,7 +4,7 @@ using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 [RequireComponent(typeof(XRGrabInteractable))]
 [RequireComponent(typeof(Rigidbody))]
-public class FreezeUntilFirstGrab : MonoBehaviour
+public class UnfreezeOnGrab : MonoBehaviour
 {
     XRGrabInteractable interactable;
     Rigidbody body;
@@ -13,9 +13,6 @@ public class FreezeUntilFirstGrab : MonoBehaviour
     {
         interactable = GetComponent<XRGrabInteractable>();
         body = GetComponent<Rigidbody>();
-
-        body.SetFrozen(true);
-
         interactable.selectEntered.AddListener(OnGrab);
     }
 
