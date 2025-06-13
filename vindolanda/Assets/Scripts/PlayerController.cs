@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     InputActions input;
 
     [SerializeField] GameObject settingsMenu;
+    [Tooltip("Position of headset")]
     [SerializeField] Transform head;
 
     private void UpdateSettings(GameSettings settings)
