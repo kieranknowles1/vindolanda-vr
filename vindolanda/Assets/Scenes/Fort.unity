@@ -1577,10 +1577,6 @@ PrefabInstance:
       value: 0.006
       objectReference: {fileID: 0}
     - target: {fileID: 2429696984143761299, guid: 5a5cee4a7b455e74582970303cd21b20, type: 3}
-      propertyPath: m_text
-      value: To Castle Nick
-      objectReference: {fileID: 0}
-    - target: {fileID: 2429696984143761299, guid: 5a5cee4a7b455e74582970303cd21b20, type: 3}
       propertyPath: m_fontSize
       value: 72
       objectReference: {fileID: 0}
@@ -1631,6 +1627,10 @@ PrefabInstance:
     - target: {fileID: 6100042278477536798, guid: 5a5cee4a7b455e74582970303cd21b20, type: 3}
       propertyPath: m_Name
       value: FloatingText
+      objectReference: {fileID: 0}
+    - target: {fileID: 8152062566675559360, guid: 5a5cee4a7b455e74582970303cd21b20, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 646613359169536
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
