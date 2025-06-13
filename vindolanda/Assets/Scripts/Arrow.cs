@@ -14,7 +14,7 @@ public interface IHitTarget
 [RequireComponent(typeof(Rigidbody))]
 public class Arrow : XRGrabInteractable, IWeapon
 {
-    public Rigidbody Body { get; private set; }
+    Rigidbody body;
     SphereCollider trigger;
     public MeshRenderer Renderer;
 
@@ -26,19 +26,19 @@ public class Arrow : XRGrabInteractable, IWeapon
         get => !trigger.enabled;
         set {
             trigger.enabled = !value;
-            Body.SetFrozen(value);
+            body.SetFrozen(value);
         }
     }
 
-    public void Start()
+    void Start()
     {
-        Body = GetComponent<Rigidbody>();
+        body = GetComponent<Rigidbody>();
         trigger = GetComponent<SphereCollider>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        var forwardVelocity = Vector3.Dot(Body.linearVelocity, transform.forward);
+        var forwardVelocity = Vector3.Dot(body.linearVelocity, transform.forward);
 
 
         var target = other.GetInterface<IHitTarget>();

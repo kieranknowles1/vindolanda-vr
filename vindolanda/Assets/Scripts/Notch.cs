@@ -35,9 +35,7 @@ public class Notch : MonoBehaviour
     {
         // FIRE!
         var fired = Instantiate(arrowPrefab, arrowSpawn.transform.position, arrowSpawn.transform.rotation).GetComponent<Arrow>();
-        // HACK: Shouldn't have to call this manually
-        fired.Start();
-        fired.Body.linearVelocity = releaseSpeed * GetDrawLevel() * fired.transform.forward;
+        fired.GetComponent<Rigidbody>().linearVelocity = releaseSpeed * GetDrawLevel() * fired.transform.forward;
 
         // Cleanup
         arrow.selectExited.RemoveListener(Release);
