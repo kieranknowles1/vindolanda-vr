@@ -1,6 +1,16 @@
 using System;
 using UnityEngine;
 
+[Serializable]
+struct ReferencePoint
+{
+    public Transform start;
+    public Transform end;
+    public Transform current;
+
+    public void LerpPosition(float factor) => current.position = Vector3.Lerp(start.position, end.position, factor);
+}
+
 [RequireComponent(typeof(MeshRenderer))]
 public class BowAnimator : MonoBehaviour
 {
@@ -12,19 +22,10 @@ public class BowAnimator : MonoBehaviour
 
     float animOffset = 0.33f;
 
-    [Serializable]
-    struct ReferencePoint
-    {
-        public Transform start;
-        public Transform end;
-        public Transform current;
-
-        public void LerpPosition(float factor) => current.position = Vector3.Lerp(start.position, end.position, factor);
-    }
-
     [SerializeField] ReferencePoint connectTop;
     [SerializeField] ReferencePoint connectBottom;
     [SerializeField] ReferencePoint nock;
+    [SerializeField] GameObject fakeArrow;
 
     public float DrawLevel
     {
@@ -33,6 +34,12 @@ public class BowAnimator : MonoBehaviour
             drawLevel = value;
             UpdateAnimation();
         }
+    }
+
+    public bool ArrowVisible
+    {
+        get => fakeArrow.activeSelf;
+        set => fakeArrow.SetActive(value);
     }
 
     private Material material;

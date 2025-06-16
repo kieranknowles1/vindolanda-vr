@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 public interface IWeapon
 {
@@ -11,10 +12,11 @@ public interface IHitTarget
 }
 
 [RequireComponent(typeof(Rigidbody))]
-public class Arrow : MonoBehaviour, IWeapon
+public class Arrow : XRGrabInteractable, IWeapon
 {
     Rigidbody body;
     SphereCollider trigger;
+    public MeshRenderer Renderer;
 
     /// <summary>
     /// Is the arrow stuck in an object and unable to move?
