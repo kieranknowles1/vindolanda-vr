@@ -102,3 +102,6 @@ crashlytics-build.properties
 NavMesh-*.asset*
 OcclusionCullingData.asset*
 *.blend1*
+
+# Build artifacts
+/vindolanda/Assets/AddressableAssetsData/link.xml*
