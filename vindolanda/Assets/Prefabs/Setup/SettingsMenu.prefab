@@ -536,7 +536,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1035790433963668018, guid: 085ce58b196caa446a8545c9dd388793, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0031719275
+      value: -0.0018488498
       objectReference: {fileID: 0}
     - target: {fileID: 1897108578803551515, guid: 085ce58b196caa446a8545c9dd388793, type: 3}
       propertyPath: m_text
@@ -560,7 +560,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3060619106468608791, guid: 085ce58b196caa446a8545c9dd388793, type: 3}
       propertyPath: m_PresetInfoIsWorld
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3735047472340101370, guid: 085ce58b196caa446a8545c9dd388793, type: 3}
       propertyPath: m_PresetInfoIsWorld
@@ -789,6 +789,34 @@ PrefabInstance:
       propertyPath: m_StringReference.m_TableReference.m_TableCollectionName
       value: GUID:bbc577575d755f2468f29145e420373b
       objectReference: {fileID: 0}
+    - target: {fileID: 543426628933864331, guid: f47ad6ac315a3ea428b59e2cac6f2a2e, type: 3}
+      propertyPath: entries.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 543426628933864331, guid: f47ad6ac315a3ea428b59e2cac6f2a2e, type: 3}
+      propertyPath: entries.Array.data[0].text.m_TableEntryReference.m_KeyId
+      value: 1743823022886912
+      objectReference: {fileID: 0}
+    - target: {fileID: 543426628933864331, guid: f47ad6ac315a3ea428b59e2cac6f2a2e, type: 3}
+      propertyPath: entries.Array.data[1].text.m_TableEntryReference.m_KeyId
+      value: 1743868182958080
+      objectReference: {fileID: 0}
+    - target: {fileID: 543426628933864331, guid: f47ad6ac315a3ea428b59e2cac6f2a2e, type: 3}
+      propertyPath: entries.Array.data[2].text.m_TableEntryReference.m_KeyId
+      value: 1743888823128064
+      objectReference: {fileID: 0}
+    - target: {fileID: 543426628933864331, guid: f47ad6ac315a3ea428b59e2cac6f2a2e, type: 3}
+      propertyPath: entries.Array.data[0].text.m_TableReference.m_TableCollectionName
+      value: GUID:bbc577575d755f2468f29145e420373b
+      objectReference: {fileID: 0}
+    - target: {fileID: 543426628933864331, guid: f47ad6ac315a3ea428b59e2cac6f2a2e, type: 3}
+      propertyPath: entries.Array.data[1].text.m_TableReference.m_TableCollectionName
+      value: GUID:bbc577575d755f2468f29145e420373b
+      objectReference: {fileID: 0}
+    - target: {fileID: 543426628933864331, guid: f47ad6ac315a3ea428b59e2cac6f2a2e, type: 3}
+      propertyPath: entries.Array.data[2].text.m_TableReference.m_TableCollectionName
+      value: GUID:bbc577575d755f2468f29145e420373b
+      objectReference: {fileID: 0}
     - target: {fileID: 2179057468902719979, guid: f47ad6ac315a3ea428b59e2cac6f2a2e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -886,26 +914,6 @@ PrefabInstance:
       value: 1801810542
       objectReference: {fileID: 0}
     - target: {fileID: 6507499350661501903, guid: f47ad6ac315a3ea428b59e2cac6f2a2e, type: 3}
-      propertyPath: m_Options.m_Options.Array.data[0].m_Text
-      value: Teleport
-      objectReference: {fileID: 0}
-    - target: {fileID: 6507499350661501903, guid: f47ad6ac315a3ea428b59e2cac6f2a2e, type: 3}
-      propertyPath: m_Options.m_Options.Array.data[1].m_Text
-      value: Smooth (head forward)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6507499350661501903, guid: f47ad6ac315a3ea428b59e2cac6f2a2e, type: 3}
-      propertyPath: m_Options.m_Options.Array.data[2].m_Text
-      value: Smooth (controller forward)
-      objectReference: {fileID: 0}
-    - target: {fileID: 6507499350661501903, guid: f47ad6ac315a3ea428b59e2cac6f2a2e, type: 3}
-      propertyPath: m_Options.m_Options.Array.data[1].m_Image
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6507499350661501903, guid: f47ad6ac315a3ea428b59e2cac6f2a2e, type: 3}
-      propertyPath: m_Options.m_Options.Array.data[2].m_Image
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 6507499350661501903, guid: f47ad6ac315a3ea428b59e2cac6f2a2e, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -939,7 +947,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6599802745974732893, guid: f47ad6ac315a3ea428b59e2cac6f2a2e, type: 3}
       propertyPath: m_text
-      value: Teleport
+      value: Option A
       objectReference: {fileID: 0}
     - target: {fileID: 6599802745974732893, guid: f47ad6ac315a3ea428b59e2cac6f2a2e, type: 3}
       propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
