@@ -99,6 +99,7 @@ MonoBehaviour:
         - rid: 4016942849891500264
         - rid: 4016942849891500265
         - rid: 4016942849891500266
+        - rid: 4016942891626135647
     - rid: 4016942849891500250
       type: {class: SmartSettings, ns: UnityEngine.Localization.SmartFormat.Core.Settings, asm: Unity.Localization}
       data:
@@ -205,3 +206,8 @@ MonoBehaviour:
         - default
         - d
         - 
+    - rid: 4016942891626135647
+      type: {class: RomanNumeralFormatter, ns: , asm: Assembly-CSharp}
+      data:
+        m_Names:
+        - roman
