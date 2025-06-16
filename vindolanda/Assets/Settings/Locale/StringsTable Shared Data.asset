@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: StringsTable Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: StringsTable
+  m_TableCollectionNameGuidString: bbc577575d755f2468f29145e420373b
+  m_Entries:
+  - m_Id: 2611756699648
+    m_Key: TestHello_0
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2678290944000
+    m_Key: TestHello_1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 646613359169536
+    m_Key: Sign_CastleNick
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1733489973301248
+    m_Key: "Distance_Roman\t"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1737285973610496
+    m_Key: Locomotion_Header
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1740139677388800
+    m_Key: Locomotion_Type
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1740364324311040
+    m_Key: Locomotion_VignetteTitle
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1740549708353536
+    m_Key: Locomotion_VignetteValue
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1740986754830336
+    m_Key: Locomotion_NauseaWarning
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1743823022886912
+    m_Key: Locomotion_Type_Teleport
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1743868182958080
+    m_Key: Locomotion_Type_SmoothHead
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1743888823128064
+    m_Key: Locomotion_Type_SmoothController
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    rid: 4016942849891500267
+  references:
+    version: 2
+    RefIds:
+    - rid: 4016942849891500267
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1749658400517
