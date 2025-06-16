@@ -16,7 +16,8 @@ MonoBehaviour:
     m_Code: en
   m_SharedData: {fileID: 11400000, guid: bbc577575d755f2468f29145e420373b, type: 2}
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 4016942959552888834
   m_TableData:
   - m_Id: 2611756699648
     m_Localized: Hello there.
@@ -30,6 +31,17 @@ MonoBehaviour:
     m_Localized: To Castle Nick
     m_Metadata:
       m_Items: []
+  - m_Id: 1733489973301248
+    m_Localized: '{distance:roman()} ft'
+    m_Metadata:
+      m_Items:
+      - rid: 4016942959552888834
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: 4016942959552888834
+      type: {class: SmartFormatTag, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries: 
+        m_SharedEntries:
+        - id: 1733489973301248
