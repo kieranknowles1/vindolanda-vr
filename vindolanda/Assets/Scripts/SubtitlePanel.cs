@@ -13,12 +13,10 @@ public class SubtitlePanel : MonoBehaviour
         Hide();
     }
 
-    public void Show(ActorController speaker, LocalizedString text)
+    public void Show(string speaker, string text)
     {
         canvas.enabled = true;
-        template["speaker"] = speaker.Name;
-        template["text"] = text;
-        this.text.text = template.GetLocalizedString();
+        this.text.text = $"{speaker}: {text}";
     }
 
     public void Hide()

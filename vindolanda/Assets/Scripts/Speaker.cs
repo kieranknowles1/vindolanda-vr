@@ -1,14 +1,15 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Localization;
 
 /// <summary>
 /// Component to control an actor's speech
 /// </summary>
 [RequireComponent(typeof(AudioSource))]
-[RequireComponent(typeof(ActorController))]
 public class Speaker : MonoBehaviour
 {
+    public LocalizedString ActorName;
+
     public enum SpeechResult
     {
         // The dialogue played to completion
@@ -40,7 +41,6 @@ public class Speaker : MonoBehaviour
     public AudioClip PlaceholderClip;
 
     private new AudioSource audio;
-    private ActorController actor;
 
     private Dialogue currentDialogue;
     private int nextLineIndex;
@@ -58,14 +58,13 @@ public class Speaker : MonoBehaviour
         var clip = line.Clip != null && !line.Clip.IsEmpty ? line.Clip.LoadAsset() : PlaceholderClip;
 
         audio.PlayOneShot(clip);
-        GameConstants.Instance.Player.Subtitles.Show(actor, line.Text);
+        GameConstants.Instance.Player.Subtitles.Show(ActorName.GetLocalizedString(), line.Text.GetLocalizedString());
 
         nextLineIndex++;
     }
 
     private void Start()
     {
-        actor = GetComponent<ActorController>();
         audio = GetComponent<AudioSource>();
     }
 

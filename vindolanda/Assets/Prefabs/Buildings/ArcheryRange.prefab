@@ -1159,9 +1159,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2765552055783056587, guid: d6a343b65d428564a85ce11722a7f087, type: 3}
-      propertyPath: id
-      value: 1272351867
+    - target: {fileID: 787498248322767925, guid: d6a343b65d428564a85ce11722a7f087, type: 3}
+      propertyPath: ActorName.m_TableEntryReference.m_KeyId
+      value: 2165627214401536
+      objectReference: {fileID: 0}
+    - target: {fileID: 787498248322767925, guid: d6a343b65d428564a85ce11722a7f087, type: 3}
+      propertyPath: ActorName.m_TableReference.m_TableCollectionName
+      value: GUID:bbc577575d755f2468f29145e420373b
       objectReference: {fileID: 0}
     - target: {fileID: 2765552055783056587, guid: d6a343b65d428564a85ce11722a7f087, type: 3}
       propertyPath: Name.m_TableEntryReference.m_KeyId
