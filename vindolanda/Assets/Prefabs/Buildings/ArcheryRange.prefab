@@ -129,6 +129,7 @@ Transform:
   - {fileID: 9160741440914672332}
   - {fileID: 6791236360832584427}
   - {fileID: 6406759257850420990}
+  - {fileID: 7132096111558400793}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2080574554827583963
@@ -217,6 +218,75 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &3494306979251650349
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7132096111558400793}
+  - component: {fileID: 1292609748455777213}
+  - component: {fileID: 2604091849498148982}
+  m_Layer: 0
+  m_Name: SpeakTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7132096111558400793
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3494306979251650349}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.125, y: 1, z: 1.250001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5324008891167951829}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1292609748455777213
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3494306979251650349}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 10.4, y: 3.35, z: 6.68}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2604091849498148982
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3494306979251650349}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec5f9d1811041704d8dbf3772a9ac97b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogue: {fileID: 11400000, guid: c613d39df18e3a04ca2ad89b57f42784, type: 2}
+  speaker: {fileID: 9045073120358102526}
+  doOnce: 1
 --- !u!1 &8373073654379648666
 GameObject:
   m_ObjectHideFlags: 0
@@ -1093,6 +1163,14 @@ PrefabInstance:
       propertyPath: id
       value: 1272351867
       objectReference: {fileID: 0}
+    - target: {fileID: 2765552055783056587, guid: d6a343b65d428564a85ce11722a7f087, type: 3}
+      propertyPath: Name.m_TableEntryReference.m_KeyId
+      value: 2165627214401536
+      objectReference: {fileID: 0}
+    - target: {fileID: 2765552055783056587, guid: d6a343b65d428564a85ce11722a7f087, type: 3}
+      propertyPath: Name.m_TableReference.m_TableCollectionName
+      value: GUID:bbc577575d755f2468f29145e420373b
+      objectReference: {fileID: 0}
     - target: {fileID: 7881346890042235526, guid: d6a343b65d428564a85ce11722a7f087, type: 3}
       propertyPath: m_Name
       value: ArcheryGuy
@@ -1107,6 +1185,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 44294778384116294, guid: d6a343b65d428564a85ce11722a7f087, type: 3}
   m_PrefabInstance: {fileID: 8605058823446964683}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &9045073120358102526 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 787498248322767925, guid: d6a343b65d428564a85ce11722a7f087, type: 3}
+  m_PrefabInstance: {fileID: 8605058823446964683}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f90c975fd3d001a4fba711751185657c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &9000694788522887518
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using System.Text.RegularExpressions;
 using Unity.Behavior;
 using UnityEngine;
+using UnityEngine.Localization;
 public class ActorSaveData : SaveData
 {
     public static readonly RuntimeSerializationUtility.JsonBehaviorSerializer serializer = new();
@@ -23,6 +24,8 @@ public class ActorSaveData : SaveData
 
 public class ActorController : Saveable
 {
+    public LocalizedString Name;
+
     public BehaviorGraphAgent Agent { get; private set; }
     public Vector3 OriginalPosition { get; private set; }
 

@@ -52,7 +52,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: SubtitlePanel
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8152062566675559360, guid: 5a5cee4a7b455e74582970303cd21b20, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -95,3 +96,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canvas: {fileID: 7272261123304284437}
   text: {fileID: 2191386676366793825}
+  template:
+    m_TableReference:
+      m_TableCollectionName: GUID:bbc577575d755f2468f29145e420373b
+    m_TableEntryReference:
+      m_KeyId: 2165140268290048
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []

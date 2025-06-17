@@ -6,6 +6,7 @@ using UnityEngine;
 /// Component to control an actor's speech
 /// </summary>
 [RequireComponent(typeof(AudioSource))]
+[RequireComponent(typeof(ActorController))]
 public class Speaker : MonoBehaviour
 {
     public enum SpeechResult
@@ -39,6 +40,7 @@ public class Speaker : MonoBehaviour
     public AudioClip PlaceholderClip;
 
     private new AudioSource audio;
+    private ActorController actor;
 
     private Dialogue currentDialogue;
     private int nextLineIndex;
@@ -53,17 +55,17 @@ public class Speaker : MonoBehaviour
 
         var line = currentDialogue.Lines[nextLineIndex];
         // TODO: Preload assets at the start of the line
-        var text = line.Text.GetLocalizedString();
         var clip = line.Clip != null && !line.Clip.IsEmpty ? line.Clip.LoadAsset() : PlaceholderClip;
 
         audio.PlayOneShot(clip);
-        GameConstants.Instance.Player.Subtitles.Show(text);
+        GameConstants.Instance.Player.Subtitles.Show(actor, line.Text);
 
         nextLineIndex++;
     }
 
     private void Start()
     {
+        actor = GetComponent<ActorController>();
         audio = GetComponent<AudioSource>();
     }
 
