@@ -13,7 +13,7 @@ public partial class FindGameObjectAction : Action
 
     protected override Status OnStart()
     {
-        Object.Value = (GuidComponent)GuidManager.Instance.TryFind(Id.Value);
+        Object.Value = GuidManager.Instance.TryFind<GuidComponent>(Id.Value);
         return Object.Value != null ? Status.Success : Status.Failure;
     }
 }

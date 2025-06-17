@@ -72,7 +72,7 @@ public class QuestController : Saveable
 
         foreach (var state in questData.States)
         {
-            var quest = (Quest)GuidManager.Instance.Find(state.Key);
+            var quest = GuidManager.Instance.Find<Quest>(state.Key);
             States[quest] = new QuestProgress(quest, state.Value);
         }
     }

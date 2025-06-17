@@ -52,7 +52,7 @@ public static class SaveLoad
 
         foreach (var obj in objects)
         {
-            var gameObj = (Saveable)GuidManager.Instance.TryFind(obj.id);
+            var gameObj = GuidManager.Instance.TryFind<Saveable>(obj.id);
             if (gameObj == null)
             {
                 Debug.Log($"Unable to find object with GUID {obj.id}");

@@ -35,7 +35,7 @@ public class ClaimManager : Saveable
         base.Load(data);
         var cmData = (ClaimManagerSave)data;
         Free = cmData.Free;
-        Reserved = cmData.Reserved.ToDictionary(kv => ((GuidComponent)GuidManager.Instance.Find(kv.Key)).gameObject, kv => kv.Value);
+        Reserved = cmData.Reserved.ToDictionary(kv => GuidManager.Instance.Find<GuidComponent>(kv.Key).gameObject, kv => kv.Value);
     }
 
     // Assuming that transform.children is an array and not a linked list

@@ -61,14 +61,14 @@ public class GuidManager : IUnityObjectResolver<string>
 #endif
 
     Dictionary<int, IGuidContainer> objects = new();
-    public IGuidContainer Find(int guid)
+    public T Find<T>(int guid) where T : class, IGuidContainer
     {
-        return objects[guid];
+        return (T)objects[guid];
     }
-    public IGuidContainer TryFind(int guid)
+    public T TryFind<T>(int guid) where T: class, IGuidContainer
     {
         objects.TryGetValue(guid, out IGuidContainer saveable);
-        return saveable;
+        return (T)saveable;
     }
 
     /// <summary>
@@ -124,7 +124,7 @@ public class GuidManager : IUnityObjectResolver<string>
     {
         if (mappedValue == "") return null;
         var uid = int.Parse(mappedValue);
-        var obj = (GuidComponent)TryFind(uid);
+        var obj = TryFind<GuidComponent>(uid);
 
         if (typeof(TSerializedType) == typeof(GameObject))
         {

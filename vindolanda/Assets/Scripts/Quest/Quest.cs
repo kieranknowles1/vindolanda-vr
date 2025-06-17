@@ -26,7 +26,7 @@ public class QuestProgress
         Objectives = new();
         foreach (var obj in save.Objectives)
         {
-            var objective = (QuestObjective)GuidManager.Instance.Find(obj.Key);
+            var objective = GuidManager.Instance.Find<QuestObjective>(obj.Key);
             Objectives[objective] = new ObjectiveState(objective, obj.Value);
         }
     }
