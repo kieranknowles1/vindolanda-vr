@@ -17,6 +17,8 @@ public class PatrolRouteEditor : Editor
             var newObj = new GameObject($"Point{route.points.Count}");
             newObj.transform.parent = route.transform;
             newObj.transform.position = end;
+            // Need a GuidComponent to be referenced in saves
+            newObj.AddComponent<GuidComponent>();
             route.points.Add(newObj.transform);
 
             Selection.activeObject = newObj;

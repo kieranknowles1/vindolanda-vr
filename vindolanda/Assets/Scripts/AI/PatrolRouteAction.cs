@@ -24,7 +24,7 @@ public partial class PatrolRouteAction : Action
     [CreateProperty] private float m_OriginalStoppingDistance = -1f;
     [CreateProperty] private float m_OriginalSpeed = -1f;
     [CreateProperty] private float m_WaypointWaitTimer;
-    [CreateProperty] private int m_CurrentPatrolPoint = 0;
+    [CreateProperty] private PatrolRoute.PointInfo m_CurrentPatrolPoint;
     [CreateProperty] private bool m_Waiting;
 
     protected override Status OnStart()
@@ -52,7 +52,7 @@ public partial class PatrolRouteAction : Action
 
         m_Waiting = false;
         m_WaypointWaitTimer = 0.0f;
-        m_CurrentPatrolPoint = StartingWaypoint.Value;
+        m_CurrentPatrolPoint = new() { direction = PatrolRoute.Direction.Forward, index = StartingWaypoint.Value };
         MoveToNextWaypoint();
         return Status.Running;
     }
@@ -111,10 +111,11 @@ public partial class PatrolRouteAction : Action
 
         m_NavMeshAgent.Warp(Agent.Value.transform.position);
 
-        int patrolPoint = m_CurrentPatrolPoint - 1;
+        bool preserve = PreserveLatestPatrolPoint.Value;
+        PreserveLatestPatrolPoint.Value = true;
+        // During deserialization, consider PreserveLatestPatrolPoint always true.
         Initialize();
-        // During deserialization, bypass PreserveLatestPatrolPoint.
-        m_CurrentPatrolPoint = patrolPoint;
+        PreserveLatestPatrolPoint.Value = preserve;
     }
 
     private void Initialize()
@@ -129,14 +130,16 @@ public partial class PatrolRouteAction : Action
         m_OriginalStoppingDistance = m_NavMeshAgent.stoppingDistance;
         m_NavMeshAgent.stoppingDistance = DistanceThreshold;
 
-        m_CurrentPatrolPoint = PreserveLatestPatrolPoint.Value ? m_CurrentPatrolPoint - 1 : -1;
+        // MoveToNextWaypoint will increment index
+        int off = m_CurrentPatrolPoint.direction == PatrolRoute.Direction.Forward ? 1 : -1;
+        m_CurrentPatrolPoint.index -= off;
     }
 
     private void MoveToNextWaypoint()
     {
-        m_CurrentPatrolPoint = (m_CurrentPatrolPoint + 1) % Route.Value.points.Count;
+        m_CurrentPatrolPoint = Route.Value.GetNextPoint(m_CurrentPatrolPoint);
 
-        m_CurrentTarget = Route.Value.points[m_CurrentPatrolPoint].transform.position;
+        m_CurrentTarget = Route.Value.points[m_CurrentPatrolPoint.index].transform.position;
         m_NavMeshAgent.SetDestination(m_CurrentTarget);
     }
 }
