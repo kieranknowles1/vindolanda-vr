@@ -2,10 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
-using NUnit.Framework;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 [XmlRoot("osm")]
 public class OSMData
@@ -102,10 +99,11 @@ public class OSMData
     }
 }
 
-class Line
+public class Line
 {
     public bool modern;
-    public List<Vector3> points = new List<Vector3>();
+    public Color color = Color.white;
+    public List<Vector3> points = new();
 }
 
 /// <summary>
@@ -123,22 +121,22 @@ public class OSMLoader : MonoBehaviour
     [SerializeField]
     TextAsset asset;
 
-    public OSMData data;
-    List<Line> lines = new List<Line>();
+    public OSMData Data;
+    public readonly List<Line> Lines = new();
 
     public VisibilityType Visibility = VisibilityType.Always;
     public bool ShowModern = false;
 
     void ReadData()
     {
-        data = OSMData.Read(asset);
+        Data = OSMData.Read(asset);
         var nodes = new Dictionary<string, OSMData.Node>();
-        foreach (var n in data.nodes)
+        foreach (var n in Data.nodes)
         {
             nodes.Add(n.id, n);
         }
 
-        foreach (var way in data.ways)
+        foreach (var way in Data.ways)
         {
             // OSM dataset is slightly inconsistent, but combining these two tags
             // filters out most modern structures with minimal false positive/negative in our case
@@ -156,22 +154,23 @@ public class OSMLoader : MonoBehaviour
                 // Remap to Unity's axis system
                 line.points.Add(new Vector3(-deref.x, 0, deref.y));
             }
-            lines.Add(line);
+            Lines.Add(line);
         }
     }
 
     private void DrawGizmos()
     {
-        if (data == null)
+        if (Data == null)
         {
             ReadData();
         }
         Gizmos.matrix = transform.localToWorldMatrix;
 
-        foreach (var node in lines)
+        foreach (var node in Lines)
         {
             if (node.modern && !ShowModern)
                 continue;
+            Gizmos.color = node.color;
             for (int i = 1; i < node.points.Count; i++)
             {
                 var prev = node.points[i - 1];
@@ -191,5 +190,10 @@ public class OSMLoader : MonoBehaviour
     {
         if (Visibility == VisibilityType.Selected)
             DrawGizmos();
+    }
+
+    private void Start()
+    {
+        ReadData();
     }
 }
