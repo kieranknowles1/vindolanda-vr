@@ -3,6 +3,7 @@ using Unity.Behavior;
 using UnityEngine;
 using Action = Unity.Behavior.Action;
 using Unity.Properties;
+using Vindolanda.Quest;
 
 [Serializable, GeneratePropertyBag]
 [NodeDescription(name: "Say", story: "[Agent] says [Line]", category: "Action", id: "f93e3ce2b6677c9514a197b4e514e355")]

@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.Localization;
+using Vindolanda.Quest;
 
 /// <summary>
 /// Component to control an actor's speech
@@ -22,6 +23,7 @@ public class Speaker : MonoBehaviour
     private void CompleteCurrentDialogue(SpeechResult result)
     {
         OnSpeechComplete?.Invoke(currentDialogue, result);
+        currentDialogue.OnEnd?.Execute();
         audio.Stop();
         GameConstants.Instance.Player.Subtitles.Hide();
         currentDialogue = null;
@@ -35,6 +37,7 @@ public class Speaker : MonoBehaviour
         }
         currentDialogue = dialogue;
         nextLineIndex = 0;
+        dialogue.OnBegin?.Execute();
         StartNextLine();
     }
 
