@@ -17,6 +17,7 @@ namespace Vindolanda.Quest
                     if (value == currentObjective) return;
                     currentObjective?.OnEnd?.Execute();
                     currentObjective = value;
+                    Debug.Log($"Set objective {value.name}");
                     value?.OnBegin?.Execute();
                 }
             }

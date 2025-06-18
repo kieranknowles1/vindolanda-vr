@@ -5,13 +5,13 @@ using UnityEngine.Localization;
 namespace Vindolanda.Quest
 {
 
-    [CreateAssetMenu(menuName = "Quests/Objective")]
+    [CreateAssetMenu(menuName = "Quest/Objective")]
     public class Objective : GuidSO
     {
         [NonSerialized] public Quest Owner;
 
         public LocalizedString Description;
-        public IEvent OnBegin;
-        public IEvent OnEnd;
+        public QuestEvent OnBegin;
+        public QuestEvent OnEnd;
     }
 }

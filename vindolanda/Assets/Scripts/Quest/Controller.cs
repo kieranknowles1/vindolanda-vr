@@ -27,19 +27,14 @@ namespace Vindolanda.Quest
             }
             state = new Quest.State(quest);
             states.Add(quest, state);
+            print($"Start quest {quest.name}");
             return state;
         }
-
-        // TODO: Remove
-        public Quest testQuest;
-        public Objective testObjective;
 
         protected override void Start()
         {
             base.Start();
             GameConstants.Instance.QuestController = this;
-
-            GetState(testQuest).CurrentObjective = testObjective;
         }
 
         public override SaveData Save()
