@@ -86,6 +86,50 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &92303852775386889
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4750303287208928257}
+  - component: {fileID: 8884905760094323224}
+  m_Layer: 0
+  m_Name: ScoreTracker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4750303287208928257
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92303852775386889}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5324008891167951829}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8884905760094323224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92303852775386889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2deba9170a14604ca6c63587386bb00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1571129509714289408
 GameObject:
   m_ObjectHideFlags: 0
@@ -130,6 +174,7 @@ Transform:
   - {fileID: 6791236360832584427}
   - {fileID: 6406759257850420990}
   - {fileID: 7132096111558400793}
+  - {fileID: 4750303287208928257}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2080574554827583963
@@ -705,6 +750,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5324008891167951829}
     m_Modifications:
+    - target: {fileID: 960272934280429616, guid: fed5c2dbed34c9c42bbf319a1086f039, type: 3}
+      propertyPath: OnArrowHit.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 960272934280429616, guid: fed5c2dbed34c9c42bbf319a1086f039, type: 3}
+      propertyPath: OnArrowHit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8884905760094323224}
+    - target: {fileID: 960272934280429616, guid: fed5c2dbed34c9c42bbf319a1086f039, type: 3}
+      propertyPath: OnArrowHit.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 960272934280429616, guid: fed5c2dbed34c9c42bbf319a1086f039, type: 3}
+      propertyPath: OnArrowHit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddScore
+      objectReference: {fileID: 0}
+    - target: {fileID: 960272934280429616, guid: fed5c2dbed34c9c42bbf319a1086f039, type: 3}
+      propertyPath: OnArrowHit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ScoreTracker, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 960272934280429616, guid: fed5c2dbed34c9c42bbf319a1086f039, type: 3}
+      propertyPath: OnArrowHit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6649193040981822756, guid: fed5c2dbed34c9c42bbf319a1086f039, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -955,6 +1024,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5324008891167951829}
     m_Modifications:
+    - target: {fileID: 960272934280429616, guid: fed5c2dbed34c9c42bbf319a1086f039, type: 3}
+      propertyPath: OnArrowHit.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 960272934280429616, guid: fed5c2dbed34c9c42bbf319a1086f039, type: 3}
+      propertyPath: OnArrowHit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8884905760094323224}
+    - target: {fileID: 960272934280429616, guid: fed5c2dbed34c9c42bbf319a1086f039, type: 3}
+      propertyPath: OnArrowHit.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 960272934280429616, guid: fed5c2dbed34c9c42bbf319a1086f039, type: 3}
+      propertyPath: OnArrowHit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddScore
+      objectReference: {fileID: 0}
+    - target: {fileID: 960272934280429616, guid: fed5c2dbed34c9c42bbf319a1086f039, type: 3}
+      propertyPath: OnArrowHit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ScoreTracker, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 960272934280429616, guid: fed5c2dbed34c9c42bbf319a1086f039, type: 3}
+      propertyPath: OnArrowHit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3342479321866811006, guid: fed5c2dbed34c9c42bbf319a1086f039, type: 3}
       propertyPath: m_LocalRotation.w
       value: -0.40239957
@@ -1037,6 +1130,30 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5324008891167951829}
     m_Modifications:
+    - target: {fileID: 960272934280429616, guid: fed5c2dbed34c9c42bbf319a1086f039, type: 3}
+      propertyPath: OnArrowHit.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 960272934280429616, guid: fed5c2dbed34c9c42bbf319a1086f039, type: 3}
+      propertyPath: OnArrowHit.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8884905760094323224}
+    - target: {fileID: 960272934280429616, guid: fed5c2dbed34c9c42bbf319a1086f039, type: 3}
+      propertyPath: OnArrowHit.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 960272934280429616, guid: fed5c2dbed34c9c42bbf319a1086f039, type: 3}
+      propertyPath: OnArrowHit.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AddScore
+      objectReference: {fileID: 0}
+    - target: {fileID: 960272934280429616, guid: fed5c2dbed34c9c42bbf319a1086f039, type: 3}
+      propertyPath: OnArrowHit.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ScoreTracker, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 960272934280429616, guid: fed5c2dbed34c9c42bbf319a1086f039, type: 3}
+      propertyPath: OnArrowHit.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3342479321866811006, guid: fed5c2dbed34c9c42bbf319a1086f039, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.484868

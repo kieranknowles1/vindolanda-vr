@@ -17,6 +17,7 @@ public class Arrow : XRGrabInteractable, IWeapon
     Rigidbody body;
     SphereCollider trigger;
     public MeshRenderer Renderer;
+    public Transform tip;
 
     /// <summary>
     /// Is the arrow stuck in an object and unable to move?

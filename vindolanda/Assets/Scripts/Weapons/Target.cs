@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Target : MonoBehaviour, IHitTarget
 {
@@ -15,12 +17,22 @@ public class Target : MonoBehaviour, IHitTarget
     public Vector3 offset;
     public List<HitArea> areas;
 
+    [Tooltip("Event called with score of the hit")]
+    public UnityEvent<int> OnArrowHit;
+
     public Vector3 Center => transform.position + (transform.rotation * offset);
+
+    int CalculateScore(Arrow arrow)
+    {
+        float distance = (arrow.tip.position - Center).magnitude;
+        return areas.First(a => a.radius <= distance).value;
+    }
 
     public void OnHit(IWeapon weapon)
     {
-        // TODO: Award points based on proximity to center
-        throw new System.NotImplementedException();
+        if (weapon is not Arrow arrow) return;
+
+        OnArrowHit.Invoke(CalculateScore(arrow));
     }
 
     private void OnDrawGizmosSelected()
