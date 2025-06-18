@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f66d2541cde1e354e8fcda5f5e808edd, type: 3}
   m_Name: SetObjectiveTakeBow
   m_EditorClassIdentifier: 
-  quest: {fileID: 0}
-  objective: {fileID: 0}
+  quest: {fileID: 11400000, guid: 60a0abc73b1d55745bb1e3da8b54ebba, type: 2}
+  objective: {fileID: 11400000, guid: ffbdeb389fbe52441a25e200ae4719d0, type: 2}
