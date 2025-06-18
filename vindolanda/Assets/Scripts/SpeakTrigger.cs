@@ -1,4 +1,5 @@
 using UnityEngine;
+using Vindolanda.Quest;
 
 public class SpeakTrigger : MonoBehaviour
 {

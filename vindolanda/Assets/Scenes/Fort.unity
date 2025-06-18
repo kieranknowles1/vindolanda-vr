@@ -7076,6 +7076,10 @@ PrefabInstance:
       propertyPath: id
       value: 1257533022
       objectReference: {fileID: 0}
+    - target: {fileID: 6513806650253205709, guid: c8ea7d3b8b1757846a4fecb243e45d0b, type: 3}
+      propertyPath: id
+      value: 1453291878
+      objectReference: {fileID: 0}
     - target: {fileID: 6873165262099389971, guid: c8ea7d3b8b1757846a4fecb243e45d0b, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -7168,7 +7172,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5190468524899461986, guid: c8ea7d3b8b1757846a4fecb243e45d0b, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -10375,10 +10380,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2110629322}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de9021041e303e54b9b2b135e190ad45, type: 3}
+  m_Script: {fileID: 11500000, guid: 55531ddef8f70314b9b6420d85e86613, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Objective: {fileID: 11400000, guid: 63e68ce911cd5f44b85905ddbec637dd, type: 2}
+  id: 740127660
+  onEnter: {fileID: 11400000, guid: 3543e2d993d492149a077e8e0374c845, type: 2}
+  singleUse: 1
 --- !u!1 &2114641339
 GameObject:
   m_ObjectHideFlags: 0
