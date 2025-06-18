@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Localization;
 using Vindolanda.Quest;
@@ -11,71 +12,47 @@ public class Speaker : MonoBehaviour
 {
     public LocalizedString ActorName;
 
-    public enum SpeechResult
-    {
-        // The dialogue played to completion
-        Success,
-        // The dialogue was interrupted before completion
-        Interrupted,
+    private Dialogue currentDialogue;
+    public Dialogue CurrentDialogue {
+        get => currentDialogue;
+        set {
+            currentDialogue?.OnEnd?.Execute();
+            currentDialogue = value;
+            value?.OnBegin?.Execute();
+        }
     }
-
-    public event Action<Dialogue, SpeechResult> OnSpeechComplete;
-    private void CompleteCurrentDialogue(SpeechResult result)
-    {
-        OnSpeechComplete?.Invoke(currentDialogue, result);
-        currentDialogue.OnEnd?.Execute();
-        audio.Stop();
-        GameConstants.Instance.Player.Subtitles.Hide();
-        currentDialogue = null;
-    }
+    Coroutine speakCoroutine;
 
     public void Say(Dialogue dialogue)
     {
-        if (currentDialogue != null)
+        IEnumerator SayAsync()
         {
-            CompleteCurrentDialogue(SpeechResult.Interrupted);
+            for (int i = 0; i < dialogue.Lines.Count; i++)
+            {
+                var line = dialogue.Lines[i];
+                var clip = line.Clip != null && !line.Clip.IsEmpty ? line.Clip.LoadAsset() : PlaceholderClip;
+
+                audio.PlayOneShot(clip);
+                GameConstants.Instance.Player.Subtitles.Show(ActorName.GetLocalizedString(), line.Text.GetLocalizedString());
+
+                yield return new WaitForSeconds(clip.length);
+            }
+
+            CurrentDialogue = null;
+            speakCoroutine = null;
         }
-        currentDialogue = dialogue;
-        nextLineIndex = 0;
-        dialogue.OnBegin?.Execute();
-        StartNextLine();
+
+        if (speakCoroutine != null) StopCoroutine(speakCoroutine);
+        CurrentDialogue = dialogue;
+        speakCoroutine = StartCoroutine(SayAsync());
     }
 
     public AudioClip PlaceholderClip;
 
     private new AudioSource audio;
 
-    private Dialogue currentDialogue;
-    private int nextLineIndex;
-
-    void StartNextLine()
-    {
-        if (nextLineIndex >= currentDialogue.Lines.Count)
-        {
-            CompleteCurrentDialogue(SpeechResult.Success);
-            return;
-        }
-
-        var line = currentDialogue.Lines[nextLineIndex];
-        // TODO: Preload assets at the start of the line
-        var clip = line.Clip != null && !line.Clip.IsEmpty ? line.Clip.LoadAsset() : PlaceholderClip;
-
-        audio.PlayOneShot(clip);
-        GameConstants.Instance.Player.Subtitles.Show(ActorName.GetLocalizedString(), line.Text.GetLocalizedString());
-
-        nextLineIndex++;
-    }
-
     private void Start()
     {
         audio = GetComponent<AudioSource>();
-    }
-
-    private void Update()
-    {
-        if (currentDialogue && !audio.isPlaying)
-        {
-            StartNextLine();
-        }
     }
 }

@@ -12,13 +12,6 @@ public partial class SayAction : Action
     [SerializeReference] public BlackboardVariable<GameObject> Agent;
     [SerializeReference] public BlackboardVariable<Dialogue> Line;
     Speaker speaker;
-    Status status;
-
-    void OnComplete(Dialogue dialogue, Speaker.SpeechResult result)
-    {
-        if (dialogue != Line.Value) return;
-        status = result == Speaker.SpeechResult.Success ? Status.Success : Status.Failure;
-    }
 
     protected override Status OnStart()
     {
@@ -30,19 +23,16 @@ public partial class SayAction : Action
         }
 
         speaker.Say(Line.Value);
-        speaker.OnSpeechComplete += OnComplete;
-        status = Status.Running;
         return Status.Running;
     }
 
     protected override Status OnUpdate()
     {
-        return status;
-    }
-
-    protected override void OnEnd()
-    {
-        speaker.OnSpeechComplete -= OnComplete;
+        if (speaker.CurrentDialogue == null)
+            return Status.Success;
+        if (speaker.CurrentDialogue == Line.Value)
+            return Status.Running;
+        return Status.Failure; // Interrupted
     }
 }
 
