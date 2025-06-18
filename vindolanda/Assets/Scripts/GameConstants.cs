@@ -19,5 +19,5 @@ public class GameConstants
     }
 
     public PlayerController Player;
-    public QuestController QuestController;
+    public Vindolanda.Quest.Controller QuestController;
 }
