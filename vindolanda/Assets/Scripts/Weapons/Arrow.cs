@@ -1,3 +1,5 @@
+using System;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
@@ -14,38 +16,59 @@ public interface IHitTarget
 [RequireComponent(typeof(Rigidbody))]
 public class Arrow : XRGrabInteractable, IWeapon
 {
-    Rigidbody body;
+    public enum State
+    {
+        Default,
+        InFlight,
+        Embedded
+    };
+
+    public Rigidbody Body { get; private set; }
     SphereCollider trigger;
     public MeshRenderer Renderer;
     public Transform tip;
 
-    /// <summary>
-    /// Is the arrow stuck in an object and unable to move?
-    /// </summary>
-    public bool Stuck
+    State state = State.Default;
+    public State CurrentState
     {
-        get => !trigger.enabled;
-        set {
-            trigger.enabled = !value;
-            body.SetFrozen(value);
+        get => state;
+        set
+        {
+            state = value;
+            trigger.enabled = value == State.InFlight;
+            Body.SetFrozen(value == State.Embedded);
         }
     }
 
-    void Start()
+    /// <summary>
+    /// Is the arrow stuck in an object and unable to move?
+    /// </summary>
+    [Obsolete]
+    public bool Stuck
     {
-        body = GetComponent<Rigidbody>();
+        get => state == State.Embedded;
+        set => state = value ? State.Embedded : State.Default;
+    }
+
+    protected override void Awake()
+    {
+        base.Awake();
+        Body = GetComponent<Rigidbody>();
         trigger = GetComponent<SphereCollider>();
     }
 
-    private void OnTriggerEnter(Collider other)
+    void Update()
     {
-        if (other.isTrigger) return;
-        var forwardVelocity = Vector3.Dot(body.linearVelocity, transform.forward);
+        if (state != State.InFlight) return;
+        transform.rotation = Quaternion.LookRotation(Body.linearVelocity.normalized);
 
+        var distance = Body.linearVelocity.magnitude * Time.deltaTime * 1.5f;
+        if (!Physics.Raycast(tip.position, tip.forward, out var hit, distance, layerMask: ~Layers.Projectile, QueryTriggerInteraction.Ignore)) return;
 
-        var target = other.GetInterface<IHitTarget>();
+        CurrentState = State.Embedded;
+        transform.position = hit.point - (tip.rotation * tip.localPosition);
+
+        var target = hit.collider.GetInterface<IHitTarget>();
         target?.OnHit(this);
-
-        Stuck = true;
     }
 }

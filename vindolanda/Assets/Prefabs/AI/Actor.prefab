@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 61679011403195563}
   - component: {fileID: 6049402015056274685}
   - component: {fileID: 2765552055783056587}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Actor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f90c975fd3d001a4fba711751185657c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ActorName:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
   PlaceholderClip: {fileID: 8300000, guid: eebc7d6c2cbf26640ac2a3f978a822a8, type: 3}
+  references:
+    version: 2
+    RefIds: []
 --- !u!82 &61679011403195563
 AudioSource:
   m_ObjectHideFlags: 0
