@@ -1664,6 +1664,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Quiver
       objectReference: {fileID: 0}
+    - target: {fileID: 5300528103417116209, guid: b9b97c0685b54584a89290667738d824, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5732349426171435304, guid: b9b97c0685b54584a89290667738d824, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
