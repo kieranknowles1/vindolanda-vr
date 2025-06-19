@@ -25,14 +25,14 @@ public class Target : MonoBehaviour, IHitTarget
     int CalculateScore(Arrow arrow)
     {
         float distance = (arrow.tip.position - Center).magnitude;
-        return areas.First(a => a.radius <= distance).value;
+        return areas.Where(a => a.radius <= distance).Cast<HitArea?>().FirstOrDefault()?.value ?? 1;
     }
 
     public void OnHit(IWeapon weapon)
     {
         if (weapon is not Arrow arrow) return;
 
-        OnArrowHit.Invoke(CalculateScore(arrow));
+        OnArrowHit?.Invoke(CalculateScore(arrow));
     }
 
     private void OnDrawGizmosSelected()
