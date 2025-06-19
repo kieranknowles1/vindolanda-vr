@@ -39,6 +39,7 @@ public class Arrow : XRGrabInteractable, IWeapon
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.isTrigger) return;
         var forwardVelocity = Vector3.Dot(body.linearVelocity, transform.forward);
 
 
