@@ -329,9 +329,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec5f9d1811041704d8dbf3772a9ac97b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 0
+  singleUse: 1
   dialogue: {fileID: 11400000, guid: c613d39df18e3a04ca2ad89b57f42784, type: 2}
   speaker: {fileID: 9045073120358102526}
-  doOnce: 1
 --- !u!1 &8373073654379648666
 GameObject:
   m_ObjectHideFlags: 0

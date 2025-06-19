@@ -4,19 +4,13 @@ using UnityEngine;
 using UnityEditor;
 #endif
 
-public class TeleportTrigger : MonoBehaviour
+public class TeleportTrigger : TriggerBase
 {
     [SerializeField]
     Transform target;
 
     [SerializeField]
     Mesh dummyMesh;
-
-    private void OnTriggerEnter(Collider other)
-    {
-        other.transform.position = target.position;
-        other.transform.rotation = target.rotation;
-    }
 
 #if UNITY_EDITOR
     private void OnDrawGizmos()
@@ -27,6 +21,12 @@ public class TeleportTrigger : MonoBehaviour
         Gizmos.color = Color.purple;
         Handles.Label(target.transform.position + (Vector3.up * 2), "Teleport Target");
         Gizmos.DrawWireMesh(dummyMesh, target.transform.position, target.transform.rotation);
+    }
+
+    protected override void Execute(PlayerController player)
+    {
+        player.transform.position = target.position;
+        player.transform.rotation = target.rotation;
     }
 #endif
 }
