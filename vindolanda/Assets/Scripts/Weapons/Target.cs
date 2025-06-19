@@ -24,8 +24,8 @@ public class Target : MonoBehaviour, IHitTarget
 
     int CalculateScore(Arrow arrow)
     {
-        float distance = (arrow.tip.position - Center).magnitude;
-        return areas.Where(a => a.radius <= distance).Cast<HitArea?>().FirstOrDefault()?.value ?? 1;
+        float distance = Vector3.Distance(arrow.tip.position, Center);
+        return areas.Where(a => distance <= a.radius).Cast<HitArea?>().FirstOrDefault()?.value ?? 1;
     }
 
     public void OnHit(IWeapon weapon)
@@ -38,6 +38,7 @@ public class Target : MonoBehaviour, IHitTarget
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.black;
+        Gizmos.DrawWireCube(Center, Vector3.one * 0.03f);
         
         foreach (var area in areas)
         {

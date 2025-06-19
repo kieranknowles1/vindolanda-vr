@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf4239fdc6256e94dbfc660094b04ecc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset: {x: 0.02, y: 0.01, z: 0.06}
+  offset: {x: 0.02, y: 0.01, z: 0.05}
   areas:
   - radius: 0.05
     value: 10
@@ -136,6 +136,9 @@ MonoBehaviour:
     value: 4
   - radius: 0.5
     value: 2
+  OnArrowHit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5415772766318722106
 GameObject:
   m_ObjectHideFlags: 0

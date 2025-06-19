@@ -12,6 +12,12 @@ public class ScoreTracker : MonoBehaviour
     public int maxHits;
 
     public VariablesGroupAsset vars;
+    IntVariable scoreVar;
+
+    private void Start()
+    {
+        scoreVar = vars["score"] as IntVariable;
+    }
 
     public void Reset()
     {
@@ -24,8 +30,7 @@ public class ScoreTracker : MonoBehaviour
         Score += score;
         TotalHits++;
 
-        vars.Remove("score");
-        vars.Add("score", new IntVariable { Value = score });
+        scoreVar.Value = Score;
 
         if (score >= targetScore) OnTargetScoreReached?.SendEventMessage();
         if (TotalHits >= maxHits) OnMaxHitsReached?.SendEventMessage();

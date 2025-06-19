@@ -40,16 +40,6 @@ public class Arrow : XRGrabInteractable, IWeapon
         }
     }
 
-    /// <summary>
-    /// Is the arrow stuck in an object and unable to move?
-    /// </summary>
-    [Obsolete]
-    public bool Stuck
-    {
-        get => state == State.Embedded;
-        set => state = value ? State.Embedded : State.Default;
-    }
-
     protected override void Awake()
     {
         base.Awake();
