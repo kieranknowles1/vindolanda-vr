@@ -130,6 +130,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2deba9170a14604ca6c63587386bb00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTargetScoreReached: {fileID: 0}
+  OnMaxHitsReached: {fileID: 11400000, guid: 56f1b8d89d6df994382e72171f4bdd8b, type: 2}
+  targetScore: 0
+  maxHits: 5
+  vars: {fileID: 11400000, guid: 77b81af0052792945bb2dce342052d28, type: 2}
 --- !u!1 &1571129509714289408
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,9 +1,17 @@
 using UnityEngine;
+using UnityEngine.Localization.SmartFormat.PersistentVariables;
 
 public class ScoreTracker : MonoBehaviour
 {
     public int Score { get; private set; }
     public int TotalHits { get; private set; }
+
+    public DefaultEvent OnTargetScoreReached;
+    public DefaultEvent OnMaxHitsReached;
+    public int targetScore;
+    public int maxHits;
+
+    public VariablesGroupAsset vars;
 
     public void Reset()
     {
@@ -15,5 +23,11 @@ public class ScoreTracker : MonoBehaviour
     {
         Score += score;
         TotalHits++;
+
+        vars.Remove("score");
+        vars.Add("score", new IntVariable { Value = score });
+
+        if (score >= targetScore) OnTargetScoreReached?.SendEventMessage();
+        if (TotalHits >= maxHits) OnMaxHitsReached?.SendEventMessage();
     }
 }
