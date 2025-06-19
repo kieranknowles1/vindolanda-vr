@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2014bf2c72eb475439d5f919d2a8f477, type: 3}
-  m_Name: ArcheryIntroHello
+  m_Name: DialArcheryShootPrompt
   m_EditorClassIdentifier: 
   Lines:
   - Text:
       m_TableReference:
         m_TableCollectionName: GUID:bbc577575d755f2468f29145e420373b
       m_TableEntryReference:
-        m_KeyId: 2166963465129984
+        m_KeyId: 2526931473174528
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
@@ -34,7 +34,7 @@ MonoBehaviour:
       m_TableReference:
         m_TableCollectionName: GUID:bbc577575d755f2468f29145e420373b
       m_TableEntryReference:
-        m_KeyId: 2167071204216832
+        m_KeyId: 2527913099694080
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
@@ -47,6 +47,8 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
+  OnBegin: {fileID: 0}
+  OnEnd: {fileID: 0}
   references:
     version: 2
     RefIds: []
