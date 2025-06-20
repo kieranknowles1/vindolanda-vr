@@ -178,6 +178,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: 0
+  OnActiveQuestChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 618636436101062348}
+        m_TargetAssemblyTypeName: Vindolanda.Quest.Journal, Assembly-CSharp
+        m_MethodName: OnQuestChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnQuestObjectiveChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 618636436101062348}
+        m_TargetAssemblyTypeName: Vindolanda.Quest.Journal, Assembly-CSharp
+        m_MethodName: OnObjectiveChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7093690804326199464
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,6 +413,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+--- !u!114 &618636436101062348 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5571719809208091995, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+  m_PrefabInstance: {fileID: 5028109739275443095}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 179e6fdf43f0b1a40b40437f0ba190c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &5913236999220278713 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}

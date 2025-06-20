@@ -19,6 +19,9 @@ namespace Vindolanda.Quest
                     currentObjective = value;
                     Debug.Log($"Set objective {value.name}");
                     value?.OnBegin?.Execute();
+
+                    GameConstants.Instance.QuestController.ActiveQuest = this;
+                    GameConstants.Instance.QuestController.OnQuestObjectiveChanged.Invoke(this, value);
                 }
             }
 
