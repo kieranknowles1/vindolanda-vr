@@ -59,6 +59,8 @@ public partial class PatrolRouteAction : Action
 
     protected override Status OnUpdate()
     {
+        if (m_CurrentPatrolPoint.done) return Status.Success;
+
         if (m_Waiting)
         {
             if (m_WaypointWaitTimer > 0.0f)
@@ -138,6 +140,7 @@ public partial class PatrolRouteAction : Action
     private void MoveToNextWaypoint()
     {
         m_CurrentPatrolPoint = Route.Value.GetNextPoint(m_CurrentPatrolPoint);
+        if (m_CurrentPatrolPoint.done) return;
 
         m_CurrentTarget = Route.Value.points[m_CurrentPatrolPoint.index].transform.position;
         m_NavMeshAgent.SetDestination(m_CurrentTarget);

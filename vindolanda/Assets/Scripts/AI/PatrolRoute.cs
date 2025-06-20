@@ -10,6 +10,7 @@ public class PatrolRoute : MonoBehaviour
     {
         BackForth,
         Loop,
+        OneShot
     }
 
     public enum Direction
@@ -23,7 +24,10 @@ public class PatrolRoute : MonoBehaviour
     {
         public int index;
         public Direction direction;
+        // Has this route looped back to the start?
         public bool looped;
+        // Is the route complete?
+        public bool done;
     }
 
     public Type type = Type.Loop;
@@ -50,6 +54,7 @@ public class PatrolRoute : MonoBehaviour
                     index = previous.index - offset,
                     looped = true
                 },
+                Type.OneShot => new() { done = true },
                 _ => throw new System.Exception()
             };
         }
@@ -69,6 +74,7 @@ public class PatrolRoute : MonoBehaviour
         do
         {
             var current = GetNextPoint(previous);
+            if (current.done) break;
 
             Transform currentT = points[current.index];
             Transform prevT = points[previous.index];
