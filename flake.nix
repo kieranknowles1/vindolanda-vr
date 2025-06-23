@@ -43,10 +43,7 @@
     flake-parts,
     nixcfg,
     ...
-  } @ inputs: let
-    cfgLib = nixcfg.lib;
-  in
-    flake-parts.lib.mkFlake {inherit inputs;} {
+  } @ inputs: flake-parts.lib.mkFlake {inherit inputs;} {
       systems = import inputs.systems;
 
       imports = [
@@ -59,7 +56,6 @@
       };
 
       perSystem = {
-        pkgs,
         inputs',
         ...
       }: {
@@ -68,16 +64,8 @@
           "notes/*"
         ];
 
-        # Per system type
-        devShells = {
-          report = cfgLib.shell.mkShellEx pkgs.mkShellNoCC {
-            name = "report";
-            packages = with pkgs; [
-              texliveFull # Definitely overkill
-            ];
-          };
-        };
-
+        # FIXME: Move this outside the flake, repo is too big to practically
+        # use nix
         packages = {
           sync-notes = let
             home = "/home/kieran";

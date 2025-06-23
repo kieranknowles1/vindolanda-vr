@@ -19,7 +19,7 @@ it
 - [ ] Fort/milecastle scene
 - [ ] Quest system
   - [ ] Delivery quests
-  - [ ] Clay tablets
+  - [ ] Writing tablets
     - [ ] Show longer text when held
     - [ ] Inventory system
 - [x] Subtitles
@@ -33,5 +33,6 @@ it
 
 ## Known Issues
 
-- [ ] Can't teleport
-- [ ] Floor height is based on height of headset at startup
+- [x] Can't teleport
+- [x] ~~Floor height is based on height of headset at startup~~ not quite
+  accurate, only an issue if SteamVR is not running
