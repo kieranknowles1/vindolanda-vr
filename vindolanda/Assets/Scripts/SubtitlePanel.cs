@@ -6,10 +6,11 @@ public class SubtitlePanel : MonoBehaviour
 {
     [SerializeField] Canvas canvas;
     [SerializeField] TextMeshProUGUI text;
-    [SerializeField] LocalizedString template;
 
     private void Start()
     {
+        // Canvas positioning is handled by LazyFollow
+        canvas.transform.parent = null;
         Hide();
     }
 
