@@ -23,10 +23,10 @@ public class TeleportTrigger : TriggerBase
         Gizmos.DrawWireMesh(dummyMesh, target.transform.position, target.transform.rotation);
     }
 
+#endif
     protected override void Execute(PlayerController player)
     {
         player.transform.position = target.position;
         player.transform.rotation = target.rotation;
     }
-#endif
 }
