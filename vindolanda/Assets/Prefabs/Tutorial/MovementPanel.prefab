@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 620f04423e1afc44cb7764478b826c1c, type: 3}
+    - target: {fileID: 3069540527906866903, guid: 751ca660c8a41cf408fa5dade14a0181, type: 3}
+      propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
+      value: 4666630442618880
+      objectReference: {fileID: 0}
     - target: {fileID: 5334294788394334234, guid: 751ca660c8a41cf408fa5dade14a0181, type: 3}
       propertyPath: m_Name
       value: FaceButtonsPanel
@@ -55,6 +59,14 @@ PrefabInstance:
     - target: {fileID: 8205253260636680648, guid: 751ca660c8a41cf408fa5dade14a0181, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8791246267163572868, guid: 751ca660c8a41cf408fa5dade14a0181, type: 3}
+      propertyPath: m_fontSize
+      value: 46
+      objectReference: {fileID: 0}
+    - target: {fileID: 8791246267163572868, guid: 751ca660c8a41cf408fa5dade14a0181, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 46
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
