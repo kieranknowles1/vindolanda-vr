@@ -10,7 +10,7 @@ public class SubtitlePanel : MonoBehaviour
     private void Start()
     {
         // Canvas positioning is handled by LazyFollow
-        canvas.transform.parent = null;
+        canvas.transform.SetParent(null, worldPositionStays: false);
         Hide();
     }
 
