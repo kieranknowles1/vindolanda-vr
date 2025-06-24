@@ -26,4 +26,16 @@ public class PointLineRenderer : MonoBehaviour
         }
         lineRenderer.SetPositions(positions);
     }
+
+    private void OnDrawGizmos()
+    {
+        if (points.Count < 2) return;
+        for (int i = 1; i < points.Count; i++)
+        {
+            var prev = points[i - 1];
+            var next = points[i];
+            if (prev == null || next == null) continue;
+            Gizmos.DrawLine(prev.position, next.position);
+        }
+    }
 }
