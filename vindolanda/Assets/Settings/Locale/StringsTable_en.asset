@@ -130,10 +130,6 @@ MonoBehaviour:
     m_Localized: Tutorial
     m_Metadata:
       m_Items: []
-  - m_Id: 4670781838888960
-    m_Localized: Use the right stick to move around.
-    m_Metadata:
-      m_Items: []
   - m_Id: 4671270156537856
     m_Localized: At any time, press any button on your controllers to repeat the
       last instruction.
@@ -148,7 +144,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4675689417838592
-    m_Localized: Hold your palm open.
+    m_Localized: Hold your palm open, then reach down and grab one of the bowls in
+      front of you.
     m_Metadata:
       m_Items: []
   - m_Id: 4967076495343616
@@ -183,6 +180,29 @@ MonoBehaviour:
   - m_Id: 5046306520469504
     m_Localized: Welcome to Vindolanda. This tutorial will get you used to moving
       in a virtual world.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5065700420128768
+    m_Localized: You will feel a rumble when the item is ready to grab.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5070484665569280
+    m_Localized: Virtual reality can be disorienting. Make sure to take things slow
+      and take a break if you feel unwell.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5072951000207360
+    m_Localized: Thank you for completing the tutorial.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5073100854300672
+    m_Localized: Feel free to explore Vindolanda at your own pace, or see if the
+      Romans need help with anything.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5073812141150208
+    m_Localized: If you ever need to revisit this tutorial, you can do so though
+      the settings menu.
     m_Metadata:
       m_Items: []
   references:

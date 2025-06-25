@@ -27,18 +27,32 @@ public class Tutorial : MonoBehaviour
 
 
     public Objective moveToTarget;
-    public GameObject locomotionHints;
 
+    public GameObject locomotionHints;
     public Dialogue intro;
     public Dialogue moveSmoothHint;
 
-    Controller QuestController => GameConstants.Instance.QuestController;
+    public GameObject pickUpDemo;
+    public Objective pickUpItem;
+    public Dialogue pickUpPrompt;
 
-    Coroutine routine;
+    public Dialogue completeMessage;
+
+    Quest.State QuestState => GameConstants.Instance.QuestController.GetState(tutorial);
+
     public void BeginTutorial()
     {
-        if (routine != null) StopCoroutine(routine);
-        routine = StartCoroutine(RunTutorialAsync());
+        QuestState.CurrentObjective = moveToTarget;
+        locomotionHints.SetActive(true);
+
+        // TODO: Teleport player to start
+
+        IEnumerator SayIntro()
+        {
+            yield return speaker.Say(intro);
+            SayRepeatable(moveSmoothHint);
+        }
+        StartCoroutine(SayIntro());
     }
 
     Dialogue currentDialogue;
@@ -56,13 +70,27 @@ public class Tutorial : MonoBehaviour
         }
     }
 
-    IEnumerator RunTutorialAsync()
+    public void OnTargetReached()
     {
-        QuestController.GetState(tutorial).CurrentObjective = moveToTarget;
-        locomotionHints.SetActive(true);
+        locomotionHints.SetActive(false);
+        pickUpDemo.SetActive(true);
+        QuestState.CurrentObjective = pickUpItem;
+        SayRepeatable(pickUpPrompt);
 
-        yield return speaker.Say(intro);
+        // TODO: Play mocap animation of picking up an item
+    }
 
-        SayRepeatable(moveSmoothHint);
+    public void OnItemHeld()
+    {
+        
+        QuestState.Complete = true;
+        currentDialogue = null;
+        // TODO: Prompt user to open the menu and save their game
+        IEnumerator SayAsync()
+        {
+            yield return speaker.Say(completeMessage);
+            pickUpDemo.SetActive(false);
+        }
+        StartCoroutine(SayAsync());
     }
 }

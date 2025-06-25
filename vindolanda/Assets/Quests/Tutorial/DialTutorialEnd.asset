@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2014bf2c72eb475439d5f919d2a8f477, type: 3}
-  m_Name: DialIntro
+  m_Name: DialTutorialEnd
   m_EditorClassIdentifier: 
   Lines:
   - Text:
       m_TableReference:
         m_TableCollectionName: GUID:bbc577575d755f2468f29145e420373b
       m_TableEntryReference:
-        m_KeyId: 5046306520469504
+        m_KeyId: 5072951000207360
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
@@ -34,7 +34,7 @@ MonoBehaviour:
       m_TableReference:
         m_TableCollectionName: GUID:bbc577575d755f2468f29145e420373b
       m_TableEntryReference:
-        m_KeyId: 4671270156537856
+        m_KeyId: 5073100854300672
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
@@ -51,7 +51,7 @@ MonoBehaviour:
       m_TableReference:
         m_TableCollectionName: GUID:bbc577575d755f2468f29145e420373b
       m_TableEntryReference:
-        m_KeyId: 5070484665569280
+        m_KeyId: 5073812141150208
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
