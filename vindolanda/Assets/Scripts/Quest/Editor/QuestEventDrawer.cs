@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -10,8 +11,9 @@ namespace Vindolanda.Quest.Editor
     {
         static readonly string[] labels = new string[]
         {
-            "None",
-            "Set Objective"
+            "Do Nothing",
+            "Set Objective",
+            "Trigger Unity Event",
         };
 
         // Must be kept in sync with labels
@@ -19,6 +21,7 @@ namespace Vindolanda.Quest.Editor
         {
             null,
             typeof(SetObjectiveEvent),
+            typeof(TriggerUnityEvent),
         };
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
@@ -31,12 +34,8 @@ namespace Vindolanda.Quest.Editor
 
             if (property.boxedValue?.GetType() != types[selected])
             {
-                property.boxedValue = selected switch
-                {
-                    0 => null,
-                    1 => new SetObjectiveEvent(),
-                    _ => throw new Exception(),
-                };
+                var t = types[selected];
+                property.boxedValue = t != null ? Activator.CreateInstance(t) : null;
             }
 
 
