@@ -150,6 +150,31 @@ MonoBehaviour:
     m_Localized: Hold your palm open.
     m_Metadata:
       m_Items: []
+  - m_Id: 4967076495343616
+    m_Localized: Save and Load
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4967997489004544
+    m_Localized: Save game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4971702338699264
+    m_Localized: Confirm {action}
+    m_Metadata:
+      m_Items:
+      - rid: 4016942959552888834
+  - m_Id: 4976091384233984
+    m_Localized: Load game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4976850175770624
+    m_Localized: Quit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 4977221392646144
+    m_Localized: Start Tutorial
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds:
@@ -160,3 +185,4 @@ MonoBehaviour:
         m_SharedEntries:
         - id: 1733489973301248
         - id: 2821858979463168
+        - id: 4971702338699264

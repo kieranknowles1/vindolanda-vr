@@ -54,7 +54,6 @@ public class ConfirmButton : MonoBehaviour
 
     void OnClick()
     {
-        print($"Clicked {CurrentStatus}");
         if (CurrentStatus == Status.Ready)
         {
             CurrentStatus = Status.FirstClick;
