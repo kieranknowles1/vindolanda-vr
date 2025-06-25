@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public static class ComponentExtensions
@@ -28,4 +29,22 @@ public static class ComponentExtensions
         if (t.parent == null) return t.name;
         return $"{t.parent.FullObjectPath()}/{t.name}";
     }
+
+#if UNITY_EDITOR
+    public static List<T> GetAllScriptableObjects<T>() where T : ScriptableObject
+    {
+        string[] guids = UnityEditor.AssetDatabase.FindAssets("t:" + typeof(T).Name);
+        List<T> output = new()
+        {
+            Capacity = guids.Length
+        };
+        foreach (var guid in guids)
+        {
+            string path = UnityEditor.AssetDatabase.GUIDToAssetPath(guid);
+            T asset = UnityEditor.AssetDatabase.LoadAssetAtPath<T>(path);
+            output.Add(asset);
+        }
+        return output;
+    }
+#endif
 }
