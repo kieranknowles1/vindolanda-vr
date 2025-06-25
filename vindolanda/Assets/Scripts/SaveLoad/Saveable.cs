@@ -38,6 +38,7 @@ public class RigidBodyData
 public class SaveData
 {
     public int id;
+    public bool enabled;
     public SerialVector3 position;
     public SerialQuaternion rotation;
     public SerialVector3 scale;
@@ -47,6 +48,7 @@ public class SaveData
     public SaveData(Saveable obj)
     {
         id = obj.Id;
+        enabled = obj.gameObject.activeSelf;
         position = obj.transform.position;
         rotation = obj.transform.rotation;
         scale = obj.transform.localScale;
@@ -69,6 +71,7 @@ public class Saveable : GuidComponent
 
     public virtual void Load(SaveData data)
     {
+        gameObject.SetActive(data.enabled);
         transform.SetPositionAndRotation(data.position, data.rotation);
         transform.localScale = data.scale;
 

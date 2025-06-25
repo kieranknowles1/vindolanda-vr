@@ -12,7 +12,7 @@ public static class SaveLoad
 {
     public static Saveable[] GetSaveables()
     {
-        return GameObject.FindObjectsByType<Saveable>(FindObjectsSortMode.None);
+        return GameObject.FindObjectsByType<Saveable>(FindObjectsInactive.Include, FindObjectsSortMode.None);
     }
 
     static readonly JsonSerializerSettings settings = new()
