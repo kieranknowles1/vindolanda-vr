@@ -22,8 +22,12 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  OnBegin: {fileID: 0}
-  OnEnd: {fileID: 0}
+  OnBegin:
+    rid: -2
+  OnEnd:
+    rid: -2
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }

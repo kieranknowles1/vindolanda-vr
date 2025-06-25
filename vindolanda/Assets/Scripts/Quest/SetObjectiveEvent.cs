@@ -5,7 +5,6 @@ namespace Vindolanda.Quest
 {
 
     [Serializable]
-    [CreateAssetMenu(menuName = "Quest/Set Objective Event")]
     public class SetObjectiveEvent : QuestEvent
     {
         public Quest quest;

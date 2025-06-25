@@ -11,7 +11,7 @@ namespace Vindolanda.Quest
         [NonSerialized] public Quest Owner;
 
         public LocalizedString Description;
-        public QuestEvent OnBegin;
-        public QuestEvent OnEnd;
+        [SerializeReference] public QuestEvent OnBegin;
+        [SerializeReference] public QuestEvent OnEnd;
     }
 }

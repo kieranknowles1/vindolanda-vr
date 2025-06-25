@@ -22,8 +22,17 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  OnBegin: {fileID: 0}
-  OnEnd: {fileID: 0}
+  OnBegin:
+    rid: 4016943164754231433
+  OnEnd:
+    rid: -2
   references:
     version: 2
-    RefIds: []
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 4016943164754231433
+      type: {class: SetObjectiveEvent, ns: Vindolanda.Quest, asm: Assembly-CSharp}
+      data:
+        quest: {fileID: 0}
+        objective: {fileID: 0}
