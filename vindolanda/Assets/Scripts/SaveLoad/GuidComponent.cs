@@ -12,15 +12,6 @@ public class GuidComponent : MonoBehaviour, IGuidContainer
 
     public bool IsDestroyed => this == null;
 
-    protected virtual void Start()
-    {
-        bool ok = GuidManager.Instance.Register(this);
-        if (!ok)
-        {
-            Debug.LogError($"{this} has non-unique GUID");
-        }
-    }
-
 #if UNITY_EDITOR
     bool registered = false;
 

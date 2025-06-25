@@ -27,9 +27,8 @@ public class ActorController : Saveable
     public BehaviorGraphAgent Agent { get; private set; }
     public Vector3 OriginalPosition { get; private set; }
 
-    protected override void Start()
+    protected void Start()
     {
-        base.Start();
         Agent = GetComponent<BehaviorGraphAgent>();
         OriginalPosition = transform.position;
     }

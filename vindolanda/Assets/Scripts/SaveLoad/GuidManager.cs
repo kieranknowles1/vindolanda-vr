@@ -31,6 +31,12 @@ public class GuidManager : IUnityObjectResolver<string>
         }
     }
 
+    private GuidManager()
+    {
+        var objs = GameObject.FindObjectsByType<GuidComponent>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        objects = objs.ToDictionary(o => o.Id, o => o as IGuidContainer);
+    }
+
 #if UNITY_EDITOR
     static void ClearInstance()
     {
@@ -60,7 +66,7 @@ public class GuidManager : IUnityObjectResolver<string>
     }
 #endif
 
-    Dictionary<int, IGuidContainer> objects = new();
+    readonly Dictionary<int, IGuidContainer> objects;
     public T Find<T>(int guid) where T : class, IGuidContainer
     {
         return (T)objects[guid];

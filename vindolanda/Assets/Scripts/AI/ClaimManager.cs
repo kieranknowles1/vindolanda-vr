@@ -45,9 +45,8 @@ public class ClaimManager : Saveable
     // Reserved children to index
     public Dictionary<GameObject, int> Reserved { get; private set; } = new();
 
-    protected override void Start()
+    protected void Start()
     {
-        base.Start();
         Free.AddRange(Enumerable.Range(0, transform.childCount));
     }
 
