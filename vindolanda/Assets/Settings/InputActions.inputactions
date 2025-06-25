@@ -3562,17 +3562,70 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "TutorialRepeatInstruction",
+                    "type": "Button",
+                    "id": "55a3fb3e-f3c0-4fed-a2bc-b2380609f3a8",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
                 {
                     "name": "",
-                    "id": "ba4f501d-6d10-4c5d-ba36-41e2138d728d",
-                    "path": "<XRController>/secondaryButton",
+                    "id": "747da0c6-e574-4573-8d1b-4b88b4310249",
+                    "path": "<XRController>/trackpadTouched",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "ToggleMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "237effc2-1eaa-4e7d-8bc4-23e445276f78",
+                    "path": "<Keyboard>/g",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ToggleMenu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c7d52ecb-fdde-4437-a597-194706521fa0",
+                    "path": "<XRController>/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TutorialRepeatInstruction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6817dddc-7060-4b0b-857f-70bfa437c83c",
+                    "path": "<XRController>/secondaryTouch",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TutorialRepeatInstruction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5a239de6-e899-4447-974f-b6b0e65c5273",
+                    "path": "<Keyboard>/r",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TutorialRepeatInstruction",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

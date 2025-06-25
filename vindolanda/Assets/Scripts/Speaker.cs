@@ -23,9 +23,9 @@ public class Speaker : MonoBehaviour
     }
     Coroutine speakCoroutine;
 
-    public void Say(Dialogue dialogue)
+    public Coroutine Say(Dialogue dialogue)
     {
-        IEnumerator SayAsync()
+        IEnumerator SayImpl()
         {
             for (int i = 0; i < dialogue.Lines.Count; i++)
             {
@@ -45,7 +45,8 @@ public class Speaker : MonoBehaviour
 
         if (speakCoroutine != null) StopCoroutine(speakCoroutine);
         CurrentDialogue = dialogue;
-        speakCoroutine = StartCoroutine(SayAsync());
+        speakCoroutine = StartCoroutine(SayImpl());
+        return speakCoroutine;
     }
 
     public AudioClip PlaceholderClip;
