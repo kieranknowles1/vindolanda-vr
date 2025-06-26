@@ -131,7 +131,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4671270156537856
-    m_Localized: At any time, press any button on your controllers to repeat the
+    m_Localized: At any time, press the A button on your controllers to repeat the
       last instruction.
     m_Metadata:
       m_Items: []
@@ -144,8 +144,8 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 4675689417838592
-    m_Localized: Hold your palm open, then reach down and grab one of the bowls in
-      front of you.
+    m_Localized: Hold your palm open, then reach down and physically grab one of
+      the bowls in front of you.
     m_Metadata:
       m_Items: []
   - m_Id: 4967076495343616
@@ -203,6 +203,10 @@ MonoBehaviour:
   - m_Id: 5073812141150208
     m_Localized: If you ever need to revisit this tutorial, you can do so though
       the settings menu.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5392022472212480
+    m_Localized: Good, let's move on to picking up items.
     m_Metadata:
       m_Items: []
   references:
