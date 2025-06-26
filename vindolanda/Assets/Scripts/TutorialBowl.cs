@@ -25,5 +25,6 @@ public class TutorialBowl : XRGrabInteractable
     IEnumerator WaitHold()
     {
         yield return new WaitForSeconds(1);
+        tutorial.OnItemHeld();
     }
 }
