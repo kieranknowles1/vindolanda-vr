@@ -33,8 +33,8 @@ public class GuidManager : IUnityObjectResolver<string>
 
     private GuidManager()
     {
-        var objs = GameObject.FindObjectsByType<GuidComponent>(FindObjectsInactive.Include, FindObjectsSortMode.None);
-        objects = objs.ToDictionary(o => o.Id, o => o as IGuidContainer);
+        var objs = GameObject.FindObjectsByType<GuidComponent>(FindObjectsInactive.Include, FindObjectsSortMode.None).Cast<IGuidContainer>();
+        objects = objs.ToDictionary(o => o.Id, o => o);
     }
 
 #if UNITY_EDITOR
