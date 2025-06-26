@@ -23,6 +23,8 @@ public class Tutorial : MonoBehaviour
         input.GameInputs.TutorialRepeatInstruction.performed -= RepeatInstruction;
     }
 
+    public Transform startMarker;
+
     public Quest tutorial;
 
 
@@ -42,10 +44,10 @@ public class Tutorial : MonoBehaviour
 
     public void BeginTutorial()
     {
+        GameConstants.Instance.Player.Teleport(startMarker);
+        GameConstants.Instance.Player.settingsMenu.SetActive(false);
         QuestState.CurrentObjective = moveToTarget;
         locomotionHints.SetActive(true);
-
-        // TODO: Teleport player to start
 
         IEnumerator SayIntro()
         {

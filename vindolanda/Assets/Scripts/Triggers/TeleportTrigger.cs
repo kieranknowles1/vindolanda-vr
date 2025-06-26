@@ -26,7 +26,6 @@ public class TeleportTrigger : TriggerBase
 #endif
     protected override void Execute(PlayerController player)
     {
-        player.transform.position = target.position;
-        player.transform.rotation = target.rotation;
+        player.Teleport(target, alignRotation: true);
     }
 }

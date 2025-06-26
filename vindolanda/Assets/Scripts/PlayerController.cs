@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
 
     InputActions input;
 
-    [SerializeField] GameObject settingsMenu;
+    public GameObject settingsMenu;
     [Tooltip("Position of headset")]
     [SerializeField] Transform head;
 
@@ -78,7 +78,32 @@ public class PlayerController : MonoBehaviour
 
         var planeAngle = Quaternion.AngleAxis(head.eulerAngles.y, Vector3.up);
 
-        settingsMenu.transform.position = head.position + (planeAngle * Vector3.forward * 1.5f);
-        settingsMenu.transform.rotation = head.rotation = planeAngle;
+        settingsMenu.transform.SetPositionAndRotation(
+            head.position + (planeAngle * Vector3.forward * 1.5f),
+            head.rotation = planeAngle
+        );
+    }
+
+    /// <summary>
+    /// Teleport the player to the target object, optionally rotating them to face the same direction
+    /// </summary>
+    /// <param name="target"></param>
+    /// <param name="alignRotation"></param>
+    public void Teleport(Transform target, bool alignRotation = true, bool snapToGround = true)
+    {
+        Vector3 adjustedPosition = target.position; // Fallback if raycast fails
+        if (snapToGround)
+        {
+            if (Physics.Raycast(new Ray(target.position, Vector3.down), out var hit)) {
+                adjustedPosition = hit.point;
+            }
+        }
+
+        transform.position = adjustedPosition;
+        if (alignRotation)
+        {
+            // The player's head moves around the origin, so we need to adjust for that
+            transform.rotation = target.rotation * Quaternion.Euler(0, -head.localRotation.eulerAngles.y, 0);
+        }
     }
 }
