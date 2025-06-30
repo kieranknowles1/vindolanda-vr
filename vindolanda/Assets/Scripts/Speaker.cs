@@ -43,7 +43,10 @@ public class Speaker : MonoBehaviour
             GameConstants.Instance.Player.Subtitles.Hide();
         }
 
-        if (speakCoroutine != null) StopCoroutine(speakCoroutine);
+        if (speakCoroutine != null) {
+            audio.Stop();
+            StopCoroutine(speakCoroutine);
+        }
         CurrentDialogue = dialogue;
         speakCoroutine = StartCoroutine(SayImpl());
         return speakCoroutine;

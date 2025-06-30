@@ -14,14 +14,42 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TableCollectionName: AssetsTable
   m_TableCollectionNameGuidString: a6ed01dec1d1f0745ae3017045ed34d5
-  m_Entries: []
+  m_Entries:
+  - m_Id: 5397147202863104
+    m_Key: IntroLine1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5397196540461056
+    m_Key: IntroLine2
+    m_Metadata:
+      m_Items: []
+  - m_Id: 5397226315825152
+    m_Key: IntroLine3
+    m_Metadata:
+      m_Items: []
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 1719596104440610977
   m_KeyGenerator:
     rid: 4016942849891500268
   references:
     version: 2
     RefIds:
+    - rid: 1719596104440610977
+      type: {class: AssetTypeMetadata, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries:
+        - m_KeyId: 5397147202863104
+          m_TableCodes:
+          - en
+        - m_KeyId: 5397196540461056
+          m_TableCodes:
+          - en
+        - m_KeyId: 5397226315825152
+          m_TableCodes:
+          - en
+        m_TypeString: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
     - rid: 4016942849891500268
       type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
       data:

@@ -103,7 +103,8 @@ public class PlayerController : MonoBehaviour
         if (alignRotation)
         {
             // The player's head moves around the origin, so we need to adjust for that
-            transform.rotation = target.rotation * Quaternion.Euler(0, -head.localRotation.eulerAngles.y, 0);
+            // FIXME: This breaks subtitle and inventory positioning
+            //transform.rotation = target.rotation * Quaternion.Euler(0, -head.localRotation.eulerAngles.y, 0);
         }
     }
 }

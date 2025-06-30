@@ -18,7 +18,7 @@ namespace Vindolanda.Quest
                     currentObjective?.OnEnd?.Execute();
                     currentObjective = value;
                     Debug.Log($"Set objective {value.name}");
-                    value?.OnBegin?.Execute();
+                    value.OnBegin?.Execute();
 
                     GameConstants.Instance.QuestController.ActiveQuest = this;
                     GameConstants.Instance.QuestController.OnQuestObjectiveChanged.Invoke(this, value);
@@ -33,7 +33,7 @@ namespace Vindolanda.Quest
                 {
                     if (complete == value) return;
                     complete = value;
-                    if (complete) CurrentObjective = null;
+                    if (complete) currentObjective = null;
                 }
             }
             public State(Quest quest) {  Quest = quest; }
