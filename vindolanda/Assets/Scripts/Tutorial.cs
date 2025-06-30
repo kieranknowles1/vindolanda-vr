@@ -90,15 +90,82 @@ public class Tutorial : MonoBehaviour
     }
 
     [Serializable]
+    public struct Menus
+    {
+        public Objective objectiveSaveGame;
+
+        public SaveLoadMenu saveLoadMenu;
+
+        public ConfirmButton saveGame;
+        public Dialogue dialStart;
+        public Dialogue dialOpenMenu;
+        public Dialogue dialClickSave;
+        public Dialogue dialCloseMenu;
+    }
+    public Menus menus;
+
+    bool gameSaved = false;
+    void OnMenuOpenClose(bool enable)
+    {
+        if (enable)
+        {
+            // Opened menu and have yet to save game
+            if (!gameSaved)
+            {
+                SayRepeatable(menus.dialClickSave);
+            }
+        }
+        else
+        {
+            // Closed menu after saving game
+            if (gameSaved)
+            {
+                Evnt_MenusDone();
+            }
+            // Closed menu before saving game, repeat instruction to open it
+            else
+            {
+                SayRepeatable(menus.dialOpenMenu);
+            }
+        }
+    }
+
+    void OnButtonClicked()
+    {
+        gameSaved = true;
+        SayRepeatable(menus.dialCloseMenu);
+    }
+
+    public void Evnt_ItemHeld()
+    {
+        gameSaved = false;
+        QuestState.CurrentObjective = menus.objectiveSaveGame;
+        IEnumerator StartMessage() {
+            yield return speaker.Say(menus.dialStart);
+            SayRepeatable(menus.dialOpenMenu);
+        }
+        StartCoroutine(StartMessage());
+
+        menus.saveLoadMenu.onEnableStateChange.AddListener(OnMenuOpenClose);
+        menus.saveGame.onConfirm.AddListener(OnButtonClicked);
+    }
+
+    void Evnt_ItemHeldCleanup()
+    {
+        menus.saveLoadMenu.onEnableStateChange.RemoveListener(OnMenuOpenClose);
+        menus.saveGame.onConfirm.RemoveListener(OnButtonClicked);
+    }
+
+    [Serializable]
     public struct Finale
     {
         public Dialogue dialComplete;
     }
     public Finale finale;
 
-    public void Evnt_ItemHeld()
+    public void Evnt_MenusDone()
     {
-        
+        Evnt_ItemHeldCleanup();
         QuestState.Complete = true;
         currentDialogue = null;
         // TODO: Prompt user to open the menu and save their game
