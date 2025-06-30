@@ -72,7 +72,7 @@ public class Tutorial : MonoBehaviour
         }
     }
 
-    public void OnTargetReached()
+    public void Evnt_LocomotionTargetReached()
     {
         locomotionHints.SetActive(false);
         pickUpDemo.SetActive(true);
@@ -82,7 +82,7 @@ public class Tutorial : MonoBehaviour
         // TODO: Play mocap animation of picking up an item
     }
 
-    public void OnItemHeld()
+    public void Evnt_ItemHeld()
     {
         
         QuestState.Complete = true;

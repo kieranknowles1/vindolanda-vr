@@ -10496,28 +10496,20 @@ MonoBehaviour:
   id: 1025362163
   singleUse: 0
   onEnter:
-    rid: 4016943164754231901
-  references:
-    version: 2
-    RefIds:
-    - rid: 4016943164754231901
-      type: {class: TriggerUnityEvent, ns: Vindolanda.Quest, asm: Assembly-CSharp}
-      data:
-        onTrigger:
-          m_PersistentCalls:
-            m_Calls:
-            - m_Target: {fileID: 329442454}
-              m_TargetAssemblyTypeName: Tutorial, Assembly-CSharp
-              m_MethodName: OnTargetReached
-              m_Mode: 1
-              m_Arguments:
-                m_ObjectArgument: {fileID: 0}
-                m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-                m_IntArgument: 0
-                m_FloatArgument: 0
-                m_StringArgument: 
-                m_BoolArgument: 0
-              m_CallState: 2
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 329442454}
+        m_TargetAssemblyTypeName: Tutorial, Assembly-CSharp
+        m_MethodName: Evnt_LocomotionTargetReached
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &1724038847
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12326,15 +12318,8 @@ MonoBehaviour:
   id: 740127660
   singleUse: 1
   onEnter:
-    rid: 4016943164754231435
-  references:
-    version: 2
-    RefIds:
-    - rid: 4016943164754231435
-      type: {class: SetObjectiveEvent, ns: Vindolanda.Quest, asm: Assembly-CSharp}
-      data:
-        quest: {fileID: 11400000, guid: e6b797550f6774940918abbfc5d6ef6f, type: 2}
-        objective: {fileID: 11400000, guid: a5d278edc512eae4b81d0d15bff090bd, type: 2}
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2114641339
 GameObject:
   m_ObjectHideFlags: 0
