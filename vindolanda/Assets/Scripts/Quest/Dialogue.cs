@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Localization;
 
 namespace Vindolanda.Quest
@@ -18,8 +19,8 @@ namespace Vindolanda.Quest
         public List<Line> Lines;
 
         [Tooltip("Event triggered when an actor begins speaking a line.")]
-        public QuestEvent OnBegin;
+        public UnityEvent OnBegin;
         [Tooltip("Event triggered when an actor stops speaking a line, even if interrupted.")]
-        public QuestEvent OnEnd;
+        public UnityEvent OnEnd;
     }
 }

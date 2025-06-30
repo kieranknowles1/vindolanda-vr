@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SaveLoadMenu : MonoBehaviour
 {
@@ -11,6 +12,18 @@ public class SaveLoadMenu : MonoBehaviour
     public void OnLoad()
     {
         SaveLoad.Load(SaveName);
+    }
+
+    public UnityEvent<bool> onEnableStateChange;
+
+    private void OnEnable()
+    {
+        onEnableStateChange?.Invoke(true);
+    }
+
+    private void OnDisable()
+    {
+        onEnableStateChange?.Invoke(false);
     }
 
     public void OnQuit()

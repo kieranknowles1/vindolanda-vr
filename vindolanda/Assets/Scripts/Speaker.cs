@@ -16,9 +16,9 @@ public class Speaker : MonoBehaviour
     public Dialogue CurrentDialogue {
         get => currentDialogue;
         set {
-            currentDialogue?.OnEnd?.Execute();
+            currentDialogue?.OnEnd?.Invoke();
             currentDialogue = value;
-            value?.OnBegin?.Execute();
+            value?.OnBegin?.Invoke();
         }
     }
     Coroutine speakCoroutine;

@@ -15,10 +15,10 @@ namespace Vindolanda.Quest
                 get => currentObjective;
                 set {
                     if (value == currentObjective) return;
-                    currentObjective?.OnEnd?.Execute();
+                    currentObjective?.OnEnd?.Invoke();
                     currentObjective = value;
                     Debug.Log($"Set objective {value.name}");
-                    value.OnBegin?.Execute();
+                    value.OnBegin?.Invoke();
 
                     GameConstants.Instance.QuestController.ActiveQuest = this;
                     GameConstants.Instance.QuestController.OnQuestObjectiveChanged.Invoke(this, value);

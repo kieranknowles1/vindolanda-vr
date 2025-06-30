@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Localization;
 
 namespace Vindolanda.Quest
@@ -11,7 +12,7 @@ namespace Vindolanda.Quest
         [NonSerialized] public Quest Owner;
 
         public LocalizedString Description;
-        [SerializeReference] public QuestEvent OnBegin;
-        [SerializeReference] public QuestEvent OnEnd;
+        public UnityEvent OnBegin;
+        public UnityEvent OnEnd;
     }
 }
