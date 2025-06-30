@@ -1,6 +1,6 @@
 {
  "formatVersion": 2,
- "appVersion": "0.94.0",
+ "appVersion": "0.95.0",
  "files": [
   {
    "isClone": false,
@@ -457,6 +457,55 @@
          "format": "html",
          "dataFileName": "Forgery.html",
          "attachments": []
+        },
+        {
+         "isClone": false,
+         "noteId": "VSv8CShWyMOl",
+         "notePath": [
+          "cezCWFEiud4n",
+          "289CD6yOcuG2",
+          "TnXE0T38Zosq",
+          "VSv8CShWyMOl"
+         ],
+         "title": "Quest System",
+         "notePosition": 40,
+         "prefix": null,
+         "type": "text",
+         "mime": "text/html",
+         "attributes": [],
+         "format": "html",
+         "attachments": [],
+         "dirFileName": "Quest System",
+         "children": [
+          {
+           "isClone": false,
+           "noteId": "vVwp9MpAYrFn",
+           "notePath": [
+            "cezCWFEiud4n",
+            "289CD6yOcuG2",
+            "TnXE0T38Zosq",
+            "VSv8CShWyMOl",
+            "vVwp9MpAYrFn"
+           ],
+           "title": "Data Structure",
+           "notePosition": 10,
+           "prefix": null,
+           "type": "mermaid",
+           "mime": "text/mermaid",
+           "attributes": [],
+           "dataFileName": "Data Structure.txt",
+           "attachments": [
+            {
+             "attachmentId": "EKcruEVFrzJY",
+             "title": "mermaid-export.svg",
+             "role": "image",
+             "mime": "image/svg+xml",
+             "position": 10,
+             "dataFileName": "Data Structure_mermaid-exp.svg"
+            }
+           ]
+          }
+         ]
         }
        ]
       }
@@ -623,47 +672,6 @@
         },
         {
          "isClone": false,
-         "noteId": "oVM1HzZXlgxy",
-         "notePath": [
-          "cezCWFEiud4n",
-          "rPHr1DPtIYH2",
-          "LcobnOJrwqmQ",
-          "oVM1HzZXlgxy"
-         ],
-         "title": "Historical Research",
-         "notePosition": 40,
-         "prefix": null,
-         "type": "text",
-         "mime": "text/html",
-         "attributes": [
-          {
-           "type": "relation",
-           "name": "after",
-           "value": "QnGy4Wax87ps",
-           "isInheritable": false,
-           "position": 40
-          },
-          {
-           "type": "relation",
-           "name": "before",
-           "value": "ya8W4MpRqo5U",
-           "isInheritable": false,
-           "position": 60
-          },
-          {
-           "type": "relation",
-           "name": "consistsOf",
-           "value": "g60DXdAsIiJh",
-           "isInheritable": false,
-           "position": 70
-          }
-         ],
-         "format": "html",
-         "dataFileName": "Historical Research.html",
-         "attachments": []
-        },
-        {
-         "isClone": false,
          "noteId": "8KPdTZ5FX2r7",
          "notePath": [
           "cezCWFEiud4n",
@@ -706,21 +714,6 @@
            "format": "html"
           }
          ]
-        },
-        {
-         "isClone": true,
-         "noteId": "18VLlJF53G6t",
-         "notePath": [
-          "cezCWFEiud4n",
-          "rPHr1DPtIYH2",
-          "LcobnOJrwqmQ",
-          "18VLlJF53G6t"
-         ],
-         "title": "Locomotion",
-         "prefix": null,
-         "dataFileName": "Locomotion.clone.html",
-         "type": "text",
-         "format": "html"
         },
         {
          "isClone": false,
@@ -815,33 +808,6 @@
          ],
          "format": "html",
          "dataFileName": "Quest Design.html",
-         "attachments": []
-        },
-        {
-         "isClone": false,
-         "noteId": "BEONwca63eJx",
-         "notePath": [
-          "cezCWFEiud4n",
-          "rPHr1DPtIYH2",
-          "LcobnOJrwqmQ",
-          "BEONwca63eJx"
-         ],
-         "title": "Level Implementation",
-         "notePosition": 130,
-         "prefix": null,
-         "type": "text",
-         "mime": "text/html",
-         "attributes": [
-          {
-           "type": "relation",
-           "name": "after",
-           "value": "DOs5y85Lra2L",
-           "isInheritable": false,
-           "position": 60
-          }
-         ],
-         "format": "html",
-         "dataFileName": "Level Implementation.html",
          "attachments": []
         },
         {
@@ -989,6 +955,89 @@
          "format": "html",
          "dataFileName": "What to Focus On.html",
          "attachments": []
+        },
+        {
+         "isClone": false,
+         "noteId": "oVM1HzZXlgxy",
+         "notePath": [
+          "cezCWFEiud4n",
+          "rPHr1DPtIYH2",
+          "a5gZMT79HQCF",
+          "oVM1HzZXlgxy"
+         ],
+         "title": "Historical Research",
+         "notePosition": 50,
+         "prefix": null,
+         "type": "text",
+         "mime": "text/html",
+         "attributes": [
+          {
+           "type": "relation",
+           "name": "after",
+           "value": "QnGy4Wax87ps",
+           "isInheritable": false,
+           "position": 40
+          },
+          {
+           "type": "relation",
+           "name": "before",
+           "value": "ya8W4MpRqo5U",
+           "isInheritable": false,
+           "position": 60
+          },
+          {
+           "type": "relation",
+           "name": "consistsOf",
+           "value": "g60DXdAsIiJh",
+           "isInheritable": false,
+           "position": 70
+          }
+         ],
+         "format": "html",
+         "dataFileName": "Historical Research.html",
+         "attachments": []
+        },
+        {
+         "isClone": false,
+         "noteId": "BEONwca63eJx",
+         "notePath": [
+          "cezCWFEiud4n",
+          "rPHr1DPtIYH2",
+          "a5gZMT79HQCF",
+          "BEONwca63eJx"
+         ],
+         "title": "Level Implementation",
+         "notePosition": 60,
+         "prefix": null,
+         "type": "text",
+         "mime": "text/html",
+         "attributes": [
+          {
+           "type": "relation",
+           "name": "after",
+           "value": "DOs5y85Lra2L",
+           "isInheritable": false,
+           "position": 60
+          }
+         ],
+         "format": "html",
+         "dataFileName": "Level Implementation.html",
+         "attachments": []
+        },
+        {
+         "isClone": true,
+         "noteId": "VSv8CShWyMOl",
+         "notePath": [
+          "cezCWFEiud4n",
+          "rPHr1DPtIYH2",
+          "a5gZMT79HQCF",
+          "VSv8CShWyMOl"
+         ],
+         "title": "Quest System",
+         "prefix": null,
+         "dataFileName": "Quest System.clone.html",
+         "type": "text",
+         "format": "html"
         }
        ]
       },
@@ -1071,6 +1120,21 @@
          "title": "Choose an Engine",
          "prefix": null,
          "dataFileName": "Choose an Engine.clone.html",
+         "type": "text",
+         "format": "html"
+        },
+        {
+         "isClone": true,
+         "noteId": "18VLlJF53G6t",
+         "notePath": [
+          "cezCWFEiud4n",
+          "rPHr1DPtIYH2",
+          "Xv8xdSdgzHUU",
+          "18VLlJF53G6t"
+         ],
+         "title": "Locomotion",
+         "prefix": null,
+         "dataFileName": "Locomotion.clone.html",
          "type": "text",
          "format": "html"
         }

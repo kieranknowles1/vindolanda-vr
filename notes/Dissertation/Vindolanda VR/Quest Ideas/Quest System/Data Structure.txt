@@ -1,0 +1,32 @@
+classDiagram
+    note for Quest "Series of objectives"
+    class Quest {
+        +String name
+        +Objective[] objectives
+
+        +currentObjective
+    }
+
+    class Objective {
+        +String description
+
+        Event OnBegin
+        Event OnEnd
+    }
+    Objective..>Event
+    Quest--*Objective
+
+    class Dialogue {
+        +Line[] lines
+
+        Event OnBegin
+        Event OnEnd
+    }
+    Dialogue..>Event
+
+    class Event {
+        Execute
+    }
+    <<Interface>> Event
+
+    class 
