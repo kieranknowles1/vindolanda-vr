@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -23,36 +24,33 @@ public class Tutorial : MonoBehaviour
         input.GameInputs.TutorialRepeatInstruction.performed -= RepeatInstruction;
     }
 
-    public Transform startMarker;
-
     public Quest tutorial;
 
+    [Serializable]
+    public struct LocomotionStage
+    {
+        public Transform startMarker;
+        public Objective moveToTarget;
+        public GameObject tutorialObjects;
 
-    public Objective moveToTarget;
-
-    public GameObject locomotionHints;
-    public Dialogue intro;
-    public Dialogue moveSmoothHint;
-
-    public GameObject pickUpDemo;
-    public Objective pickUpItem;
-    public Dialogue pickUpPrompt;
-
-    public Dialogue completeMessage;
+        public Dialogue dialTutorialInfo;
+        public Dialogue dialMoveSmooth;
+    }
+    public LocomotionStage locomotion;
 
     Quest.State QuestState => GameConstants.Instance.QuestController.GetState(tutorial);
 
     public void BeginTutorial()
     {
-        GameConstants.Instance.Player.Teleport(startMarker);
+        GameConstants.Instance.Player.Teleport(locomotion.startMarker);
         GameConstants.Instance.Player.settingsMenu.SetActive(false);
-        QuestState.CurrentObjective = moveToTarget;
-        locomotionHints.SetActive(true);
+        QuestState.CurrentObjective = locomotion.moveToTarget;
+        locomotion.tutorialObjects.SetActive(true);
 
         IEnumerator SayIntro()
         {
-            yield return speaker.Say(intro);
-            SayRepeatable(moveSmoothHint);
+            yield return speaker.Say(locomotion.dialTutorialInfo);
+            SayRepeatable(locomotion.dialMoveSmooth);
         }
         StartCoroutine(SayIntro());
     }
@@ -72,15 +70,31 @@ public class Tutorial : MonoBehaviour
         }
     }
 
+    [Serializable]
+    public struct ItemInteraction
+    {
+        public GameObject tutorialObjects;
+        public Objective pickUpItem;
+        public Dialogue dialPickUp;
+    }
+    public ItemInteraction interaction;
+
     public void Evnt_LocomotionTargetReached()
     {
-        locomotionHints.SetActive(false);
-        pickUpDemo.SetActive(true);
-        QuestState.CurrentObjective = pickUpItem;
-        SayRepeatable(pickUpPrompt);
+        locomotion.tutorialObjects.SetActive(false);
+        interaction.tutorialObjects.SetActive(true);
+        QuestState.CurrentObjective = interaction.pickUpItem;
+        SayRepeatable(interaction.dialPickUp);
 
         // TODO: Play mocap animation of picking up an item
     }
+
+    [Serializable]
+    public struct Finale
+    {
+        public Dialogue dialComplete;
+    }
+    public Finale finale;
 
     public void Evnt_ItemHeld()
     {
@@ -90,8 +104,8 @@ public class Tutorial : MonoBehaviour
         // TODO: Prompt user to open the menu and save their game
         IEnumerator SayAsync()
         {
-            yield return speaker.Say(completeMessage);
-            pickUpDemo.SetActive(false);
+            yield return speaker.Say(finale.dialComplete);
+            interaction.tutorialObjects.SetActive(false);
         }
         StartCoroutine(SayAsync());
     }

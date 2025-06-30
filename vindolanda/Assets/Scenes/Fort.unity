@@ -2618,16 +2618,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a43660438d5014cab823449e1ac859, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMarker: {fileID: 1253352897}
   tutorial: {fileID: 11400000, guid: e51d67ea2833eda4c8db6684bbc1d7c2, type: 2}
-  moveToTarget: {fileID: 11400000, guid: 6c8e390fb9c3fe147bc62d1a33213a71, type: 2}
-  locomotionHints: {fileID: 84048793}
-  intro: {fileID: 11400000, guid: 0338330f72bbb234097b2b0530528dd5, type: 2}
-  moveSmoothHint: {fileID: 11400000, guid: 9c57ca584423fe642807fe4ca596ffe9, type: 2}
-  pickUpDemo: {fileID: 1659769402}
-  pickUpItem: {fileID: 11400000, guid: dc12695c0fe452e428574b913a2e3c76, type: 2}
-  pickUpPrompt: {fileID: 11400000, guid: ef561e3c626a7db4d953dc9765b31da3, type: 2}
-  completeMessage: {fileID: 11400000, guid: 96ff9a39d1e843b43b6b6cdc7c525a5d, type: 2}
+  locomotion:
+    startMarker: {fileID: 1253352897}
+    moveToTarget: {fileID: 11400000, guid: 6c8e390fb9c3fe147bc62d1a33213a71, type: 2}
+    tutorialObjects: {fileID: 84048793}
+    dialTutorialInfo: {fileID: 11400000, guid: 0338330f72bbb234097b2b0530528dd5, type: 2}
+    dialMoveSmooth: {fileID: 11400000, guid: 9c57ca584423fe642807fe4ca596ffe9, type: 2}
+  interaction:
+    tutorialObjects: {fileID: 1659769402}
+    pickUpItem: {fileID: 11400000, guid: dc12695c0fe452e428574b913a2e3c76, type: 2}
+    dialPickUp: {fileID: 11400000, guid: ef561e3c626a7db4d953dc9765b31da3, type: 2}
+  finale:
+    dialComplete: {fileID: 11400000, guid: 96ff9a39d1e843b43b6b6cdc7c525a5d, type: 2}
 --- !u!4 &329442455
 Transform:
   m_ObjectHideFlags: 0
