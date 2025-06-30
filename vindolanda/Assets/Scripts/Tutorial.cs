@@ -93,6 +93,7 @@ public class Tutorial : MonoBehaviour
     public struct Menus
     {
         public Objective objectiveSaveGame;
+        public GameObject tutorialObjects;
 
         public SaveLoadMenu saveLoadMenu;
 
@@ -142,6 +143,8 @@ public class Tutorial : MonoBehaviour
         QuestState.CurrentObjective = menus.objectiveSaveGame;
         IEnumerator StartMessage() {
             yield return speaker.Say(menus.dialStart);
+            interaction.tutorialObjects.SetActive(false);
+            menus.tutorialObjects.SetActive(true);
             SayRepeatable(menus.dialOpenMenu);
         }
         StartCoroutine(StartMessage());
@@ -168,12 +171,7 @@ public class Tutorial : MonoBehaviour
         Evnt_ItemHeldCleanup();
         QuestState.Complete = true;
         currentDialogue = null;
-        // TODO: Prompt user to open the menu and save their game
-        IEnumerator SayAsync()
-        {
-            yield return speaker.Say(finale.dialComplete);
-            interaction.tutorialObjects.SetActive(false);
-        }
-        StartCoroutine(SayAsync());
+        menus.tutorialObjects.SetActive(false);
+        speaker.Say(finale.dialComplete);
     }
 }
