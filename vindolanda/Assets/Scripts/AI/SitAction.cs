@@ -4,6 +4,7 @@ using UnityEngine;
 using Action = Unity.Behavior.Action;
 using Unity.Properties;
 using System.Collections;
+using UnityEngine.AI;
 
 [Serializable, GeneratePropertyBag]
 [NodeDescription(name: "Sit", story: "[Agent] [Action] on [Target]", category: "Action", id: "1120f4987b6494902140919b252bb978")]
@@ -20,12 +21,17 @@ public partial class SitAction : Action
     [SerializeReference] public BlackboardVariable<Furniture> Target;
 
     ActorController actor;
+    NavMeshAgent navAgent;
     Status status = Status.Running;
 
     protected override Status OnStart()
     {
         actor = Agent.Value.GetComponent<ActorController>();
+        navAgent = Agent.Value.GetComponent<NavMeshAgent>();
         if (actor == null) return Status.Failure;
+
+        // Don't snap to the navmesh, prevents issues with clipping
+        navAgent.enabled = Action.Value == SitStand.StandUp;
 
         if (Action.Value == SitStand.Sit)
             actor.StartCoroutine(Target.Value.Sit(actor, OnSitDone));
