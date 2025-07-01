@@ -14,7 +14,7 @@ public partial class FindEntryPointAction : Action
     protected override Status OnStart()
     {
         EntryPoint.Value = Target.Value.entryPoint.transform;
-        return Status.Success;
+        return EntryPoint.Value != null ? Status.Success : Status.Failure;
     }
 }
 

@@ -24,13 +24,36 @@ public class ClaimManagerSave : SaveData
 /// </summary>
 public class ClaimManager : Saveable
 {
+    public enum Mode
+    {
+        [Tooltip("Direct children with GUID components")]
+        DirectChildren,
+        [Tooltip("All furniture items in child tree")]
+        FurnitureChildren,
+    }
+
+    [Tooltip(@"One of:
+        Direct children with GUID components
+        All furniture items in child tree"
+    )]
+    public Mode mode = Mode.DirectChildren;
     public List<GuidComponent> Available { get; private set; } = new();
     public HashSet<GuidComponent> Reserved { get; private set; } = new();
 
     void FillAvailable()
     {
-        for (int i = 0; i < transform.childCount; i++) {
-            Available.Add(transform.GetChild(i).GetComponent<GuidComponent>());
+        Available.Clear(); Reserved.Clear();
+        switch (mode)
+        {
+            case Mode.DirectChildren:
+                for (int i = 0; i < transform.childCount; i++) {
+                    if (transform.GetChild(i).TryGetComponent<GuidComponent>(out var child)) Available.Add(child);
+                }
+                break;
+            case Mode.FurnitureChildren:
+                Available = GetComponentsInChildren<Furniture>().Cast<GuidComponent>().ToList();
+                break;
+            default: throw new System.Exception();
         }
     }
 
