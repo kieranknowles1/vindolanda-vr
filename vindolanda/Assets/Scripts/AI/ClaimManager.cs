@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.Collections;
@@ -8,15 +7,15 @@ using Random = UnityEngine.Random;
 
 public class ClaimManagerSave : SaveData
 {
-    public List<int> Free = new();
-    public Dictionary<int, int> Reserved = new();
+    public List<int> Available = new();
+    public List<int> Reserved = new();
 
     public ClaimManagerSave() { }
 
     public ClaimManagerSave(ClaimManager obj) : base(obj)
     {
-        Free = obj.Free;
-        Reserved = obj.Reserved.ToDictionary(kv => kv.Key.GetComponent<GuidComponent>().Id, kv => kv.Value);
+        Available = obj.Available.Select(o => o.Id).ToList();
+        Reserved = obj.Reserved.Select(o => o.Id).ToList();
     }
 }
 
@@ -25,6 +24,21 @@ public class ClaimManagerSave : SaveData
 /// </summary>
 public class ClaimManager : Saveable
 {
+    public List<GuidComponent> Available { get; private set; } = new();
+    public HashSet<GuidComponent> Reserved { get; private set; } = new();
+
+    void FillAvailable()
+    {
+        for (int i = 0; i < transform.childCount; i++) {
+            Available.Add(transform.GetChild(i).GetComponent<GuidComponent>());
+        }
+    }
+
+    private void Awake()
+    {
+        FillAvailable();
+    }
+
     public override SaveData Save()
     {
         return new ClaimManagerSave(this);
@@ -34,29 +48,17 @@ public class ClaimManager : Saveable
     {
         base.Load(data);
         var cmData = (ClaimManagerSave)data;
-        Free = cmData.Free;
-        Reserved = cmData.Reserved.ToDictionary(kv => GuidManager.Instance.Find<GuidComponent>(kv.Key).gameObject, kv => kv.Value);
-    }
-
-    // Assuming that transform.children is an array and not a linked list
-
-    // Indexes of free children
-    public List<int> Free { get; private set; } = new();
-    // Reserved children to index
-    public Dictionary<GameObject, int> Reserved { get; private set; } = new();
-
-    protected void Start()
-    {
-        Free.AddRange(Enumerable.Range(0, transform.childCount));
+        Available = cmData.Available.Select(o => GuidManager.Instance.Find<GuidComponent>(o)).ToList();
+        Reserved = cmData.Reserved.Select(o => GuidManager.Instance.Find<GuidComponent>(o)).ToHashSet();
     }
 
     private void OnDrawGizmosSelected()
     {
+        FillAvailable();
         Gizmos.color = Color.green;
-        for (int i = 0; i < transform.childCount; i++)
+        foreach (var slot in Available)
         {
-            var child = transform.GetChild(i);
-            Gizmos.DrawWireCube(child.position, Vector3.one);
+            Gizmos.DrawWireCube(slot.transform.position, Vector3.one);
         }
     }
 
@@ -64,19 +66,18 @@ public class ClaimManager : Saveable
     /// Claim a random free target
     /// </summary>
     /// <returns>The claimed target, or null if all children are reserved</returns>
-    public GameObject Claim()
+    public GuidComponent Claim()
     {
-        if (Free.Count == 0) return null;
+        if (Available.Count == 0) return null;
 
-        var listIndex = Random.Range(0, Free.Count);
-        var childIndex = Free[listIndex];
-        var child = transform.GetChild(childIndex).gameObject;
+        var listIndex = Random.Range(0, Available.Count);
+        var child = Available[listIndex];
 
-        Reserved.Add(child, childIndex);
+        Reserved.Add(child);
 
         // The order of free doesn't matter, so swap the last element into the empty
         // slot rather than removing from the middle. O(1) instead of O(n)
-        Free.RemoveAtSwapBack(listIndex);
+        Available.RemoveAtSwapBack(listIndex);
 
         return child;
     }
@@ -85,11 +86,14 @@ public class ClaimManager : Saveable
     /// Release a claim, allowing it to be reused
     /// </summary>
     /// <param name="claimed"></param>
-    public void Release(GameObject claimed)
+    public void Release(GuidComponent claimed)
     {
-        var index = Reserved[claimed];
+        if (!Reserved.Contains(claimed))
+        {
+            Debug.LogWarning($"Attempted to release a claim that {this.name} didn't give");
+            return;
+        }
         Reserved.Remove(claimed);
-
-        Free.Add(index);
+        Available.Add(claimed);
     }
 }

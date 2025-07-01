@@ -15,7 +15,7 @@ public partial class ClaimTargetAction : Action
     {
         if (Manager.Value == null) return Status.Failure;
 
-        Target.Value = Manager.Value.Claim();
+        Target.Value = Manager.Value.Claim().gameObject;
 
         return Target.Value != null ? Status.Success : Status.Failure;
     }
