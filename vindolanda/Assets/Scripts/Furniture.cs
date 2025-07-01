@@ -1,4 +1,5 @@
 using NUnit.Framework;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -89,21 +90,31 @@ public class Furniture : MonoBehaviour
 
     public ActorController CurrentActor { get; private set; }
     RuntimeAnimatorController animationBak;
-    public IEnumerator Sit(ActorController actor)
+
+    public enum SitResult
+    {
+        Success,
+        // The furniture was occupied by a different actor, or an actor tried to stand but wasn't sitting here
+        Failure,
+    }
+    public IEnumerator Sit(ActorController actor, Action<SitResult> callback = null)
     {
         if (CurrentActor != null)
         {
-            throw new System.Exception($"Furniture already in use by {CurrentActor.name}");
+            callback?.Invoke(SitResult.Failure);
+            yield break;
         }
         CurrentActor = actor;
         // Position actor to enter smoothly
         actor.transform.SetPositionAndRotation(entryPoint.transform.position, entryPoint.transform.rotation);
+        actor.actorAnimator.Halted = true;
 
         animationBak = actor.animator.runtimeAnimatorController;
         actor.animator.runtimeAnimatorController = sitOverrides;
         actor.animator.SetBool(SitVariableId, true);
 
         yield return LerpPosition(actor, entryPoint, transform);
+        callback?.Invoke(SitResult.Success);
     }
 
     // HACK: Enabling root motion causes sliding during the transition from SitToStand -> Sit
@@ -119,16 +130,20 @@ public class Furniture : MonoBehaviour
         }
     }
 
-    public IEnumerator Stand(ActorController actor)
+    public IEnumerator Stand(ActorController actor, Action<SitResult> callback = null)
     {
         if (CurrentActor != actor)
         {
-            throw new System.Exception($"{actor.name} tried to stand from furniture it is not sitting");
+            callback?.Invoke(SitResult.Failure);
+            yield break;
         }
         actor.animator.SetBool(SitVariableId, false);
         yield return LerpPosition(actor, transform, entryPoint);
+        actor.actorAnimator.Halted = false;
         actor.animator.runtimeAnimatorController = animationBak;
         animationBak = null;
         CurrentActor = null;
+
+        callback?.Invoke(SitResult.Success);
     }
 }

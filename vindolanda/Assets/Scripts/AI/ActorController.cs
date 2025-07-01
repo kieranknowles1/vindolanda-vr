@@ -25,12 +25,15 @@ public class ActorSaveData : SaveData
 public class ActorController : Saveable
 {
     public BehaviorGraphAgent Agent { get; private set; }
+    public Animator animator;
+    public ActorAnimator actorAnimator;
     public Vector3 OriginalPosition { get; private set; }
 
     protected void Start()
     {
         Agent = GetComponent<BehaviorGraphAgent>();
         OriginalPosition = transform.position;
+        actorAnimator = animator.GetComponent<ActorAnimator>();
     }
 
     #region Save Load
