@@ -1,0 +1,33 @@
+# Written by MakeHuman 1.2.1 alpha
+version v1.2.1
+camera 357.5 287.0 -0.05991239859285947 0.39841828991467404 0.08515602887683106 1.3875000000000002
+modifier breast/BreastSize 0.500000
+modifier breast/BreastFirmness 0.500000
+modifier macrodetails/Gender 1.000000
+modifier macrodetails/Age 0.500000
+modifier macrodetails/African 0.333333
+modifier macrodetails/Asian 0.333333
+modifier macrodetails/Caucasian 0.333333
+modifier macrodetails-universal/Muscle 0.500000
+modifier macrodetails-universal/Weight 1.000000
+modifier macrodetails-height/Height 0.576000
+modifier macrodetails-proportions/BodyProportions 0.500000
+tongue tongue01 52ad91a3-caad-4e50-8c38-67634e5e789c
+teeth Teeth_Base 0a5ec82a-0d5f-43ce-a765-8f076f95692d
+proxy male_generic df01ef58-b37f-479e-9f97-b4c1b9626aa8
+hair short01 766436e9-63ed-4f6a-afa9-99f3acff70a8
+skeleton default.mhskel
+eyebrows eyebrow001 9c81ec3a-faa5-4c94-9cdb-992300ba3084
+eyes Low-Poly 1cc97a30-85a1-42e6-a9f7-b3e753732baa
+clothes TunicViking e40a5c02-44b6-4c89-9bb0-781ef87e9973
+clothes Soldiers_Skirt dba8a284-88e9-4a18-9126-dc84fc65950e
+clothes shoes01 6e0c552e-e207-44df-8f70-c9bfdeddd8c6
+clothes leather_armor ef324e84-3d14-4829-a94d-4ae6cb07cf31
+clothesHideFaces True
+skinMaterial skins/middleage_caucasian_male/middleage_caucasian_male.mhmat
+material short01 766436e9-63ed-4f6a-afa9-99f3acff70a8 short01.mhmat
+material Low-Poly 1cc97a30-85a1-42e6-a9f7-b3e753732baa eyes/materials/brown.mhmat
+material eyebrow001 9c81ec3a-faa5-4c94-9cdb-992300ba3084 eyebrow001.mhmat
+material Teeth_Base 0a5ec82a-0d5f-43ce-a765-8f076f95692d teeth/materials/teeth.mhmat
+material tongue01 52ad91a3-caad-4e50-8c38-67634e5e789c tongue01.mhmat
+subdivide False
