@@ -120,7 +120,7 @@ public class GuidManager : IUnityObjectResolver<string>
         var component = obj.GetComponent<GuidComponent>();
         if (component == null)
         {
-            Debug.LogError($"{obj} Not saveable");
+            Debug.LogError($"{obj.name} Not saveable");
             throw new Exception("Not saveable");
         }
         return component.Id.ToString();

@@ -13,7 +13,7 @@ public partial class FindEntryPointAction : Action
 
     protected override Status OnStart()
     {
-        EntryPoint.Value = Target.Value.entryPoint;
+        EntryPoint.Value = Target.Value.entryPoint.transform;
         return Status.Success;
     }
 }

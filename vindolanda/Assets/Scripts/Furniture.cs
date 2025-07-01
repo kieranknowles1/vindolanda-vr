@@ -7,14 +7,15 @@ using UnityEngine;
 
 // We manually control the preview's visibility
 [ExecuteInEditMode]
-public class Furniture : MonoBehaviour
+// Any GameObject referenced by a behaviour tree needs to have an ID
+public class Furniture : GuidComponent
 {
     public static string SitAnimName = "SittingIdle";
     public static string StandToSitAnimName = "StandToSit";
     public static int SitVariableId = Animator.StringToHash("Sit");
 
     public AnimatorOverrideController sitOverrides;
-    public Transform entryPoint;
+    public GuidComponent entryPoint;
 
     AnimationClip GetAnimation(string name)
     {
@@ -45,7 +46,7 @@ public class Furniture : MonoBehaviour
     {
         if (sitOverrides == null || preview == null) return;
 
-        DrawPreview(ref previewInstance, StandToSitAnimName, entryPoint);
+        DrawPreview(ref previewInstance, StandToSitAnimName, entryPoint.transform);
     }
 
     private void OnEnable()
@@ -53,7 +54,7 @@ public class Furniture : MonoBehaviour
         if (sitOverrides == null) return;
         if (preview == null) return;
 
-        DrawPreview(ref previewInstance, StandToSitAnimName, entryPoint);
+        DrawPreview(ref previewInstance, StandToSitAnimName, entryPoint.transform);
         previewInstance.SetActive(true);
     }
 
@@ -113,7 +114,7 @@ public class Furniture : MonoBehaviour
         actor.animator.runtimeAnimatorController = sitOverrides;
         actor.animator.SetBool(SitVariableId, true);
 
-        yield return LerpPosition(actor, entryPoint, transform);
+        yield return LerpPosition(actor, entryPoint.transform, transform);
         callback?.Invoke(SitResult.Success);
     }
 
@@ -138,7 +139,7 @@ public class Furniture : MonoBehaviour
             yield break;
         }
         actor.animator.SetBool(SitVariableId, false);
-        yield return LerpPosition(actor, transform, entryPoint);
+        yield return LerpPosition(actor, transform, entryPoint.transform);
         actor.actorAnimator.Halted = false;
         actor.animator.runtimeAnimatorController = animationBak;
         animationBak = null;
