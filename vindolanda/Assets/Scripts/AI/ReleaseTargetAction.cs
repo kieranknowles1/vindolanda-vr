@@ -15,7 +15,7 @@ public partial class ReleaseTargetAction : Action
     {
         // TODO: We don't have any OnEnd event node to call this from automatically. Reservations may be leaked
         // if a graph is interrupted
-        Manager.Value.Release(Target.Value);
+        Manager.Value.Release(Target.Value.GetComponent<GuidComponent>());
         Target.Value = null;
         return Status.Success;
     }

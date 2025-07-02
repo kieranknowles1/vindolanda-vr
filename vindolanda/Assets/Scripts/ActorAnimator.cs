@@ -8,6 +8,17 @@ public class ActorAnimator : MonoBehaviour
     Animator animator;
     Vector3 previousPosition;
 
+    bool halted;
+    public bool Halted
+    {
+        get => halted;
+        set {
+            halted = value;
+            animator.SetFloat(SpeedVariable, 0);
+            previousPosition = transform.position;
+        }
+    }
+
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -16,6 +27,7 @@ public class ActorAnimator : MonoBehaviour
 
     void Update()
     {
+        if (halted) return;
         float speed = (transform.position - previousPosition).magnitude / Time.deltaTime;
         previousPosition = transform.position;
 
