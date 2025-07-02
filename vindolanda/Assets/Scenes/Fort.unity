@@ -12627,6 +12627,10 @@ PrefabInstance:
       propertyPath: clip
       value: 
       objectReference: {fileID: 11400000, guid: 1e592801236a8ac44b4b9fcf794c529a, type: 2}
+    - target: {fileID: 7241866114384497145, guid: 91285d9860fed2e4fbb1ee510b7c065d, type: 3}
+      propertyPath: speedMult
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 9178271745972246139, guid: 91285d9860fed2e4fbb1ee510b7c065d, type: 3}
       propertyPath: m_Name
       value: MocapPlayer

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.XR.Hands;
 using UnityEngine.XR.Hands.Gestures;
 
@@ -19,6 +20,15 @@ namespace Vindolanda.Mocap
             {
                 position = transform.position;
                 rotation = transform.rotation;
+            }
+
+            public static TransformState Lerp(TransformState a, TransformState b, float ratio)
+            {
+                return new TransformState()
+                {
+                    position = Vector3.Lerp(a.position, b.position, ratio),
+                    rotation = Quaternion.Lerp(a.rotation, b.rotation, ratio)
+                };
             }
         }
 
@@ -48,18 +58,41 @@ namespace Vindolanda.Mocap
                 ring = GetFinger(XRHandFingerID.Ring);
                 pinky = GetFinger(XRHandFingerID.Little);
             }
+
+            public static HandState Lerp(HandState a, HandState b, float ratio)
+            {
+                return new HandState()
+                {
+                    transform = TransformState.Lerp(a.transform, b.transform, ratio),
+                    thumb = Mathf.Lerp(a.thumb, b.thumb, ratio),
+                    index = Mathf.Lerp(a.index, b.index, ratio),
+                    middle = Mathf.Lerp(a.middle, b.middle, ratio),
+                    ring = Mathf.Lerp(a.ring, b.ring, ratio),
+                    pinky = Mathf.Lerp(a.pinky, b.pinky, ratio)
+                };
+            }
         }
 
         [Serializable]
         public struct Keyframe
         {
-            public float time;
+            [FormerlySerializedAs("time")]
+            public float startTime;
             public TransformState head;
             public HandState leftHand;
             public HandState rightHand;
+
+            public static Keyframe Lerp(Keyframe a, Keyframe b, float ratio)
+            {
+                return new Keyframe()
+                {
+                    head = TransformState.Lerp(a.head, b.head, ratio),
+                    leftHand = HandState.Lerp(a.leftHand, b.leftHand, ratio),
+                    rightHand = HandState.Lerp(a.rightHand, b.rightHand, ratio)
+                };
+            }
         }
 
-        public float Duration => keyframes.Last().time;
         public List<Keyframe> keyframes = new();
     }
 }

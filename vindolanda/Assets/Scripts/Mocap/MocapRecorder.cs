@@ -93,7 +93,7 @@ namespace Vindolanda.Mocap
 
             output.keyframes.Add(new Clip.Keyframe()
             {
-                time = Time.realtimeSinceStartup - startTime,
+                startTime = Time.realtimeSinceStartup - startTime,
                 leftHand = leftState.Value,
                 rightHand = rightState.Value,
                 head = new()
