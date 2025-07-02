@@ -68,8 +68,8 @@ namespace Vindolanda.Mocap
             {
                 transform = new()
                 {
-                    position = hand.transform.position,
-                    rotation = hand.transform.rotation,
+                    position = evnt.hand.rootPose.position,
+                    rotation = evnt.hand.rootPose.rotation,
                 },
                 thumb = GetFingerValue(XRHandFingerID.Thumb),
                 index = GetFingerValue(XRHandFingerID.Index),
@@ -98,8 +98,8 @@ namespace Vindolanda.Mocap
                 rightHand = rightState.Value,
                 head = new()
                 {
-                    position = head.position,
-                    rotation = head.rotation,
+                    position = head.localPosition,
+                    rotation = head.localRotation,
                 }
             });
 
