@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.XR.Hands;
 using UnityEngine.XR.Hands.Gestures;
+using Vindolanda.Mocap;
 
 /// <summary>
 /// Render a gesture to a hand rig. Makes the following assumptions:
@@ -15,9 +16,16 @@ using UnityEngine.XR.Hands.Gestures;
 /// </summary>
 public class GestureRenderer : MonoBehaviour
 {
-    [SerializeField] XRHandShape shape;
+    [SerializeField] Clip.HandState? shape;
 
-    public XRHandShape Shape => shape;
+    public Clip.HandState? Shape => shape;
+
+    public void SetShapeInstant(Clip.HandState shape)
+    {
+        if (updateCoroutine != null) StopCoroutine(updateCoroutine);
+        this.shape = shape;
+        LerpPose(initialRotations, shape, 1.0f);
+    }
 
     /// <summary>
     /// Instantly updates current shape to match the given pose. Moderately expensive, don't overuse
@@ -25,21 +33,27 @@ public class GestureRenderer : MonoBehaviour
     /// <param name="shape"></param>
     public void SetShapeInstant(XRHandShape shape)
     {
-        if (updateCoroutine != null) StopCoroutine(updateCoroutine);
-        this.shape = shape;
-        LerpPose(initialRotations, shape, 1.0f);
+        var state = new Clip.HandState(transform, shape);
+        SetShapeInstant(state);
     }
 
     Coroutine updateCoroutine;
+
+    public void SetShapeSmooth(Clip.HandState shape, float time)
+    {
+        this.shape = shape;
+        if (updateCoroutine != null) StopCoroutine(updateCoroutine);
+        updateCoroutine = StartCoroutine(UpdatePositions(shape, time));
+    }
+
     /// <summary>
     /// Animate current shape to match the given pose. Quite expensive, use sparingly.
     /// </summary>
     /// <param name="shape"></param>
     public void SetShapeSmooth(XRHandShape shape, float time)
     {
-        this.shape = shape;
-        if (updateCoroutine != null) StopCoroutine(updateCoroutine);
-        updateCoroutine = StartCoroutine(UpdatePositions(shape, time));
+        var state = new Clip.HandState(transform, shape);
+        SetShapeSmooth(state, time);
     }
 
     [SerializeField] Transform pinky;
@@ -69,24 +83,14 @@ public class GestureRenderer : MonoBehaviour
         }
     }
 
-    Transform GetFinger(XRHandFingerID finger)
-    {
-        return finger switch
-        {
-            XRHandFingerID.Little => pinky,
-            XRHandFingerID.Ring => ring,
-            XRHandFingerID.Middle => middle,
-            XRHandFingerID.Index => index,
-            XRHandFingerID.Thumb => thumb,
-            _ => throw new System.NotImplementedException()
-        };
-    }
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         initialRotations = GetCurrentRotations();
-        SetShapeInstant(shape);
+        if (shape != null)
+        {
+            SetShapeInstant(shape.Value);
+        }
     }
 
 
@@ -96,12 +100,11 @@ public class GestureRenderer : MonoBehaviour
     /// <param name="from">Starting positions for nodes. Can be <see cref="initialRotations"/> for fully open or <see cref="GetCurrentRotations"/> for a different starting point.</param>
     /// <param name="to">The final pose to reach</param>
     /// <param name="ratio">Ratio to interpolate between</param>
-    void LerpPose(Dictionary<Transform, Quaternion> from, XRHandShape to, float ratio)
+    void LerpPose(Dictionary<Transform, Quaternion> from, Clip.HandState to, float ratio)
     {
-        foreach (var finger in to.fingerShapeConditions)
+        void UpdateFinger(Transform node, float endCurl)
         {
-            var node = GetFinger(finger.fingerID);
-            var rotate = Quaternion.Euler(Mathf.Lerp(0, maxRotate, finger.targets[0].desired), 0, 0);
+            var rotate = Quaternion.Euler(Mathf.Lerp(0, maxRotate, endCurl), 0, 0);
 
             while (node.childCount > 0)
             {
@@ -109,9 +112,14 @@ public class GestureRenderer : MonoBehaviour
                 node = node.GetChild(0);
             }
         }
+        UpdateFinger(thumb, to.thumb);
+        UpdateFinger(index, to.index);
+        UpdateFinger(middle, to.middle);
+        UpdateFinger(ring, to.ring);
+        UpdateFinger(pinky, to.pinky);
     }
 
-    IEnumerator UpdatePositions(XRHandShape to, float totalTime)
+    IEnumerator UpdatePositions(Clip.HandState to, float totalTime)
     {
         var starting = GetCurrentRotations();
         float time = 0;
