@@ -1,0 +1,2237 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 377568ab7cb4aae48ac660e3bef3d863, type: 3}
+  m_Name: testclip
+  m_EditorClassIdentifier: 
+  keyframes:
+  - time: 0.01623869
+    head:
+      position: {x: -61.172157, y: 15.662477, z: 380.41434}
+      rotation: {x: -0.16820899, y: -0.32926098, z: 0.033001807, w: -0.9285494}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.074801445
+      middle: 0.091402054
+      ring: 0.12505126
+      pinky: 0.08224803
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.86494684
+      index: 0.093379915
+      middle: 0.13045567
+      ring: 0.15466642
+      pinky: 0.096772015
+  - time: 0.033617973
+    head:
+      position: {x: -61.168068, y: 15.662281, z: 380.4145}
+      rotation: {x: -0.16876437, y: -0.32890305, z: 0.032170974, w: -0.9286046}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.07466072
+      middle: 0.09090835
+      ring: 0.12444097
+      pinky: 0.08152914
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.8649513
+      index: 0.09546518
+      middle: 0.12987828
+      ring: 0.1541841
+      pinky: 0.09634322
+  - time: 0.049633026
+    head:
+      position: {x: -61.159763, y: 15.661861, z: 380.41507}
+      rotation: {x: -0.16954522, y: -0.32787642, z: 0.030977992, w: -0.928866}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.074534714
+      middle: 0.09071326
+      ring: 0.12419218
+      pinky: 0.081386864
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.86494005
+      index: 0.13759273
+      middle: 0.12912756
+      ring: 0.15354109
+      pinky: 0.09573406
+  - time: 0.08161259
+    head:
+      position: {x: -61.146233, y: 15.660945, z: 380.415}
+      rotation: {x: -0.17047594, y: -0.32705235, z: 0.030847983, w: -0.9289904}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.074278176
+      middle: 0.09051043
+      ring: 0.12369746
+      pinky: 0.08128929
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.8649428
+      index: 0.27665687
+      middle: 0.12851089
+      ring: 0.15297967
+      pinky: 0.09528381
+  - time: 0.097574234
+    head:
+      position: {x: -61.141685, y: 15.660623, z: 380.41473}
+      rotation: {x: -0.17074034, y: -0.32719517, z: 0.030958878, w: -0.9288879}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.07424617
+      middle: 0.09046364
+      ring: 0.123723745
+      pinky: 0.081260026
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.86494684
+      index: 0.30821824
+      middle: 0.12827641
+      ring: 0.15277594
+      pinky: 0.09532744
+  - time: 0.1144743
+    head:
+      position: {x: -61.136314, y: 15.660388, z: 380.41455}
+      rotation: {x: -0.17091213, y: -0.3275076, z: 0.031138236, w: -0.9287402}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.07428837
+      middle: 0.09045237
+      ring: 0.123760164
+      pinky: 0.081180096
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.8649446
+      index: 0.34045887
+      middle: 0.12770218
+      ring: 0.1522904
+      pinky: 0.09505057
+  - time: 0.13108158
+    head:
+      position: {x: -61.1272, y: 15.6597595, z: 380.41397}
+      rotation: {x: -0.17141719, y: -0.32805246, z: 0.03142664, w: -0.9284451}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.07442778
+      middle: 0.09054071
+      ring: 0.12387377
+      pinky: 0.08108878
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.8649439
+      index: 0.3431756
+      middle: 0.12728459
+      ring: 0.15194768
+      pinky: 0.09483975
+  - time: 0.14840126
+    head:
+      position: {x: -61.12157, y: 15.659509, z: 380.41373}
+      rotation: {x: -0.17210838, y: -0.32864386, z: 0.031807013, w: -0.92809504}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.074896514
+      middle: 0.09101838
+      ring: 0.124471426
+      pinky: 0.081095874
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.8649459
+      index: 0.34335333
+      middle: 0.12589616
+      ring: 0.15081769
+      pinky: 0.0942027
+  - time: 0.18262911
+    head:
+      position: {x: -61.106262, y: 15.658837, z: 380.4125}
+      rotation: {x: -0.17504336, y: -0.33003995, z: 0.033097535, w: -0.92700493}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.07644981
+      middle: 0.092879355
+      ring: 0.12669009
+      pinky: 0.081514835
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.8649441
+      index: 0.16691828
+      middle: 0.12288791
+      ring: 0.148377
+      pinky: 0.09284383
+  - time: 0.19885397
+    head:
+      position: {x: -61.096607, y: 15.65854, z: 380.41168}
+      rotation: {x: -0.17648983, y: -0.3310833, z: 0.03411634, w: -0.9263214}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.0771721
+      middle: 0.09379125
+      ring: 0.12772542
+      pinky: 0.081744015
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.6778648
+      index: 0.0919199
+      middle: 0.12062019
+      ring: 0.1465357
+      pinky: 0.09182167
+  - time: 0.21483994
+    head:
+      position: {x: -61.09021, y: 15.658735, z: 380.41153}
+      rotation: {x: -0.17563836, y: -0.3320482, z: 0.034973625, w: -0.9261059}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.07889396
+      middle: 0.096248865
+      ring: 0.13004822
+      pinky: 0.08232498
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.37102997
+      index: 0.0848465
+      middle: 0.1196689
+      ring: 0.14574832
+      pinky: 0.09138757
+  - time: 0.23131323
+    head:
+      position: {x: -61.08059, y: 15.658594, z: 380.41068}
+      rotation: {x: -0.17498568, y: -0.33411768, z: 0.036441706, w: -0.9254283}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.079788685
+      middle: 0.09746581
+      ring: 0.13132721
+      pinky: 0.08267218
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.021777093
+      index: 0.085684836
+      middle: 0.11845994
+      ring: 0.14474869
+      pinky: 0.090836465
+  - time: 0.26295996
+    head:
+      position: {x: -61.06495, y: 15.658296, z: 380.409}
+      rotation: {x: -0.17556575, y: -0.33807412, z: 0.038680565, w: -0.9237892}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08283812
+      middle: 0.10154301
+      ring: 0.13542384
+      pinky: 0.08384162
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08742356
+      middle: 0.1178143
+      ring: 0.14420384
+      pinky: 0.09052491
+  - time: 0.27916527
+    head:
+      position: {x: -61.0593, y: 15.658238, z: 380.40848}
+      rotation: {x: -0.17625071, y: -0.3392007, z: 0.039102104, w: -0.9232279}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08522254
+      middle: 0.104885876
+      ring: 0.13865942
+      pinky: 0.08500147
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08788395
+      middle: 0.11768484
+      ring: 0.14410287
+      pinky: 0.09048033
+  - time: 0.295331
+    head:
+      position: {x: -61.05079, y: 15.65764, z: 380.40695}
+      rotation: {x: -0.17701513, y: -0.3416074, z: 0.039916884, w: -0.92215884}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08657712
+      middle: 0.106838524
+      ring: 0.14051312
+      pinky: 0.08574128
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08772272
+      middle: 0.1172989
+      ring: 0.14379597
+      pinky: 0.090320885
+  - time: 0.31164312
+    head:
+      position: {x: -61.04649, y: 15.657308, z: 380.40637}
+      rotation: {x: -0.17767447, y: -0.3428282, z: 0.040235233, w: -0.9215649}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.089433014
+      middle: 0.111065924
+      ring: 0.14447093
+      pinky: 0.08746648
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08749962
+      middle: 0.11704087
+      ring: 0.14359117
+      pinky: 0.090225756
+  - time: 0.34390306
+    head:
+      position: {x: -61.038452, y: 15.656591, z: 380.40494}
+      rotation: {x: -0.17870642, y: -0.34500927, z: 0.040779836, w: -0.9205269}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.0945676
+      middle: 0.11875421
+      ring: 0.15150517
+      pinky: 0.09095025
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08720487
+      middle: 0.116369784
+      ring: 0.1430431
+      pinky: 0.0896678
+  - time: 0.36006927
+    head:
+      position: {x: -61.034782, y: 15.65618, z: 380.4042}
+      rotation: {x: -0.17881387, y: -0.34583938, z: 0.04071018, w: -0.9201975}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.096168816
+      middle: 0.121172965
+      ring: 0.15369862
+      pinky: 0.09212297
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08746749
+      middle: 0.116484225
+      ring: 0.14312547
+      pinky: 0.0895918
+  - time: 0.3757081
+    head:
+      position: {x: -61.026775, y: 15.655386, z: 380.4029}
+      rotation: {x: -0.17926009, y: -0.3473614, z: 0.04116096, w: -0.91951716}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.09942073
+      middle: 0.1261115
+      ring: 0.15813977
+      pinky: 0.09463692
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08779472
+      middle: 0.1167714
+      ring: 0.14335227
+      pinky: 0.0896067
+  - time: 0.39997292
+    head:
+      position: {x: -61.023407, y: 15.654854, z: 380.40216}
+      rotation: {x: -0.17955391, y: -0.34788936, z: 0.041606646, w: -0.9192401}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.10293436
+      middle: 0.13146764
+      ring: 0.16292554
+      pinky: 0.09749311
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08862704
+      middle: 0.11794835
+      ring: 0.14431643
+      pinky: 0.09009606
+  - time: 0.42109346
+    head:
+      position: {x: -61.016273, y: 15.653839, z: 380.40097}
+      rotation: {x: -0.18043259, y: -0.34932736, z: 0.04293192, w: -0.9184615}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.106753886
+      middle: 0.1372776
+      ring: 0.16810781
+      pinky: 0.10075778
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.09017396
+      middle: 0.12081033
+      ring: 0.1466859
+      pinky: 0.09145498
+  - time: 0.43804216
+    head:
+      position: {x: -61.00968, y: 15.652587, z: 380.3995}
+      rotation: {x: -0.18181023, y: -0.3507347, z: 0.044403374, w: -0.91758305}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.1108706
+      middle: 0.14356393
+      ring: 0.17370278
+      pinky: 0.10444689
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.09079045
+      middle: 0.122051716
+      ring: 0.14771843
+      pinky: 0.09208679
+  - time: 0.45494366
+    head:
+      position: {x: -61.003246, y: 15.651203, z: 380.398}
+      rotation: {x: -0.18428081, y: -0.35200888, z: 0.046171356, w: -0.9165144}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.113116086
+      middle: 0.14699382
+      ring: 0.17674494
+      pinky: 0.106527865
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.09221166
+      middle: 0.12492579
+      ring: 0.15008849
+      pinky: 0.09359598
+  - time: 0.47226572
+    head:
+      position: {x: -61.000374, y: 15.650335, z: 380.3974}
+      rotation: {x: -0.18648256, y: -0.3524239, z: 0.047235865, w: -0.91585517}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.11750531
+      middle: 0.1536873
+      ring: 0.18268532
+      pinky: 0.11068827
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.09300017
+      middle: 0.12648964
+      ring: 0.1513769
+      pinky: 0.094446
+  - time: 0.48915195
+    head:
+      position: {x: -60.994656, y: 15.64863, z: 380.396}
+      rotation: {x: -0.19039537, y: -0.35279137, z: 0.049084358, w: -0.9148108}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.0046305656
+      index: 0.121662915
+      middle: 0.16002649
+      ring: 0.18831319
+      pinky: 0.11476326
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.094567955
+      middle: 0.12952214
+      ring: 0.15387487
+      pinky: 0.09613782
+  - time: 0.5232568
+    head:
+      position: {x: -60.981037, y: 15.646882, z: 380.39554}
+      rotation: {x: -0.19897567, y: -0.34933656, z: 0.051119722, w: -0.9141988}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.01527071
+      index: 0.12720627
+      middle: 0.16850281
+      ring: 0.1958313
+      pinky: 0.12038612
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.09685564
+      middle: 0.13389724
+      ring: 0.15746039
+      pinky: 0.09866828
+  - time: 0.53985596
+    head:
+      position: {x: -60.97927, y: 15.645771, z: 380.39487}
+      rotation: {x: -0.2028796, y: -0.3472733, z: 0.05131857, w: -0.91411585}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.018394232
+      index: 0.12884265
+      middle: 0.17098874
+      ring: 0.19804311
+      pinky: 0.12206954
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.09831715
+      middle: 0.13655907
+      ring: 0.15963602
+      pinky: 0.10026711
+  - time: 0.5560136
+    head:
+      position: {x: -60.97571, y: 15.643553, z: 380.39346}
+      rotation: {x: -0.21114837, y: -0.34310013, z: 0.051732317, w: -0.9137957}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.023353815
+      index: 0.13144684
+      middle: 0.1749571
+      ring: 0.20156449
+      pinky: 0.12478632
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.09925914
+      middle: 0.13799047
+      ring: 0.16081667
+      pinky: 0.10116458
+  - time: 0.5723028
+    head:
+      position: {x: -60.974422, y: 15.642168, z: 380.39276}
+      rotation: {x: -0.21610163, y: -0.33993202, z: 0.051415432, w: -0.9138397}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.025462866
+      index: 0.13255239
+      middle: 0.17664862
+      ring: 0.20306557
+      pinky: 0.12595385
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.10072279
+      middle: 0.14057976
+      ring: 0.1629346
+      pinky: 0.10290271
+  - time: 0.58919907
+    head:
+      position: {x: -60.97167, y: 15.639341, z: 380.39154}
+      rotation: {x: -0.22647087, y: -0.33325472, z: 0.050693423, w: -0.9138285}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.028321087
+      index: 0.13405222
+      middle: 0.17893726
+      ring: 0.205095
+      pinky: 0.12754917
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.10133964
+      middle: 0.14189047
+      ring: 0.16401696
+      pinky: 0.10380632
+  - time: 0.6225076
+    head:
+      position: {x: -60.96885, y: 15.634342, z: 380.38937}
+      rotation: {x: -0.24554029, y: -0.3213746, z: 0.049851872, w: -0.9132049}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.029421449
+      index: 0.13463402
+      middle: 0.17982125
+      ring: 0.20588446
+      pinky: 0.12816185
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.10265207
+      middle: 0.14549083
+      ring: 0.16700578
+      pinky: 0.10665387
+  - time: 0.6390672
+    head:
+      position: {x: -60.96688, y: 15.632961, z: 380.38892}
+      rotation: {x: -0.25341004, y: -0.316883, z: 0.049812987, w: -0.9126266}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.027863562
+      index: 0.13381386
+      middle: 0.17857045
+      ring: 0.20477456
+      pinky: 0.12729281
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.102785885
+      middle: 0.14752811
+      ring: 0.16874647
+      pinky: 0.10882425
+  - time: 0.65460205
+    head:
+      position: {x: -60.965546, y: 15.630039, z: 380.38736}
+      rotation: {x: -0.26647776, y: -0.30897674, z: 0.049479503, w: -0.9116331}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.026389837
+      index: 0.13304299
+      middle: 0.17739242
+      ring: 0.20372772
+      pinky: 0.1264742
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.10208839
+      middle: 0.14881843
+      ring: 0.16991585
+      pinky: 0.110925436
+  - time: 0.67069435
+    head:
+      position: {x: -60.96439, y: 15.62919, z: 380.38705}
+      rotation: {x: -0.27053094, y: -0.3054006, z: 0.04930251, w: -0.91165394}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.022650361
+      index: 0.13108116
+      middle: 0.1743989
+      ring: 0.20106632
+      pinky: 0.124402106
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.10152143
+      middle: 0.14919567
+      ring: 0.17028642
+      pinky: 0.111891925
+  - time: 0.7044563
+    head:
+      position: {x: -60.961933, y: 15.627303, z: 380.38577}
+      rotation: {x: -0.27799043, y: -0.29662377, z: 0.04795041, w: -0.9123796}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.014677644
+      index: 0.12690425
+      middle: 0.1680339
+      ring: 0.19541198
+      pinky: 0.12006378
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.099383175
+      middle: 0.14946198
+      ring: 0.17069417
+      pinky: 0.11424303
+  - time: 0.72094536
+    head:
+      position: {x: -60.960606, y: 15.626554, z: 380.3848}
+      rotation: {x: -0.2817498, y: -0.29180232, z: 0.046953097, w: -0.912833}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.0077211857
+      index: 0.12326813
+      middle: 0.16248506
+      ring: 0.19049293
+      pinky: 0.11637777
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.09786242
+      middle: 0.14907074
+      ring: 0.1704846
+      pinky: 0.11526346
+  - time: 0.73751783
+    head:
+      position: {x: -60.959293, y: 15.626919, z: 380.38443}
+      rotation: {x: -0.28286034, y: -0.28965297, z: 0.046163253, w: -0.9132143}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.0036569834
+      index: 0.121156216
+      middle: 0.15926361
+      ring: 0.1876275
+      pinky: 0.11426586
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.097169876
+      middle: 0.14876527
+      ring: 0.17027521
+      pinky: 0.11556655
+  - time: 0.7536187
+    head:
+      position: {x: -60.958218, y: 15.627439, z: 380.3834}
+      rotation: {x: -0.28375214, y: -0.28571588, z: 0.043736212, w: -0.9142967}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.11735219
+      middle: 0.15313488
+      ring: 0.18219203
+      pinky: 0.110649765
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.09590584
+      middle: 0.14791888
+      ring: 0.16965836
+      pinky: 0.116025746
+  - time: 0.7698283
+    head:
+      position: {x: -60.95725, y: 15.628127, z: 380.3831}
+      rotation: {x: -0.28230584, y: -0.28425127, z: 0.042332508, w: -0.91526645}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.11529368
+      middle: 0.149939
+      ring: 0.17935777
+      pinky: 0.108698785
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.09521937
+      middle: 0.14738965
+      ring: 0.16925448
+      pinky: 0.116037905
+  - time: 0.8039794
+    head:
+      position: {x: -60.95497, y: 15.630037, z: 380.38202}
+      rotation: {x: -0.27822772, y: -0.28104407, z: 0.038399022, w: -0.917676}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.1098122
+      middle: 0.14158982
+      ring: 0.17194527
+      pinky: 0.10357529
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.092527926
+      middle: 0.14470673
+      ring: 0.16716862
+      pinky: 0.11554879
+  - time: 0.82078123
+    head:
+      position: {x: -60.953888, y: 15.631502, z: 380.3811}
+      rotation: {x: -0.2755864, y: -0.27920935, z: 0.03590309, w: -0.9191329}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.106149375
+      middle: 0.13602257
+      ring: 0.16699106
+      pinky: 0.10029429
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.0919618
+      middle: 0.14394969
+      ring: 0.16656667
+      pinky: 0.115354836
+  - time: 0.83755445
+    head:
+      position: {x: -60.952866, y: 15.632312, z: 380.38086}
+      rotation: {x: -0.27447918, y: -0.27826115, z: 0.03488443, w: -0.9197908}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.102565825
+      middle: 0.13058335
+      ring: 0.162144
+      pinky: 0.09722328
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.09073919
+      middle: 0.14233714
+      ring: 0.16526836
+      pinky: 0.11452383
+  - time: 0.85427856
+    head:
+      position: {x: -60.951687, y: 15.633534, z: 380.38007}
+      rotation: {x: -0.27210805, y: -0.27638417, z: 0.03291236, w: -0.92113304}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.100905836
+      middle: 0.12794638
+      ring: 0.15978628
+      pinky: 0.09590489
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.090158165
+      middle: 0.14150447
+      ring: 0.16459638
+      pinky: 0.113999546
+  - time: 0.8719187
+    head:
+      position: {x: -60.950924, y: 15.634169, z: 380.3799}
+      rotation: {x: -0.27053842, y: -0.2756994, z: 0.032422535, w: -0.92181766}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.09769791
+      middle: 0.12280303
+      ring: 0.15516615
+      pinky: 0.09347391
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08904642
+      middle: 0.13974887
+      ring: 0.16316748
+      pinky: 0.112792075
+  - time: 0.8885889
+    head:
+      position: {x: -60.949623, y: 15.635395, z: 380.37952}
+      rotation: {x: -0.2674744, y: -0.27446002, z: 0.03144453, w: -0.92311454}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.09637833
+      middle: 0.12058991
+      ring: 0.15316838
+      pinky: 0.092568934
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08800459
+      middle: 0.1379258
+      ring: 0.1616717
+      pinky: 0.11140829
+  - time: 0.92246103
+    head:
+      position: {x: -60.947395, y: 15.636631, z: 380.37952}
+      rotation: {x: -0.2632505, y: -0.27318293, z: 0.031203132, w: -0.92471445}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.092297554
+      middle: 0.11442822
+      ring: 0.1475625
+      pinky: 0.08958036
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08683795
+      middle: 0.13564104
+      ring: 0.1597963
+      pinky: 0.1097433
+  - time: 0.9397521
+    head:
+      position: {x: -60.946705, y: 15.636815, z: 380.3797}
+      rotation: {x: -0.26249552, y: -0.27271467, z: 0.031293623, w: -0.92506415}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.089935064
+      middle: 0.11093527
+      ring: 0.14434654
+      pinky: 0.08793968
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08611488
+      middle: 0.13431996
+      ring: 0.15871161
+      pinky: 0.10879582
+  - time: 0.95715237
+    head:
+      position: {x: -60.945423, y: 15.637167, z: 380.37973}
+      rotation: {x: -0.26135242, y: -0.2716072, z: 0.031514376, w: -0.9257059}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08786124
+      middle: 0.107905805
+      ring: 0.14152426
+      pinky: 0.08659667
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08575946
+      middle: 0.13370538
+      ring: 0.15821749
+      pinky: 0.10834926
+  - time: 0.973773
+    head:
+      position: {x: -60.9447, y: 15.63717, z: 380.37994}
+      rotation: {x: -0.26145798, y: -0.2710681, z: 0.03180276, w: -0.9258243}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08698529
+      middle: 0.106625855
+      ring: 0.14031929
+      pinky: 0.08605093
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.0851472
+      middle: 0.13268
+      ring: 0.15738064
+      pinky: 0.10761261
+  - time: 0.9905791
+    head:
+      position: {x: -60.94337, y: 15.637315, z: 380.3801}
+      rotation: {x: -0.26115707, y: -0.26989558, z: 0.032257643, w: -0.9262359}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08544022
+      middle: 0.10439187
+      ring: 0.13819003
+      pinky: 0.08513445
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08487654
+      middle: 0.13222164
+      ring: 0.15700239
+      pinky: 0.10727507
+  - time: 1.024365
+    head:
+      position: {x: -60.941242, y: 15.637383, z: 380.3808}
+      rotation: {x: -0.2602609, y: -0.268033, z: 0.03269924, w: -0.9270132}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.083928406
+      middle: 0.10224229
+      ring: 0.13610929
+      pinky: 0.084297836
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.0842002
+      middle: 0.13080949
+      ring: 0.15583771
+      pinky: 0.10610509
+  - time: 1.0422106
+    head:
+      position: {x: -60.940678, y: 15.637293, z: 380.38107}
+      rotation: {x: -0.25994095, y: -0.26734114, z: 0.03285241, w: -0.9272973}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.0832448
+      middle: 0.10130054
+      ring: 0.13517684
+      pinky: 0.08393669
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08408612
+      middle: 0.13048166
+      ring: 0.15556806
+      pinky: 0.10579437
+  - time: 1.0591044
+    head:
+      position: {x: -60.93941, y: 15.637255, z: 380.3815}
+      rotation: {x: -0.25994074, y: -0.26594445, z: 0.032951355, w: -0.9276954}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08288288
+      middle: 0.10077399
+      ring: 0.13466096
+      pinky: 0.08373934
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.083827674
+      middle: 0.12973976
+      ring: 0.15494555
+      pinky: 0.10508609
+  - time: 1.07621
+    head:
+      position: {x: -60.938812, y: 15.637164, z: 380.3816}
+      rotation: {x: -0.26024765, y: -0.26503435, z: 0.03286141, w: -0.92787296}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08211017
+      middle: 0.099695385
+      ring: 0.13358712
+      pinky: 0.0833444
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08353567
+      middle: 0.12890893
+      ring: 0.15425116
+      pinky: 0.10428923
+  - time: 1.0929751
+    head:
+      position: {x: -60.937557, y: 15.637182, z: 380.382}
+      rotation: {x: -0.26074687, y: -0.2633559, z: 0.033223886, w: -0.92819774}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08121103
+      middle: 0.09846324
+      ring: 0.13234091
+      pinky: 0.082918406
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.083408356
+      middle: 0.12850505
+      ring: 0.15391159
+      pinky: 0.10390729
+  - time: 1.1094303
+    head:
+      position: {x: -60.937035, y: 15.637255, z: 380.38223}
+      rotation: {x: -0.26073423, y: -0.26255983, z: 0.033543877, w: -0.92841524}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08081871
+      middle: 0.097929
+      ring: 0.13179708
+      pinky: 0.082730055
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08324367
+      middle: 0.12786299
+      ring: 0.15337467
+      pinky: 0.10324651
+  - time: 1.1424613
+    head:
+      position: {x: -60.93522, y: 15.63751, z: 380.38318}
+      rotation: {x: -0.2596825, y: -0.25966063, z: 0.033532478, w: -0.9295252}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08010644
+      middle: 0.09697324
+      ring: 0.13081175
+      pinky: 0.08241612
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.0833292
+      middle: 0.12756413
+      ring: 0.15310478
+      pinky: 0.10277969
+  - time: 1.1586022
+    head:
+      position: {x: -60.934116, y: 15.637661, z: 380.38388}
+      rotation: {x: -0.2588033, y: -0.2576784, z: 0.033628434, w: -0.93031824}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.080165684
+      middle: 0.09706253
+      ring: 0.13089919
+      pinky: 0.082442224
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.0834384
+      middle: 0.12771887
+      ring: 0.15322822
+      pinky: 0.1028772
+  - time: 1.1757126
+    head:
+      position: {x: -60.933613, y: 15.6376915, z: 380.38422}
+      rotation: {x: -0.2583514, y: -0.2567223, z: 0.03378105, w: -0.9307025}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.080720425
+      middle: 0.097801924
+      ring: 0.13166052
+      pinky: 0.08268672
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08373308
+      middle: 0.1283471
+      ring: 0.15374774
+      pinky: 0.10339004
+  - time: 1.1917877
+    head:
+      position: {x: -60.932575, y: 15.637663, z: 380.38483}
+      rotation: {x: -0.2578687, y: -0.2547236, z: 0.034038052, w: -0.93137586}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08123273
+      middle: 0.098498285
+      ring: 0.13237715
+      pinky: 0.08292204
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08391714
+      middle: 0.12878639
+      ring: 0.15411276
+      pinky: 0.10377723
+  - time: 1.2238913
+    head:
+      position: {x: -60.930862, y: 15.637446, z: 380.3858}
+      rotation: {x: -0.25826076, y: -0.25190684, z: 0.03472506, w: -0.93200785}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08375096
+      middle: 0.1019969
+      ring: 0.1358611
+      pinky: 0.084191084
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08477545
+      middle: 0.13097286
+      ring: 0.15593356
+      pinky: 0.105740786
+  - time: 1.2418094
+    head:
+      position: {x: -60.930275, y: 15.637215, z: 380.3861}
+      rotation: {x: -0.25858316, y: -0.25126168, z: 0.03477843, w: -0.9320906}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08572739
+      middle: 0.10489392
+      ring: 0.13866329
+      pinky: 0.08527994
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08498478
+      middle: 0.13150573
+      ring: 0.15638065
+      pinky: 0.10622853
+  - time: 1.2578378
+    head:
+      position: {x: -60.92897, y: 15.636996, z: 380.38675}
+      rotation: {x: -0.25859267, y: -0.25023183, z: 0.034778103, w: -0.93236494}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.082525015
+      middle: 0.106508315
+      ring: 0.14020586
+      pinky: 0.08568877
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08536643
+      middle: 0.13252354
+      ring: 0.15722466
+      pinky: 0.10718012
+  - time: 1.2746205
+    head:
+      position: {x: -60.92835, y: 15.63686, z: 380.387}
+      rotation: {x: -0.25824228, y: -0.24999885, z: 0.03473567, w: -0.93252623}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.18224615
+      middle: 0.10946697
+      ring: 0.14297724
+      pinky: 0.087840736
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08552933
+      middle: 0.1329791
+      ring: 0.15760875
+      pinky: 0.10761237
+  - time: 1.2908216
+    head:
+      position: {x: -60.927105, y: 15.63654, z: 380.38757}
+      rotation: {x: -0.2582997, y: -0.24930194, z: 0.034743506, w: -0.9326965}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.4636317
+      middle: 0.11134046
+      ring: 0.14472383
+      pinky: 0.09008485
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.085852444
+      middle: 0.13385272
+      ring: 0.15833873
+      pinky: 0.10844809
+  - time: 1.3233957
+    head:
+      position: {x: -60.92526, y: 15.636087, z: 380.38815}
+      rotation: {x: -0.259823, y: -0.2482448, z: 0.035228867, w: -0.9325372}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.62194514
+      middle: 0.30951357
+      ring: 0.13803011
+      pinky: 0.40077728
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08633208
+      middle: 0.13502473
+      ring: 0.15931386
+      pinky: 0.109518945
+  - time: 1.3401604
+    head:
+      position: {x: -60.924564, y: 15.635961, z: 380.38837}
+      rotation: {x: -0.25993747, y: -0.24802595, z: 0.03519148, w: -0.9325649}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.59448063
+      middle: 0.84075755
+      ring: 0.21356678
+      pinky: 0.7463192
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.0866366
+      middle: 0.13570768
+      ring: 0.15987587
+      pinky: 0.11012477
+  - time: 1.3564296
+    head:
+      position: {x: -60.92342, y: 15.63567, z: 380.38873}
+      rotation: {x: -0.25986198, y: -0.2475966, z: 0.03508906, w: -0.9327039}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.22473949
+      middle: 1
+      ring: 1
+      pinky: 0.9408802
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.086769104
+      middle: 0.13601255
+      ring: 0.16013044
+      pinky: 0.11039716
+  - time: 1.3729258
+    head:
+      position: {x: -60.92289, y: 15.635554, z: 380.3887}
+      rotation: {x: -0.25963765, y: -0.24726252, z: 0.034966215, w: -0.9328596}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.05600691
+      middle: 1
+      ring: 1
+      pinky: 0.9587232
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.0869925
+      middle: 0.13652223
+      ring: 0.1605472
+      pinky: 0.11084932
+  - time: 1.3893738
+    head:
+      position: {x: -60.92205, y: 15.635294, z: 380.38876}
+      rotation: {x: -0.25996312, y: -0.24622665, z: 0.034466196, w: -0.93306154}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.038799465
+      middle: 1
+      ring: 1
+      pinky: 0.96301544
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08709645
+      middle: 0.13673711
+      ring: 0.16072804
+      pinky: 0.111040115
+  - time: 1.4216537
+    head:
+      position: {x: -60.9213, y: 15.635105, z: 380.38873}
+      rotation: {x: -0.26038057, y: -0.24448225, z: 0.033565074, w: -0.93343663}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.038741887
+      middle: 1
+      ring: 1
+      pinky: 0.9623149
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.087484896
+      middle: 0.13735795
+      ring: 0.16123778
+      pinky: 0.111477435
+  - time: 1.438242
+    head:
+      position: {x: -60.92033, y: 15.635075, z: 380.3888}
+      rotation: {x: -0.25942093, y: -0.24325116, z: 0.032516956, w: -0.93406236}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.038717806
+      middle: 1
+      ring: 1
+      pinky: 0.9606869
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08757228
+      middle: 0.13744217
+      ring: 0.16130662
+      pinky: 0.11149979
+  - time: 1.4549041
+    head:
+      position: {x: -60.919968, y: 15.635057, z: 380.3888}
+      rotation: {x: -0.25845626, y: -0.24284518, z: 0.032248616, w: -0.9344446}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.038711786
+      middle: 1
+      ring: 1
+      pinky: 0.95991665
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08771056
+      middle: 0.13752502
+      ring: 0.16135997
+      pinky: 0.111456394
+  - time: 1.4713178
+    head:
+      position: {x: -60.91908, y: 15.635018, z: 380.38867}
+      rotation: {x: -0.25712028, y: -0.2419011, z: 0.03180811, w: -0.93507296}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.038701773
+      middle: 1
+      ring: 1
+      pinky: 0.9586178
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08776045
+      middle: 0.13752294
+      ring: 0.16135311
+      pinky: 0.11140627
+  - time: 1.4897094
+    head:
+      position: {x: -60.918938, y: 15.634991, z: 380.38843}
+      rotation: {x: -0.25709358, y: -0.24138677, z: 0.031757705, w: -0.93521476}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.038698256
+      middle: 1
+      ring: 1
+      pinky: 0.95790476
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08781624
+      middle: 0.13745135
+      ring: 0.16128749
+      pinky: 0.111245155
+  - time: 1.5295177
+    head:
+      position: {x: -60.917458, y: 15.634945, z: 380.38745}
+      rotation: {x: -0.2570342, y: -0.23931043, z: 0.030942667, w: -0.93579197}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.038683116
+      middle: 1
+      ring: 1
+      pinky: 0.9561401
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08783442
+      middle: 0.13723993
+      ring: 0.16110182
+      pinky: 0.110933244
+  - time: 1.5485959
+    head:
+      position: {x: -60.917183, y: 15.635165, z: 380.38724}
+      rotation: {x: -0.25592032, y: -0.2389506, z: 0.030502392, w: -0.9362036}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.038677692
+      middle: 1
+      ring: 1
+      pinky: 0.9551333
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08781451
+      middle: 0.13702995
+      ring: 0.16092658
+      pinky: 0.11067909
+  - time: 1.5836473
+    head:
+      position: {x: -60.91601, y: 15.635883, z: 380.3865}
+      rotation: {x: -0.25191182, y: -0.23738809, z: 0.029220222, w: -0.937728}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.038669884
+      middle: 1
+      ring: 1
+      pinky: 0.95324016
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08762103
+      middle: 0.13645005
+      ring: 0.16044307
+      pinky: 0.11009854
+  - time: 1.6005096
+    head:
+      position: {x: -60.91559, y: 15.636101, z: 380.38632}
+      rotation: {x: -0.25105822, y: -0.23703256, z: 0.028826553, w: -0.9380589}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.01696062
+      index: 0.038667977
+      middle: 1
+      ring: 1
+      pinky: 0.95286673
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08754462
+      middle: 0.13628429
+      ring: 0.16030437
+      pinky: 0.109954655
+  - time: 1.6175685
+    head:
+      position: {x: -60.915062, y: 15.636416, z: 380.3859}
+      rotation: {x: -0.24960941, y: -0.23622473, z: 0.02816723, w: -0.93866915}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.017277777
+      index: 0.03866309
+      middle: 1
+      ring: 1
+      pinky: 0.95187396
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.087395966
+      middle: 0.13592595
+      ring: 0.16000253
+      pinky: 0.10962081
+  - time: 1.6342587
+    head:
+      position: {x: -60.91465, y: 15.636547, z: 380.3857}
+      rotation: {x: -0.2491389, y: -0.23577541, z: 0.02802063, w: -0.93891144}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.038659096
+      middle: 1
+      ring: 1
+      pinky: 0.9505881
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08732009
+      middle: 0.1357193
+      ring: 0.15983611
+      pinky: 0.10942745
+  - time: 1.6511521
+    head:
+      position: {x: -60.914223, y: 15.636674, z: 380.38528}
+      rotation: {x: -0.24821533, y: -0.23479286, z: 0.027620452, w: -0.93941396}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.029350042
+      index: 0.038658798
+      middle: 1
+      ring: 1
+      pinky: 0.9500835
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08714205
+      middle: 0.13525224
+      ring: 0.15944147
+      pinky: 0.10899019
+  - time: 1.6829491
+    head:
+      position: {x: -60.91362, y: 15.63678, z: 380.38467}
+      rotation: {x: -0.24712199, y: -0.23312412, z: 0.026511852, w: -0.94014955}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.03865546
+      middle: 1
+      ring: 1
+      pinky: 0.94913834
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08674842
+      middle: 0.13433522
+      ring: 0.1586793
+      pinky: 0.10816258
+  - time: 1.6998224
+    head:
+      position: {x: -60.913387, y: 15.63675, z: 380.3845}
+      rotation: {x: -0.24688102, y: -0.2326987, z: 0.026560685, w: -0.94031686}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.03865367
+      middle: 1
+      ring: 1
+      pinky: 0.9485803
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08641118
+      middle: 0.13355541
+      ring: 0.15803605
+      pinky: 0.107485
+  - time: 1.7159009
+    head:
+      position: {x: -60.913128, y: 15.636744, z: 380.38403}
+      rotation: {x: -0.24656972, y: -0.23199813, z: 0.026236404, w: -0.94058067}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.0386526
+      middle: 1
+      ring: 1
+      pinky: 0.94837064
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08624953
+      middle: 0.1331703
+      ring: 0.15771633
+      pinky: 0.10713291
+  - time: 1.7324853
+    head:
+      position: {x: -60.912888, y: 15.636754, z: 380.3838}
+      rotation: {x: -0.24676885, y: -0.2316776, z: 0.02598808, w: -0.94061434}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.038651288
+      middle: 1
+      ring: 1
+      pinky: 0.94814384
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.08593488
+      middle: 0.1323989
+      ring: 0.15707684
+      pinky: 0.1064477
+  - time: 1.7490807
+    head:
+      position: {x: -60.912598, y: 15.6367, z: 380.3833}
+      rotation: {x: -0.24675125, y: -0.23098162, z: 0.025395121, w: -0.9408064}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.03865075
+      middle: 1
+      ring: 1
+      pinky: 0.9482875
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.027397156
+      index: 0.085775375
+      middle: 0.13200623
+      ring: 0.1567443
+      pinky: 0.10609579
+  - time: 1.7818494
+    head:
+      position: {x: -60.91225, y: 15.636558, z: 380.38257}
+      rotation: {x: -0.24621642, y: -0.2300024, z: 0.02431079, w: -0.9412149}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.038648903
+      middle: 1
+      ring: 1
+      pinky: 0.9476999
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.45501775
+      index: 0.085268736
+      middle: 0.13077289
+      ring: 0.15572447
+      pinky: 0.10500246
+  - time: 1.7978835
+    head:
+      position: {x: -60.912247, y: 15.636537, z: 380.38232}
+      rotation: {x: -0.24584298, y: -0.22964686, z: 0.02388055, w: -0.9414103}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.038648605
+      middle: 1
+      ring: 1
+      pinky: 0.94752
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.65617245
+      index: 0.08497423
+      middle: 0.12996489
+      ring: 0.1550467
+      pinky: 0.104249716
+  - time: 1.8145514
+    head:
+      position: {x: -60.91206, y: 15.63648, z: 380.38193}
+      rotation: {x: -0.24525395, y: -0.22886464, z: 0.023028681, w: -0.9417757}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.03864783
+      middle: 1
+      ring: 1
+      pinky: 0.94680786
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.7196697
+      index: 0.08485001
+      middle: 0.12958318
+      ring: 0.15473336
+      pinky: 0.10389137
+  - time: 1.83076
+    head:
+      position: {x: -60.911938, y: 15.636554, z: 380.38174}
+      rotation: {x: -0.24495494, y: -0.22829619, z: 0.02267937, w: -0.94199985}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.03864783
+      middle: 1
+      ring: 1
+      pinky: 0.94662607
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.7993576
+      index: 0.08458811
+      middle: 0.12878972
+      ring: 0.15405941
+      pinky: 0.10313815
+  - time: 1.8634443
+    head:
+      position: {x: -60.9119, y: 15.636672, z: 380.38098}
+      rotation: {x: -0.24454555, y: -0.22668324, z: 0.021755049, w: -0.9425174}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.038646996
+      middle: 1
+      ring: 1
+      pinky: 0.946257
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.8453687
+      index: 0.08412212
+      middle: 0.12758905
+      ring: 0.15306777
+      pinky: 0.102083266
+  - time: 1.8800693
+    head:
+      position: {x: -60.91195, y: 15.636729, z: 380.38065}
+      rotation: {x: -0.24450806, y: -0.22622088, z: 0.02146184, w: -0.94264495}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.038647234
+      middle: 1
+      ring: 1
+      pinky: 0.9458924
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.8561455
+      index: 0.083774626
+      middle: 0.1268341
+      ring: 0.15243936
+      pinky: 0.10146642
+  - time: 1.8968353
+    head:
+      position: {x: -60.912003, y: 15.636776, z: 380.38016}
+      rotation: {x: -0.24420479, y: -0.22530521, z: 0.020721598, w: -0.9429594}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.038646758
+      middle: 1
+      ring: 1
+      pinky: 0.94571525
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.8590429
+      index: 0.08359462
+      middle: 0.12647074
+      ring: 0.15213996
+      pinky: 0.101195335
+  - time: 1.913599
+    head:
+      position: {x: -60.912037, y: 15.636881, z: 380.37997}
+      rotation: {x: -0.24379884, y: -0.22500658, z: 0.020260511, w: -0.9431457}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.038647234
+      middle: 1
+      ring: 1
+      pinky: 0.94552773
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.8624108
+      index: 0.08320457
+      middle: 0.12574798
+      ring: 0.15154618
+      pinky: 0.10066265
+  - time: 1.9308639
+    head:
+      position: {x: -60.91211, y: 15.637007, z: 380.3796}
+      rotation: {x: -0.2430646, y: -0.22445998, z: 0.019494073, w: -0.94348156}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.038645267
+      middle: 1
+      ring: 1
+      pinky: 0.9455278
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.8638619
+      index: 0.0828743
+      middle: 0.12513441
+      ring: 0.15104818
+      pinky: 0.100209534
+  - time: 1.9635539
+    head:
+      position: {x: -60.912056, y: 15.637188, z: 380.37897}
+      rotation: {x: -0.24216555, y: -0.22386734, z: 0.018582614, w: -0.94387186}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.038646936
+      middle: 1
+      ring: 1
+      pinky: 0.9459107
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.86465037
+      index: 0.08255273
+      middle: 0.12445623
+      ring: 0.15048212
+      pinky: 0.09968132
+  - time: 1.9800744
+    head:
+      position: {x: -60.912014, y: 15.637196, z: 380.37885}
+      rotation: {x: -0.24218845, y: -0.22372797, z: 0.01845464, w: -0.9439015}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.038646996
+      middle: 1
+      ring: 1
+      pinky: 0.94591916
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.86475694
+      index: 0.082482636
+      middle: 0.12427521
+      ring: 0.15033531
+      pinky: 0.09952569
+  - time: 1.9969707
+    head:
+      position: {x: -60.911964, y: 15.637248, z: 380.37845}
+      rotation: {x: -0.2421226, y: -0.22354552, z: 0.018151201, w: -0.9439675}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.03864807
+      middle: 1
+      ring: 1
+      pinky: 0.9457598
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.86486566
+      index: 0.08241683
+      middle: 0.12401563
+      ring: 0.15011603
+      pinky: 0.09927797
+  - time: 2.0141053
+    head:
+      position: {x: -60.911915, y: 15.637299, z: 380.37796}
+      rotation: {x: -0.24203394, y: -0.22352983, z: 0.017979335, w: -0.9439973}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.038647354
+      middle: 1
+      ring: 1
+      pinky: 0.9457655
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.86488736
+      index: 0.08242601
+      middle: 0.123939455
+      ring: 0.15004998
+      pinky: 0.099182606
+  - time: 2.0312304
+    head:
+      position: {x: -60.91174, y: 15.637388, z: 380.3777}
+      rotation: {x: -0.24194944, y: -0.22367123, z: 0.017770711, w: -0.94398946}
+    leftHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0
+      index: 0.03864783
+      middle: 1
+      ring: 1
+      pinky: 0.9459559
+    rightHand:
+      transform:
+        position: {x: -60.25, y: 13.995567, z: 380}
+        rotation: {x: -0, y: -0.18462506, z: -0, w: -0.98280907}
+      thumb: 0.8649241
+      index: 0.082573116
+      middle: 0.123916626
+      ring: 0.15001512
+      pinky: 0.09902716

@@ -1,0 +1,111 @@
+using UnityEditor;
+using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.XR.Hands;
+using UnityEngine.XR.Hands.Gestures;
+
+namespace Vindolanda.Mocap
+{
+    public class MocapRecorder : MonoBehaviour
+    {
+        public XRHandTrackingEvents leftHand;
+        public XRHandTrackingEvents rightHand;
+        public Transform head;
+
+        public const string outputPath = "Assets/Animations/Mocap/";
+        public string outputFileName = "output";
+        public string AssetPath => $"{outputPath}/{outputFileName}.asset";
+        Clip output;
+
+        public InputActionReference startRecording;
+        public bool recordingActive = false;
+        float startTime = float.NaN;
+
+        Clip.HandState? leftState;
+        Clip.HandState? rightState;
+
+        // Start is called once before the first execution of Update after the MonoBehaviour is created
+        void Start()
+        {
+            leftHand.jointsUpdated.AddListener(OnPoseUpdated);
+            rightHand.jointsUpdated.AddListener(OnPoseUpdated);
+
+            startRecording.action.performed += OnStartPressed;
+        }
+
+        void OnStartPressed(InputAction.CallbackContext _)
+        {
+            recordingActive = !recordingActive;
+
+            if (recordingActive)
+            {
+                output = ScriptableObject.CreateInstance<Clip>();
+                startTime = Time.realtimeSinceStartup;
+
+                GameConstants.Instance.Player.Subtitles.Show("System", "Recording");
+            }
+            else
+            {
+                AssetDatabase.CreateAsset(output, AssetPath);
+                AssetDatabase.SaveAssetIfDirty(output);
+                output = null;
+
+                GameConstants.Instance.Player.Subtitles.Hide();
+            }
+        }
+
+        void OnPoseUpdated(XRHandJointsUpdatedEventArgs evnt)
+        {
+            float GetFingerValue(XRHandFingerID id)
+            {
+                var shape = evnt.hand.CalculateFingerShape(id, XRFingerShapeTypes.FullCurl);
+                shape.TryGetFullCurl(out var result);
+                return result;
+            }
+            var hand = evnt.hand.handedness == Handedness.Left ? leftHand : rightHand;
+
+            Clip.HandState state = new()
+            {
+                transform = new()
+                {
+                    position = hand.transform.position,
+                    rotation = hand.transform.rotation,
+                },
+                thumb = GetFingerValue(XRHandFingerID.Thumb),
+                index = GetFingerValue(XRHandFingerID.Index),
+                middle = GetFingerValue(XRHandFingerID.Middle),
+                ring = GetFingerValue(XRHandFingerID.Ring),
+                pinky = GetFingerValue(XRHandFingerID.Little)
+            };
+
+            if (hand == leftHand)
+                leftState = state;
+            else
+                rightState = state;
+        }
+
+        private void FixedUpdate()
+        {
+            if (!recordingActive) return;
+
+            // Don't add a keyframe if we have no data
+            if (leftState == null || rightState == null) return;
+
+            output.keyframes.Add(new Clip.Keyframe()
+            {
+                time = Time.realtimeSinceStartup - startTime,
+                leftHand = leftState.Value,
+                rightHand = rightState.Value,
+                head = new()
+                {
+                    position = head.position,
+                    rotation = head.rotation,
+                }
+            });
+
+            // Don't reuse keyframes
+            leftState = null; rightState = null;
+        }
+    }
+
+}
