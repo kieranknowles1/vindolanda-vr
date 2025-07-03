@@ -77,13 +77,6 @@ public class GuidManager : IUnityObjectResolver<string>
         return (T)saveable;
     }
 
-    public void Replace(GuidComponent from, GuidComponent to)
-    {
-        to.Id = from.Id;
-        objects[to.Id] = to;
-        from.Id = 0;
-    }
-
     /// <summary>
     /// Try to register an object
     /// </summary>

@@ -8,11 +8,7 @@ using UnityEngine;
 public class GuidComponent : MonoBehaviour, IGuidContainer
 {
     [SerializeField] private int id;
-    public int Id
-    {
-        get => id;
-        set => id = value;
-    }
+    public int Id => id;
 
     public bool IsDestroyed => this == null;
 

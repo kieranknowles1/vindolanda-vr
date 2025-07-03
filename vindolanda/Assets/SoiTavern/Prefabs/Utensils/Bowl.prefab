@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 476532}
   - component: {fileID: 1759932978718486970}
-  - component: {fileID: 471646014226828101}
   - component: {fileID: 1467791384003426183}
   m_Layer: 0
   m_Name: Bowl
@@ -62,19 +61,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &471646014226828101
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 110300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f85c5b42766367429d53c79bfcb6278, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 0
 --- !u!114 &1467791384003426183
 MonoBehaviour:
   m_ObjectHideFlags: 0

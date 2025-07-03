@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(GuidComponent))]
 public class RandomDecoration : MonoBehaviour
 {
     public List<GameObject> variants;
@@ -10,21 +9,15 @@ public class RandomDecoration : MonoBehaviour
     void Start()
     {
         if (variants == null || variants.Count == 0) return;
+        if (Random.Range(0.0f, 1.0f) < chanceNone) return;
 
-        var id = GetComponent<GuidComponent>();
-        if ((float)(id.Id % 1024) / 1024 < chanceNone) return;
-
-        var choice = variants[id.Id % variants.Count];
+        var choice = variants[Random.Range(0, variants.Count)];
         var obj = GameObject.Instantiate(choice);
-        if (obj.TryGetComponent<GuidComponent>(out var newGuid))
-        {
-            // Give our ID to the new object if it needs one
-            GuidManager.Instance.Replace(id, newGuid);
-        }
-        obj.transform.rotation = Quaternion.Euler(0, id.Id % 360, 0);
-
+        obj.transform.SetPositionAndRotation(
+            transform.position,
+            Quaternion.Euler(0, Random.Range(0, 360), 0)
+        );
         obj.transform.parent = transform;
-        obj.transform.position = transform.position;
     }
 
 #if UNITY_EDITOR
