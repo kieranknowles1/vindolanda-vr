@@ -64,6 +64,10 @@ public class SaveData
 /// </summary>
 public class Saveable : GuidComponent
 {
+    // Don't save this object specifically, intended for filler objects that don't need
+    // to persist, but need a component that extends savable
+    public bool skipSave = false;
+
     public virtual SaveData Save()
     {
         return new SaveData(this);

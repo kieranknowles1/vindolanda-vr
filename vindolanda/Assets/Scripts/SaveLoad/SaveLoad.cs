@@ -1,8 +1,10 @@
 using UnityEngine;
 using System.Linq;
 using System.IO;
-using System;
 using Newtonsoft.Json;
+using System.Collections.Generic;
+
+
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -10,9 +12,10 @@ using UnityEditor;
 
 public static class SaveLoad
 {
-    public static Saveable[] GetSaveables()
+    public static IEnumerable<Saveable> GetSaveables()
     {
-        return GameObject.FindObjectsByType<Saveable>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+        return GameObject.FindObjectsByType<Saveable>(FindObjectsInactive.Include, FindObjectsSortMode.None)
+            .Where(obj => !obj.skipSave);
     }
 
     static readonly JsonSerializerSettings settings = new()
