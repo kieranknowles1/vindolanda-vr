@@ -32,8 +32,20 @@ public abstract class TriggerBase : Saveable
         if (!other.TryGetComponent<PlayerController>(out var player)) return;
         Execute(player); 
 
+        // This is set on exit. It should be impossible for a player to re-enter the trigger without first exiting
+        // it
+        //if (singleUse) done = true;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (done) return;
+        if (!other.TryGetComponent<PlayerController>(out var player)) return;
+        ExecuteExit(player);
+
         if (singleUse) done = true;
     }
 
     protected abstract void Execute(PlayerController player);
+    protected virtual void ExecuteExit(PlayerController player) { /* do nothing */ }
 }
