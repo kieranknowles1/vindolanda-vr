@@ -6,6 +6,9 @@ using UnityEngine.XR.Hands.Gestures;
 
 namespace Vindolanda.Mocap
 {
+    /// <summary>
+    /// Record a motion-captured animation. Editor only
+    /// </summary>
     public class MocapRecorder : MonoBehaviour
     {
         public XRHandTrackingEvents leftHand;
@@ -24,6 +27,7 @@ namespace Vindolanda.Mocap
         Clip.HandState? leftState;
         Clip.HandState? rightState;
 
+#if UNITY_EDITOR
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         void Start()
         {
@@ -106,6 +110,6 @@ namespace Vindolanda.Mocap
             // Don't reuse keyframes
             leftState = null; rightState = null;
         }
+#endif
     }
-
 }
