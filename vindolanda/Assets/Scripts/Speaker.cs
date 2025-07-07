@@ -10,6 +10,7 @@ using Vindolanda.Quest;
 [RequireComponent(typeof(AudioSource))]
 public class Speaker : MonoBehaviour
 {
+    const float SecondsPerWord = 0.25f;
     public LocalizedString ActorName;
 
     private Dialogue currentDialogue;
@@ -30,12 +31,20 @@ public class Speaker : MonoBehaviour
             for (int i = 0; i < dialogue.Lines.Count; i++)
             {
                 var line = dialogue.Lines[i];
-                var clip = line.Clip != null && !line.Clip.IsEmpty ? line.Clip.LoadAsset() : PlaceholderClip;
+                var clip = line.Clip != null && !line.Clip.IsEmpty ? line.Clip.LoadAsset() : null;
 
-                audio.PlayOneShot(clip);
-                GameConstants.Instance.Player.Subtitles.Show(ActorName.GetLocalizedString(), line.Text.GetLocalizedString());
+                var text = line.Text.GetLocalizedString();
+                GameConstants.Instance.Player.Subtitles.Show(ActorName.GetLocalizedString(), text);
 
-                yield return new WaitForSeconds(clip.length);
+                float duration;
+                if (clip != null)
+                {
+                    audio.PlayOneShot(clip);
+                    duration = clip.length;
+                }
+                else duration = text.Split(' ').Length * SecondsPerWord;
+
+                yield return new WaitForSeconds(duration);
             }
 
             CurrentDialogue = null;
@@ -51,8 +60,6 @@ public class Speaker : MonoBehaviour
         speakCoroutine = StartCoroutine(SayImpl());
         return speakCoroutine;
     }
-
-    public AudioClip PlaceholderClip;
 
     private new AudioSource audio;
 
