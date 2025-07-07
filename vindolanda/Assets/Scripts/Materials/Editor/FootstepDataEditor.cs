@@ -25,11 +25,12 @@ public class FootstepDataEditor : Editor
         base.OnInspectorGUI();
 
         GUILayout.Label("Uses the first subdirectory of target.sourceDirectory\n" +
-            "that contains 'Walk'");
+            "that contains Walk/Run etc.");
         if (GUILayout.Button("Set sounds"))
         {
-            Undo.RecordObject(Target, "Set footstep sounds");
             Target.walk = GetAllSounds("Walk");
+            Target.run = GetAllSounds("Run");
+            EditorUtility.SetDirty(Target);
         }
     }
 }

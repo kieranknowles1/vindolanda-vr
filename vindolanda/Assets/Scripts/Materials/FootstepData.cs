@@ -9,4 +9,5 @@ public class FootstepData : ScriptableObject
 #endif
 
     public List<AudioClip> walk;
+    public List<AudioClip> run;
 }
