@@ -31,11 +31,17 @@ public class GuidManager : IUnityObjectResolver<string>
         }
     }
 
-    private GuidManager()
+    /// <summary>
+    /// Fill in all GUIDs after objects have called Awake
+    /// </summary>
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
+    static void SetObjects()
     {
         var objs = GameObject.FindObjectsByType<GuidComponent>(FindObjectsInactive.Include, FindObjectsSortMode.None).Cast<IGuidContainer>();
-        objects = objs.ToDictionary(o => o.Id, o => o);
+        Instance.objects = objs.ToDictionary(o => o.Id, o => o);
     }
+
+    private GuidManager() { }
 
 #if UNITY_EDITOR
     static void ClearInstance()
@@ -66,7 +72,7 @@ public class GuidManager : IUnityObjectResolver<string>
     }
 #endif
 
-    readonly Dictionary<int, IGuidContainer> objects;
+    Dictionary<int, IGuidContainer> objects = new();
     public T Find<T>(int guid) where T : class, IGuidContainer
     {
         return (T)objects[guid];
