@@ -24,12 +24,18 @@ MonoBehaviour:
       m_LocalVariables: []
     Clip:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: AssetsTable
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: Tutorial_Movement
       m_FallbackState: 0
       m_WaitForCompletion: 0
+  OnBegin:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEnd:
+    m_PersistentCalls:
+      m_Calls: []
   references:
     version: 2
     RefIds: []

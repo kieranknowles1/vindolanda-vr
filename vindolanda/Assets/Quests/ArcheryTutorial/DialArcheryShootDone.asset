@@ -27,14 +27,18 @@ MonoBehaviour:
           rid: 1719595944717582405
     Clip:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: AssetsTable
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: Archer_ShootDone
       m_FallbackState: 0
       m_WaitForCompletion: 0
-  OnBegin: {fileID: 0}
-  OnEnd: {fileID: 0}
+  OnBegin:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEnd:
+    m_PersistentCalls:
+      m_Calls: []
   references:
     version: 2
     RefIds:

@@ -24,10 +24,10 @@ MonoBehaviour:
       m_LocalVariables: []
     Clip:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: AssetsTable
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: DialTourGranary0
       m_FallbackState: 0
       m_WaitForCompletion: 0
   - Text:
@@ -41,10 +41,10 @@ MonoBehaviour:
       m_LocalVariables: []
     Clip:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: AssetsTable
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: DialTourGranary1
       m_FallbackState: 0
       m_WaitForCompletion: 0
   - Text:
@@ -58,10 +58,10 @@ MonoBehaviour:
       m_LocalVariables: []
     Clip:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: AssetsTable
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: DialTourGranary2
       m_FallbackState: 0
       m_WaitForCompletion: 0
   OnBegin:

@@ -24,10 +24,10 @@ MonoBehaviour:
       m_LocalVariables: []
     Clip:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: AssetsTable
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: Tutorial_PickUp0
       m_FallbackState: 0
       m_WaitForCompletion: 0
   - Text:
@@ -41,10 +41,10 @@ MonoBehaviour:
       m_LocalVariables: []
     Clip:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: AssetsTable
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: Tutirial_PickUp1
       m_FallbackState: 0
       m_WaitForCompletion: 0
   - Text:
@@ -58,12 +58,18 @@ MonoBehaviour:
       m_LocalVariables: []
     Clip:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: AssetsTable
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: Tutirial_PickUp2
       m_FallbackState: 0
       m_WaitForCompletion: 0
+  OnBegin:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEnd:
+    m_PersistentCalls:
+      m_Calls: []
   references:
     version: 2
     RefIds: []
