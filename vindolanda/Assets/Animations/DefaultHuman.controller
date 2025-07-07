@@ -50,6 +50,37 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
+--- !u!206 &-3529350575114203228
+BlendTree:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Blend Tree
+  m_Childs:
+  - serializedVersion: 2
+    m_Motion: {fileID: -203655887218126122, guid: 894b5cfcc3987fc4d94200001bb771e2, type: 3}
+    m_Threshold: 1.0929435
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 0.91495997
+    m_CycleOffset: 0
+    m_DirectBlendParameter: SpeedMagnitude
+    m_Mirror: 0
+  - serializedVersion: 2
+    m_Motion: {fileID: -203655887218126122, guid: 3d66aefc62800204b806b90689b7c676, type: 3}
+    m_Threshold: 4.374788
+    m_Position: {x: 0, y: 0}
+    m_TimeScale: 0.2285825
+    m_CycleOffset: 0
+    m_DirectBlendParameter: SpeedMagnitude
+    m_Mirror: 0
+  m_BlendParameter: SpeedMagnitude
+  m_BlendParameterY: SpeedMagnitude
+  m_MinThreshold: 1.0929435
+  m_MaxThreshold: 4.374788
+  m_UseAutomaticThresholds: 0
+  m_NormalizedBlendValues: 0
+  m_BlendType: 0
 --- !u!1102 &-3220186969724170886
 AnimatorState:
   serializedVersion: 6
@@ -118,8 +149,8 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Walk
-  m_Speed: 0.88
+  m_Name: WalkRun
+  m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 9060432185393399612}
@@ -132,7 +163,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 894b5cfcc3987fc4d94200001bb771e2, type: 3}
+  m_Motion: {fileID: -3529350575114203228}
   m_Tag: 
   m_SpeedParameter: SpeedMagnitude
   m_MirrorParameter: 
@@ -279,6 +310,21 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!206 &5501325052966988890
+BlendTree:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: BlendTree
+  m_Childs: []
+  m_BlendParameter: SpeedMagnitude
+  m_BlendParameterY: SpeedMagnitude
+  m_MinThreshold: 0
+  m_MaxThreshold: 1
+  m_UseAutomaticThresholds: 1
+  m_NormalizedBlendValues: 0
+  m_BlendType: 0
 --- !u!1101 &6415324373088188302
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
