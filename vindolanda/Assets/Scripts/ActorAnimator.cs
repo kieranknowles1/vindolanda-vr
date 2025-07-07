@@ -75,7 +75,6 @@ public class ActorAnimator : MonoBehaviour
 
         var clip = SelectFootstepSound(footsteps);
         if (clip == null) return;
-        print(clip.name);
         // TODO: Adjust volume
         AudioSource.PlayClipAtPoint(clip, bone.position, 1.0f);
     }

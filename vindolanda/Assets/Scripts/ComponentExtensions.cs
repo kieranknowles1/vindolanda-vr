@@ -30,6 +30,11 @@ public static class ComponentExtensions
         return $"{t.parent.FullObjectPath()}/{t.name}";
     }
 
+    public static float GetDistance(this Transform t1, Transform t2)
+    {
+        return (t1.position - t2.position).magnitude;
+    }
+
 #if UNITY_EDITOR
     public static List<T> GetAllScriptableObjects<T>() where T : ScriptableObject
     {
