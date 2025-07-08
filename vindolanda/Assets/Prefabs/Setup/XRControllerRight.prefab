@@ -150,6 +150,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: XRControllerRight
       objectReference: {fileID: 0}
+    - target: {fileID: 4343891118958480568, guid: 3c1eff93f56248040b12e0a0def9a408, type: 3}
+      propertyPath: m_GripInput.m_InputActionReference
+      value: 
+      objectReference: {fileID: -1758520528963094988, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    - target: {fileID: 4343891118958480568, guid: 3c1eff93f56248040b12e0a0def9a408, type: 3}
+      propertyPath: m_StickInput.m_InputActionReference
+      value: 
+      objectReference: {fileID: -8666952849799569744, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    - target: {fileID: 4343891118958480568, guid: 3c1eff93f56248040b12e0a0def9a408, type: 3}
+      propertyPath: m_TriggerInput.m_InputActionReference
+      value: 
+      objectReference: {fileID: 7904272356298805229, guid: c348712bda248c246b8c49b3db54643f, type: 3}
     - target: {fileID: 4914509230564408356, guid: 3c1eff93f56248040b12e0a0def9a408, type: 3}
       propertyPath: m_ManipulationInput.m_InputActionReference
       value: 
