@@ -36,7 +36,6 @@ public partial class SetTargetSpeedAction : Action
         startSpeed = navAgent.speed;
         endSpeed = CalculateTargetSpeed(distance);
         elapsed = 0;
-        Debug.Log(startSpeed + " " + endSpeed);
 
         if (TransitionDuration.Value == 0)
         {
