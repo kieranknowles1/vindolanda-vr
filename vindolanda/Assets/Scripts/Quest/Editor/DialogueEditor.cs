@@ -33,7 +33,7 @@ namespace Vindolanda.Quest.Editor
 
         static bool IsVoiced(Dialogue.Line line)
         {
-            return line.Clip?.IsEmpty ?? false || line.Clip.LoadAsset() == null;
+            return line.Clip != null && !line.Clip.IsEmpty && line.Clip.LoadAsset() != null;
         }
 
         [MenuItem("Tools/Dialogue/Export Dialogue")]
