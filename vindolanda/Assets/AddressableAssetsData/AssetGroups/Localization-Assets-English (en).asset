@@ -51,6 +51,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 31402b70aaa8b38419283b3a060ec7b8
+    m_Address: DialTourHeadquarters1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4224aecf37bb7cf41b4dc7ffac43ec05
     m_Address: DialTourGranary0
     m_ReadOnly: 1
@@ -63,8 +69,20 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4dcabd778d756454ab4d4ec2a0949557
+    m_Address: DialTourHeadquarters0
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 551df7b03f6c264449af8489404245bc
     m_Address: Dial_ClickSave0
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 587e9de8f5eeb6a458038fe5971b445b
+    m_Address: DialTourCommander1
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en
@@ -129,6 +147,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cfa096542be8f0f48824ebe1e9ba2d88
+    m_Address: DialTourHeadquarters2
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: d68de9afac4de60478708a50a69e99e5
     m_Address: Tutorial_End2
     m_ReadOnly: 1
@@ -147,6 +171,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: df6b3fcb11bbbf64e8d0c651cf09b7f7
+    m_Address: DialTourCommander2
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e7cdb7941de7f084b8245aad6489f78c
     m_Address: Archer_ShootPrompt1
     m_ReadOnly: 1
@@ -155,6 +185,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ebcc5cb54a9043645b55fc0523560154
     m_Address: Dial_OpenMenu1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fcf89aa22845ee34ba48f7b498b551b5
+    m_Address: DialTourCommander0
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en
