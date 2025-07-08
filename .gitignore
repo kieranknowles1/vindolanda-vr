@@ -4,6 +4,10 @@ result
 # API keys
 .tts-key.json
 
+# Generated dialogue
+/tts/dialogue.csv
+/tts/dialogue/
+
 # Python environment
 .venv
 

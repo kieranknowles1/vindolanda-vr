@@ -52,7 +52,8 @@ namespace Vindolanda.Quest.Editor
                         continue;
                     }
                     seenLines.Add(line.Text);
-                    writer.WriteLine($"{path},{GetTableEntryKey(line.Text)},{!(line.Clip?.IsEmpty ?? true)},\"{line.Text.GetLocalizedString()}\"");
+                    bool voiced = line.Clip?.IsEmpty ?? false || line.Clip.LoadAsset() == null;
+                    writer.WriteLine($"{path},{GetTableEntryKey(line.Text)},{voiced},\"{line.Text.GetLocalizedString()}\"");
                 }
             }
         }
