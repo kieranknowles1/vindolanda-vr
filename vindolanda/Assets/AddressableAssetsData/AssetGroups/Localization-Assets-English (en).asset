@@ -15,8 +15,74 @@ MonoBehaviour:
   m_GroupName: Localization-Assets-English (en)
   m_GUID: 7e815b5d5232b7c46a5cec2c72ebe7b8
   m_SerializeEntries:
+  - m_GUID: 02ac5b1ba9369d74b88d2b0de2f10409
+    m_Address: Tutirial_PickUp1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 08d717550e4843648b8fff8b0a0e49a5
+    m_Address: Dial_OpenMenu0
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0dea74fb655883a48a3d7f173fc38d85
+    m_Address: Archer_Intro2
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 18e76a5137ca96043b9c5bee4c1dcc79
     m_Address: IntroLine1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2b56fe3fa16cb014e96fba0fb5aec156
+    m_Address: DialTourGranary2
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2ce41177017fc1d48b74309834410a7e
+    m_Address: Tutirial_PickUp2
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4224aecf37bb7cf41b4dc7ffac43ec05
+    m_Address: DialTourGranary0
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4a37d9750ab2ee54b85e88d1b97ee7ba
+    m_Address: Archer_ShootDone
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 551df7b03f6c264449af8489404245bc
+    m_Address: Dial_ClickSave0
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 59ea04ced9e71b1498596c56ca1f5a33
+    m_Address: TestHello_1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b50561699728a1478d948f54f7b0235
+    m_Address: DialTourGranary1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5b7a2e7241dc53c4fb838666882bd70a
+    m_Address: Archer_ShootPrompt2
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en
@@ -27,8 +93,68 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 691c8c705f42a7041b0b78aa84e20038
+    m_Address: TestHello_0
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 81dfc28149ed5784faf784180dcc371f
+    m_Address: Archer_Intro1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8f940d43c611a374caf9c6e6eea20ccf
+    m_Address: Tutorial_PickUp0
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9377095fd00a7e34f80afdf0d3b5952d
+    m_Address: Tutorial_End1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: be79fa3db1a6a314aa69d1bc7de325a2
+    m_Address: Tutorial_Movement
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c1308845fcf37f248ad7c40a024c9ecd
     m_Address: IntroLine2
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d68de9afac4de60478708a50a69e99e5
+    m_Address: Tutorial_End2
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dafa603651be7f741af8a95d673894ba
+    m_Address: Dial_CloseMenu0
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dbacef093fa63224db31a3cb018a839a
+    m_Address: Tutorial_End3
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e7cdb7941de7f084b8245aad6489f78c
+    m_Address: Archer_ShootPrompt1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ebcc5cb54a9043645b55fc0523560154
+    m_Address: Dial_OpenMenu1
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en

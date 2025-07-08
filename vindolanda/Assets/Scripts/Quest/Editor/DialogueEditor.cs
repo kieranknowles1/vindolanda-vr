@@ -117,8 +117,9 @@ namespace Vindolanda.Quest.Editor
             }
 
             var addressSettings = AddressableAssetSettingsDefaultObject.Settings;
-            var addressGroup = addressSettings.FindGroup("Localization-Asset-Tables-English (en)");
+            var addressGroup = addressSettings.FindGroup("Localization-Assets-English (en)");
 
+            List<AddressableAssetEntry> added = new();
             foreach (var dialogue in dialogues)
             {
                 var key = GetTableEntryKey(dialogue.Clip);
@@ -144,10 +145,11 @@ namespace Vindolanda.Quest.Editor
                 assetTable.AddEntry(key, assets[0]);
                 var entry = addressSettings.CreateOrMoveEntry(assets[0], addressGroup, true);
                 entry.address = key;
-                entry.labels.Add($"Locale-{assetTable.LocaleIdentifier}");
+                entry.labels.Add($"Locale-{assetTable.LocaleIdentifier.Code}");
+                added.Add(entry);
             }
 
-            EditorUtility.SetDirty(addressGroup);
+            addressSettings.SetDirty(AddressableAssetSettings.ModificationEvent.EntryAdded, added,postEvent: true);
             EditorUtility.SetDirty(assetTable);
         }
     }
