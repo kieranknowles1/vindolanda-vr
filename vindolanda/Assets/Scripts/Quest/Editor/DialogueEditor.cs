@@ -3,6 +3,8 @@ using System.IO;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEditor;
+using UnityEditor.AddressableAssets;
+using UnityEditor.AddressableAssets.Settings;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
@@ -29,6 +31,11 @@ namespace Vindolanda.Quest.Editor
             return ComponentExtensions.GetAllScriptableObjects<Dialogue>();
         }
 
+        static bool IsVoiced(Dialogue.Line line)
+        {
+            return line.Clip?.IsEmpty ?? false || line.Clip.LoadAsset() == null;
+        }
+
         [MenuItem("Tools/Dialogue/Export Dialogue")]
         static void ExportDialogue()
         {
@@ -52,17 +59,18 @@ namespace Vindolanda.Quest.Editor
                         continue;
                     }
                     seenLines.Add(line.Text);
-                    bool voiced = line.Clip?.IsEmpty ?? false || line.Clip.LoadAsset() == null;
-                    writer.WriteLine($"{path},{GetTableEntryKey(line.Text)},{voiced},\"{line.Text.GetLocalizedString()}\"");
+                    writer.WriteLine($"{path},{GetTableEntryKey(line.Text)},{IsVoiced(line)},\"{line.Text.GetLocalizedString()}\"");
                 }
             }
         }
 
+        const string AssetsTable = "AssetsTable";
+
         [MenuItem("Tools/Dialogue/Create Asset Entries")]
         static void CreateAssetEntries()
         {
-            const string ASSETS_TABLE = "AssetsTable";
-            var assetsTable = LocalizationSettings.AssetDatabase.GetTable(ASSETS_TABLE).SharedData;
+            
+            var assetsTable = LocalizationSettings.AssetDatabase.GetTable(AssetsTable).SharedData;
 
             bool touchedAny = false;
             foreach (var dial in GetAllDialogue())
@@ -77,7 +85,7 @@ namespace Vindolanda.Quest.Editor
                     assetsTable.AddKey(key);
                     line.Clip = new()
                     {
-                        TableReference = ASSETS_TABLE,
+                        TableReference = AssetsTable,
                         TableEntryReference = key
                     };
                     touched = true;
@@ -91,7 +99,56 @@ namespace Vindolanda.Quest.Editor
             if (touchedAny)
                 EditorUtility.SetDirty(assetsTable);
             else
-                Debug.Log("Nothing to do");
+                Debug.Log($"{nameof(CreateAssetEntries)}: Nothing to do");
+        }
+
+        [MenuItem("Tools/Dialogue/Import Dialogue")]
+        static void ImportDialogueAssets()
+        {
+            CreateAssetEntries(); // We rely on these later
+            var dialogues = GetAllDialogue()
+                .SelectMany(dial => dial.Lines)
+                .Where(line => !IsVoiced(line));
+            var assetTable = LocalizationSettings.AssetDatabase.GetTable(AssetsTable); // Value for current language
+
+            if (assetTable.LocaleIdentifier != "en")
+            {
+                Debug.LogWarning("Non-English languages are not currently supported");
+            }
+
+            var addressSettings = AddressableAssetSettingsDefaultObject.Settings;
+            var addressGroup = addressSettings.FindGroup("Localization-Asset-Tables-English (en)");
+
+            foreach (var dialogue in dialogues)
+            {
+                var key = GetTableEntryKey(dialogue.Clip);
+                var assets = AssetDatabase.FindAssets(key);
+                if (assets.Length == 0)
+                {
+                    Debug.Log($"{key}: No assets found");
+                    continue;
+                }
+                if (assets.Length > 1)
+                {
+                    Debug.Log($"{key}: Ambiguous assets found");
+                    continue;
+                }
+
+                var path = AssetDatabase.GUIDToAssetPath(assets[0]);
+                var clip = AssetDatabase.LoadAssetAtPath<AudioClip>(path);
+                if (clip == null)
+                {
+                    Debug.Log($"{path} is not an AudioClip");
+                    continue;
+                }
+                assetTable.AddEntry(key, assets[0]);
+                var entry = addressSettings.CreateOrMoveEntry(assets[0], addressGroup, true);
+                entry.address = key;
+                entry.labels.Add($"Locale-{assetTable.LocaleIdentifier}");
+            }
+
+            EditorUtility.SetDirty(addressGroup);
+            EditorUtility.SetDirty(assetTable);
         }
     }
 }
