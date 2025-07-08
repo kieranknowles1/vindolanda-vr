@@ -1,6 +1,12 @@
 # Nix build outputs
 result
 
+# API keys
+.tts-key.json
+
+# Python environment
+.venv
+
 # Oh no not again
 *.aux
 *.bbl
