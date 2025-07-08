@@ -7,9 +7,10 @@ using Vindolanda.Quest;
 /// <summary>
 /// Component to control an actor's speech
 /// </summary>
-[RequireComponent(typeof(AudioSource))]
 public class Speaker : MonoBehaviour
 {
+    public new AudioSource audio;
+
     const float SecondsPerWord = 0.25f;
     public LocalizedString ActorName;
 
@@ -59,12 +60,5 @@ public class Speaker : MonoBehaviour
         CurrentDialogue = dialogue;
         speakCoroutine = StartCoroutine(SayImpl());
         return speakCoroutine;
-    }
-
-    private new AudioSource audio;
-
-    private void Start()
-    {
-        audio = GetComponent<AudioSource>();
     }
 }
