@@ -1,5 +1,7 @@
+using Mono.Cecil;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public static class ComponentExtensions
 {
@@ -33,6 +35,38 @@ public static class ComponentExtensions
     public static float GetDistance(this Transform t1, Transform t2)
     {
         return (t1.position - t2.position).magnitude;
+    }
+
+    /// <summary>
+    /// Teleport an object to the target object, optionally rotating them to face the same direction
+    /// </summary>
+    /// <param name="target"></param>
+    /// <param name="alignRotation"></param>
+    public static void Teleport(this Transform obj, Transform target, bool alignRotation = true, bool snapToGround = true)
+    {
+        Vector3 adjustedPosition = target.position; // Fallback if raycast fails
+        if (snapToGround)
+        {
+            if (Physics.Raycast(new Ray(target.position, Vector3.down), out var hit))
+            {
+                adjustedPosition = hit.point;
+            }
+        }
+
+        obj.position = adjustedPosition;
+        if (obj.TryGetComponent<NavMeshAgent>(out var nav))
+        {
+            // Forcibly move any NavMeshAgent to the target, changing its
+            // navmesh if required
+            nav.Warp(adjustedPosition);
+        }
+
+        if (alignRotation)
+        {
+            // The player's head moves around the origin, so we need to adjust for that
+            // FIXME: This breaks subtitle and inventory positioning
+            //transform.rotation = target.rotation * Quaternion.Euler(0, -head.localRotation.eulerAngles.y, 0);
+        }
     }
 
 #if UNITY_EDITOR

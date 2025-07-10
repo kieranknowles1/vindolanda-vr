@@ -83,28 +83,4 @@ public class PlayerController : MonoBehaviour
             head.rotation = planeAngle
         );
     }
-
-    /// <summary>
-    /// Teleport the player to the target object, optionally rotating them to face the same direction
-    /// </summary>
-    /// <param name="target"></param>
-    /// <param name="alignRotation"></param>
-    public void Teleport(Transform target, bool alignRotation = true, bool snapToGround = true)
-    {
-        Vector3 adjustedPosition = target.position; // Fallback if raycast fails
-        if (snapToGround)
-        {
-            if (Physics.Raycast(new Ray(target.position, Vector3.down), out var hit)) {
-                adjustedPosition = hit.point;
-            }
-        }
-
-        transform.position = adjustedPosition;
-        if (alignRotation)
-        {
-            // The player's head moves around the origin, so we need to adjust for that
-            // FIXME: This breaks subtitle and inventory positioning
-            //transform.rotation = target.rotation * Quaternion.Euler(0, -head.localRotation.eulerAngles.y, 0);
-        }
-    }
 }

@@ -42,7 +42,7 @@ public class Tutorial : MonoBehaviour
 
     public void BeginTutorial()
     {
-        GameConstants.Instance.Player.Teleport(locomotion.startMarker);
+        GameConstants.Instance.Player.transform.Teleport(locomotion.startMarker);
         GameConstants.Instance.Player.settingsMenu.SetActive(false);
         QuestState.CurrentObjective = locomotion.moveToTarget;
         locomotion.tutorialObjects.SetActive(true);
