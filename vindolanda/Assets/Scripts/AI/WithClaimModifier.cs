@@ -14,7 +14,7 @@ public partial class WithClaimModifier : Modifier
     protected override Status OnStart()
     {
         if (ClaimManager.Value == null) return Status.Failure;
-        Target.Value = ClaimManager.Value.Claim().gameObject;
+        Target.Value = ClaimManager.Value.Claim()?.gameObject;
         if (Target.Value == null) return Status.Failure;
 
         return StartNode(Child);
@@ -27,6 +27,8 @@ public partial class WithClaimModifier : Modifier
 
     protected override void OnEnd()
     {
+        if (ClaimManager.Value == null || Target.Value == null) return;
+        ClaimManager.Value.Release(Target.Value.GetComponent<GuidComponent>());
     }
 }
 
