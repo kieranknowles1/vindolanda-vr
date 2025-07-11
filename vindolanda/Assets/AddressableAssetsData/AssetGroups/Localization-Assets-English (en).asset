@@ -33,6 +33,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0e1e6b634dfdefe4e833f538329c8bf6
+    m_Address: LookalikeLeader1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 18e76a5137ca96043b9c5bee4c1dcc79
     m_Address: IntroLine1
     m_ReadOnly: 1
@@ -59,6 +65,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 31402b70aaa8b38419283b3a060ec7b8
     m_Address: DialTourHeadquarters1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3b8cbef981904634e86959bc88fc3c1b
+    m_Address: LookalikeReply2
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en
@@ -171,6 +183,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c269438786c99dd48811f10c522e47c7
+    m_Address: LookalikeReply1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cfa096542be8f0f48824ebe1e9ba2d88
     m_Address: DialTourHeadquarters2
     m_ReadOnly: 1
@@ -207,8 +225,20 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e828417e1167cd74296a24ca6dea0a42
+    m_Address: LookalikeRepeat2
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: ebcc5cb54a9043645b55fc0523560154
     m_Address: Dial_OpenMenu1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f1008393e8bded346984c8b500f700d3
+    m_Address: LookalikeRepeat1
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en
