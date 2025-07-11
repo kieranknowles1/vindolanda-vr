@@ -4,6 +4,7 @@ using Unity.Behavior;
 using UnityEngine;
 using Vindolanda.Quest;
 using Action = Unity.Behavior.Action;
+using Random = UnityEngine.Random;
 using Unity.Properties;
 using System.Linq;
 using Unity.VisualScripting;
@@ -15,6 +16,7 @@ public partial class SayManyAction : Action
     [SerializeReference] public BlackboardVariable<List<GameObject>> Agents;
     [SerializeReference] public BlackboardVariable<Dialogue> Line;
     [SerializeReference] public BlackboardVariable<GameObject> Exception;
+    [SerializeReference] public BlackboardVariable<float> StartupTime = new(0.1f);
 
     List<Speaker> speakers;
 
@@ -27,8 +29,9 @@ public partial class SayManyAction : Action
 
         foreach (var speaker in speakers)
         {
-            speaker.Say(Line.Value);
+            speaker.Say(Line.Value, delay: Random.Range(0, StartupTime.Value));
         }
+
         return Status.Running;
     }
 

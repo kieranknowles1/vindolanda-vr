@@ -25,7 +25,7 @@ public class Speaker : MonoBehaviour
     }
     Coroutine speakCoroutine;
 
-    public Coroutine Say(Dialogue dialogue)
+    public Coroutine Say(Dialogue dialogue, float delay = 0.0f)
     {
         IEnumerator SayImpl()
         {
@@ -40,7 +40,8 @@ public class Speaker : MonoBehaviour
                 float duration;
                 if (clip != null)
                 {
-                    audio.PlayOneShot(clip);
+                    audio.clip = clip;
+                    audio.PlayDelayed(delay);
                     duration = clip.length;
                 }
                 else duration = text.Split(' ').Length * SecondsPerWord;
