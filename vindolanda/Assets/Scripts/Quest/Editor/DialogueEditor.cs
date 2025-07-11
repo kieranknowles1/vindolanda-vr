@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEditor;
 using UnityEditor.AddressableAssets;
 using UnityEditor.AddressableAssets.Settings;
@@ -9,6 +8,7 @@ using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 using UnityEngine.Localization.Tables;
+using Vindolanda.Editor;
 
 namespace Vindolanda.Quest.Editor
 {
@@ -28,7 +28,7 @@ namespace Vindolanda.Quest.Editor
 
         static List<Dialogue> GetAllDialogue()
         {
-            return ComponentExtensions.GetAllScriptableObjects<Dialogue>();
+            return EditorUtil.GetAllScriptableObjects<Dialogue>();
         }
 
         static bool IsVoiced(Dialogue.Line line)

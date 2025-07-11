@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -67,22 +66,4 @@ public static class ComponentExtensions
             //transform.rotation = target.rotation * Quaternion.Euler(0, -head.localRotation.eulerAngles.y, 0);
         }
     }
-
-#if UNITY_EDITOR
-    public static List<T> GetAllScriptableObjects<T>() where T : ScriptableObject
-    {
-        string[] guids = UnityEditor.AssetDatabase.FindAssets("t:" + typeof(T).Name);
-        List<T> output = new()
-        {
-            Capacity = guids.Length
-        };
-        foreach (var guid in guids)
-        {
-            string path = UnityEditor.AssetDatabase.GUIDToAssetPath(guid);
-            T asset = UnityEditor.AssetDatabase.LoadAssetAtPath<T>(path);
-            output.Add(asset);
-        }
-        return output;
-    }
-#endif
 }
