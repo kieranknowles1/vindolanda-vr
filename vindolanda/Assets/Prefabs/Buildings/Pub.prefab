@@ -190,6 +190,8 @@ GameObject:
   m_Component:
   - component: {fileID: 375985458921880070}
   - component: {fileID: 4433266812922752806}
+  - component: {fileID: 1018850090492978476}
+  - component: {fileID: 8410000868392156422}
   m_Layer: 0
   m_Name: Actors
   m_TagString: Untagged
@@ -239,7 +241,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Graph: {fileID: -8893980543823034044, guid: ea5eb03daf791e741b140cafe7190188, type: 2}
+  m_Graph: {fileID: 0}
   m_BlackboardVariableOverridesList:
   - rid: 8732130292801470784
   - rid: 8732130292801471109
@@ -273,6 +275,46 @@ MonoBehaviour:
           m_Value1: 2748763387849486643
         Name: ReplyGuy
         m_Value: {fileID: 5401501157603309397}
+--- !u!65 &1018850090492978476
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5836065005897572454}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 12.040195, y: 4.6333337, z: 19.666252}
+  m_Center: {x: 1.4020528, y: -0.5059087, z: -9.3330345}
+--- !u!114 &8410000868392156422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5836065005897572454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46ff3e107ee6faa438fb6f77a7e35db6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  skipSave: 0
+  singleUse: 0
+  scenes:
+  - {fileID: -8893980543823034044, guid: ea5eb03daf791e741b140cafe7190188, type: 2}
+  startDelayMin: 20
+  startDelayMax: 60
 --- !u!1 &7992951388435734552
 GameObject:
   m_ObjectHideFlags: 0

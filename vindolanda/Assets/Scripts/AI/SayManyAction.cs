@@ -15,7 +15,6 @@ public partial class SayManyAction : Action
 {
     [SerializeReference] public BlackboardVariable<List<GameObject>> Agents;
     [SerializeReference] public BlackboardVariable<Dialogue> Line;
-    [SerializeReference] public BlackboardVariable<GameObject> Exception;
     [SerializeReference] public BlackboardVariable<float> StartupTime = new(0.1f);
 
     List<Speaker> speakers;
@@ -23,7 +22,6 @@ public partial class SayManyAction : Action
     protected override Status OnStart()
     {
         speakers = Agents.Value
-            .Where(a => a != Exception.Value)
             .Select(a => a.GetComponent<Speaker>())
             .NotNull().ToList();
 
