@@ -8,24 +8,39 @@ public class TeleportTrigger : TriggerBase
 {
     [SerializeField]
     Transform target;
+    [SerializeField]
+    Transform followerTarget;
 
     [SerializeField]
     Mesh dummyMesh;
 
 #if UNITY_EDITOR
+    void DrawGizmo(Color color, Transform obj, string label)
+    {
+        Gizmos.color = color;
+        Handles.Label(obj.position + (Vector3.up * 2), label);
+        Gizmos.DrawWireMesh(dummyMesh, obj.position, obj.rotation);
+    }
+
     private void OnDrawGizmos()
     {
-        if (!Selection.gameObjects.Any(o => o.transform == target || o == gameObject))
+        if (!Selection.gameObjects.Any(o => o.transform == target || o == gameObject || o.transform == followerTarget))
             return;
 
-        Gizmos.color = Color.purple;
-        Handles.Label(target.transform.position + (Vector3.up * 2), "Teleport Target");
-        Gizmos.DrawWireMesh(dummyMesh, target.transform.position, target.transform.rotation);
+        DrawGizmo(Color.purple, target, "Teleport Target");
+        DrawGizmo(Color.mediumPurple, followerTarget, "Follower Target");
     }
 
 #endif
     protected override void Execute(PlayerController player)
     {
-        player.Teleport(target, alignRotation: true);
+        player.transform.Teleport(target, alignRotation: true);
+        if (player.TryGetComponent<FollowerTracker>(out var followers))
+        {
+            foreach (var follower in followers.followers)
+            {
+                follower.transform.Teleport(followerTarget, alignRotation: true);
+            }
+        }
     }
 }

@@ -1,5 +1,5 @@
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public static class ComponentExtensions
 {
@@ -35,21 +35,41 @@ public static class ComponentExtensions
         return (t1.position - t2.position).magnitude;
     }
 
-#if UNITY_EDITOR
-    public static List<T> GetAllScriptableObjects<T>() where T : ScriptableObject
+    /// <summary>
+    /// Teleport an object to the target object, optionally rotating them to face the same direction
+    /// </summary>
+    /// <param name="target"></param>
+    /// <param name="alignRotation"></param>
+    public static void Teleport(this Transform obj, Transform target, bool alignRotation = true, bool snapToGround = true)
     {
-        string[] guids = UnityEditor.AssetDatabase.FindAssets("t:" + typeof(T).Name);
-        List<T> output = new()
+        Vector3 adjustedPosition = target.position; // Fallback if raycast fails
+        if (snapToGround)
         {
-            Capacity = guids.Length
-        };
-        foreach (var guid in guids)
-        {
-            string path = UnityEditor.AssetDatabase.GUIDToAssetPath(guid);
-            T asset = UnityEditor.AssetDatabase.LoadAssetAtPath<T>(path);
-            output.Add(asset);
+            if (Physics.Raycast(new Ray(target.position, Vector3.down), out var hit))
+            {
+                adjustedPosition = hit.point;
+            }
         }
-        return output;
+
+        obj.position = adjustedPosition;
+        if (obj.TryGetComponent<NavMeshAgent>(out var nav))
+        {
+            // Forcibly move any NavMeshAgent to the target, changing its
+            // navmesh if required
+            nav.Warp(adjustedPosition);
+        }
+
+        if (alignRotation)
+        {
+            if (obj.gameObject.TryGetComponent<PlayerController>(out var player))
+            {
+                // The player's head moves around the origin, so we need to adjust for that
+                obj.rotation = target.rotation * Quaternion.Euler(0, -player.head.localRotation.eulerAngles.y, 0);
+            }
+            else
+            {
+                obj.rotation = target.rotation;
+            }
+        }
     }
-#endif
 }

@@ -11,11 +11,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private TunnelingVignetteController vignette;
 
-    [SerializeField]
-    private ControllerInputActionManager leftController;
+    public ControllerInputActionManager leftController;
+    public ControllerEffects LeftControllerEffects { get; private set; }
 
-    [SerializeField]
-    private ControllerInputActionManager rightController;
+    public ControllerInputActionManager rightController;
+    public ControllerEffects RightControllerEffects { get; private set; }
 
     [SerializeField]
     private DynamicMoveProvider dynamicMoveProvider;
@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject settingsMenu;
     [Tooltip("Position of headset")]
-    [SerializeField] Transform head;
+    public Transform head;
 
     private void UpdateSettings(GameSettings settings)
     {
@@ -43,6 +43,9 @@ public class PlayerController : MonoBehaviour
 
         input.GameInputs.Enable();
         input.GameInputs.ToggleMenu.performed += ToggleSettings;
+
+        LeftControllerEffects = leftController.GetComponent<ControllerEffects>();
+        RightControllerEffects = rightController.GetComponent<ControllerEffects>();
     }
 
     private void OnDestroy()
@@ -82,29 +85,5 @@ public class PlayerController : MonoBehaviour
             head.position + (planeAngle * Vector3.forward * 1.5f),
             head.rotation = planeAngle
         );
-    }
-
-    /// <summary>
-    /// Teleport the player to the target object, optionally rotating them to face the same direction
-    /// </summary>
-    /// <param name="target"></param>
-    /// <param name="alignRotation"></param>
-    public void Teleport(Transform target, bool alignRotation = true, bool snapToGround = true)
-    {
-        Vector3 adjustedPosition = target.position; // Fallback if raycast fails
-        if (snapToGround)
-        {
-            if (Physics.Raycast(new Ray(target.position, Vector3.down), out var hit)) {
-                adjustedPosition = hit.point;
-            }
-        }
-
-        transform.position = adjustedPosition;
-        if (alignRotation)
-        {
-            // The player's head moves around the origin, so we need to adjust for that
-            // FIXME: This breaks subtitle and inventory positioning
-            //transform.rotation = target.rotation * Quaternion.Euler(0, -head.localRotation.eulerAngles.y, 0);
-        }
     }
 }

@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2014bf2c72eb475439d5f919d2a8f477, type: 3}
+  m_Name: DialTourCommanderResidence
+  m_EditorClassIdentifier: 
+  Lines:
+  - Text:
+      m_TableReference:
+        m_TableCollectionName: GUID:bbc577575d755f2468f29145e420373b
+      m_TableEntryReference:
+        m_KeyId: 9770803551047680
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    Clip:
+      m_TableReference:
+        m_TableCollectionName: AssetsTable
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: DialTourCommander0
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+  - Text:
+      m_TableReference:
+        m_TableCollectionName: GUID:bbc577575d755f2468f29145e420373b
+      m_TableEntryReference:
+        m_KeyId: 9771393161138176
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    Clip:
+      m_TableReference:
+        m_TableCollectionName: AssetsTable
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: DialTourCommander1
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+  - Text:
+      m_TableReference:
+        m_TableCollectionName: GUID:bbc577575d755f2468f29145e420373b
+      m_TableEntryReference:
+        m_KeyId: 9771930149490688
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    Clip:
+      m_TableReference:
+        m_TableCollectionName: AssetsTable
+      m_TableEntryReference:
+        m_KeyId: 0
+        m_Key: DialTourCommander2
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+  OnBegin:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  references:
+    version: 2
+    RefIds: []
