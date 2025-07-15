@@ -61,9 +61,15 @@ public static class ComponentExtensions
 
         if (alignRotation)
         {
-            // The player's head moves around the origin, so we need to adjust for that
-            // FIXME: This breaks subtitle and inventory positioning
-            //transform.rotation = target.rotation * Quaternion.Euler(0, -head.localRotation.eulerAngles.y, 0);
+            if (obj.gameObject.TryGetComponent<PlayerController>(out var player))
+            {
+                // The player's head moves around the origin, so we need to adjust for that
+                obj.rotation = target.rotation * Quaternion.Euler(0, -player.head.localRotation.eulerAngles.y, 0);
+            }
+            else
+            {
+                obj.rotation = target.rotation;
+            }
         }
     }
 }

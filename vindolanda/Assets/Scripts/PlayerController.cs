@@ -11,11 +11,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private TunnelingVignetteController vignette;
 
-    [SerializeField]
-    private ControllerInputActionManager leftController;
+    public ControllerInputActionManager leftController;
+    public ControllerEffects LeftControllerEffects { get; private set; }
 
-    [SerializeField]
-    private ControllerInputActionManager rightController;
+    public ControllerInputActionManager rightController;
+    public ControllerEffects RightControllerEffects { get; private set; }
 
     [SerializeField]
     private DynamicMoveProvider dynamicMoveProvider;
@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
 
     public GameObject settingsMenu;
     [Tooltip("Position of headset")]
-    [SerializeField] Transform head;
+    public Transform head;
 
     private void UpdateSettings(GameSettings settings)
     {
@@ -43,6 +43,9 @@ public class PlayerController : MonoBehaviour
 
         input.GameInputs.Enable();
         input.GameInputs.ToggleMenu.performed += ToggleSettings;
+
+        LeftControllerEffects = leftController.GetComponent<ControllerEffects>();
+        RightControllerEffects = rightController.GetComponent<ControllerEffects>();
     }
 
     private void OnDestroy()

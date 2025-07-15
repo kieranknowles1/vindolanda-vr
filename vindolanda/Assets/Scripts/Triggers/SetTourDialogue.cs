@@ -9,10 +9,15 @@ public class SetTourDialogue : TriggerBase
     protected override void Execute(PlayerController player)
     {
         setTourDialogue.SendEventMessage(dialogue);
+
+        player.LeftControllerEffects.GlowState |= ControllerEffects.ControllerButton.A;
+        player.RightControllerEffects.GlowState |= ControllerEffects.ControllerButton.A;
     }
 
     protected override void ExecuteExit(PlayerController player)
     {
         setTourDialogue.SendEventMessage(null);
+        player.LeftControllerEffects.GlowState &= ~ControllerEffects.ControllerButton.A;
+        player.RightControllerEffects.GlowState &= ~ControllerEffects.ControllerButton.A;
     }
 }

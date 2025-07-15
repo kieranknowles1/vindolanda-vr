@@ -42,8 +42,6 @@ public class ControllerEffects : MonoBehaviour
     void Start()
     {
         originalMaterial = grip.sharedMaterial;
-
-        GlowState |= ControllerButton.A | ControllerButton.B;
     }
 
     void UpdateGlow(ControllerButton state, MeshRenderer button, ControllerButton mask)
