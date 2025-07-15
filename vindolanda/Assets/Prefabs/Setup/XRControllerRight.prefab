@@ -98,6 +98,10 @@ PrefabInstance:
       propertyPath: m_DirectionalManipulationInput.m_InputActionReference
       value: 
       objectReference: {fileID: -440298646266941818, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+    - target: {fileID: 793494157564346053, guid: 3c1eff93f56248040b12e0a0def9a408, type: 3}
+      propertyPath: m_LocalScale.x
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 1994455727090998325, guid: 3c1eff93f56248040b12e0a0def9a408, type: 3}
       propertyPath: m_LocalScale.x
       value: -1

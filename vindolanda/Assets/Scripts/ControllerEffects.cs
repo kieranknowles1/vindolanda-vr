@@ -12,6 +12,8 @@ public class ControllerEffects : MonoBehaviour
         Stick = 1 << 2,
         A = 1 << 3,
         B = 1 << 4,
+
+        All = Grip | Trigger | Stick | A | B
     }
 
     public Material glow;
