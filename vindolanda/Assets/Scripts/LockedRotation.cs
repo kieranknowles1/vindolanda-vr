@@ -8,10 +8,10 @@ public class LockedRotation : MonoBehaviour
     [Tooltip("Left-right")]
     public bool lockY;
     [Tooltip("Roll")]
-    public bool lockZ;  
+    public bool lockZ;
 
     // Called once per frame - after headset position has been read
-    void FixedUpdate()
+    private void OnPreRender()
     {
         transform.rotation = Quaternion.Euler(
             lockX ? 0 : transform.parent.rotation.eulerAngles.x,
