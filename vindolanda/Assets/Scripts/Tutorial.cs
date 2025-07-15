@@ -47,6 +47,8 @@ public class Tutorial : MonoBehaviour
         QuestState.CurrentObjective = locomotion.moveToTarget;
         locomotion.tutorialObjects.SetActive(true);
 
+        GameConstants.Instance.Player.RightControllerEffects.GlowState |= ControllerEffects.ControllerButton.Stick;
+
         IEnumerator SayIntro()
         {
             yield return speaker.Say(locomotion.dialTutorialInfo);
@@ -81,12 +83,12 @@ public class Tutorial : MonoBehaviour
 
     public void Evnt_LocomotionTargetReached()
     {
+        GameConstants.Instance.Player.RightControllerEffects.GlowState &= ~ControllerEffects.ControllerButton.Stick;
+
         locomotion.tutorialObjects.SetActive(false);
         interaction.tutorialObjects.SetActive(true);
         QuestState.CurrentObjective = interaction.pickUpItem;
         SayRepeatable(interaction.dialPickUp);
-
-        // TODO: Play mocap animation of picking up an item
     }
 
     [Serializable]
