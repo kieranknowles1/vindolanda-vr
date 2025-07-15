@@ -47,21 +47,20 @@ public class Tutorial : MonoBehaviour
         QuestState.CurrentObjective = locomotion.moveToTarget;
         locomotion.tutorialObjects.SetActive(true);
 
-        GameConstants.Instance.Player.RightControllerEffects.GlowState |= ControllerEffects.ControllerButton.Stick;
-
         IEnumerator SayIntro()
         {
             yield return speaker.Say(locomotion.dialTutorialInfo);
-            SayRepeatable(locomotion.dialMoveSmooth);
+            yield return SayRepeatable(locomotion.dialMoveSmooth);
+            GameConstants.Instance.Player.RightControllerEffects.GlowState |= ControllerEffects.ControllerButton.Stick;
         }
         StartCoroutine(SayIntro());
     }
 
     Dialogue currentDialogue;
-    void SayRepeatable(Dialogue dialogue)
+    Coroutine SayRepeatable(Dialogue dialogue)
     {
         currentDialogue = dialogue;
-        speaker.Say(dialogue);
+        return speaker.Say(dialogue);
     }
 
     void RepeatInstruction(InputAction.CallbackContext _)
