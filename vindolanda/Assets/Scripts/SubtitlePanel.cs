@@ -15,7 +15,8 @@ public class SubtitlePanel : MonoBehaviour
     public void Show(string speaker, string text)
     {
         canvas.enabled = true;
-        this.text.text = $"{speaker}: {text}";
+        if (speaker == null) this.text.text = text;
+        else this.text.text = $"{speaker}: {text}";
     }
 
     public void Hide()

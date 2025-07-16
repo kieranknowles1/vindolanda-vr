@@ -25,7 +25,14 @@ public class Speaker : MonoBehaviour
     }
     Coroutine speakCoroutine;
 
-    public Coroutine Say(Dialogue dialogue)
+    /// <summary>
+    /// Say a line, coroutine will run until completion
+    /// </summary>
+    /// <param name="dialogue">The line to say</param>
+    /// <param name="delay">A delay before starting the line</param>
+    /// <param name="pitch">The pitch to play at. Even +-5% is noticeable</param>
+    /// <returns></returns>
+    public Coroutine Say(Dialogue dialogue, float delay = 0.0f, float pitch = 1.0f)
     {
         IEnumerator SayImpl()
         {
@@ -35,12 +42,14 @@ public class Speaker : MonoBehaviour
                 var clip = line.Clip != null && !line.Clip.IsEmpty ? line.Clip.LoadAsset() : null;
 
                 var text = line.Text.GetLocalizedString();
-                GameConstants.Instance.Player.Subtitles.Show(ActorName.GetLocalizedString(), text);
+                GameConstants.Instance.Player.Subtitles.Show(ActorName.isDirty ? null : ActorName.GetLocalizedString(), text);
 
                 float duration;
                 if (clip != null)
                 {
-                    audio.PlayOneShot(clip);
+                    audio.clip = clip;
+                    audio.pitch = pitch;
+                    audio.PlayDelayed(delay);
                     duration = clip.length;
                 }
                 else duration = text.Split(' ').Length * SecondsPerWord;

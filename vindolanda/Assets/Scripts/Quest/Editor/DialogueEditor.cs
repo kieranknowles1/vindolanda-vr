@@ -123,7 +123,7 @@ namespace Vindolanda.Quest.Editor
             foreach (var dialogue in dialogues)
             {
                 var key = GetTableEntryKey(dialogue.Clip);
-                var assets = AssetDatabase.FindAssets(key);
+                var assets = AssetDatabase.FindAssets($"t:{typeof(AudioClip).Name} {key}");
                 if (assets.Length == 0)
                 {
                     Debug.Log($"{key}: No assets found");
