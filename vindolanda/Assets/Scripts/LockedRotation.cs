@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[Tooltip("Lock one or more axes to zero, otherwise inherit parent rotation")]
 public class LockedRotation : MonoBehaviour
 {
     [Tooltip("Up-down")]
@@ -7,15 +8,15 @@ public class LockedRotation : MonoBehaviour
     [Tooltip("Left-right")]
     public bool lockY;
     [Tooltip("Roll")]
-    public bool lockZ;  
+    public bool lockZ;
 
-    // LateUpdate is called once per frame - after headset position has been read
-    void LateUpdate()
+    // Called once per frame - after headset position has been read
+    private void OnPreRender()
     {
         transform.rotation = Quaternion.Euler(
-            lockX ? 0 : transform.rotation.eulerAngles.x,
-            lockY ? 0 : transform.rotation.eulerAngles.y,
-            lockZ ? 0 : transform.rotation.eulerAngles.z
+            lockX ? 0 : transform.parent.rotation.eulerAngles.x,
+            lockY ? 0 : transform.parent.rotation.eulerAngles.y,
+            lockZ ? 0 : transform.parent.rotation.eulerAngles.z
         );
     }
 }

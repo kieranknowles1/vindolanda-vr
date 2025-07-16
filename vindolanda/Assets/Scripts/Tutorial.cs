@@ -50,16 +50,17 @@ public class Tutorial : MonoBehaviour
         IEnumerator SayIntro()
         {
             yield return speaker.Say(locomotion.dialTutorialInfo);
-            SayRepeatable(locomotion.dialMoveSmooth);
+            yield return SayRepeatable(locomotion.dialMoveSmooth);
+            GameConstants.Instance.Player.RightControllerEffects.GlowState |= ControllerEffects.ControllerButton.Stick;
         }
         StartCoroutine(SayIntro());
     }
 
     Dialogue currentDialogue;
-    void SayRepeatable(Dialogue dialogue)
+    Coroutine SayRepeatable(Dialogue dialogue)
     {
         currentDialogue = dialogue;
-        speaker.Say(dialogue);
+        return speaker.Say(dialogue);
     }
 
     void RepeatInstruction(InputAction.CallbackContext _)
@@ -81,12 +82,12 @@ public class Tutorial : MonoBehaviour
 
     public void Evnt_LocomotionTargetReached()
     {
+        GameConstants.Instance.Player.RightControllerEffects.GlowState &= ~ControllerEffects.ControllerButton.Stick;
+
         locomotion.tutorialObjects.SetActive(false);
         interaction.tutorialObjects.SetActive(true);
         QuestState.CurrentObjective = interaction.pickUpItem;
         SayRepeatable(interaction.dialPickUp);
-
-        // TODO: Play mocap animation of picking up an item
     }
 
     [Serializable]
