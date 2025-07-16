@@ -27,7 +27,7 @@ public partial class SayManyAction : Action
 
         foreach (var speaker in speakers)
         {
-            speaker.Say(Line.Value, delay: Random.Range(0, StartupTime.Value));
+            speaker.Say(Line.Value, delay: Random.Range(0, StartupTime.Value), pitch: Random.Range(0.98f, 1.02f));
         }
 
         return Status.Running;
