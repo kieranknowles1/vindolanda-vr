@@ -2,11 +2,11 @@ using UnityEngine;
 
 public static class GizmoUtil
 {
-    public static void DrawCircle(Vector3 center, Quaternion rotation, float radius, int points = 32)
+    public static void DrawCircle(Vector3 center, Vector3 forward, float radius, int points = 32)
     {
         Vector3 RotatedPoint(float angle)
         {
-            return center + rotation * new Vector3(Mathf.Cos(angle) * radius, Mathf.Sin(angle) * radius, 0);
+            return center + Quaternion.LookRotation(forward, Vector3.up) * new Vector3(Mathf.Cos(angle) * radius, Mathf.Sin(angle) * radius, 0);
         }
 
         var prev = RotatedPoint(0);

@@ -42,7 +42,7 @@ public class Target : MonoBehaviour, IHitTarget
         
         foreach (var area in areas)
         {
-            GizmoUtil.DrawCircle(Center, transform.rotation, area.radius);
+            GizmoUtil.DrawCircle(Center, transform.forward, area.radius);
         }
     }
 }
