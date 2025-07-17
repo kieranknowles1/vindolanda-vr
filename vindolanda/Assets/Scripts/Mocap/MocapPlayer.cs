@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 namespace Vindolanda.Mocap
 {
@@ -23,6 +24,41 @@ namespace Vindolanda.Mocap
         public bool playing;
         public int frame;
         float elapsedTime;
+
+        GameObject leftObject;
+        GameObject rightObject;
+
+        GameObject SetHeldObject(GameObject obj, Transform hand)
+        {
+            if (obj == null) return null;
+            var instance = Instantiate(obj, parent: hand);
+            instance.SetActive(false);
+
+            if (instance.TryGetComponent<XRGrabInteractable>(out var interactable))
+            {
+                if (interactable.attachTransform != null)
+                {
+                    instance.transform.SetLocalPositionAndRotation(
+                        interactable.attachTransform.localRotation * interactable.attachTransform.localPosition,
+                        Quaternion.Inverse(interactable.attachTransform.localRotation)
+                    );
+                }
+                interactable.enabled = false;
+            }
+
+            if (instance.TryGetComponent<Rigidbody>(out var rb))
+            {
+                rb.SetFrozen(true);
+            }
+
+            return instance;
+        }
+
+        private void Start()
+        {
+            leftObject = SetHeldObject(clip.leftHandItem, leftHand.transform);
+            rightObject = SetHeldObject(clip.rightHandItem, rightHand.transform);
+        }
 
         private void Update()
         {
@@ -55,14 +91,19 @@ namespace Vindolanda.Mocap
             float ratio = currentFrameElapsed / currentFrameDuration;
             Clip.Keyframe interpolated = Clip.Keyframe.Lerp(current, next, ratio);
 
-            static void UpdateHand(GestureRenderer hand, Clip.HandState state)
+            static void UpdateHand(GestureRenderer hand, Clip.HandState state, GameObject held)
             {
                 if (hand == null) return;
                 hand.transform.SetLocalPositionAndRotation(state.transform.position, state.transform.rotation);
                 hand.SetShapeInstant(state);
+
+                if (held != null)
+                {
+                    held.SetActive(state.hasItem);
+                }
             }
-            UpdateHand(leftHand, interpolated.leftHand);
-            UpdateHand(rightHand, interpolated.rightHand);
+            UpdateHand(leftHand, interpolated.leftHand, leftObject);
+            UpdateHand(rightHand, interpolated.rightHand, rightObject);
             if (head)
                 head.SetLocalPositionAndRotation(interpolated.head.position, interpolated.head.rotation);
         }

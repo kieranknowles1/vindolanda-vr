@@ -41,6 +41,7 @@ namespace Vindolanda.Mocap
             public float middle;
             public float ring;
             public float pinky;
+            public bool hasItem;
 
             public HandState(Transform transform, XRHandShape shape)
             {
@@ -57,6 +58,7 @@ namespace Vindolanda.Mocap
                 middle = GetFinger(XRHandFingerID.Middle);
                 ring = GetFinger(XRHandFingerID.Ring);
                 pinky = GetFinger(XRHandFingerID.Little);
+                hasItem = false;
             }
 
             public static HandState Lerp(HandState a, HandState b, float ratio)
@@ -68,7 +70,8 @@ namespace Vindolanda.Mocap
                     index = Mathf.Lerp(a.index, b.index, ratio),
                     middle = Mathf.Lerp(a.middle, b.middle, ratio),
                     ring = Mathf.Lerp(a.ring, b.ring, ratio),
-                    pinky = Mathf.Lerp(a.pinky, b.pinky, ratio)
+                    pinky = Mathf.Lerp(a.pinky, b.pinky, ratio),
+                    hasItem = a.hasItem
                 };
             }
         }
@@ -94,5 +97,7 @@ namespace Vindolanda.Mocap
         }
 
         public List<Keyframe> keyframes = new();
+        public GameObject leftHandItem;
+        public GameObject rightHandItem;
     }
 }

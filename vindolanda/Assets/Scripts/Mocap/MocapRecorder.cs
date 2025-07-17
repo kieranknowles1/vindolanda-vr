@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Hands;
 using UnityEngine.XR.Hands.Gestures;
+using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 namespace Vindolanda.Mocap
 {
@@ -12,7 +13,9 @@ namespace Vindolanda.Mocap
     public class MocapRecorder : MonoBehaviour
     {
         public XRHandTrackingEvents leftHand;
+        public NearFarInteractor leftInteractor;
         public XRHandTrackingEvents rightHand;
+        public NearFarInteractor rightInteractor;
         public Transform head;
 
         public const string outputPath = "Assets/Animations/Mocap/";
@@ -67,6 +70,7 @@ namespace Vindolanda.Mocap
                 return result;
             }
             var hand = evnt.hand.handedness == Handedness.Left ? leftHand : rightHand;
+            var interactor = evnt.hand.handedness == Handedness.Left ? leftInteractor : rightInteractor;
 
             Clip.HandState state = new()
             {
@@ -79,7 +83,8 @@ namespace Vindolanda.Mocap
                 index = GetFingerValue(XRHandFingerID.Index),
                 middle = GetFingerValue(XRHandFingerID.Middle),
                 ring = GetFingerValue(XRHandFingerID.Ring),
-                pinky = GetFingerValue(XRHandFingerID.Little)
+                pinky = GetFingerValue(XRHandFingerID.Little),
+                hasItem = interactor.interactablesSelected.Count > 0,
             };
 
             if (hand == leftHand)
