@@ -14,5 +14,8 @@ namespace Vindolanda.Quest
         public LocalizedString Description;
         public UnityEvent OnBegin;
         public UnityEvent OnEnd;
+
+        [Tooltip("If set, objective marker will point to this object")]
+        public int targetId;
     }
 }

@@ -23,11 +23,12 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   OnBegin:
-    rid: -2
+    m_PersistentCalls:
+      m_Calls: []
   OnEnd:
-    rid: -2
+    m_PersistentCalls:
+      m_Calls: []
+  targetId: 1025362163
   references:
     version: 2
-    RefIds:
-    - rid: -2
-      type: {class: , ns: , asm: }
+    RefIds: []

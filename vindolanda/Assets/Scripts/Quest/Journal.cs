@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Animations;
 using UnityEngine.Localization;
 
 namespace Vindolanda.Quest {
@@ -8,6 +10,7 @@ namespace Vindolanda.Quest {
     {
         public TextMeshProUGUI summary;
         public TextMeshProUGUI details;
+        public LookAtConstraint objectiveArrow;
 
         public LocalizedString noActiveQuest;
 
@@ -39,6 +42,17 @@ namespace Vindolanda.Quest {
             if (s == GameConstants.Instance.QuestController.ActiveQuest)
             {
                 details.text = obj.Description.GetLocalizedString();
+
+                if (s.CurrentObjective.targetId != 0)
+                {
+                    var target = GuidManager.Instance.Find<GuidComponent>(s.CurrentObjective.targetId);
+                    objectiveArrow.gameObject.SetActive(true);
+                    objectiveArrow.SetSource(0, new() { sourceTransform = target.transform, weight = 1.0f });
+                }
+                else
+                {
+                    objectiveArrow.gameObject.SetActive(false);
+                }
             }
         }
     }
