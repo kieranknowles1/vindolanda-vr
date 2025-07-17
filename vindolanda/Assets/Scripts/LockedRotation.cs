@@ -11,7 +11,7 @@ public class LockedRotation : MonoBehaviour
     public bool lockZ;
 
     // Called once per frame - after headset position has been read
-    private void OnPreRender()
+    private void LateUpdate()
     {
         transform.rotation = Quaternion.Euler(
             lockX ? 0 : transform.parent.rotation.eulerAngles.x,
