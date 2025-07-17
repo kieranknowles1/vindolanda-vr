@@ -72,4 +72,12 @@ public static class ComponentExtensions
             }
         }
     }
+
+    public static Vector3 AxisDirection(this Transform obj, Enums.Axis axis) => axis switch
+    {
+        Enums.Axis.X => obj.right,
+        Enums.Axis.Y => obj.up,
+        Enums.Axis.Z => obj.forward,
+        _ => throw new UnreachableException()
+    };
 }

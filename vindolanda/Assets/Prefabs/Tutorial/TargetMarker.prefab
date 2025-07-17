@@ -205,6 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d949e42e00bd2ec4cb2cff10ef7658a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  axis: 1
   rotateSpeed: 60
   bobSpeed: 2
   bobDistance: {x: 0, y: 0.25, z: 0}
