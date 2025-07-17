@@ -16,7 +16,7 @@ public class WritingTablet : XRGrabInteractable
             InteractorHandedness.Left => leftAttach,
             InteractorHandedness.Right => rightAttach,
             InteractorHandedness.None => base.GetAttachTransform(interactor),
-            _ => throw new System.Exception()
+            _ => throw new UnreachableException()
         };
     }
 

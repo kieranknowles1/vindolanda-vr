@@ -32,7 +32,7 @@ public class ConfirmButton : MonoBehaviour
             {
                 Status.Ready => initialString,
                 Status.FirstClick => confirmPrompt,
-                _ => throw new System.Exception()
+                _ => throw new UnreachableException()
             };
             stringEvent.StringReference = newString;
             status = value;

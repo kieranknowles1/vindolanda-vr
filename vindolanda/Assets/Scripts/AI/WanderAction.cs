@@ -55,7 +55,7 @@ public partial class WanderAction : Action
         {
             WanderType.CurrentPosition => controller.transform.position,
             WanderType.StartPosition => controller.OriginalPosition,
-            _ => throw new NotImplementedException(),
+            _ => throw new UnreachableException()
         };
     }
 

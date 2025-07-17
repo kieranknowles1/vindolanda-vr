@@ -55,7 +55,7 @@ public class PatrolRoute : MonoBehaviour
                     looped = true
                 },
                 Type.OneShot => new() { done = true },
-                _ => throw new System.Exception()
+                _ => throw new UnreachableException()
             };
         }
 

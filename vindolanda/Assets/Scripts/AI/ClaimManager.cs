@@ -53,7 +53,7 @@ public class ClaimManager : Saveable
             case Mode.FurnitureChildren:
                 Available = GetComponentsInChildren<Furniture>().Cast<GuidComponent>().ToList();
                 break;
-            default: throw new System.Exception();
+            default: throw new UnreachableException();
         }
     }
 
