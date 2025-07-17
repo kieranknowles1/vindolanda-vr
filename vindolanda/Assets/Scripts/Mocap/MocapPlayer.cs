@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.XR.Hands;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
 namespace Vindolanda.Mocap
@@ -20,6 +21,8 @@ namespace Vindolanda.Mocap
         public bool repeat;
         public float speedMult = 1.0f;
 
+        public Quaternion handOffset = Quaternion.Euler(0, 0, 90);
+
         [Header("State")]
         public bool playing;
         public int frame;
@@ -38,10 +41,9 @@ namespace Vindolanda.Mocap
             {
                 if (interactable.attachTransform != null)
                 {
-                    instance.transform.SetLocalPositionAndRotation(
-                        interactable.attachTransform.localRotation * interactable.attachTransform.localPosition,
-                        Quaternion.Inverse(interactable.attachTransform.localRotation)
-                    );
+                    var inverseRotation = Quaternion.Inverse(interactable.attachTransform.localRotation);
+                    var inversePosition = inverseRotation * -interactable.attachTransform.localPosition;
+                    instance.transform.SetLocalPositionAndRotation(inversePosition, inverseRotation);
                 }
                 interactable.enabled = false;
             }
@@ -91,10 +93,11 @@ namespace Vindolanda.Mocap
             float ratio = currentFrameElapsed / currentFrameDuration;
             Clip.Keyframe interpolated = Clip.Keyframe.Lerp(current, next, ratio);
 
-            static void UpdateHand(GestureRenderer hand, Clip.HandState state, GameObject held)
+            void UpdateHand(GestureRenderer hand, Clip.HandState state, Handedness handedness, GameObject held)
             {
                 if (hand == null) return;
-                hand.transform.SetLocalPositionAndRotation(state.transform.position, state.transform.rotation);
+                var offset = handedness == Handedness.Right ? handOffset : Quaternion.Inverse(handOffset);
+                hand.transform.SetLocalPositionAndRotation(state.transform.position, state.transform.rotation * offset);
                 hand.SetShapeInstant(state);
 
                 if (held != null)
@@ -102,8 +105,8 @@ namespace Vindolanda.Mocap
                     held.SetActive(state.hasItem);
                 }
             }
-            UpdateHand(leftHand, interpolated.leftHand, leftObject);
-            UpdateHand(rightHand, interpolated.rightHand, rightObject);
+            UpdateHand(leftHand, interpolated.leftHand, Handedness.Left, leftObject);
+            UpdateHand(rightHand, interpolated.rightHand, Handedness.Right, rightObject);
             if (head)
                 head.SetLocalPositionAndRotation(interpolated.head.position, interpolated.head.rotation);
         }

@@ -98,6 +98,8 @@ namespace Vindolanda.Mocap
 
         public List<Keyframe> keyframes = new();
         public GameObject leftHandItem;
+        public bool leftFollowsRight;
         public GameObject rightHandItem;
+        public bool rightFollowsLeft;
     }
 }
