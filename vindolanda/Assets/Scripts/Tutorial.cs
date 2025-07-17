@@ -35,6 +35,7 @@ public class Tutorial : MonoBehaviour
 
         public Dialogue dialTutorialInfo;
         public Dialogue dialMoveSmooth;
+        public Dialogue dialMoveTeleport;
     }
     public LocomotionStage locomotion;
 
@@ -50,7 +51,14 @@ public class Tutorial : MonoBehaviour
         IEnumerator SayIntro()
         {
             yield return speaker.Say(locomotion.dialTutorialInfo);
-            yield return SayRepeatable(locomotion.dialMoveSmooth);
+            if (GameSettings.Instance.Movement.Type == GameSettings.MovementType.Teleport)
+            {
+                yield return SayRepeatable(locomotion.dialMoveTeleport);
+            }
+            else // smooth movement
+            {
+                yield return SayRepeatable(locomotion.dialMoveSmooth);
+            }
             GameConstants.Instance.Player.RightControllerEffects.GlowState |= ControllerEffects.ControllerButton.Stick;
         }
         StartCoroutine(SayIntro());

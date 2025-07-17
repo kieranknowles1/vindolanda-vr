@@ -10,58 +10,58 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2014bf2c72eb475439d5f919d2a8f477, type: 3}
-  m_Name: DialTourPub
+  m_Name: DialMoveTeleportInstruction
   m_EditorClassIdentifier: 
   Lines:
   - Text:
       m_TableReference:
         m_TableCollectionName: GUID:bbc577575d755f2468f29145e420373b
       m_TableEntryReference:
-        m_KeyId: 10839946597535744
+        m_KeyId: 12639117906264064
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
     Clip:
       m_TableReference:
-        m_TableCollectionName: AssetsTable
+        m_TableCollectionName: 
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: DialTourPub0
+        m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
   - Text:
       m_TableReference:
         m_TableCollectionName: GUID:bbc577575d755f2468f29145e420373b
       m_TableEntryReference:
-        m_KeyId: 10840612854337536
+        m_KeyId: 12639379626639360
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
     Clip:
       m_TableReference:
-        m_TableCollectionName: AssetsTable
+        m_TableCollectionName: 
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: DialTourPub1
+        m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
   - Text:
       m_TableReference:
         m_TableCollectionName: GUID:bbc577575d755f2468f29145e420373b
       m_TableEntryReference:
-        m_KeyId: 10840819281203200
+        m_KeyId: 4666630442618880
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
     Clip:
       m_TableReference:
-        m_TableCollectionName: AssetsTable
+        m_TableCollectionName: GUID:a6ed01dec1d1f0745ae3017045ed34d5
       m_TableEntryReference:
-        m_KeyId: 0
-        m_Key: DialTourPub2
+        m_KeyId: 9374122422603780
+        m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
   OnBegin:
