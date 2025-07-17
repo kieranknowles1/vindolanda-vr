@@ -29,7 +29,7 @@ public partial class WithFollowerModifier : Modifier
     protected override void OnEnd()
     {
         var self = Self.Value.GetComponent<ActorController>();
-        if (Target.Value.TryGetComponent<FollowerTracker>(out var follow))
+        if (Target.Value != null && Target.Value.TryGetComponent<FollowerTracker>(out var follow))
         {
             follow.followers.Remove(self);
         }
