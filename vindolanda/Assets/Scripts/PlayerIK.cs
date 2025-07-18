@@ -3,6 +3,9 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class PlayerIK : MonoBehaviour
 {
+    static Quaternion HandRotationOffset = Quaternion.Euler(-10.0f, 0.0f, 0.0f);
+    static Vector3 HandPositionOffset = HandRotationOffset * Vector3.back * 0.03f;
+
     private Animator animator;
 
     // [Header("Animation Nodes")]
@@ -37,8 +40,8 @@ public class PlayerIK : MonoBehaviour
     void PositionHand(AvatarIKGoal goal, Transform target)
     {
         SetWeights(goal, 1);
-        animator.SetIKPosition(goal, target.position);
-        animator.SetIKRotation(goal, target.rotation);
+        animator.SetIKPosition(goal, target.position + (target.rotation * HandPositionOffset));
+        animator.SetIKRotation(goal, target.rotation * HandRotationOffset);
     }
 
     void PositionFoot(AvatarIKGoal goal)

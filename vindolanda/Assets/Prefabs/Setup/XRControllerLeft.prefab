@@ -38,7 +38,6 @@ Transform:
   - {fileID: 2046855578887898271}
   - {fileID: 652444657573787450}
   - {fileID: 9013580040405022290}
-  - {fileID: 6700620220118633093}
   m_Father: {fileID: 2695749914064114904}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5423016529315305310
@@ -203,37 +202,6 @@ MonoBehaviour:
   stick: {fileID: 732115363477421897}
   buttonA: {fileID: 9000070893524187409}
   buttonB: {fileID: 4795060944805988352}
---- !u!1 &671648427488846182
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6700620220118633093}
-  m_Layer: 0
-  m_Name: Wrist
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6700620220118633093
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 671648427488846182}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0.70710677, w: 0.70710677}
-  m_LocalPosition: {x: 0, y: 0, z: -0.1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 652444658624830255}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3880522022333542918
 GameObject:
   m_ObjectHideFlags: 0
