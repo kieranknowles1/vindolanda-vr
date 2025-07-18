@@ -1144,9 +1144,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ac216f0eb04754b1d938aac6380b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &6192608244223461050 stripped
+--- !u!4 &7741005336130104570 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 6700620220118633093, guid: 3c1eff93f56248040b12e0a0def9a408, type: 3}
+  m_CorrespondingSourceObject: {fileID: 7088773166936416453, guid: 3c1eff93f56248040b12e0a0def9a408, type: 3}
   m_PrefabInstance: {fileID: 652444658825219135}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1484374059565628877
@@ -1377,6 +1377,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4315174940736619642, guid: 34a293ffb7b715b4cbf6fbdf1ae5d94e, type: 3}
   m_PrefabInstance: {fileID: 2187000377804692682}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &3231650492902937268 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3639163868829421182, guid: 34a293ffb7b715b4cbf6fbdf1ae5d94e, type: 3}
+  m_PrefabInstance: {fileID: 2187000377804692682}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7490827342054528193 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8767675620978067467, guid: 34a293ffb7b715b4cbf6fbdf1ae5d94e, type: 3}
@@ -1388,11 +1393,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ac216f0eb04754b1d938aac6380b31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &8091787226052036890 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7931407243207087568, guid: 34a293ffb7b715b4cbf6fbdf1ae5d94e, type: 3}
-  m_PrefabInstance: {fileID: 2187000377804692682}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5052380512536715105
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1767,8 +1767,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 418d331c21a63f7418cae81cf2b6e2d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftController: {fileID: 6192608244223461050}
-  rightController: {fileID: 8091787226052036890}
+  leftController: {fileID: 7741005336130104570}
+  rightController: {fileID: 3231650492902937268}
   headset: {fileID: 1767192434}
   maxFootRise: 0.9
   maxFootLower: 0.3
