@@ -736,7 +736,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f85c5b42766367429d53c79bfcb6278, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 1900381529
   skipSave: 0
 --- !u!114 &1001956522925151431
 MonoBehaviour:
@@ -750,7 +750,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8b6add2b553e0946a1456631c922f86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  id: 1190755973
   skipSave: 0
   followers: []
 --- !u!1 &2190828208922718286
@@ -1106,7 +1106,8 @@ PrefabInstance:
       propertyPath: m_HandMeshRenderer
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7500541250648607113, guid: 3c1eff93f56248040b12e0a0def9a408, type: 3}
     m_RemovedGameObjects:
     - {fileID: 8565340966231654508, guid: 3c1eff93f56248040b12e0a0def9a408, type: 3}
     m_AddedGameObjects: []
@@ -1441,7 +1442,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.564
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3824899185919583501, guid: 34a293ffb7b715b4cbf6fbdf1ae5d94e, type: 3}
     m_RemovedGameObjects:
     - {fileID: 6765094944235117095, guid: 34a293ffb7b715b4cbf6fbdf1ae5d94e, type: 3}
     m_AddedGameObjects: []
