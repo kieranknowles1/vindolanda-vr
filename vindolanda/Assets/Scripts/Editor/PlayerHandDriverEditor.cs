@@ -29,18 +29,6 @@ public class PlayerHandDriverEditor : Editor
             XRHandJointID.ThumbMetacarpal => "thumb.01",
             XRHandJointID.ThumbProximal => "thumb.02",
             XRHandJointID.ThumbDistal => "thumb.03",
-            //XRHandJointID.IndexProximal => "f_index.01",
-            //XRHandJointID.IndexIntermediate => "f_index.02",
-            //XRHandJointID.IndexDistal => "f_index.03",
-            //XRHandJointID.MiddleMetacarpal => "f_middle.01",
-            //XRHandJointID.MiddleProximal => "f_middle.02",
-            //XRHandJointID.MiddleDistal => "f_middle.03",
-            //XRHandJointID.RingProximal => "f_ring.01",
-            //XRHandJointID.RingIntermediate => "f_ring.02",
-            //XRHandJointID.RingDistal => "f_ring.03",
-            //XRHandJointID.LittleProximal => "f_pinky.01",
-            //XRHandJointID.LittleIntermediate => "f_pinky.02",
-            //XRHandJointID.LittleDistal => "f_pinky.03",
             _ => null,
         };
     }
