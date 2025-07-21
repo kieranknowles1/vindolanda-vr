@@ -1,6 +1,6 @@
 {
  "formatVersion": 2,
- "appVersion": "0.95.0",
+ "appVersion": "0.96.0",
  "files": [
   {
    "isClone": false,
@@ -139,7 +139,15 @@
      "prefix": null,
      "type": "text",
      "mime": "text/html",
-     "attributes": [],
+     "attributes": [
+      {
+       "type": "label",
+       "name": "iconClass",
+       "value": "mdi mdi-castle",
+       "isInheritable": false,
+       "position": 10
+      }
+     ],
      "format": "html",
      "dataFileName": "Vindolanda VR.html",
      "attachments": [],
@@ -1012,6 +1020,13 @@
            "value": "Du49if7unVYL",
            "isInheritable": false,
            "position": 60
+          },
+          {
+           "type": "relation",
+           "name": "after",
+           "value": "wW5nz1VIfA2l",
+           "isInheritable": false,
+           "position": 70
           }
          ],
          "format": "html",
@@ -1394,6 +1409,13 @@
            "value": "Du49if7unVYL",
            "isInheritable": false,
            "position": 60
+          },
+          {
+           "type": "relation",
+           "name": "before",
+           "value": "apGkwwQSWLn5",
+           "isInheritable": false,
+           "position": 70
           }
          ],
          "format": "html",
@@ -1423,6 +1445,20 @@
        "value": "rPHr1DPtIYH2",
        "isInheritable": false,
        "position": 10
+      },
+      {
+       "type": "label",
+       "name": "mapExcludeRelation",
+       "value": "before",
+       "isInheritable": false,
+       "position": 20
+      },
+      {
+       "type": "label",
+       "name": "mapExcludeRelation",
+       "value": "partOf",
+       "isInheritable": false,
+       "position": 30
       }
      ],
      "dataFileName": "Task Map.dat",
