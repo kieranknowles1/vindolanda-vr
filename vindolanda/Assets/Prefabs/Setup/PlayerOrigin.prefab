@@ -1980,6 +1980,7 @@ MonoBehaviour:
     node: {fileID: 5663472428458669519}
   - reference: {fileID: 1044723299693519134}
     node: {fileID: 7601008569358747746}
+  hand: 3
 --- !u!1 &1035645495960992378 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8691392568741063504, guid: d75de8cd7ac530a4c927a7584da8db72, type: 3}
@@ -2029,6 +2030,7 @@ MonoBehaviour:
     node: {fileID: 4111924153699590709}
   - reference: {fileID: 8715934898279818638}
     node: {fileID: 5924827807788623709}
+  hand: 2
 --- !u!4 &1155542709548981845 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7406190004307660671, guid: d75de8cd7ac530a4c927a7584da8db72, type: 3}
