@@ -56,7 +56,7 @@ public class PlayerHandDriverEditor : Editor
                 var reference = Target.reference.jointTransformReferences.First(j => j.xrHandJointID == id).jointTransform;
 
                 Target.joints.Add(new PlayerHandDriver.TransformRef() {
-                    node = finger, reference = reference
+                    node = finger, reference = reference, joint = id
                 });
             }
         }

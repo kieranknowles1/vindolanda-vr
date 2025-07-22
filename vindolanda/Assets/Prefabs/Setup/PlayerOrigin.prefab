@@ -1950,35 +1950,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reference: {fileID: 1051652549416077334}
   joints:
-  - reference: {fileID: 3328231661786523811}
+  - joint: 3
+    reference: {fileID: 3328231661786523811}
     node: {fileID: 593504348162115334}
-  - reference: {fileID: 812571887627887515}
+  - joint: 4
+    reference: {fileID: 812571887627887515}
     node: {fileID: 2908318236912073058}
-  - reference: {fileID: 1104792896550885041}
+  - joint: 5
+    reference: {fileID: 1104792896550885041}
     node: {fileID: 9116228698322074445}
-  - reference: {fileID: 3080108493322102383}
+  - joint: 8
+    reference: {fileID: 3080108493322102383}
     node: {fileID: 2595459433007326060}
-  - reference: {fileID: 6835751658711765512}
+  - joint: 9
+    reference: {fileID: 6835751658711765512}
     node: {fileID: 771607105559590164}
-  - reference: {fileID: 1189057489559736576}
+  - joint: 10
+    reference: {fileID: 1189057489559736576}
     node: {fileID: 8543348601381129072}
-  - reference: {fileID: 6674939212347654810}
+  - joint: 13
+    reference: {fileID: 6674939212347654810}
     node: {fileID: 8599563885085967344}
-  - reference: {fileID: 3976026822377394382}
+  - joint: 14
+    reference: {fileID: 3976026822377394382}
     node: {fileID: 5757122464686020827}
-  - reference: {fileID: 6408878669210500777}
+  - joint: 15
+    reference: {fileID: 6408878669210500777}
     node: {fileID: 6511681289109222113}
-  - reference: {fileID: 4668129488051168773}
+  - joint: 18
+    reference: {fileID: 4668129488051168773}
     node: {fileID: 255342645855140326}
-  - reference: {fileID: 7456262348527979465}
+  - joint: 19
+    reference: {fileID: 7456262348527979465}
     node: {fileID: 835421737994284406}
-  - reference: {fileID: 7920148603152385818}
+  - joint: 20
+    reference: {fileID: 7920148603152385818}
     node: {fileID: 5641283579694813072}
-  - reference: {fileID: 3288994731049619705}
+  - joint: 23
+    reference: {fileID: 3288994731049619705}
     node: {fileID: 5555535980645312473}
-  - reference: {fileID: 8528151081933895942}
+  - joint: 24
+    reference: {fileID: 8528151081933895942}
     node: {fileID: 5663472428458669519}
-  - reference: {fileID: 1044723299693519134}
+  - joint: 25
+    reference: {fileID: 1044723299693519134}
     node: {fileID: 7601008569358747746}
   hand: 3
 --- !u!1 &1035645495960992378 stripped
@@ -2000,35 +2015,50 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   reference: {fileID: 7638652003705628793}
   joints:
-  - reference: {fileID: 7102736806547172451}
+  - joint: 3
+    reference: {fileID: 7102736806547172451}
     node: {fileID: 6046698703642122613}
-  - reference: {fileID: 8271327809837993259}
+  - joint: 4
+    reference: {fileID: 8271327809837993259}
     node: {fileID: 1454807245842316254}
-  - reference: {fileID: 411195528860320762}
+  - joint: 5
+    reference: {fileID: 411195528860320762}
     node: {fileID: 9058771376599953952}
-  - reference: {fileID: 4500580278201971932}
+  - joint: 8
+    reference: {fileID: 4500580278201971932}
     node: {fileID: 4947065299950145257}
-  - reference: {fileID: 875687460105754168}
+  - joint: 9
+    reference: {fileID: 875687460105754168}
     node: {fileID: 38906286893795789}
-  - reference: {fileID: 1157874920202443802}
+  - joint: 10
+    reference: {fileID: 1157874920202443802}
     node: {fileID: 308137494621415317}
-  - reference: {fileID: 322068621908267937}
+  - joint: 13
+    reference: {fileID: 322068621908267937}
     node: {fileID: 1155542709548981845}
-  - reference: {fileID: 4908269414518610246}
+  - joint: 14
+    reference: {fileID: 4908269414518610246}
     node: {fileID: 3241203507864284356}
-  - reference: {fileID: 3742614317372924819}
+  - joint: 15
+    reference: {fileID: 3742614317372924819}
     node: {fileID: 6740675997756148863}
-  - reference: {fileID: 6827653304056306670}
+  - joint: 18
+    reference: {fileID: 6827653304056306670}
     node: {fileID: 4197633898259165185}
-  - reference: {fileID: 4583419925283489843}
+  - joint: 19
+    reference: {fileID: 4583419925283489843}
     node: {fileID: 1630700058232824498}
-  - reference: {fileID: 3690344025604513659}
+  - joint: 20
+    reference: {fileID: 3690344025604513659}
     node: {fileID: 2808873416598036944}
-  - reference: {fileID: 1043476747568516255}
+  - joint: 23
+    reference: {fileID: 1043476747568516255}
     node: {fileID: 2634478038869710116}
-  - reference: {fileID: 7640392983502886272}
+  - joint: 24
+    reference: {fileID: 7640392983502886272}
     node: {fileID: 4111924153699590709}
-  - reference: {fileID: 8715934898279818638}
+  - joint: 25
+    reference: {fileID: 8715934898279818638}
     node: {fileID: 5924827807788623709}
   hand: 2
 --- !u!4 &1155542709548981845 stripped
