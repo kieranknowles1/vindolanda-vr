@@ -155,8 +155,6 @@ namespace Unity.VRTemplate
             set => m_MaxDistance = value;
         }
 
-        IPokeStateDataProvider m_PokeDataProvider;
-
 #pragma warning disable CS0618 // Type or member is obsolete
         readonly Vector3TweenableVariable m_TransformTweenableVariable =
             new Vector3TweenableVariable();
@@ -170,16 +168,9 @@ namespace Unity.VRTemplate
         /// <summary>
         /// See <see cref="MonoBehaviour"/>.
         /// </summary>
-        protected void Awake()
-        {
-            m_PokeDataProvider = GetComponentInParent<IPokeStateDataProvider>();
-        }
-
-        /// <summary>
-        /// See <see cref="MonoBehaviour"/>.
-        /// </summary>
         protected void Start()
         {
+            var pokeDataProvider = GetComponentInParent<IPokeStateDataProvider>();
             if (m_PokeFollowTransform != null)
             {
                 m_InitialPosition = m_PokeFollowTransform.localPosition;
@@ -194,7 +185,7 @@ namespace Unity.VRTemplate
                     m_PokeStrengthTweenableVariable.Subscribe(OnPokeStrengthChanged)
                 );
                 m_BindingsGroup.AddBinding(
-                    m_PokeDataProvider.pokeStateData.SubscribeAndUpdate(OnPokeStateDataUpdated)
+                    pokeDataProvider.pokeStateData.SubscribeAndUpdate(OnPokeStateDataUpdated)
                 );
             }
             else
