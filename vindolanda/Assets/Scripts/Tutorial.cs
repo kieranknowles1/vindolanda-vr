@@ -10,6 +10,8 @@ public class Tutorial : MonoBehaviour
     InputActions input;
     Speaker speaker;
 
+    public TourController tour;
+
     private void Awake()
     {
         input = new InputActions();
@@ -43,6 +45,7 @@ public class Tutorial : MonoBehaviour
 
     public void BeginTutorial()
     {
+        tour.enabled = false;
         GameConstants.Instance.Player.transform.Teleport(locomotion.startMarker);
         GameConstants.Instance.Player.settingsMenu.SetActive(false);
         QuestState.CurrentObjective = locomotion.moveToTarget;
@@ -182,5 +185,7 @@ public class Tutorial : MonoBehaviour
         currentDialogue = null;
         menus.tutorialObjects.SetActive(false);
         speaker.Say(finale.dialComplete);
+
+        tour.enabled = true;
     }
 }

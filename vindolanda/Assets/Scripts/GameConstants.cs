@@ -19,5 +19,6 @@ public class GameConstants
     }
 
     public PlayerController Player;
+    public TourController Tour;
     public Vindolanda.Quest.Controller QuestController;
 }

@@ -2712,6 +2712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27a43660438d5014cab823449e1ac859, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tour: {fileID: 414183088}
   tutorial: {fileID: 11400000, guid: e51d67ea2833eda4c8db6684bbc1d7c2, type: 2}
   locomotion:
     startMarker: {fileID: 1253352897}
@@ -3588,6 +3589,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   trySayTourDialogue: {fileID: 11400000, guid: 16399ed39ed91184ca5eec28b4c20a38, type: 2}
   sayDialogue: {fileID: 5849140645574198452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
+  agent: {fileID: 2118194469}
 --- !u!1001 &417857304
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12187,6 +12189,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5748207215526629514, guid: 08abba29a0549d84ab9ed0d181fa3a47, type: 3}
   m_PrefabInstance: {fileID: 4124888364632993759}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2118194469 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2065791896735063601, guid: 08abba29a0549d84ab9ed0d181fa3a47, type: 3}
+  m_PrefabInstance: {fileID: 4124888364632993759}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0038c16c34866b4f9e25c9c0dc0f7e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2140901594
 GameObject:
   m_ObjectHideFlags: 0

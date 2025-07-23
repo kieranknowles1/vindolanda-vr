@@ -10,14 +10,21 @@ public class SetTourDialogue : TriggerBase
     {
         setTourDialogue.SendEventMessage(dialogue);
 
-        player.LeftControllerEffects.GlowState |= ControllerEffects.ControllerButton.A;
-        player.RightControllerEffects.GlowState |= ControllerEffects.ControllerButton.A;
+        if (GameConstants.Instance.Tour.GuideFollowing)
+        {
+            player.LeftControllerEffects.GlowState |= ControllerEffects.ControllerButton.A;
+            player.RightControllerEffects.GlowState |= ControllerEffects.ControllerButton.A;
+        }
     }
 
     protected override void ExecuteExit(PlayerController player)
     {
         setTourDialogue.SendEventMessage(null);
-        player.LeftControllerEffects.GlowState &= ~ControllerEffects.ControllerButton.A;
-        player.RightControllerEffects.GlowState &= ~ControllerEffects.ControllerButton.A;
+
+        if (GameConstants.Instance.Tour.GuideFollowing)
+        {
+            player.LeftControllerEffects.GlowState &= ~ControllerEffects.ControllerButton.A;
+            player.RightControllerEffects.GlowState &= ~ControllerEffects.ControllerButton.A;
+        }
     }
 }

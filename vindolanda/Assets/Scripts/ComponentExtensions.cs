@@ -1,3 +1,4 @@
+using Unity.Behavior;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -80,4 +81,10 @@ public static class ComponentExtensions
         Enums.Axis.Z => obj.forward,
         _ => throw new UnreachableException()
     };
+
+    public static T GetVariableValue<T>(this BehaviorGraphAgent agent, string name)
+    {
+        agent.GetVariable<T>(name, out var variable);
+        return variable.Value;
+    }
 }
