@@ -5,7 +5,7 @@ using UnityEngine.XR.Hands;
 using UnityEngine.XR.Hands.Gestures;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
-namespace Vindolanda.Mocap
+namespace Vindolanda.Animation
 {
     /// <summary>
     /// Record a motion-captured animation. Editor only

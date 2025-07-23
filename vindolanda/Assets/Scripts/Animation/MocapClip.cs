@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 using UnityEngine.XR.Hands;
 using UnityEngine.XR.Hands.Gestures;
 
-namespace Vindolanda.Mocap
+namespace Vindolanda.Animation
 {
     public class Clip : ScriptableObject
     {

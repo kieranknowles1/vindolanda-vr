@@ -1,7 +1,7 @@
 using System.Text.RegularExpressions;
 using Unity.Behavior;
 using UnityEngine;
-using UnityEngine.Localization;
+using Vindolanda.Animation;
 public class ActorSaveData : SaveData
 {
     public static readonly RuntimeSerializationUtility.JsonBehaviorSerializer serializer = new();
