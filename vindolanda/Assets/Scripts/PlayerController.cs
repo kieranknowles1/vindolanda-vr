@@ -149,6 +149,7 @@ public class PlayerController : MonoBehaviour
 
     public void CloseDialogueMenu()
     {
+        dialogueMenu.Clear();
         dialogueMenu.gameObject.SetActive(false);
     }
 }

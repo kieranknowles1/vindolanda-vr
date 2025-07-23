@@ -15,6 +15,8 @@ public class DialogueMenu : MonoBehaviour
     /// </summary>
     public UnityEvent<int> onClicked;
 
+    List<GameObject> entries = new();
+
     public void Display(string speaker, List<string> options)
     {
         header.text = speaker;
@@ -22,6 +24,13 @@ public class DialogueMenu : MonoBehaviour
         {
             AddOption(i, options[i]);
         }
+    }
+
+    public void Clear()
+    {
+        foreach (var e in entries)
+            Destroy(e);
+        entries.Clear();
     }
 
     void AddOption(int index, string option)
@@ -34,5 +43,6 @@ public class DialogueMenu : MonoBehaviour
         button.onClick.AddListener(() => onClicked.Invoke(index));
 
         instance.transform.SetParent(contents, worldPositionStays: false);
+        entries.Add(instance);
     }
 }

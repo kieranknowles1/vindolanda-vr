@@ -21,7 +21,6 @@ public partial class DialogueChoiceSequence : Composite
     [SerializeReference] public Node Option2;
     [SerializeReference] public BlackboardVariable<string> Choice2Key;
 
-    Status status;
     DialogueMenu menu;
     Node activeChild = null;
 
@@ -50,11 +49,10 @@ public partial class DialogueChoiceSequence : Composite
         if (activeChild == null)
         {
             LogFailure("Child is null", true);
-            status = Status.Failure;
             return;
         }
         DisableMenu();
-        status = StartNode(activeChild);
+        StartNode(activeChild);
     }
 
     protected override Status OnStart()
@@ -66,7 +64,7 @@ public partial class DialogueChoiceSequence : Composite
 
     protected override Status OnUpdate()
     {
-        if (activeChild == null) return status;
+        if (activeChild == null) return Status.Running;
 
         return activeChild.CurrentStatus;
     }
