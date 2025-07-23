@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit.Locomotion.Comfort;
@@ -21,6 +22,8 @@ public class PlayerController : MonoBehaviour
     private DynamicMoveProvider dynamicMoveProvider;
 
     public SubtitlePanel Subtitles;
+
+    [SerializeField] DialogueMenu dialogueMenu;
 
     InputActions input;
 
@@ -85,5 +88,67 @@ public class PlayerController : MonoBehaviour
             head.position + (planeAngle * Vector3.forward * 1.5f),
             head.rotation = planeAngle
         );
+    }
+
+    // Preferred distance between speaker and dialogue prompts
+    const float PreferredDialogueDistance = 1.0f;
+    // Minimum distance between speaker and dialogue prompts, in fraction of total distance between speaker and player
+    // Used if our first choice would be too close
+    const float MinDialogueRatio = 0.3f;
+
+    void CalculateDialogueMenuPosition(Transform speaker, out Vector3 position, out Quaternion rotation)
+    {
+        // Keep everything at the same height, assumes we're not on any stairs
+        Vector2 speakXz = new(speaker.position.x, speaker.position.z);
+        Vector2 playerXz = new(head.position.x, head.position.z);
+
+        Vector2 speakerToPlayer = (speakXz - speakXz);;
+
+        Vector2 finalXz;
+        if (speakerToPlayer.magnitude > (PreferredDialogueDistance * MinDialogueRatio))
+        { // We're far enough to reach our preferred distance
+            finalXz = speakXz + (MinDialogueRatio * speakerToPlayer.normalized);
+        }
+        else
+        { // PreferredDialogueDistance would be too close
+            finalXz = Vector2.Lerp(speakXz, playerXz, MinDialogueRatio);
+        }
+
+        // Slightly below eye level
+        position = new(finalXz.x, head.position.y - 0.6f, finalXz.y);
+        rotation = Quaternion.LookRotation(new(speakerToPlayer.x, 0, speakerToPlayer.y), Vector3.up);
+    }
+
+    public DialogueMenu ShowDialogueMenu(Speaker speaker, List<string> options)
+    {
+        dialogueMenu.Display(speaker.ActorName.GetLocalizedString(), options);
+
+        // Position the menu facing the player and near the speaker
+        var speakerToPlayer = Vector3.Distance(speaker.transform.position, head.position);
+        Vector3 menuPos;
+        // But keep it on the same Y plane, assumes we're not on stairs
+        var speakerDirection = speaker.transform.position - head.position;
+        speakerDirection.y = 0;
+        speakerDirection = speakerDirection.normalized;
+        if (speakerToPlayer < PreferredDialogueDistance)
+        {
+            menuPos = Vector3.Lerp(speaker.transform.position, head.position, PreferredDialogueDistance);
+        }
+        else
+        {
+            menuPos = speaker.transform.position + (speakerDirection * PreferredDialogueDistance);
+        }
+        menuPos.y = head.position.y;
+
+        // Face the player
+        CalculateDialogueMenuPosition(speaker.transform, out var pos, out var rot);
+        dialogueMenu.transform.SetPositionAndRotation(pos, rot);
+        dialogueMenu.gameObject.SetActive(true);
+        return dialogueMenu;
+    }
+
+    public void CloseDialogueMenu()
+    {
+        dialogueMenu.gameObject.SetActive(false);
     }
 }
