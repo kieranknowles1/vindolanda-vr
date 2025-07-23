@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.XR;
 using UnityEngine.XR.Hands;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 
@@ -10,7 +11,7 @@ namespace Vindolanda.Animation
     /// 
     /// Quite CPU intensive, use sparingly and consider disabling when not visible
     /// </summary>
-    public class MocapPlayer : MonoBehaviour
+    public class MocapPlayer : IKDriver
     {
         public GestureRenderer leftHand;
         public GestureRenderer rightHand;
@@ -20,8 +21,6 @@ namespace Vindolanda.Animation
         public Clip clip;
         public bool repeat;
         public float speedMult = 1.0f;
-
-        public Quaternion handOffset = Quaternion.Euler(0, 0, 90);
 
         [Header("State")]
         public bool playing;
@@ -62,11 +61,8 @@ namespace Vindolanda.Animation
             rightObject = SetHeldObject(clip.rightHandItem, rightHand.transform);
         }
 
-        private void Update()
+        void AdvanceAnimation()
         {
-            if (!playing) return;
-            if (clip == null) return;
-
             elapsedTime += Time.deltaTime * speedMult;
             while (clip.keyframes[frame + 1].startTime < elapsedTime)
             {
@@ -84,31 +80,101 @@ namespace Vindolanda.Animation
                     break;
                 }
             }
+        }
 
+        Clip.Keyframe GetInterpolatedFrame()
+        {
             Clip.Keyframe current = clip.keyframes[frame];
             Clip.Keyframe next = clip.keyframes[frame + 1];
             float currentFrameDuration = next.startTime - current.startTime;
             float currentFrameElapsed = elapsedTime - current.startTime;
 
             float ratio = currentFrameElapsed / currentFrameDuration;
-            Clip.Keyframe interpolated = Clip.Keyframe.Lerp(current, next, ratio);
+            return Clip.Keyframe.Lerp(current, next, ratio);
+        }
 
-            void UpdateHand(GestureRenderer hand, Clip.HandState state, Handedness handedness, GameObject held)
+        private void Update()
+        {
+            if (!playing) return;
+            if (clip == null) return;
+
+            AdvanceAnimation();
+
+            if (head)
+            {
+                var interpolated = GetInterpolatedFrame();
+                head.SetPositionAndRotation(interpolated.head.position, interpolated.head.rotation);
+                //PositionBodyFromHead(head.position, (transform.parent.rotation * interpolated.head.rotation).eulerAngles.y);
+                PositionBodyFromHead(interpolated.head.position, interpolated.head.rotation.eulerAngles.y);
+                //SetPositionAndRotation(
+                //    head.localPosition + (Vector3.down * height),
+                //    Quaternion.Euler(0, head.localRotation.eulerAngles.y, 0)
+                //);
+            }
+        }
+
+        private void OnAnimatorIK()
+        {
+            if (!playing) return;
+            if (clip == null) return;
+
+            SetIKFootOnGround(AvatarIKGoal.LeftFoot);
+            SetIKFootOnGround(AvatarIKGoal.RightFoot);
+
+            var interpolated = GetInterpolatedFrame();
+
+            void UpdateHand(GestureRenderer hand, Clip.HandState state, AvatarIKGoal handedness, GameObject held)
             {
                 if (hand == null) return;
-                var offset = handedness == Handedness.Right ? handOffset : Quaternion.Inverse(handOffset);
-                hand.transform.SetLocalPositionAndRotation(state.transform.position, state.transform.rotation * offset);
+                //var offset = handedness == AvatarIKGoal.RightHand ? handOffset : Quaternion.Inverse(handOffset);
+                //hand.transform.SetLocalPositionAndRotation(transform.rotation * state.transform.position, state.transform.rotation * offset);
                 hand.SetShapeInstant(state);
 
                 if (held != null)
                 {
                     held.SetActive(state.hasItem);
                 }
+
+                //SetIKPositionAndWeight(handedness, 1.0f,
+                //    hand.transform.position, hand.transform.rotation
+                //);
+                SetIKPositionAndWeight(handedness, 1.0f, state.transform.position, state.transform.rotation);
+                hand.transform.position = Animator.GetIKPosition(handedness);
             }
-            UpdateHand(leftHand, interpolated.leftHand, Handedness.Left, leftObject);
-            UpdateHand(rightHand, interpolated.rightHand, Handedness.Right, rightObject);
-            if (head)
-                head.SetLocalPositionAndRotation(interpolated.head.position, interpolated.head.rotation);
+            //UpdateHand(leftHand, interpolated.leftHand, AvatarIKGoal.LeftHand, leftObject);
+
+
+
+            //SetLocalIKPositionAndWeight(AvatarIKGoal.LeftHand, 1.0f, interpolated.leftHand.transform.position, interpolated.leftHand.transform.rotation);
+            //SetIKPositionAndWeight(AvatarIKGoal.LeftHand, 1.0f, transform.position + (transform.rotation * interpolated.leftHand.transform.position), transform.rotation * interpolated.leftHand.transform.rotation);
+            //leftHand.transform.position = Animator.GetIKPosition(AvatarIKGoal.LeftHand);
+
+
+            //void UpdateHand(GestureRenderer hand, Clip.HandState state, AvatarIKGoal handedness, GameObject held)
+            //{
+            //    if (hand == null) return;
+            //    var offset = handedness == AvatarIKGoal.RightHand ? handOffset : Quaternion.Inverse(handOffset);
+            //    hand.transform.SetLocalPositionAndRotation(transform.rotation * state.transform.position, state.transform.rotation * offset);
+            //    hand.SetShapeInstant(state);
+
+            //    if (held != null)
+            //    {
+            //        held.SetActive(state.hasItem);
+            //    }
+
+            //    SetIKPositionAndWeight(handedness, 1.0f,
+            //        hand.transform.position, hand.transform.rotation
+            //    );
+            //}
+
+            UpdateHand(leftHand, interpolated.leftHand, AvatarIKGoal.LeftHand, leftObject);
+            UpdateHand(rightHand, interpolated.rightHand, AvatarIKGoal.RightHand, rightObject);
+            ////head.SetLocalPositionAndRotation
+
+
+
+            //Debug.DrawLine(Animator.GetIKPosition(AvatarIKGoal.LeftHand), leftHand.transform.position);
+            //print(Vector3.Distance(Animator.GetIKPosition(AvatarIKGoal.LeftHand), leftHand.transform.position));
         }
     }
 }

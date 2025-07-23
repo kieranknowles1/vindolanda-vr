@@ -7167,7 +7167,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1054562699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7185,7 +7185,8 @@ MonoBehaviour:
   rightHand: {fileID: 1235763780}
   rightInteractor: {fileID: 2143955560}
   head: {fileID: 1235763779}
-  outputFileName: testclip
+  playerOrigin: {fileID: 2141973442}
+  outputFileName: ArcheryDemo
   startRecording: {fileID: 5849140645574198452, guid: c348712bda248c246b8c49b3db54643f, type: 3}
   recordingActive: 0
 --- !u!4 &1054562700
@@ -9929,7 +9930,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1659769403
 Transform:
   m_ObjectHideFlags: 0
@@ -12250,6 +12251,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5913236999220278714, guid: c8ea7d3b8b1757846a4fecb243e45d0b, type: 3}
   m_PrefabInstance: {fileID: 1235763778}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &2141973442 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5913236999220278713, guid: c8ea7d3b8b1757846a4fecb243e45d0b, type: 3}
+  m_PrefabInstance: {fileID: 1235763778}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2142926829 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1063684947844868274, guid: 336edfaf4eccd8142b72ab4be7c23699, type: 3}
@@ -12279,6 +12285,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1659769403}
     m_Modifications:
+    - target: {fileID: 2655892525825172389, guid: 91285d9860fed2e4fbb1ee510b7c065d, type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 11400000, guid: 1e592801236a8ac44b4b9fcf794c529a, type: 2}
+    - target: {fileID: 2655892525825172389, guid: 91285d9860fed2e4fbb1ee510b7c065d, type: 3}
+      propertyPath: repeat
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2655892525825172389, guid: 91285d9860fed2e4fbb1ee510b7c065d, type: 3}
+      propertyPath: playing
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6226892193587710977, guid: 91285d9860fed2e4fbb1ee510b7c065d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.19100189
@@ -12436,6 +12454,10 @@ PrefabInstance:
       propertyPath: m_LocalRotation.z
       value: -0.6123724
       objectReference: {fileID: 0}
+    - target: {fileID: 5697056412589279719, guid: 50c53e7b635d48946a632bea6c412012, type: 3}
+      propertyPath: clip
+      value: 
+      objectReference: {fileID: 11400000, guid: ad14ddb75d15d5e4aa3411e4c3271901, type: 2}
     - target: {fileID: 5839613568066604288, guid: 50c53e7b635d48946a632bea6c412012, type: 3}
       propertyPath: id
       value: 1386833930

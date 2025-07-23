@@ -96,6 +96,9 @@ namespace Vindolanda.Animation
             }
         }
 
+        public Vector3 originPos;
+        public Quaternion originRot;
+
         public List<Keyframe> keyframes = new();
         public GameObject leftHandItem;
         public bool leftFollowsRight;

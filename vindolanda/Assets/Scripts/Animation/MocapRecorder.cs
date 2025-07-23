@@ -17,6 +17,7 @@ namespace Vindolanda.Animation
         public XRHandTrackingEvents rightHand;
         public NearFarInteractor rightInteractor;
         public Transform head;
+        public Transform playerOrigin;
 
         public const string outputPath = "Assets/Animations/Mocap/";
         public string outputFileName = "output";
@@ -47,6 +48,8 @@ namespace Vindolanda.Animation
             if (recordingActive)
             {
                 output = ScriptableObject.CreateInstance<Clip>();
+                output.originPos = playerOrigin.position;
+                output.originRot = playerOrigin.rotation;
                 startTime = Time.realtimeSinceStartup;
 
                 GameConstants.Instance.Player.Subtitles.Show("System", "Recording");
@@ -76,8 +79,8 @@ namespace Vindolanda.Animation
             {
                 transform = new()
                 {
-                    position = evnt.hand.rootPose.position,
-                    rotation = evnt.hand.rootPose.rotation,
+                    position = interactor.transform.position,
+                    rotation = interactor.transform.rotation
                 },
                 thumb = GetFingerValue(XRHandFingerID.Thumb),
                 index = GetFingerValue(XRHandFingerID.Index),
@@ -107,8 +110,8 @@ namespace Vindolanda.Animation
                 rightHand = rightState.Value,
                 head = new()
                 {
-                    position = head.localPosition,
-                    rotation = head.localRotation,
+                    position = head.position,
+                    rotation = head.rotation,
                 }
             });
 
