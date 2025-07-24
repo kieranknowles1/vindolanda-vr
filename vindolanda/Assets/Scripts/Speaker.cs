@@ -43,7 +43,7 @@ public class Speaker : MonoBehaviour
                 var clip = line.Clip != null && !line.Clip.IsEmpty ? line.Clip.LoadAsset() : null;
 
                 var text = line.Text.GetLocalizedString();
-                GameConstants.Instance.Player.Subtitles.Show(ActorName.isDirty ? null : ActorName.GetLocalizedString(), text);
+                GameConstants.Instance.Player.Subtitles.Show(ActorName.IsEmpty ? null : ActorName.GetLocalizedString(), text);
 
                 float duration;
                 if (clip != null)
