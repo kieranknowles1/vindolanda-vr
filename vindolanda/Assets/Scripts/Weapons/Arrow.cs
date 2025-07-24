@@ -55,7 +55,9 @@ public class Arrow : XRGrabInteractable, IWeapon
         var distance = Body.linearVelocity.magnitude * Time.deltaTime * 1.5f;
         if (!Physics.Raycast(tip.position, tip.forward, out var hit, distance, layerMask: ~Layers.Projectile, QueryTriggerInteraction.Ignore)) return;
 
-        CurrentState = State.Embedded;
+        var mat = MaterialData.GetExtraData(hit.collider.sharedMaterial);
+        CurrentState = mat.arrowsStick ? State.Embedded : State.Default;
+
         transform.position = hit.point - (tip.rotation * tip.localPosition);
 
         var target = hit.collider.GetInterface<IHitTarget>();

@@ -21,6 +21,8 @@ public class MaterialData : ScriptableObject
 
     public FootstepData footsteps;
 
+    public bool arrowsStick = true;
+
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     static void RegisterData()
     {
