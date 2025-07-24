@@ -25,7 +25,9 @@ namespace Vindolanda.Animation
         public bool repeat;
         public float speedMult = 1.0f;
 
-        public Quaternion heldItemOffset = Quaternion.Euler(0, 0, 90);
+        public Quaternion heldItemRotationOffset = Quaternion.Euler(0, 0, 90);
+        [Tooltip("Applied AFTER heldItemRotationOffset")]
+        public Vector3 heldItemPositionOffset = Vector3.forward * 0.06f;
 
         [Header("State")]
         public bool playing;
@@ -45,9 +47,9 @@ namespace Vindolanda.Animation
             {
                 if (interactable.attachTransform != null)
                 {
-                    var offset = handedness == Handedness.Right ? heldItemOffset : Quaternion.Inverse(heldItemOffset);
+                    var offset = handedness == Handedness.Right ? heldItemRotationOffset : Quaternion.Inverse(heldItemRotationOffset);
                     var inverseRotation = offset * Quaternion.Inverse(interactable.attachTransform.localRotation);
-                    var inversePosition = inverseRotation * -interactable.attachTransform.localPosition;
+                    var inversePosition = (inverseRotation * -interactable.attachTransform.localPosition) + heldItemPositionOffset;
                     instance.transform.SetLocalPositionAndRotation(inversePosition, inverseRotation);
                 }
                 interactable.enabled = false;

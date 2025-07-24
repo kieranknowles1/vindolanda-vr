@@ -149,7 +149,8 @@ MonoBehaviour:
   clip: {fileID: 0}
   repeat: 1
   speedMult: 1
-  heldItemOffset: {x: 0, y: 0, z: 0.70710677, w: 0.70710677}
+  heldItemRotationOffset: {x: 0, y: 0, z: 0.70710677, w: 0.70710677}
+  heldItemPositionOffset: {x: 0, y: 0, z: 0.06}
   playing: 1
   frame: 0
 --- !u!1001 &8229612592038744228
