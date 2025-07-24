@@ -267,8 +267,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   skipSave: 0
+  hitDialogue: {fileID: 11400000, guid: 65a50d8682a663143b3d89195a238812, type: 2}
   animator: {fileID: 5872828573920228041}
-  actorAnimator: {fileID: 0}
 --- !u!136 &2126390014944151351
 CapsuleCollider:
   m_ObjectHideFlags: 0

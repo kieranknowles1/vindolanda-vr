@@ -108,7 +108,7 @@ public class Furniture : GuidComponent
         CurrentActor = actor;
         // Position actor to enter smoothly
         actor.transform.SetPositionAndRotation(entryPoint.transform.position, entryPoint.transform.rotation);
-        actor.actorAnimator.Halted = true;
+        actor.ActorAnimator.Halted = true;
 
         animationBak = actor.animator.runtimeAnimatorController;
         actor.animator.runtimeAnimatorController = sitOverrides;
@@ -140,7 +140,7 @@ public class Furniture : GuidComponent
         }
         actor.animator.SetBool(SitVariableId, false);
         yield return LerpPosition(actor, transform, entryPoint.transform);
-        actor.actorAnimator.Halted = false;
+        actor.ActorAnimator.Halted = false;
         actor.animator.runtimeAnimatorController = animationBak;
         animationBak = null;
         CurrentActor = null;

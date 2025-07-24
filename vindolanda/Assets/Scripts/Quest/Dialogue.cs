@@ -20,6 +20,10 @@ namespace Vindolanda.Quest
         [Tooltip("Event triggered when an actor stops speaking a line, even if interrupted.")]
         public UnityEvent OnEnd;
 
+        /// <summary>
+        /// Get the lines to play for this dialogue. Is not guaranteed to be deterministic, so cache the result
+        /// </summary>
+        /// <returns></returns>
         public abstract List<Line> GetLines();
     }
 }
