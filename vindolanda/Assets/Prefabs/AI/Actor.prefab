@@ -142,7 +142,8 @@ GameObject:
   - component: {fileID: 787498248322767925}
   - component: {fileID: 6049402015056274685}
   - component: {fileID: 2765552055783056587}
-  m_Layer: 0
+  - component: {fileID: 2126390014944151351}
+  m_Layer: 8
   m_Name: Actor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -268,6 +269,29 @@ MonoBehaviour:
   skipSave: 0
   animator: {fileID: 5872828573920228041}
   actorAnimator: {fileID: 0}
+--- !u!136 &2126390014944151351
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7881346890042235526}
+  m_Material: {fileID: 13400000, guid: 0eceb8559942a6b478287ba15d2b2b92, type: 2}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1.8
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.9, z: 0}
 --- !u!1001 &338497027345915705
 PrefabInstance:
   m_ObjectHideFlags: 0
