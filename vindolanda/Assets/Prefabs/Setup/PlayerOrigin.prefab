@@ -2204,7 +2204,7 @@ Animator:
   m_GameObject: {fileID: 8791084439799475323}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: d75de8cd7ac530a4c927a7584da8db72, type: 3}
-  m_Controller: {fileID: 9100000, guid: 09f4a9593610c2b4e86ee5cf33b3d7c5, type: 2}
+  m_Controller: {fileID: 22100000, guid: 37755d94d87480a4b98402b110101a29, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2228,12 +2228,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 418d331c21a63f7418cae81cf2b6e2d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  leftController: {fileID: 7741005336130104570}
-  rightController: {fileID: 3231650492902937268}
-  headset: {fileID: 1767192434}
   maxFootRise: 0.9
   maxFootLower: 0.3
-  playerHeight: 1.8
+  height: 1.8
+  handRotationOffset: {x: -0.08715574, y: 0, z: 0, w: 0.9961947}
+  handPositionOffset: {x: 0, y: 0, z: -0.03}
+  leftHand: {fileID: 7741005336130104570}
+  rightHand: {fileID: 3231650492902937268}
+  head: {fileID: 1767192434}
 --- !u!4 &9058771376599953952 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8397412325416738038, guid: d75de8cd7ac530a4c927a7584da8db72, type: 3}

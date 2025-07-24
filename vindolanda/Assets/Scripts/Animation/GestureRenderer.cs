@@ -98,7 +98,6 @@ namespace Vindolanda.Animation
                 SetShapeInstant(shape.Value);
             }
             overrideSkeleton = GetComponentInParent<Animator>() != null;
-            print($"{name}: {overrideSkeleton}");
         }
 
         // Called after animations, but before skinning, which gives us a chance
