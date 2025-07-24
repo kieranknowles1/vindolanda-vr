@@ -31,11 +31,11 @@ namespace Vindolanda.Animation
             return raw;
         }
 
-        PlayerIK ik;
+        NodeIK ik;
 
         private void Awake()
         {
-            ik = GetComponentInParent<PlayerIK>();
+            ik = GetComponentInParent<NodeIK>();
             stateTracker = reference.GetComponent<HandStateTracker>();
         }
 

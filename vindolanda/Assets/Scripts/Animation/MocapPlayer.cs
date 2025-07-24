@@ -14,8 +14,10 @@ namespace Vindolanda.Animation
     /// </summary>
     public class MocapPlayer : MonoBehaviour
     {
-        public GestureRenderer leftHand;
-        public GestureRenderer rightHand;
+        public Transform leftHandPosition;
+        public GestureRenderer leftHandPose;
+        public Transform rightHandPosition;
+        public GestureRenderer rightHandPose;
         public Transform head;
 
         [Header("Playback Settings")] // Not "Player settings" as "Player" is a reserved term for the player of the game
@@ -23,7 +25,9 @@ namespace Vindolanda.Animation
         public bool repeat;
         public float speedMult = 1.0f;
 
-        public Quaternion handOffset = Quaternion.Euler(0, 0, 90);
+        public Quaternion heldItemRotationOffset = Quaternion.Euler(0, 0, 90);
+        [Tooltip("Applied AFTER heldItemRotationOffset")]
+        public Vector3 heldItemPositionOffset = Vector3.forward * 0.06f;
 
         [Header("State")]
         public bool playing;
@@ -33,7 +37,7 @@ namespace Vindolanda.Animation
         GameObject leftObject;
         GameObject rightObject;
 
-        GameObject SetHeldObject(GameObject obj, Transform hand)
+        GameObject SetHeldObject(GameObject obj, Transform hand, Handedness handedness)
         {
             if (obj == null) return null;
             var instance = Instantiate(obj, parent: hand);
@@ -43,8 +47,9 @@ namespace Vindolanda.Animation
             {
                 if (interactable.attachTransform != null)
                 {
-                    var inverseRotation = Quaternion.Inverse(interactable.attachTransform.localRotation);
-                    var inversePosition = inverseRotation * -interactable.attachTransform.localPosition;
+                    var offset = handedness == Handedness.Right ? heldItemRotationOffset : Quaternion.Inverse(heldItemRotationOffset);
+                    var inverseRotation = offset * Quaternion.Inverse(interactable.attachTransform.localRotation);
+                    var inversePosition = (inverseRotation * -interactable.attachTransform.localPosition) + heldItemPositionOffset;
                     instance.transform.SetLocalPositionAndRotation(inversePosition, inverseRotation);
                 }
                 interactable.enabled = false;
@@ -60,8 +65,8 @@ namespace Vindolanda.Animation
 
         private void Start()
         {
-            leftObject = SetHeldObject(clip.leftHandItem, leftHand.transform);
-            rightObject = SetHeldObject(clip.rightHandItem, rightHand.transform);
+            leftObject = SetHeldObject(clip.leftHandItem, leftHandPosition, Handedness.Left);
+            rightObject = SetHeldObject(clip.rightHandItem, rightHandPosition, Handedness.Right);
         }
 
         private void Update()
@@ -95,20 +100,20 @@ namespace Vindolanda.Animation
             float ratio = currentFrameElapsed / currentFrameDuration;
             Clip.Keyframe interpolated = Clip.Keyframe.Lerp(current, next, ratio);
 
-            void UpdateHand(GestureRenderer hand, Clip.HandState state, Handedness handedness, GameObject held)
+            void UpdateHand(Transform hand, Clip.HandState state, Handedness handedness, GameObject held)
             {
                 if (hand == null) return;
-                var offset = handedness == Handedness.Right ? handOffset : Quaternion.Inverse(handOffset);
-                hand.transform.SetLocalPositionAndRotation(state.transform.position, state.transform.rotation * offset);
-                hand.SetShapeInstant(state);
+                hand.SetLocalPositionAndRotation(state.transform.position, state.transform.rotation);
 
                 if (held != null)
                 {
                     held.SetActive(state.hasItem);
                 }
             }
-            UpdateHand(leftHand, interpolated.leftHand, Handedness.Left, leftObject);
-            UpdateHand(rightHand, interpolated.rightHand, Handedness.Right, rightObject);
+            UpdateHand(leftHandPosition, interpolated.leftHand, Handedness.Left, leftObject);
+            leftHandPose.SetShapeInstant(interpolated.leftHand);
+            UpdateHand(rightHandPosition, interpolated.rightHand, Handedness.Right, rightObject);
+            rightHandPose.SetShapeInstant(interpolated.rightHand);
             if (head)
                 head.SetLocalPositionAndRotation(interpolated.head.position, interpolated.head.rotation);
         }

@@ -18,6 +18,7 @@ namespace Vindolanda.Animation
     public class GestureRenderer : MonoBehaviour
     {
         [SerializeField] Clip.HandState? shape;
+        bool overrideSkeleton;
 
         public Clip.HandState? Shape => shape;
 
@@ -57,13 +58,16 @@ namespace Vindolanda.Animation
             SetShapeSmooth(state, time);
         }
 
-        [SerializeField] Transform pinky;
-        [SerializeField] Transform ring;
-        [SerializeField] Transform middle;
-        [SerializeField] Transform index;
-        [SerializeField] Transform thumb;
+        public Transform pinky;
+        public Transform ring;
+        public Transform middle;
+        public Transform index;
+        public Transform thumb;
 
-        const float maxRotate = 40;
+        public float fingerRotationPerJoint = 40;
+        // Treat thumbs separately as they have more joints in Unity's humanoid skeleton,
+        // so we need less rotation per joint if using that instead of the XR hand skeleton
+        public float thumbRotationPerJoint = 40;
 
         Dictionary<Transform, Quaternion> GetCurrentRotations() => AllFingerNodes.ToDictionary(n => n, n => n.localRotation);
         Dictionary<Transform, Quaternion> initialRotations;
@@ -93,6 +97,16 @@ namespace Vindolanda.Animation
             {
                 SetShapeInstant(shape.Value);
             }
+            overrideSkeleton = GetComponentInParent<Animator>() != null;
+            print($"{name}: {overrideSkeleton}");
+        }
+
+        // Called after animations, but before skinning, which gives us a chance
+        // to manually override animations with our hand shape. Since this is relatively
+        // expensive, we don't apply unless there is an animator somewhere in our ancestors
+        private void LateUpdate()
+        {
+            if (overrideSkeleton && shape != null) SetShapeInstant(shape.Value);
         }
 
 
@@ -106,7 +120,7 @@ namespace Vindolanda.Animation
         {
             void UpdateFinger(Transform node, float endCurl)
             {
-                var rotate = Quaternion.Euler(Mathf.Lerp(0, maxRotate, endCurl), 0, 0);
+                var rotate = Quaternion.Euler(Mathf.Lerp(0, node == thumb ? thumbRotationPerJoint : fingerRotationPerJoint, endCurl), 0, 0);
 
                 while (node.childCount > 0)
                 {
