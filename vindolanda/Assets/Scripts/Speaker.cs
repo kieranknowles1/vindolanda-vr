@@ -36,9 +36,10 @@ public class Speaker : MonoBehaviour
     {
         IEnumerator SayImpl()
         {
-            for (int i = 0; i < dialogue.Lines.Count; i++)
+            var lines = dialogue.GetLines();
+            for (int i = 0; i < lines.Count; i++)
             {
-                var line = dialogue.Lines[i];
+                var line = lines[i];
                 var clip = line.Clip != null && !line.Clip.IsEmpty ? line.Clip.LoadAsset() : null;
 
                 var text = line.Text.GetLocalizedString();

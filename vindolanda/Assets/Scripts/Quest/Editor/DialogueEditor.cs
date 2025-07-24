@@ -26,12 +26,12 @@ namespace Vindolanda.Quest.Editor
             return asset.TableEntryReference.ResolveKeyName(table.SharedData);
         }
 
-        static List<Dialogue> GetAllDialogue()
+        static List<SingleDialogue> GetAllDialogue()
         {
-            return EditorUtil.GetAllScriptableObjects<Dialogue>();
+            return EditorUtil.GetAllScriptableObjects<SingleDialogue>();
         }
 
-        static bool IsVoiced(Dialogue.Line line)
+        static bool IsVoiced(SingleDialogue.Line line)
         {
             return line.Clip != null && !line.Clip.IsEmpty && line.Clip.LoadAsset() != null;
         }

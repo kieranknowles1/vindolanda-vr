@@ -6,9 +6,7 @@ using UnityEngine.Localization;
 
 namespace Vindolanda.Quest
 {
-
-    [CreateAssetMenu(menuName = "Quest/Dialogue")]
-    public class Dialogue : ScriptableObject
+    public abstract class Dialogue : ScriptableObject
     {
         [Serializable]
         public class Line
@@ -16,11 +14,12 @@ namespace Vindolanda.Quest
             public LocalizedString Text;
             public LocalizedAsset<AudioClip> Clip;
         }
-        public List<Line> Lines;
 
         [Tooltip("Event triggered when an actor begins speaking a line.")]
         public UnityEvent OnBegin;
         [Tooltip("Event triggered when an actor stops speaking a line, even if interrupted.")]
         public UnityEvent OnEnd;
+
+        public abstract List<Line> GetLines();
     }
 }
