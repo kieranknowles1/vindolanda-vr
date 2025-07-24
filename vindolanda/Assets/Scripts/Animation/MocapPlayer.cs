@@ -1,3 +1,5 @@
+using System.Linq;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.XR.Hands;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
@@ -109,6 +111,23 @@ namespace Vindolanda.Animation
             UpdateHand(rightHand, interpolated.rightHand, Handedness.Right, rightObject);
             if (head)
                 head.SetLocalPositionAndRotation(interpolated.head.position, interpolated.head.rotation);
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            if (clip == null) return;
+            Gizmos.matrix = transform.localToWorldMatrix;
+            Handles.matrix = transform.localToWorldMatrix;
+
+            Gizmos.color = Color.red;
+            Handles.Label(clip.keyframes[0].head.position, "Head");
+            Gizmos.DrawLineStrip(clip.keyframes.Select(kf => kf.head.position).ToArray(), looped: false);
+            Gizmos.color = Color.green;
+            Handles.Label(clip.keyframes[0].leftHand.transform.position, "Left Hand");
+            Gizmos.DrawLineStrip(clip.keyframes.Select(kf => kf.leftHand.transform.position).ToArray(), looped: false);
+            Gizmos.color = Color.blue;
+            Handles.Label(clip.keyframes[0].rightHand.transform.position, "Right Hand");
+            Gizmos.DrawLineStrip(clip.keyframes.Select(kf => kf.rightHand.transform.position).ToArray(), looped: false);
         }
     }
 }
