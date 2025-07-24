@@ -18,6 +18,7 @@ namespace Vindolanda.Animation
     public class GestureRenderer : MonoBehaviour
     {
         [SerializeField] Clip.HandState? shape;
+        bool overrideSkeleton;
 
         public Clip.HandState? Shape => shape;
 
@@ -57,11 +58,11 @@ namespace Vindolanda.Animation
             SetShapeSmooth(state, time);
         }
 
-        [SerializeField] Transform pinky;
-        [SerializeField] Transform ring;
-        [SerializeField] Transform middle;
-        [SerializeField] Transform index;
-        [SerializeField] Transform thumb;
+        public Transform pinky;
+        public Transform ring;
+        public Transform middle;
+        public Transform index;
+        public Transform thumb;
 
         const float maxRotate = 40;
 
@@ -93,6 +94,13 @@ namespace Vindolanda.Animation
             {
                 SetShapeInstant(shape.Value);
             }
+            overrideSkeleton = GetComponentInParent<Animator>() != null;
+            print($"{name}: {overrideSkeleton}");
+        }
+
+        private void LateUpdate()
+        {
+            if (overrideSkeleton && shape != null) SetShapeInstant(shape.Value);
         }
 
 
