@@ -1,16 +1,17 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Vindolanda.Animation
 {
-    public class PlayerIK : IKDriver
+    public class NodeIK : IKDriver
     {
         static Quaternion HandRotationOffset = Quaternion.Euler(-10.0f, 0.0f, 0.0f);
         static Vector3 HandPositionOffset = HandRotationOffset * Vector3.back * 0.03f;
 
         [Header("Reference Nodes")]
-        public Transform leftController;
-        public Transform rightController;
-        public Transform headset;
+        [FormerlySerializedAs("leftController")] public Transform leftController;
+        [FormerlySerializedAs("rightController")] public Transform rightController;
+        [FormerlySerializedAs("headset")] public Transform headset;
 
         void PositionHand(AvatarIKGoal goal, Transform target)
         {
