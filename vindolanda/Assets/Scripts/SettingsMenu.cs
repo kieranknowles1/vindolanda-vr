@@ -16,11 +16,15 @@ public class SettingsMenu : MonoBehaviour
     [SerializeField]
     private GameObject nauseaWarning;
 
+    [SerializeField] private Toggle showControllers;
+
     public void Start()
     {
         // Grab values from GameSettings
         movementTypeDropdown.value = (int)GameSettings.Instance.Movement.Type;
         vignetteSlider.value = GameSettings.Instance.Movement.VignetteStrength;
+        showControllers.isOn = GameSettings.Instance.ShowControllers;
+        showControllers.onValueChanged.AddListener(SetShowControllers);
         UpdateDisplayedElements();
     }
 
@@ -43,5 +47,11 @@ public class SettingsMenu : MonoBehaviour
         bool smooth = GameSettings.Instance.Movement.Type != GameSettings.MovementType.Teleport;
         vignetteSliderParent.SetActive(smooth);
         nauseaWarning.SetActive(smooth);
+    }
+
+    public void SetShowControllers(bool showControllers)
+    {
+        GameSettings.Instance.ShowControllers = showControllers;
+        GameSettings.Instance.ApplyChanges();
     }
 }

@@ -202,6 +202,7 @@ MonoBehaviour:
   stick: {fileID: 732115363477421897}
   buttonA: {fileID: 9000070893524187409}
   buttonB: {fileID: 4795060944805988352}
+  visuals: {fileID: 8529109501181439208}
 --- !u!1 &3880522022333542918
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,6 +393,11 @@ MeshRenderer:
 --- !u!23 &4795060944805988352 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 5573814406739661245, guid: 1392f805216c47742996d4742c80721c, type: 3}
+  m_PrefabInstance: {fileID: 1139780338364357053}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &8529109501181439208 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8758423527188247893, guid: 1392f805216c47742996d4742c80721c, type: 3}
   m_PrefabInstance: {fileID: 1139780338364357053}
   m_PrefabAsset: {fileID: 0}
 --- !u!23 &9000070893524187409 stripped

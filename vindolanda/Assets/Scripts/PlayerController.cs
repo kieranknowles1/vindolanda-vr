@@ -50,27 +50,30 @@ public class PlayerController : MonoBehaviour
     [Tooltip("Position of headset")]
     public Transform head;
 
-    private void UpdateSettings(GameSettings settings)
+    private void OnSettingsChanged(GameSettings settings)
     {
         UpdateMovementType(settings.Movement.Type);
         vignette.defaultParameters.apertureSize = 1.0f - settings.Movement.VignetteStrength;
+
+        LeftControllerEffects.visuals.SetActive(settings.ShowControllers);
+        RightControllerEffects.visuals.SetActive(settings.ShowControllers);
     }
 
     private void Start()
     {
-        GameSettings.Instance.OnChange += UpdateSettings;
-        UpdateSettings(GameSettings.Instance);
+        LeftControllerEffects = leftController.GetComponent<ControllerEffects>();
+        RightControllerEffects = rightController.GetComponent<ControllerEffects>();
+
+        GameSettings.Instance.OnChange += OnSettingsChanged;
+        OnSettingsChanged(GameSettings.Instance);
 
         toggleSettings.action.performed += ToggleSettings;
         speak.action.performed += Speak;
-
-        LeftControllerEffects = leftController.GetComponent<ControllerEffects>();
-        RightControllerEffects = rightController.GetComponent<ControllerEffects>();
     }
 
     private void OnDestroy()
     {
-        GameSettings.Instance.OnChange -= UpdateSettings;
+        GameSettings.Instance.OnChange -= OnSettingsChanged;
         toggleSettings.action.performed -= ToggleSettings;
         speak.action.performed -= Speak;
     }

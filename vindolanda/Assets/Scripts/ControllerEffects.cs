@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Inputs.Haptics;
+using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 [RequireComponent(typeof(HapticImpulsePlayer))]
 public class ControllerEffects : MonoBehaviour
@@ -27,6 +28,8 @@ public class ControllerEffects : MonoBehaviour
     public MeshRenderer stick;
     public MeshRenderer buttonA;
     public MeshRenderer buttonB;
+
+    public GameObject visuals;
 
     HapticImpulsePlayer haptics;
 

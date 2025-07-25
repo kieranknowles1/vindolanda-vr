@@ -86,4 +86,6 @@ public class GameSettings
     }
 
     public MovementSettings Movement = new();
+
+    public bool ShowControllers;
 }
