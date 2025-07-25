@@ -2,6 +2,7 @@ using System.Text.RegularExpressions;
 using Unity.Behavior;
 using UnityEngine;
 using Vindolanda.Animation;
+using Vindolanda.Quest;
 public class ActorSaveData : SaveData
 {
     public static readonly RuntimeSerializationUtility.JsonBehaviorSerializer serializer = new();
@@ -22,18 +23,24 @@ public class ActorSaveData : SaveData
     }
 }
 
-public class ActorController : Saveable
+public class ActorController : Saveable, IHitTarget
 {
+    [Header("Dialogue")]
+    public Dialogue hitDialogue;
+
+    public Animator Animator { get; private set; }
+    public ActorAnimator ActorAnimator { get; private set; }
+    public Speaker Speaker { get; private set; }
     public BehaviorGraphAgent Agent { get; private set; }
-    public Animator animator;
-    public ActorAnimator actorAnimator;
     public Vector3 OriginalPosition { get; private set; }
 
-    protected void Start()
+    protected void Awake()
     {
         Agent = GetComponent<BehaviorGraphAgent>();
         OriginalPosition = transform.position;
-        actorAnimator = animator.GetComponent<ActorAnimator>();
+        Animator = GetComponentInChildren<Animator>();
+        ActorAnimator = Animator.GetComponent<ActorAnimator>();
+        Speaker = GetComponent<Speaker>();
     }
 
     #region Save Load
@@ -51,4 +58,9 @@ public class ActorController : Saveable
     }
 
     #endregion
+
+    public void OnHit(IWeapon _weapon)
+    {
+        Speaker.Say(hitDialogue);
+    }
 }

@@ -36,13 +36,14 @@ public class Speaker : MonoBehaviour
     {
         IEnumerator SayImpl()
         {
-            for (int i = 0; i < dialogue.Lines.Count; i++)
+            var lines = dialogue.GetLines();
+            for (int i = 0; i < lines.Count; i++)
             {
-                var line = dialogue.Lines[i];
+                var line = lines[i];
                 var clip = line.Clip != null && !line.Clip.IsEmpty ? line.Clip.LoadAsset() : null;
 
                 var text = line.Text.GetLocalizedString();
-                GameConstants.Instance.Player.Subtitles.Show(ActorName.isDirty ? null : ActorName.GetLocalizedString(), text);
+                GameConstants.Instance.Player.Subtitles.Show(ActorName.IsEmpty ? null : ActorName.GetLocalizedString(), text);
 
                 float duration;
                 if (clip != null)
