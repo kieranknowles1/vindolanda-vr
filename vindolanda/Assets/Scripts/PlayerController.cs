@@ -1,8 +1,30 @@
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.XR.Interaction.Toolkit.Locomotion.Comfort;
 using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
+
+/// <summary>
+/// An object the player can speak to
+/// If multiple exist, the closest will be picked
+/// </summary>
+public interface ISpeechListener
+{
+    /// <summary>
+    /// Can the player speak to this object at the moment?
+    /// </summary>
+    bool PlayerCanSpeakTo { get; }
+    /// <summary>
+    /// Will this have priority over all other targets?
+    /// Order is unspecified if multiple exist
+    /// </summary>
+    bool ForceSpeak { get; }
+    [SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "Unity builtin")]
+    Transform transform { get; }
+
+    void Speak(PlayerController player);
+}
 
 public class PlayerController : MonoBehaviour
 {
@@ -21,11 +43,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private DynamicMoveProvider dynamicMoveProvider;
 
-    public SubtitlePanel Subtitles;
-
-    [SerializeField] DialogueMenu dialogueMenu;
-
-    InputActions input;
+    public InputActionReference toggleSettings;
+    public InputActionReference speak;
 
     public GameObject settingsMenu;
     [Tooltip("Position of headset")]
@@ -39,13 +58,11 @@ public class PlayerController : MonoBehaviour
 
     private void Start()
     {
-        input = new InputActions();
-        GameConstants.Instance.Player = this;
         GameSettings.Instance.OnChange += UpdateSettings;
         UpdateSettings(GameSettings.Instance);
 
-        input.GameInputs.Enable();
-        input.GameInputs.ToggleMenu.performed += ToggleSettings;
+        toggleSettings.action.performed += ToggleSettings;
+        speak.action.performed += Speak;
 
         LeftControllerEffects = leftController.GetComponent<ControllerEffects>();
         RightControllerEffects = rightController.GetComponent<ControllerEffects>();
@@ -54,7 +71,8 @@ public class PlayerController : MonoBehaviour
     private void OnDestroy()
     {
         GameSettings.Instance.OnChange -= UpdateSettings;
-        input.GameInputs.ToggleMenu.performed -= ToggleSettings;
+        toggleSettings.action.performed -= ToggleSettings;
+        speak.action.performed -= Speak;
     }
 
     private void UpdateMovementType(GameSettings.MovementType type)
@@ -89,6 +107,12 @@ public class PlayerController : MonoBehaviour
             head.rotation = planeAngle
         );
     }
+
+    #region Dialogue
+
+    public SubtitlePanel Subtitles;
+
+    [SerializeField] DialogueMenu dialogueMenu;
 
     // Preferred distance between speaker and dialogue prompts
     const float PreferredDialogueDistance = 1.0f;
@@ -152,4 +176,38 @@ public class PlayerController : MonoBehaviour
         dialogueMenu.Clear();
         dialogueMenu.gameObject.SetActive(false);
     }
+
+    public readonly List<ISpeechListener> speechTargets = new();
+
+    void Speak(InputAction.CallbackContext _)
+    {
+        ISpeechListener best = null;
+        foreach (var target in speechTargets)
+        {
+            if (!target.PlayerCanSpeakTo) continue;
+            if (target.ForceSpeak)
+            {
+                best = target;
+                break;
+            }
+
+            if (best == null)
+            {
+                best = target;
+            }
+            else
+            {
+                var bestDistance = Vector3.Distance(transform.position, best.transform.position);
+                var thisDistance = Vector3.Distance(transform.position, target.transform.position);
+                if (thisDistance < bestDistance)
+                {
+                    best = target;
+                }
+            }
+        }
+
+        best?.Speak(this);
+    }
+
+    #endregion
 }

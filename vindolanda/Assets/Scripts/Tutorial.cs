@@ -5,25 +5,23 @@ using UnityEngine.InputSystem;
 using Vindolanda.Quest;
 
 [RequireComponent(typeof(Speaker))]
-public class Tutorial : MonoBehaviour
+public class Tutorial : MonoBehaviour, ISpeechListener
 {
-    InputActions input;
-    Speaker speaker;
+    bool active = false;
+    public bool PlayerCanSpeakTo => active;
+    public bool ForceSpeak => true;
 
-    public TourController tour;
+    public void Speak(PlayerController player)
+    {
+        RepeatInstruction();
+    }
+
+    Speaker speaker;
 
     private void Awake()
     {
-        input = new InputActions();
         speaker = GetComponent<Speaker>();
-
-        input.GameInputs.Enable();
-        input.GameInputs.TutorialRepeatInstruction.performed += RepeatInstruction;
-    }
-
-    private void OnDestroy()
-    {
-        input.GameInputs.TutorialRepeatInstruction.performed -= RepeatInstruction;
+        GameConstants.Instance.Player.speechTargets.Add(this);
     }
 
     public Quest tutorial;
@@ -45,7 +43,7 @@ public class Tutorial : MonoBehaviour
 
     public void BeginTutorial()
     {
-        tour.enabled = false;
+        active = true;
         GameConstants.Instance.Player.transform.Teleport(locomotion.startMarker);
         GameConstants.Instance.Player.settingsMenu.SetActive(false);
         QuestState.CurrentObjective = locomotion.moveToTarget;
@@ -74,7 +72,7 @@ public class Tutorial : MonoBehaviour
         return speaker.Say(dialogue);
     }
 
-    void RepeatInstruction(InputAction.CallbackContext _)
+    void RepeatInstruction()
     {
         if (currentDialogue != null)
         {
@@ -186,6 +184,6 @@ public class Tutorial : MonoBehaviour
         menus.tutorialObjects.SetActive(false);
         speaker.Say(finale.dialComplete);
 
-        tour.enabled = true;
+        active = false;
     }
 }

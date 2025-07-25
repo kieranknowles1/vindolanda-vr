@@ -1,32 +1,23 @@
 using Unity.Behavior;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-public class TourController : MonoBehaviour
+public class TourController : MonoBehaviour, ISpeechListener
 {
     public DefaultEvent trySayTourDialogue;
-    public InputActionReference sayDialogue;
 
     public BehaviorGraphAgent agent;
 
     public bool GuideFollowing => agent.GetVariableValue<bool>("Following");
 
+    public bool PlayerCanSpeakTo => true;
+    public bool ForceSpeak => false;
+
     private void Awake()
     {
-        GameConstants.Instance.Tour = this;
+        GameConstants.Instance.Player.speechTargets.Add(this);
     }
 
-    private void OnEnable()
-    {
-        sayDialogue.action.performed += OnButtonPressed;
-    }
-
-    private void OnDisable()
-    {
-        sayDialogue.action.performed -= OnButtonPressed;
-    }
-
-    void OnButtonPressed(InputAction.CallbackContext _)
+    public void Speak(PlayerController player)
     {
         trySayTourDialogue.SendEventMessage();
     }

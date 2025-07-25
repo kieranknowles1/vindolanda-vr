@@ -48,11 +48,6 @@ namespace Vindolanda.Quest
             return state;
         }
 
-        protected void Start()
-        {
-            GameConstants.Instance.QuestController = this;
-        }
-
         public override SaveData Save()
         {
             return new ControllerSave(this);

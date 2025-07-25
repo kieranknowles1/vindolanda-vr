@@ -18,7 +18,14 @@ public class GameConstants
         instance = null;
     }
 
-    public PlayerController Player;
-    public TourController Tour;
-    public Vindolanda.Quest.Controller QuestController;
+    private GameConstants()
+    {
+        Player = Object.FindAnyObjectByType<PlayerController>();
+        Tour = Object.FindAnyObjectByType<TourController>();
+        QuestController = Object.FindAnyObjectByType<Vindolanda.Quest.Controller>();
+    }
+
+    public PlayerController Player { get; }
+    public TourController Tour { get; }
+    public Vindolanda.Quest.Controller QuestController { get; }
 }
