@@ -110,9 +110,9 @@ public class Furniture : GuidComponent
         actor.transform.SetPositionAndRotation(entryPoint.transform.position, entryPoint.transform.rotation);
         actor.ActorAnimator.Halted = true;
 
-        animationBak = actor.animator.runtimeAnimatorController;
-        actor.animator.runtimeAnimatorController = sitOverrides;
-        actor.animator.SetBool(SitVariableId, true);
+        animationBak = actor.Animator.runtimeAnimatorController;
+        actor.Animator.runtimeAnimatorController = sitOverrides;
+        actor.Animator.SetBool(SitVariableId, true);
 
         yield return LerpPosition(actor, entryPoint.transform, transform);
         callback?.Invoke(SitResult.Success);
@@ -138,10 +138,10 @@ public class Furniture : GuidComponent
             callback?.Invoke(SitResult.Failure);
             yield break;
         }
-        actor.animator.SetBool(SitVariableId, false);
+        actor.Animator.SetBool(SitVariableId, false);
         yield return LerpPosition(actor, transform, entryPoint.transform);
         actor.ActorAnimator.Halted = false;
-        actor.animator.runtimeAnimatorController = animationBak;
+        actor.Animator.runtimeAnimatorController = animationBak;
         animationBak = null;
         CurrentActor = null;
 

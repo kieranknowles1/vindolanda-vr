@@ -28,8 +28,7 @@ public class ActorController : Saveable, IHitTarget
     [Header("Dialogue")]
     public Dialogue hitDialogue;
 
-    [Header("Boilerplate")]
-    public Animator animator;
+    public Animator Animator { get; private set; }
     public ActorAnimator ActorAnimator { get; private set; }
     public Speaker Speaker { get; private set; }
     public BehaviorGraphAgent Agent { get; private set; }
@@ -39,7 +38,8 @@ public class ActorController : Saveable, IHitTarget
     {
         Agent = GetComponent<BehaviorGraphAgent>();
         OriginalPosition = transform.position;
-        ActorAnimator = animator.GetComponent<ActorAnimator>();
+        Animator = GetComponentInChildren<Animator>();
+        ActorAnimator = Animator.GetComponent<ActorAnimator>();
         Speaker = GetComponent<Speaker>();
     }
 
