@@ -12,8 +12,13 @@ public class SubtitlePanel : MonoBehaviour
         Hide();
     }
 
-    public void Show(string speaker, string text)
+    /// <summary>
+    /// Show subtitles on the screen. Does nothing if subtitles are disabled unless <paramref name="force"/> is <see langword="true"/>
+    /// </summary>
+    public void Show(string speaker, string text, bool force = false)
     {
+        if (!GameSettings.Instance.ShowSubtitles && !force) return;
+
         canvas.enabled = true;
         if (speaker == null) this.text.text = text;
         else this.text.text = $"{speaker}: {text}";

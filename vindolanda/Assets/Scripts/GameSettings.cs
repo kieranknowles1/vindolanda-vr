@@ -87,5 +87,6 @@ public class GameSettings
 
     public MovementSettings Movement = new();
 
-    public bool ShowControllers;
+    public bool ShowControllers = false;
+    public bool ShowSubtitles = true;
 }

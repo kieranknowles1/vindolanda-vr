@@ -17,6 +17,7 @@ public class SettingsMenu : MonoBehaviour
     private GameObject nauseaWarning;
 
     [SerializeField] private Toggle showControllers;
+    [SerializeField] private Toggle showSubtitles;
 
     public void Start()
     {
@@ -25,6 +26,8 @@ public class SettingsMenu : MonoBehaviour
         vignetteSlider.value = GameSettings.Instance.Movement.VignetteStrength;
         showControllers.isOn = GameSettings.Instance.ShowControllers;
         showControllers.onValueChanged.AddListener(SetShowControllers);
+        showSubtitles.isOn = GameSettings.Instance.ShowSubtitles;
+        showSubtitles.onValueChanged.AddListener(SetShowSubtitles);
         UpdateDisplayedElements();
     }
 
@@ -52,6 +55,12 @@ public class SettingsMenu : MonoBehaviour
     public void SetShowControllers(bool showControllers)
     {
         GameSettings.Instance.ShowControllers = showControllers;
+        GameSettings.Instance.ApplyChanges();
+    }
+
+    public void SetShowSubtitles(bool showSubtitles)
+    {
+        GameSettings.Instance.ShowSubtitles = showSubtitles;
         GameSettings.Instance.ApplyChanges();
     }
 }

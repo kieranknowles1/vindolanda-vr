@@ -49,7 +49,7 @@ namespace Vindolanda.Animation
                 output = ScriptableObject.CreateInstance<Clip>();
                 startTime = Time.realtimeSinceStartup;
 
-                GameConstants.Instance.Player.Subtitles.Show("System", "Recording");
+                GameConstants.Instance.Player.Subtitles.Show("System", "Recording", force: true);
             }
             else
             {
