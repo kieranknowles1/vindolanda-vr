@@ -15,13 +15,31 @@
       <div class="ck-content">
         <p>Humanoid meshes are created using <a href="http://www.makehumancommunity.org/content/downloads.html">MakeHuman</a> with
           the following process:</p>
+        <p>It's a bit long, but I can't be bothered to automate it.</p>
         <ul>
-          <li>Design a character model</li>
-          <li>Assign the Unity skeleton from the MakeHuman community repository</li>
-          <li>Export as FBX</li>
-          <li>Upload to Mixamo</li>
-          <li>Download rigged mesh from Mixamo and import to Unity</li>
-          <li>Extract materials and set specular values to 0.1.</li>
+          <li data-list-item-id="e59cd7e255088622a478e66e751b355da">Design a character model</li>
+          <li data-list-item-id="e278bdf5f61309ece1aa759d75d26f6c7">Assign the Unity skeleton from the MakeHuman community repository</li>
+          <li
+          data-list-item-id="e1ddd7ab1a90af264b1145d4393dd02e3">Export as FBX with Scale units set to <code>meter</code>
+            </li>
+            <li data-list-item-id="eeed2116a98474901da5da832e7e8fa6d">Upload to Mixamo</li>
+            <li data-list-item-id="e9864cf5bc5b02e17f891f5ef7690fe23">Download rigged mesh from Mixamo and import to Unity</li>
+            <li data-list-item-id="ea138950875dc34020989fcfd9206c265">Set Model -&gt; Normals to <code>Calculate</code>
+            </li>
+            <li data-list-item-id="ea23f2680c0a0bd3bb195d84e6ff41074">Set Animation → Animation Type to <code>Humanoid</code>
+            </li>
+            <li data-list-item-id="e9f156ebbca2279496c20cbf5460b01e0">Set Animation → Avatar Definition to <code>Create from this model</code>
+            </li>
+            <li data-list-item-id="eceb693123bb288532dc3b26993544394">Extract materials and set specular values to 0.1.</li>
+            <li data-list-item-id="e00a200ecf860f6f8764a33bf7d3191f7">Create prefab variant from mesh</li>
+            <li data-list-item-id="ea2022abaccd9f5509af83e90684b93ae">Unpack variant</li>
+            <li data-list-item-id="e0ebd988dd55594609a75152492fbd916">Replace <code>Unity Compliant Skeleton</code> with prefab version</li>
+            <li
+            data-list-item-id="e03fcfdc3cd3bc4ffe63169dfcadef3c7">Set root animation controller to <code>DefaultHuman</code>
+              </li>
+              <li data-list-item-id="edbef5cf0b0d494aa158bf22c4a818391">Disable animator <code>Apply Root Motion</code>
+              </li>
+              <li data-list-item-id="ecbcbb00d7799ed0ff05288da8d9cc459">Add <code>ActorAnimator</code> component</li>
         </ul>
       </div>
     </div>
