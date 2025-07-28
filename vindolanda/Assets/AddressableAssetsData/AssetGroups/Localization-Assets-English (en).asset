@@ -15,8 +15,20 @@ MonoBehaviour:
   m_GroupName: Localization-Assets-English (en)
   m_GUID: 7e815b5d5232b7c46a5cec2c72ebe7b8
   m_SerializeEntries:
+  - m_GUID: 00a0c144112059a42944a1023473737f
+    m_Address: IntroLine2_2
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 02ac5b1ba9369d74b88d2b0de2f10409
     m_Address: Tutirial_PickUp1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 088f3f6ecf648ff4e8b6706fadfe3da8
+    m_Address: DialTourPub0
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en
@@ -69,6 +81,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 37b44975e0992194f99f3435d15355bc
+    m_Address: DialTourDenyFollow
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 3b8cbef981904634e86959bc88fc3c1b
     m_Address: LookalikeReply2
     m_ReadOnly: 1
@@ -81,6 +99,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4494ffd74371d5843a6bab1b52399331
+    m_Address: DialTourIntro0
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4a37d9750ab2ee54b85e88d1b97ee7ba
     m_Address: Archer_ShootDone
     m_ReadOnly: 1
@@ -89,6 +113,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 4dcabd778d756454ab4d4ec2a0949557
     m_Address: DialTourHeadquarters0
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4f231b9523b44a04eb63b289aa8aaad9
+    m_Address: DialTourIntro2
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en
@@ -141,14 +171,68 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6af1cb35744e34c46a16466df68e91c7
+    m_Address: HitFriendly5
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6d808562b6bc67f49bcf6f433a5baf8e
+    m_Address: DialTourPub1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6ec83bfb2a11ee8498abf6067f79b294
     m_Address: DialTourMilecastle3
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 73fa5365fab32be4e94a32b7b27a7d3d
+    m_Address: DialTourBarracksAux2
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7420569a1bb16ad42b182db9bbf89b75
+    m_Address: HitFriendly3
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 78c33df475f5faa489cf5fc3a18de3c7
+    m_Address: DialTourBreakYes
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7e5eeb33a69a5a54c9944b4fef799d7b
+    m_Address: DialTourIntro1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 81dfc28149ed5784faf784180dcc371f
     m_Address: Archer_Intro1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8520178ec8c5981419e29abaace31710
+    m_Address: HitFriendly1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 88e93b8dbec0ed04d96499bf9aff65c3
+    m_Address: DialTourAcceptFollow
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8a351db29e9a1d24d9371bb5cd7ed773
+    m_Address: HitFriendly2
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en
@@ -161,6 +245,18 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 9377095fd00a7e34f80afdf0d3b5952d
     m_Address: Tutorial_End1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9551c504daddf834ea44267120fcce3b
+    m_Address: DialMoveSmooth1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aad2ae3808933c0488ed43047fee5175
+    m_Address: DialTourIntroRepeat
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en
@@ -185,6 +281,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c269438786c99dd48811f10c522e47c7
     m_Address: LookalikeReply1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ca5f88c298573e9448a014112ee70e92
+    m_Address: DialMoveSmooth2
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en
@@ -219,6 +321,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dfb110a57b9acb748bdbe01a95f92afe
+    m_Address: DialTourBarracksAux1
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e24ebfd24a681c44bb69e97e45bacfee
+    m_Address: HitFriendly4
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: e7cdb7941de7f084b8245aad6489f78c
     m_Address: Archer_ShootPrompt1
     m_ReadOnly: 1
@@ -243,8 +357,32 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f8c70a09af9c06140a65a9313112c94f
+    m_Address: DialTourBreakContinue
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fb3454a9c86726a4399a3dc4c8851366
+    m_Address: DialTourBarracksAux0
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fc2d06896ab284c4baa209928a1b1bf0
+    m_Address: DialTourBreakAsk
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: fcf89aa22845ee34ba48f7b498b551b5
     m_Address: DialTourCommander0
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ff4b3846dba6eb44dbcadea8e70dc040
+    m_Address: DialTourPub2
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en

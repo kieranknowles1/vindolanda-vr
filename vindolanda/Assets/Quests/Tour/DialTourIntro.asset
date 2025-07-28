@@ -12,6 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2014bf2c72eb475439d5f919d2a8f477, type: 3}
   m_Name: DialTourIntro
   m_EditorClassIdentifier: 
+  OnBegin:
+    m_PersistentCalls:
+      m_Calls: []
+  OnEnd:
+    m_PersistentCalls:
+      m_Calls: []
   Lines:
   - Text:
       m_TableReference:
@@ -24,10 +30,10 @@ MonoBehaviour:
       m_LocalVariables: []
     Clip:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: AssetsTable
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: DialTourIntro0
       m_FallbackState: 0
       m_WaitForCompletion: 0
   - Text:
@@ -41,10 +47,10 @@ MonoBehaviour:
       m_LocalVariables: []
     Clip:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: AssetsTable
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: DialTourIntro1
       m_FallbackState: 0
       m_WaitForCompletion: 0
   - Text:
@@ -58,18 +64,12 @@ MonoBehaviour:
       m_LocalVariables: []
     Clip:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: AssetsTable
       m_TableEntryReference:
         m_KeyId: 0
-        m_Key: 
+        m_Key: DialTourIntro2
       m_FallbackState: 0
       m_WaitForCompletion: 0
-  OnBegin:
-    m_PersistentCalls:
-      m_Calls: []
-  OnEnd:
-    m_PersistentCalls:
-      m_Calls: []
   references:
     version: 2
     RefIds: []
