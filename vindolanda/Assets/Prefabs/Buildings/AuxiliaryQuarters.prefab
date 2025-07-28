@@ -98,6 +98,14 @@ PrefabInstance:
       propertyPath: skipSave
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6049402015056274685, guid: d6a343b65d428564a85ce11722a7f087, type: 3}
+      propertyPath: m_Graph
+      value: 
+      objectReference: {fileID: -6158472914644837282, guid: 1529892d7205f784e97cf1b4972f42f5, type: 2}
+    - target: {fileID: 6049402015056274685, guid: d6a343b65d428564a85ce11722a7f087, type: 3}
+      propertyPath: m_BlackboardVariableOverridesList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7881346890042235526, guid: d6a343b65d428564a85ce11722a7f087, type: 3}
       propertyPath: m_Name
       value: Actor
