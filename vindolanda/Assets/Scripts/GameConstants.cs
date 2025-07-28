@@ -18,11 +18,21 @@ public class GameConstants
         instance = null;
     }
 
+    T FindRequired<T>() where T : Object
+    {
+        var obj = Object.FindAnyObjectByType<T>();
+        if (obj == null)
+        {
+            Debug.LogError($"Could not find required object of type {typeof(T).FullName}");
+        }
+        return obj;
+    }
+
     private GameConstants()
     {
-        Player = Object.FindAnyObjectByType<PlayerController>();
-        Tour = Object.FindAnyObjectByType<TourController>();
-        QuestController = Object.FindAnyObjectByType<Vindolanda.Quest.Controller>();
+        Player = FindRequired<PlayerController>();
+        Tour = FindRequired<TourController>();
+        QuestController = FindRequired<Vindolanda.Quest.Controller>();
     }
 
     public PlayerController Player { get; }
