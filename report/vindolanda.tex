@@ -332,6 +332,9 @@ prior studies, although there is limited data for their efficacy in history.
 \cite{backlund_educational_2013}
 % TODO: Educational Value. What makes a good educational game?
 
+\subsubsection{Fort Tour}
+% TODO: Fort tour
+
 \subsection{Tutorial}
 Initial user demos were performed by users with no VR experience and no built-in
 tutorial. Instead, they were instructed on how to perform tasks such as movement
@@ -367,6 +370,19 @@ demonstrate this motion.
 
 \subsection{Motion Capture}
 % TODO: Motion capture
+
+Motion capture is heavily used in the film and games industries to cheaply produce
+realistic animations. While this traditionally requires expensive equipment to produce, including
+specialised suits or multiple cameras \cite{nogueira_motion_2011}, virtual reality can imitate
+this as it provides three highly accurate tracking points: the player's head and their hands.
+The Index controllers used by the developer additionally track individual finger states that
+further enhance precision.
+
+When combined with inverse kinematics, which was already implemented to position the player's body,
+this results in a rudimentary yet reasonably effective motion capture system, though as expected it
+sacrifices precision, making it less effective than a professional system. \cite{vox_evaluation_2021}
+This is especially visible in motions such as pulling a hand to the chin to draw a bow, where inverse
+kinematics positioned the elbow in front of the face rather than behind it.
 
 \subsection{Mechanics}
 % TODO: Mechanics
