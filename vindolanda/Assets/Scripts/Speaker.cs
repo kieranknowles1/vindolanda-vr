@@ -9,7 +9,12 @@ using Vindolanda.Quest;
 /// </summary>
 public class Speaker : MonoBehaviour
 {
+    public static readonly int SpeakingVariable = Animator.StringToHash("Speaking");
+
+    // Manditory
     public new AudioSource audio;
+    // Optional
+    new Animator animation;
 
     const float SecondsPerWord = 0.25f;
     public LocalizedString ActorName;
@@ -25,6 +30,11 @@ public class Speaker : MonoBehaviour
     }
     Coroutine speakCoroutine;
 
+    private void Start()
+    {
+        animation = GetComponentInChildren<Animator>();
+    }
+
     /// <summary>
     /// Say a line, coroutine will run until completion
     /// </summary>
@@ -36,6 +46,11 @@ public class Speaker : MonoBehaviour
     {
         IEnumerator SayImpl()
         {
+            // Play a VERY primitive speaking animation, all this does is move the jaw up and down with no
+            // attempt made at lip sync, this is about my limit for animation skills and I can't be bothered
+            // to implement FaceFX
+            if (animation != null) animation.SetBool(SpeakingVariable, true);
+
             var lines = dialogue.GetLines();
             for (int i = 0; i < lines.Count; i++)
             {
@@ -60,6 +75,7 @@ public class Speaker : MonoBehaviour
 
             CurrentDialogue = null;
             speakCoroutine = null;
+            if (animation) animation.SetBool(SpeakingVariable, false);
             GameConstants.Instance.Player.Subtitles.Hide();
         }
 
