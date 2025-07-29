@@ -178,7 +178,6 @@ Transform:
   - {fileID: 9160741440914672332}
   - {fileID: 6791236360832584427}
   - {fileID: 6406759257850420990}
-  - {fileID: 7132096111558400793}
   - {fileID: 4750303287208928257}
   - {fileID: 4441111926447056451}
   m_Father: {fileID: 0}
@@ -269,76 +268,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1 &3494306979251650349
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7132096111558400793}
-  - component: {fileID: 1292609748455777213}
-  - component: {fileID: 1514037080218757010}
-  m_Layer: 0
-  m_Name: SpeakTrigger
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7132096111558400793
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3494306979251650349}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.125, y: 1, z: 1.250001}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5324008891167951829}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1292609748455777213
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3494306979251650349}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 10.4, y: 3.35, z: 6.68}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1514037080218757010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3494306979251650349}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed7aeb673885bf248a866b297b729120, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 0
-  skipSave: 0
-  singleUse: 1
-  target: {fileID: 11400000, guid: f8c4fdba5e4369140a45a40a10922106, type: 2}
 --- !u!1 &8373073654379648666
 GameObject:
   m_ObjectHideFlags: 0
@@ -639,7 +568,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6267568001010251641, guid: 7cfc03d08de1ec941a406c7afb8d247b, type: 3}
       propertyPath: id
-      value: 0
+      value: 568145606
       objectReference: {fileID: 0}
     - target: {fileID: 7734834019913766839, guid: 7cfc03d08de1ec941a406c7afb8d247b, type: 3}
       propertyPath: m_Constraints
@@ -909,7 +838,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6267568001010251641, guid: 7cfc03d08de1ec941a406c7afb8d247b, type: 3}
       propertyPath: id
-      value: 0
+      value: 843640875
       objectReference: {fileID: 0}
     - target: {fileID: 7734834019913766839, guid: 7cfc03d08de1ec941a406c7afb8d247b, type: 3}
       propertyPath: m_Constraints
@@ -1019,7 +948,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6267568001010251641, guid: 7cfc03d08de1ec941a406c7afb8d247b, type: 3}
       propertyPath: id
-      value: 0
+      value: 699448480
       objectReference: {fileID: 0}
     - target: {fileID: 7734834019913766839, guid: 7cfc03d08de1ec941a406c7afb8d247b, type: 3}
       propertyPath: m_Constraints
@@ -1406,6 +1335,14 @@ PrefabInstance:
       value: GUID:bbc577575d755f2468f29145e420373b
       objectReference: {fileID: 0}
     - target: {fileID: 2765552055783056587, guid: d6a343b65d428564a85ce11722a7f087, type: 3}
+      propertyPath: id
+      value: 1386833930
+      objectReference: {fileID: 0}
+    - target: {fileID: 2765552055783056587, guid: d6a343b65d428564a85ce11722a7f087, type: 3}
+      propertyPath: speakEvent
+      value: 
+      objectReference: {fileID: 11400000, guid: f8c4fdba5e4369140a45a40a10922106, type: 2}
+    - target: {fileID: 2765552055783056587, guid: d6a343b65d428564a85ce11722a7f087, type: 3}
       propertyPath: Name.m_TableEntryReference.m_KeyId
       value: 2165627214401536
       objectReference: {fileID: 0}
@@ -1493,7 +1430,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6267568001010251641, guid: 7cfc03d08de1ec941a406c7afb8d247b, type: 3}
       propertyPath: id
-      value: 0
+      value: 1032601390
       objectReference: {fileID: 0}
     - target: {fileID: 7734834019913766839, guid: 7cfc03d08de1ec941a406c7afb8d247b, type: 3}
       propertyPath: m_Constraints
