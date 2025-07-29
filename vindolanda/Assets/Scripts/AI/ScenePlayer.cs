@@ -7,7 +7,15 @@ using UnityEngine;
 [RequireComponent(typeof(BehaviorGraphAgent))]
 public class ScenePlayer : TriggerBase
 {
-    public List<BehaviorGraph> scenes;
+    [System.Serializable]
+    public struct SceneEntry
+    {
+        public int weight;
+        public BehaviorGraph graph;
+    }
+
+    public List<SceneEntry> allScenes;
+    List<BehaviorGraph> availableScenes = new();
     List<BehaviorGraph> playedScenes = new();
 
     [Min(0)]
@@ -22,44 +30,59 @@ public class ScenePlayer : TriggerBase
         agent = GetComponent<BehaviorGraphAgent>();
 
         // Safety check: We can't do anything if there are no scenes
-        if (scenes.Count == 0 && playedScenes.Count == 0)
+        if (allScenes.Count == 0)
         {
             Debug.LogError("No scenes to play, disabling", this);
             enabled = false;
+        }
+
+        // Build the deck of available scenes
+        foreach (var entry in allScenes)
+        {
+            for (int i = 0; i < entry.weight; i++)
+            {
+                availableScenes.Add(entry.graph);
+            }
         }
     }
 
     BehaviorGraph SelectScene()
     {
         // If everything has been played, shuffle scenes back into the deck
-        if (scenes.Count == 0)
+        if (availableScenes.Count == 0)
         {
-            (playedScenes, scenes) = (scenes, playedScenes);
+            (playedScenes, availableScenes) = (availableScenes, playedScenes);
             // Don't replay the latest scene unless it is the only one in the deck
-            if (scenes.Count > 1)
+            if (availableScenes.Count > 1)
             {
-                var latest = scenes.PopBack();
+                var latest = availableScenes.PopBack();
                 // scenes.Count > 1 here, so the shuffle check will fail. No possiblility of stack overflow
                 var choice = SelectScene();
-                scenes.Add(latest);
+                availableScenes.Add(latest);
                 return choice;
             }
         }
 
         // Select something that hasn't been played before
-        int index = Random.Range(0, scenes.Count);
-        var scene = scenes[index];
-        scenes.RemoveAtSwapBack(index);
+        int index = Random.Range(0, availableScenes.Count);
+        var scene = availableScenes[index];
+        availableScenes.RemoveAtSwapBack(index);
         playedScenes.Add(scene);
         return scene;
     }
 
     IEnumerator StartSceneDelayed()
     {
-        float delay = Random.Range(startDelayMin, startDelayMax);
-        yield return new WaitForSeconds(delay);
-        agent.Graph = SelectScene();
-        startupRoutine = null;
+        while (PlayerPresent)
+        {
+            float delay = Random.Range(startDelayMin, startDelayMax);
+            yield return new WaitForSeconds(delay);
+            agent.Graph = SelectScene();
+            do {
+                yield return new WaitForSeconds(1.0f);
+            } while (agent.Graph.IsRunning);
+            agent.Graph = null;
+        }
     }
     Coroutine startupRoutine;
 

@@ -87,6 +87,7 @@ Transform:
   - {fileID: 986223702444907470}
   - {fileID: 1395321438200592343}
   - {fileID: 7318289039304700034}
+  - {fileID: 7715317531723695741}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 11.25, z: 0}
 --- !u!1 &2509528996825813687
@@ -136,6 +137,51 @@ Transform:
   - {fileID: 3025328620301836227}
   m_Father: {fileID: 9058536535478636626}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &4029520122318995671
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7715317531723695741}
+  - component: {fileID: 3385394306814948666}
+  m_Layer: 8
+  m_Name: BarmanDefaultPosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7715317531723695741
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4029520122318995671}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.9999962, z: -0, w: -0.0027690234}
+  m_LocalPosition: {x: 1.6886991, y: -2.125, z: -1.5593084}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9058536535478636626}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3385394306814948666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4029520122318995671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3eeb26757c92592478119d7c1f1f5222, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
 --- !u!1 &4335810842728059305
 GameObject:
   m_ObjectHideFlags: 0
@@ -495,10 +541,13 @@ MonoBehaviour:
   id: 0
   skipSave: 0
   singleUse: 0
-  scenes:
-  - {fileID: -8893980543823034044, guid: ea5eb03daf791e741b140cafe7190188, type: 2}
-  startDelayMin: 20
-  startDelayMax: 60
+  allScenes:
+  - weight: 1
+    graph: {fileID: -8893980543823034044, guid: ea5eb03daf791e741b140cafe7190188, type: 2}
+  - weight: 10
+    graph: {fileID: 631394566839683258, guid: 708c434de2e530c4692f47e78193b6fe, type: 2}
+  startDelayMin: 2
+  startDelayMax: 6
 --- !u!1 &5859338311315865140
 GameObject:
   m_ObjectHideFlags: 0

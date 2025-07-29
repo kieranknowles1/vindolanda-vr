@@ -15,6 +15,8 @@ public abstract class TriggerBase : Saveable
 
     protected bool done = false;
 
+    public bool PlayerPresent { get; private set; } = false;
+
     public override SaveData Save()
     {
         return new TriggerData(this);
@@ -30,6 +32,7 @@ public abstract class TriggerBase : Saveable
     {
         if (done) return;
         if (!other.TryGetComponent<PlayerController>(out var player)) return;
+        PlayerPresent = true;
         Execute(player); 
 
         // This is set on exit. It should be impossible for a player to re-enter the trigger without first exiting
@@ -41,6 +44,7 @@ public abstract class TriggerBase : Saveable
     {
         if (done) return;
         if (!other.TryGetComponent<PlayerController>(out var player)) return;
+        PlayerPresent = false;
         ExecuteExit(player);
 
         if (singleUse) done = true;
