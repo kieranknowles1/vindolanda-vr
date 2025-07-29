@@ -3,17 +3,14 @@ using Unity.Behavior;
 using UnityEngine;
 using Composite = Unity.Behavior.Composite;
 using Unity.Properties;
-using UnityEditor.Localization;
-using UnityEngine.Localization.Settings;
 using System.Collections.Generic;
 using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 
 [Serializable, GeneratePropertyBag]
 [NodeDescription(name: "DialogueChoice", story: "[Actor] prompts [Player] with choice from list.", category: "Flow", id: "2227d31e2da40dc7b2da14c2302ea4ea")]
 public partial class DialogueChoiceSequence : Composite
 {
-    [SerializeReference] public BlackboardVariable<StringTableCollection> StringTable;
-
     [SerializeReference] public BlackboardVariable<Speaker> Actor;
     [SerializeReference] public BlackboardVariable<PlayerController> Player;
     [SerializeReference] public Node Option1;
@@ -30,7 +27,7 @@ public partial class DialogueChoiceSequence : Composite
         void Resolve(string key)
         {
             if (key == null) return;
-            result.Add(new LocalizedString(StringTable.Value.name, key).GetLocalizedString());
+            result.Add(new LocalizedString(LocalizationSettings.StringDatabase.DefaultTable, key).GetLocalizedString());
         }
         Resolve(Choice1Key.Value);
         Resolve(Choice2Key.Value);
