@@ -14,7 +14,7 @@ public interface ISpeechListener
     /// <summary>
     /// Can the player speak to this object at the moment?
     /// </summary>
-    bool PlayerCanSpeakTo { get; }
+    bool PlayerCanSpeakTo(PlayerController player);
     /// <summary>
     /// Will this have priority over all other targets?
     /// Order is unspecified if multiple exist
@@ -129,7 +129,7 @@ public class PlayerController : MonoBehaviour
         Vector2 speakXz = new(speaker.position.x, speaker.position.z);
         Vector2 playerXz = new(head.position.x, head.position.z);
 
-        Vector2 speakerToPlayer = (speakXz - speakXz);;
+        Vector2 speakerToPlayer = (speakXz - speakXz); ;
 
         Vector2 finalXz;
         if (speakerToPlayer.magnitude > (PreferredDialogueDistance * MinDialogueRatio))
@@ -182,12 +182,12 @@ public class PlayerController : MonoBehaviour
 
     public readonly List<ISpeechListener> speechTargets = new();
 
-    void Speak(InputAction.CallbackContext _)
+    ISpeechListener FindSpeechTarget()
     {
         ISpeechListener best = null;
         foreach (var target in speechTargets)
         {
-            if (!target.PlayerCanSpeakTo) continue;
+            if (!target.PlayerCanSpeakTo(this)) continue;
             if (target.ForceSpeak)
             {
                 best = target;
@@ -208,6 +208,12 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+        return best; // May be null if nothing was valid
+    }
+
+    void Speak(InputAction.CallbackContext _)
+    {
+        var best = FindSpeechTarget();
 
         best?.Speak(this);
     }

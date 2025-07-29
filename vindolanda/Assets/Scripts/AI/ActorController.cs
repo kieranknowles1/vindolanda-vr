@@ -23,10 +23,13 @@ public class ActorSaveData : SaveData
     }
 }
 
-public class ActorController : Saveable, IHitTarget
+public class ActorController : Saveable, IHitTarget, ISpeechListener
 {
     [Header("Dialogue")]
     public Dialogue hitDialogue;
+
+    [Tooltip("If set, actor can be spoken to by sending this event")]
+    public DefaultEvent speakEvent;
 
     public Animator Animator { get; private set; }
     public ActorAnimator ActorAnimator { get; private set; }
@@ -34,8 +37,15 @@ public class ActorController : Saveable, IHitTarget
     public BehaviorGraphAgent Agent { get; private set; }
     public Vector3 OriginalPosition { get; private set; }
 
+    public bool PlayerCanSpeakTo(PlayerController player) => speakEvent != null && player.transform.GetDistance(transform) < 10.0f;
+    public bool ForceSpeak => false;
+    public float MaxSpeechDistance => 10.0f;
+
     protected void Awake()
     {
+        if (speakEvent)
+            GameConstants.Instance.Player.speechTargets.Add(this);
+
         Agent = GetComponent<BehaviorGraphAgent>();
         OriginalPosition = transform.position;
         Animator = GetComponentInChildren<Animator>();
@@ -62,5 +72,10 @@ public class ActorController : Saveable, IHitTarget
     public void OnHit(IWeapon _weapon)
     {
         Speaker.Say(hitDialogue);
+    }
+
+    public void Speak(PlayerController player)
+    {
+        speakEvent.SendEventMessage();
     }
 }
