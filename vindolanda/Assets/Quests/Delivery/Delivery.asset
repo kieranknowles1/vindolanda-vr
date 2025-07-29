@@ -10,11 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3c1f6d779fc83824088b1c2daae8c237, type: 3}
-  m_Name: TestQuest
+  m_Name: Delivery
   m_EditorClassIdentifier: 
-  id: 19100757
-  Name: Delivery
-  Description: Deliver the tablet to Castle Nick
-  Objectives:
-  - {fileID: 11400000, guid: 63e68ce911cd5f44b85905ddbec637dd, type: 2}
-  - {fileID: 11400000, guid: a5d278edc512eae4b81d0d15bff090bd, type: 2}
+  id: 521534342
+  Name:
+    m_TableReference:
+      m_TableCollectionName: GUID:bbc577575d755f2468f29145e420373b
+    m_TableEntryReference:
+      m_KeyId: 17352807658328064
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []

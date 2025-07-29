@@ -9101,6 +9101,109 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8438713502210786113, guid: bae2f7216104c6c4983dc45a7fa72873, type: 3}
   m_PrefabInstance: {fileID: 1615738940}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1619711600
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1619711602}
+  - component: {fileID: 1619711601}
+  m_Layer: 0
+  m_Name: Delivery
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1619711601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619711600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2bb8b58d7561d04e8af227816ee2718, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  writingTablet: {fileID: 4694440792311597217, guid: 470aea37f4635d94a9723fecd6be662e, type: 3}
+  tabletTexts:
+  - title:
+      m_TableReference:
+        m_TableCollectionName: GUID:bbc577575d755f2468f29145e420373b
+      m_TableEntryReference:
+        m_KeyId: 17357234683285504
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    text:
+      m_TableReference:
+        m_TableCollectionName: GUID:bbc577575d755f2468f29145e420373b
+      m_TableEntryReference:
+        m_KeyId: 17356591834894336
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - title:
+      m_TableReference:
+        m_TableCollectionName: GUID:bbc577575d755f2468f29145e420373b
+      m_TableEntryReference:
+        m_KeyId: 17358116833497088
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    text:
+      m_TableReference:
+        m_TableCollectionName: GUID:bbc577575d755f2468f29145e420373b
+      m_TableEntryReference:
+        m_KeyId: 17358209376620544
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  - title:
+      m_TableReference:
+        m_TableCollectionName: GUID:bbc577575d755f2468f29145e420373b
+      m_TableEntryReference:
+        m_KeyId: 17358906230870016
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    text:
+      m_TableReference:
+        m_TableCollectionName: GUID:bbc577575d755f2468f29145e420373b
+      m_TableEntryReference:
+        m_KeyId: 17358958689030144
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+  references:
+    version: 2
+    RefIds: []
+--- !u!4 &1619711602
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619711600}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -62.74856, y: 13.99557, z: 365.60995}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1632765736 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8665783453289176402, guid: 2a4eb4201a9fce442a85ced5ef603293, type: 3}
@@ -13365,3 +13468,4 @@ SceneRoots:
   - {fileID: 329442455}
   - {fileID: 1054562700}
   - {fileID: 414183087}
+  - {fileID: 1619711602}

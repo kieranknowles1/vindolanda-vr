@@ -1,10 +1,12 @@
 using UnityEngine;
+using UnityEngine.Localization.Components;
 using UnityEngine.XR.Interaction.Toolkit;
 using UnityEngine.XR.Interaction.Toolkit.Interactables;
 using UnityEngine.XR.Interaction.Toolkit.Interactors;
 
 public class WritingTablet : XRGrabInteractable
 {
+    public LocalizeStringEvent summary;
     public GameObject detailedText;
     public Transform leftAttach;
     public Transform rightAttach;
