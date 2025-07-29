@@ -116,6 +116,11 @@ namespace Vindolanda.Animation
             rightHandPose.SetShapeInstant(interpolated.rightHand);
             if (head)
                 head.SetLocalPositionAndRotation(interpolated.head.position, interpolated.head.rotation);
+
+            if (clip.leftFollowsRight && leftObject != null)
+                leftObject.transform.LookAt(rightHandPosition.transform);
+            if (clip.rightFollowsLeft && rightObject != null)
+                rightObject.transform.LookAt(leftHandPosition.transform);
         }
 
         private void OnDrawGizmosSelected()

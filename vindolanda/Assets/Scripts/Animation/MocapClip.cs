@@ -98,8 +98,10 @@ namespace Vindolanda.Animation
 
         public List<Keyframe> keyframes = new();
         public GameObject leftHandItem;
+        [Tooltip("Does the object in the left hand always point towards the right?")]
         public bool leftFollowsRight;
         public GameObject rightHandItem;
+        [Tooltip("Does the object in the right hand always point towards the left")]
         public bool rightFollowsLeft;
     }
 }
