@@ -999,6 +999,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8528719015401989928}
+  - component: {fileID: 1910211608841436061}
   m_Layer: 0
   m_Name: hand.R
   m_TagString: Untagged
@@ -1026,6 +1027,25 @@ Transform:
   - {fileID: 4885398217508877150}
   m_Father: {fileID: 5849319023365295737}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1910211608841436061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4614652469590345985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e5e0357d18a09c489ff122cfc84d893, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pinky: {fileID: 498171462162109313}
+  ring: {fileID: 5222994746185551294}
+  middle: {fileID: 4370513703145633704}
+  index: {fileID: 8067084232536463156}
+  thumb: {fileID: 4885398217508877150}
+  fingerRotationPerJoint: 60
+  thumbRotationPerJoint: 40
 --- !u!1 &4620167030260778107
 GameObject:
   m_ObjectHideFlags: 0
@@ -1162,6 +1182,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7988460064960054800}
+  - component: {fileID: 3072551730295462774}
   m_Layer: 0
   m_Name: hand.L
   m_TagString: Untagged
@@ -1189,6 +1210,25 @@ Transform:
   - {fileID: 1736936637277695277}
   m_Father: {fileID: 287700646382294588}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3072551730295462774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5021439725909036578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e5e0357d18a09c489ff122cfc84d893, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pinky: {fileID: 8034260198880092540}
+  ring: {fileID: 8192077470251025497}
+  middle: {fileID: 6627514405261060621}
+  index: {fileID: 1105465938038995633}
+  thumb: {fileID: 1736936637277695277}
+  fingerRotationPerJoint: 60
+  thumbRotationPerJoint: 40
 --- !u!1 &5171492067260166725
 GameObject:
   m_ObjectHideFlags: 0
