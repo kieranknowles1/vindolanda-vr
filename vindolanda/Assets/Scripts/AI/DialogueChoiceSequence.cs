@@ -14,9 +14,8 @@ public partial class DialogueChoiceSequence : Composite
     [SerializeReference] public BlackboardVariable<Speaker> Actor;
     [SerializeReference] public BlackboardVariable<PlayerController> Player;
     [SerializeReference] public Node Option1;
-    [SerializeReference] public BlackboardVariable<string> Choice1Key;
+    [SerializeReference] public BlackboardVariable<DialogueChoices> Choices;
     [SerializeReference] public Node Option2;
-    [SerializeReference] public BlackboardVariable<string> Choice2Key;
 
     DialogueMenu menu;
     Node activeChild = null;
@@ -24,13 +23,13 @@ public partial class DialogueChoiceSequence : Composite
     List<string> ResolveOptions()
     {
         List<string> result = new();
-        void Resolve(string key)
+        void Resolve(LocalizedString key)
         {
             if (key == null) return;
-            result.Add(new LocalizedString(LocalizationSettings.StringDatabase.DefaultTable, key).GetLocalizedString());
+            result.Add(key.GetLocalizedString());
         }
-        Resolve(Choice1Key.Value);
-        Resolve(Choice2Key.Value);
+        Resolve(Choices.Value.positive);
+        Resolve(Choices.Value.negative);
         return result;
     }
 
