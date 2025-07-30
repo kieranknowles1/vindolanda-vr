@@ -43,11 +43,10 @@ namespace Vindolanda.Quest {
             {
                 details.text = obj.Description.GetLocalizedString();
 
-                if (s.CurrentObjective.targetId != 0)
+                if (s.CurrentObjective.TargetObject)
                 {
-                    var target = GuidManager.Instance.Find<GuidComponent>(s.CurrentObjective.targetId);
                     objectiveArrow.gameObject.SetActive(true);
-                    objectiveArrow.SetSource(0, new() { sourceTransform = target.transform, weight = 1.0f });
+                    objectiveArrow.SetSource(0, new() { sourceTransform = s.CurrentObjective.TargetObject.transform, weight = 1.0f });
                 }
                 else
                 {

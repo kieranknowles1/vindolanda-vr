@@ -16,6 +16,21 @@ namespace Vindolanda.Quest
         public UnityEvent OnEnd;
 
         [Tooltip("If set, objective marker will point to this object")]
-        public int targetId;
+        [SerializeField] int targetId;
+
+        GameObject targetObject;
+        public GameObject TargetObject {
+            get {
+                if (targetObject == null && targetId != 0)
+                    targetObject = GuidManager.Instance.Find<GuidComponent>(targetId).gameObject;
+                return targetObject;
+            }
+            set => targetObject = value;
+        }
+
+        private void Awake()
+        {
+            if (targetId != 0) TargetObject = GuidManager.Instance.Find<GuidComponent>(targetId).gameObject;
+        }
     }
 }

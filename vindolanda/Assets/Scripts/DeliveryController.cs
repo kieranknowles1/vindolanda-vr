@@ -32,6 +32,9 @@ namespace Vindolanda
             public LocalizedString text;
         }
 
+        public Quest.Quest delivery;
+        public Quest.Objective deliverTablet;
+
         public GameObject writingTablet;
         ActorController questGiver;
         ActorController questTarget;
@@ -69,12 +72,28 @@ namespace Vindolanda
                 .Where(obj => obj.allowGenericQuests)
                 .ToList();
             print($"{targets.Count} potential delivery targets");
+        }
 
-            for (int i = 0; i < 10; i++)
+        ActorController FindTarget(ActorController giver)
+        {
+            ActorController target;
+            do
             {
-                var x = SpawnWritingTablet();
-                x.transform.position = GameConstants.Instance.Player.transform.position + Vector3.forward;
-            }
+                target = targets[Random.Range(0, targets.Count)];
+            } while (target != giver);
+            return target;
+        }
+
+        public void StartDelivery(ActorController questGiver)
+        {
+            this.questGiver = questGiver;
+            questTarget = FindTarget(questGiver);
+
+            var tablet = SpawnWritingTablet();
+            tablet.transform.position = questGiver.transform.position + (questGiver.transform.forward * 0.5f) + Vector3.up;
+
+            deliverTablet.TargetObject = questTarget.gameObject;
+            GameConstants.Instance.QuestController.GetState(delivery).CurrentObjective = deliverTablet;
         }
     }
 }

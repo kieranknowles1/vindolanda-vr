@@ -1,4 +1,5 @@
 using UnityEngine;
+using Vindolanda;
 
 public class GameConstants
 {
@@ -33,9 +34,11 @@ public class GameConstants
         Player = FindRequired<PlayerController>();
         Tour = FindRequired<TourController>();
         QuestController = FindRequired<Vindolanda.Quest.Controller>();
+        DeliveryController = FindRequired<DeliveryController>();
     }
 
     public PlayerController Player { get; }
     public TourController Tour { get; }
     public Vindolanda.Quest.Controller QuestController { get; }
+    public DeliveryController DeliveryController { get; }
 }
