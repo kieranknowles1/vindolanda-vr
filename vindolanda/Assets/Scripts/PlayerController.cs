@@ -125,25 +125,8 @@ public class PlayerController : MonoBehaviour
 
     void CalculateDialogueMenuPosition(Transform speaker, out Vector3 position, out Quaternion rotation)
     {
-        // Keep everything at the same height, assumes we're not on any stairs
-        Vector2 speakXz = new(speaker.position.x, speaker.position.z);
-        Vector2 playerXz = new(head.position.x, head.position.z);
-
-        Vector2 speakerToPlayer = (speakXz - speakXz); ;
-
-        Vector2 finalXz;
-        if (speakerToPlayer.magnitude > (PreferredDialogueDistance * MinDialogueRatio))
-        { // We're far enough to reach our preferred distance
-            finalXz = speakXz + (MinDialogueRatio * speakerToPlayer.normalized);
-        }
-        else
-        { // PreferredDialogueDistance would be too close
-            finalXz = Vector2.Lerp(speakXz, playerXz, MinDialogueRatio);
-        }
-
-        // Slightly below eye level
-        position = new(finalXz.x, head.position.y - 0.6f, finalXz.y);
-        rotation = Quaternion.LookRotation(new(speakerToPlayer.x, 0, speakerToPlayer.y), Vector3.up);
+        position = head.position + transform.forward + (Vector3.down * 0.6f);
+        rotation = transform.rotation;
     }
 
     public DialogueMenu ShowDialogueMenu(Speaker speaker, List<string> options)
