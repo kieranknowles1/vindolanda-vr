@@ -17,6 +17,9 @@ public partial class DialogueChoiceSequence : Composite
     [SerializeReference] public BlackboardVariable<DialogueChoices> Choices;
     [SerializeReference] public Node Option2;
 
+    [Tooltip("Fail if the player walks further than this distance away.")]
+    [SerializeReference] public BlackboardVariable<float> MaxPlayerDistance = new(10.0f);
+
     DialogueMenu menu;
     Node activeChild = null;
 
@@ -60,6 +63,9 @@ public partial class DialogueChoiceSequence : Composite
 
     protected override Status OnUpdate()
     {
+        if (Player.transform.GetDistance(Actor.Value.transform) > MaxPlayerDistance.Value)
+            return Status.Failure;
+
         if (activeChild == null) return Status.Running;
 
         return activeChild.CurrentStatus;
