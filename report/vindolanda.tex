@@ -381,7 +381,6 @@ aiming, and releasing. As with to the basic tutorial, a motion-captured NPC is s
 demonstrate this motion.
 
 \subsection{Motion Capture}
-% TODO: Motion capture
 
 Motion capture is heavily used in the film and games industries to cheaply produce
 realistic animations. While this traditionally requires expensive equipment to produce, including
@@ -483,6 +482,16 @@ and opt-out for players who do not want them.
 
 \section{Results \& Evaluation}
 % TODO: Results and eval
+
+\subsection{Unity's Suitability}
+Despite being the de facto standard for VR, Unity's implementation of it and
+other areas left plenty to be desired and technical debt. For example, its
+behaviour graph system requires distinct and incompatible events compared to the
+rest of the engine which in turn required wrappers to adapt between. This
+introduced extra complexity and reduced overall code quality.
+
+Considering these limitations, the game may have benefited from instead using
+Godot, the second engine considered.
 
 \subsection{The Bugs}
 
