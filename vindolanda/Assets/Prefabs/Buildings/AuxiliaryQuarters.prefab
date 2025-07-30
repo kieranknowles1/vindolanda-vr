@@ -98,6 +98,14 @@ PrefabInstance:
       propertyPath: skipSave
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2765552055783056587, guid: d6a343b65d428564a85ce11722a7f087, type: 3}
+      propertyPath: speakGraph
+      value: 
+      objectReference: {fileID: -7428946983985469503, guid: 0846cc0a22ad06f428176aa6f8423de6, type: 2}
+    - target: {fileID: 2765552055783056587, guid: d6a343b65d428564a85ce11722a7f087, type: 3}
+      propertyPath: allowGenericQuests
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6049402015056274685, guid: d6a343b65d428564a85ce11722a7f087, type: 3}
       propertyPath: m_Graph
       value: 

@@ -59,7 +59,7 @@ public class Speaker : MonoBehaviour
 
                 var text = line.Text.GetLocalizedString();
                 GameConstants.Instance.Player.Subtitles.Show(
-                    ActorName.IsEmpty ? null : ActorName.GetLocalizedString(),
+                    ActorName.GetOrDefault(null),
                     text,
                     force: clip == null
                 );

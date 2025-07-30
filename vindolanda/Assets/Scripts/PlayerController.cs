@@ -131,7 +131,7 @@ public class PlayerController : MonoBehaviour
 
     public DialogueMenu ShowDialogueMenu(Speaker speaker, List<string> options)
     {
-        dialogueMenu.Display(speaker.ActorName.GetLocalizedString(), options);
+        dialogueMenu.Display(speaker.ActorName.GetOrDefault(null), options);
 
         // Position the menu facing the player and near the speaker
         var speakerToPlayer = Vector3.Distance(speaker.transform.position, head.position);

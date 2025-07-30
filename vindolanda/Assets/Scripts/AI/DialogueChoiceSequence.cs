@@ -8,11 +8,11 @@ using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 
 [Serializable, GeneratePropertyBag]
-[NodeDescription(name: "DialogueChoice", story: "[Actor] prompts [Player] with choice from list.", category: "Flow", id: "2227d31e2da40dc7b2da14c2302ea4ea")]
+[NodeDescription(name: "DialogueChoice", story: "[Actor] prompts player with choice from list.", category: "Flow", id: "2227d31e2da40dc7b2da14c2302ea4ea")]
 public partial class DialogueChoiceSequence : Composite
 {
     [SerializeReference] public BlackboardVariable<Speaker> Actor;
-    [SerializeReference] public BlackboardVariable<PlayerController> Player;
+    PlayerController Player => GameConstants.Instance.Player;
     [SerializeReference] public Node Option1;
     [SerializeReference] public BlackboardVariable<DialogueChoices> Choices;
     [SerializeReference] public Node Option2;
@@ -53,7 +53,7 @@ public partial class DialogueChoiceSequence : Composite
 
     protected override Status OnStart()
     {
-        menu = Player.Value.ShowDialogueMenu(Actor.Value, ResolveOptions());
+        menu = Player.ShowDialogueMenu(Actor.Value, ResolveOptions());
         menu.onClicked.AddListener(OnClicked);
         return Status.Running;
     }
@@ -68,7 +68,7 @@ public partial class DialogueChoiceSequence : Composite
     void DisableMenu()
     {
         menu.onClicked.RemoveListener(OnClicked);
-        Player.Value.CloseDialogueMenu();
+        Player.CloseDialogueMenu();
     }
 
     protected override void OnEnd()

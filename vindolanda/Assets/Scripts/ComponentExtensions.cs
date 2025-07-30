@@ -1,6 +1,7 @@
 using Unity.Behavior;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Localization;
 
 public static class ComponentExtensions
 {
@@ -86,5 +87,10 @@ public static class ComponentExtensions
     {
         agent.GetVariable<T>(name, out var variable);
         return variable.Value;
+    }
+
+    public static string GetOrDefault(this LocalizedString str, string defaultValue)
+    {
+        return str?.IsEmpty ?? true ? defaultValue : str.GetLocalizedString();
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Text.RegularExpressions;
 using Unity.Behavior;
 using UnityEngine;
@@ -30,6 +31,8 @@ public class ActorController : Saveable, IHitTarget, ISpeechListener
 
     [Tooltip("If set, actor can be spoken to by sending this event")]
     public DefaultEvent speakEvent;
+    [Tooltip("If set, actor will use this graph when speaking")]
+    public BehaviorGraph speakGraph;
 
     public Animator Animator { get; private set; }
     public ActorAnimator ActorAnimator { get; private set; }
@@ -37,13 +40,30 @@ public class ActorController : Saveable, IHitTarget, ISpeechListener
     public BehaviorGraphAgent Agent { get; private set; }
     public Vector3 OriginalPosition { get; private set; }
 
-    public bool PlayerCanSpeakTo(PlayerController player) => speakEvent != null && player.transform.GetDistance(transform) < 10.0f;
+    public bool PlayerCanSpeakTo(PlayerController player) => (speakEvent || speakGraph) && player.transform.GetDistance(transform) < 10.0f;
     public bool ForceSpeak => false;
     public float MaxSpeechDistance => 10.0f;
 
+    BehaviorGraph defaultGraph;
+    BehaviorGraph overrideGraph;
+    public BehaviorGraph OverrideGraph
+    {
+        get => overrideGraph;
+        set {
+            overrideGraph = value;
+            if (value == null)
+                Agent.Graph = defaultGraph;
+            else
+                Agent.Graph = overrideGraph;
+        }
+    }
+
+    public bool allowGenericQuests;
+
+
     protected void Awake()
     {
-        if (speakEvent)
+        if (speakEvent || speakGraph)
             GameConstants.Instance.Player.speechTargets.Add(this);
 
         Agent = GetComponent<BehaviorGraphAgent>();
@@ -51,6 +71,8 @@ public class ActorController : Saveable, IHitTarget, ISpeechListener
         Animator = GetComponentInChildren<Animator>();
         ActorAnimator = Animator.GetComponent<ActorAnimator>();
         Speaker = GetComponent<Speaker>();
+
+        defaultGraph = Agent.Graph;
     }
 
     #region Save Load
@@ -74,8 +96,24 @@ public class ActorController : Saveable, IHitTarget, ISpeechListener
         Speaker.Say(hitDialogue);
     }
 
+    IEnumerator StopOverrideWhenComplete(BehaviorGraph overrideGraph)
+    {
+        do
+        {
+            yield return new WaitForSeconds(1.0f);
+        } while (Agent.Graph.IsRunning && overrideGraph == OverrideGraph);
+        if (OverrideGraph == overrideGraph)
+            OverrideGraph = null;
+    }
+
     public void Speak(PlayerController player)
     {
-        speakEvent.SendEventMessage();
+        if (speakEvent)
+            speakEvent.SendEventMessage();
+        if (speakGraph)
+        {
+            OverrideGraph = speakGraph;
+            StartCoroutine(StopOverrideWhenComplete(overrideGraph));
+        }
     }
 }
