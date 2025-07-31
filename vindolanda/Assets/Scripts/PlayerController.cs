@@ -125,30 +125,16 @@ public class PlayerController : MonoBehaviour
 
     void CalculateDialogueMenuPosition(Transform speaker, out Vector3 position, out Quaternion rotation)
     {
-        position = head.position + transform.forward + (Vector3.down * 0.6f);
+        var planeAlignedHead = head.forward;
+        planeAlignedHead.y = 0;
+        planeAlignedHead = planeAlignedHead.normalized;
+        position = head.position + planeAlignedHead + (Vector3.down * 0.6f);
         rotation = transform.rotation;
     }
 
     public DialogueMenu ShowDialogueMenu(Speaker speaker, List<string> options)
     {
         dialogueMenu.Display(speaker.ActorName.GetOrDefault(null), options);
-
-        // Position the menu facing the player and near the speaker
-        var speakerToPlayer = Vector3.Distance(speaker.transform.position, head.position);
-        Vector3 menuPos;
-        // But keep it on the same Y plane, assumes we're not on stairs
-        var speakerDirection = speaker.transform.position - head.position;
-        speakerDirection.y = 0;
-        speakerDirection = speakerDirection.normalized;
-        if (speakerToPlayer < PreferredDialogueDistance)
-        {
-            menuPos = Vector3.Lerp(speaker.transform.position, head.position, PreferredDialogueDistance);
-        }
-        else
-        {
-            menuPos = speaker.transform.position + (speakerDirection * PreferredDialogueDistance);
-        }
-        menuPos.y = head.position.y;
 
         // Face the player
         CalculateDialogueMenuPosition(speaker.transform, out var pos, out var rot);
