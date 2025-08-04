@@ -79,7 +79,27 @@
 \section{Introduction}
 
 Roman occupation of Britain and Hadrian's wall plays a key part in the history
-of the North-East.
+of Britain, particularly in the North-East of England. This seemed a natural
+area to create a game to both educate children on their history and introduce
+them to the world of virtual reality (VR). The decision to use VR over a
+traditional display (flatscreen) raises a number of unique challenges in
+managing motion sickness, safety due to spatial awareness, and the requirement
+to use motion controls instead of keyboard mappings to interact with the world.
+
+Artistic license was taken to ease development by giving more reference material
+as the ninth fort, despite not existing during Hadrian's rule, is the best
+documented and preserved of the forts.
+
+The VR ecosystem is highly fragmented, with multiple competing headsets and many
+more controllers, each featuring different inputs which adds challenge to
+creating input schemes compatible with different hardware, this area was deemed
+impractical to address as it would require bespoke testing for each type of
+controller.
+
+The author's prior experience with playing, but not developing, VR games gave a
+base level of knowledge in VR interactions such as picking up and using items,
+as well as in movement types, but also limited measurement of how intuitive
+these are for new users.
 
 % TODO: Introduction
 
@@ -102,14 +122,14 @@ and thus had fewer references to work from.
 In addition to the fort itself, a visit was made to the Roman exhibits at the
 Hancock Museum to gather reference material for the wall and the Roman soldiers.
 This included the armour shown in Figure \ref{fig:armour} and a milecastle that
-would be built every Roman mile (~1.5km) \cite[p.1027]{smith_new_1851} shown in
+would be built every Roman mile ($\sim{}1.5$km) \cite[p.1027]{smith_new_1851} shown in
 Figure \ref{fig:milecastle}. These gave inspiration from which their in-game
 depictions could be based on.
 
 \begin{figure}[h]
   \includegraphics[width=0.8\linewidth]{armour.jpg}
   \caption{\label{fig:armour} A replica of an auxiliary cavalryman's armour
-    (left), 2nd century AD. And a roman legionary's (right), late 1st
+    (left), 2nd century AD. And a Roman legionary's (right), late 1st
     century AD.
   Via Hancock Museum.}
   \Description{Models Roman auxiliary and legionary with shields and spears.}
@@ -328,6 +348,8 @@ for these systems to cause less motion sickness. This also introduced bias:
 while smooth rotation may be acceptable for some users, it was not considered
 here due to causing the developer significant disorientation.
 
+% TODO: Safety - inform user about SteamVR's room bounds system
+
 \subsection{Educational Value}
 Educational games are a subcategory of ``Serious Games'', which aim to use the
 medium of games to teach through entertainment, and have had positive results in
@@ -380,8 +402,8 @@ as it focuses on the use of VR systems such as the controllers VR rather than in
 
 Afterwards, players can practice archery with a diegetic teacher. This section assumes
 users are already familiar with basic interaction and thus uses terms that maintain
-immersion, for example, instructing to "pick up an arrow from the quiver on your back" rather than
-"grab your controller behind your back to take an arrow". This teaches more complex interactions
+immersion, for example, instructing to ``pick up an arrow from the quiver on your back'' rather than
+``grab your controller behind your back to take an arrow''. This teaches more complex interactions
 as using a bow requires the multi-step process of taking an arrow, nocking it, drawing the string,
 aiming, and releasing. As with to the basic tutorial, a motion-captured NPC is shown using a bow to
 demonstrate this motion.
