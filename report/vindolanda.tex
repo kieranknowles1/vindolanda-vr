@@ -64,7 +64,7 @@
 \ccsdesc[100]{Software and its engineering~Designing software}
 
 % TODO: Keywords
-\keywords{Virtual reality, History, Education}
+\keywords{Virtual reality, History, Education, Serious games}
 
 \begin{teaserfigure}
   \includegraphics[width=\textwidth]{teaser.png}
@@ -77,6 +77,10 @@
 \maketitle
 
 \section{Introduction}
+
+Roman occupation of Britain and Hadrian's wall plays a key part in the history
+of the North-East.
+
 % TODO: Introduction
 
 \section{Background \& Related Work}
@@ -86,17 +90,14 @@
 % TODO: Historical Research}
 
 \subsubsection{Site Visits}
-% TODO: Site Visits}
 
 \paragraph{Vindolanda}
-% TODO: Vindolanda visit}
 A visit to the Vindolanda Museum was made in order to gather reference
 material. This gave valuable insight into the layout of the fort and its
 composition. Due to time and weather constraints, Castle Nick and Hadrian's Wall were not visited
 and thus had fewer references to work from.
 
 \paragraph{Hancock Museum}
-% TODO: Hancock Museum visit}
 
 In addition to the fort itself, a visit was made to the Roman exhibits at the
 Hancock Museum to gather reference material for the wall and the Roman soldiers.
@@ -123,7 +124,12 @@ depictions could be based on.
 \end{figure}
 
 \subsubsection{Literature}
-% TODO: Literature}
+
+The books ``The wall: Rome's greatest frontier'' \cite{moffat_wall_2009} and
+``Hadrian's empire: when Rome ruled the world'' \cite{danziger_hadrians_2006}
+gave valuable insight into the daily lives of both Romans and Briton's during
+Hadrian's rule which was used as a high-level overview of the subject and avenue
+for future research.
 
 \subsection{Technical Research}
 
@@ -140,7 +146,7 @@ and drawbacks as shown in Table \ref{table:engine_compare}
 
     Language & C\# & Blueprints, C++ & GDScript, C++, C\#, etc. \\
     VR Support & De facto standard & Performance concerns & Yes \\
-    Recent Games & $745 (70\%)$ & $351 (30\%)$ & $8 (<1\%)$ \\
+    Recent VR Games & $745 (70\%)$ & $351 (30\%)$ & $8 (<1\%)$ \\
     Version Control & Git, text & Perforce, binary & Git, text \\
     Linux Support & Yes & Editor unreliable & Yes \\
 
@@ -488,10 +494,14 @@ Despite being the de facto standard for VR, Unity's implementation of it and
 other areas left plenty to be desired and technical debt. For example, its
 behaviour graph system requires distinct and incompatible events compared to the
 rest of the engine which in turn required wrappers to adapt between. This
-introduced extra complexity and reduced overall code quality.
+introduced extra complexity and reduced overall code quality. Additionally, the
+incompatibility between its URP and HDRP pipelines required manual conversion of
+assets designed for one to work with the other.
 
 Considering these limitations, the game may have benefited from instead using
-Godot, the second engine considered.
+Godot, the second engine considered, as its asset library already includes
+needed systems such as quests, dialogue, and more flexible behaviour trees that
+could be used outside of AI.
 
 \subsection{The Bugs}
 
@@ -508,6 +518,9 @@ the appearance of it running away from the camera.
     \url{https://www.youtube.com/watch?v=W9Mfbanlegs}}
   \Description{A screenshot depicting the player model leaving the camera behind.}
 \end{figure}
+
+\subsection{Performance}
+% TODO: Benchmark and discuss results
 
 \section{Conclusion \& Future Work}
 % TODO: Conclusion and future work
