@@ -444,23 +444,23 @@ non-functional requirements for the game.
 
 \subsubsection{Functional requirements}
 
-\paragraph{FR01 Recreate Vindolanda}
+\paragraph{\label{sec:fr_recreate}FR01 Recreate Vindolanda}
 The game \textbf{must} include a recreation of Vindolanda during Hadrian's
 rule. This was the primary goal of the proposal.
 
-\paragraph{FR02 Recreate Hadrian's Wall}
+\paragraph{\label{sec:fr_wall}FR02 Recreate Hadrian's Wall}
 The game \textbf{should} include a recreation of Hadrian's wall during Hadrian's
 rule. This can take the form of a milecastle.
 
-\paragraph{FR03 Before and After}
-The game \textbf{should} provide past and present representation of locations
+\paragraph{\label{sec:fr_beforeafter}FR03 Before and After}
+The game \textbf{could} provide past and present representation of locations
 with the option to switch between them.
 
-\paragraph{FR04 Teleport Locomotion}
+\paragraph{\label{sec:fr_teleport}FR04 Teleport Locomotion}
 The game \textbf{must} include teleport-based locomotion. This is the most
 accessible form of movement for new users.
 
-\paragraph{FR05 Smooth Locomotion}
+\paragraph{\label{sec:fr_smooth}FR05 Smooth Locomotion}
 The game \textbf{should} include smooth locomotion. This is a nice to have for
 users more experienced in VR.
 
@@ -492,18 +492,18 @@ characters in conjunction with \hyperref[sec:fr_lefty]{FR08}
 The game \textbf{must} maintain 90FPS during typical gameplay. This is essential
 to avoid causing motion sickness.
 
-\paragraph{NFR02 Linux Support}
+\paragraph{\label{sec:nfr_linux}NFR02 Linux Support}
 The game \textbf{could} include native Linux support. This is a nice to have as
 Proton is good enough for most games and getting SteamVR to work on Linux can be
 difficult.
 
-\paragraph{NFR03 Text Legibility}
+\paragraph{\label{sec:nfr_text}NFR03 Text Legibility}
 Text \textbf{must} be displayed using a clear, easily readable font with high
 contrast and a size of at least 25mm per metre of viewing distance to ensure
 comfortable reading on the widest range of headsets, as discussed in Section
 \ref{sec:text_scale}.
 
-\paragraph{NFR04 Subtitles}
+\paragraph{\label{sec:nfr_subtitle}NFR04 Subtitles}
 All dialogue \textbf{must} provide subtitles for the player to enhance accessibility.
 These \textbf{could} be toggleable for the end-user, but should be enabled by default
 and opt-out for players who do not want them.
@@ -524,6 +524,48 @@ Considering these limitations, the game may have benefited from instead using
 Godot, the second engine considered, as its asset library already includes
 needed systems such as quests, dialogue, and more flexible behaviour trees that
 could be used outside of AI.
+
+\subsection{Implementation of Requirements}
+% TODO: Success of requirements
+\subsubsection{Functional Requirements}
+
+\newcommand{\refreq}[2]{\paragraph[#2]{\hyperlink{#1}{#2}}}
+
+\refreq{sec:fr_recreate}{FR01}
+\textbf{Mostly} achieved. The depiction of the fort includes most buildings, but
+leaves out some in order to save on development time.
+
+\refreq{sec:fr_wall}{FR02}
+\textbf{Fully} achieved, although the depiction of the milecastle is fairly
+basic and is much less content-dense than the rest of the fort.
+
+\refreq{sec:fr_beforeafter}{FR03}
+
+\refreq{sec:fr_teleport}{FR04}
+
+\refreq{sec:fr_smooth}{FR05}
+
+\refreq{sec:fr_tutorial}{FR06}
+
+\refreq{sec:fr_save}{FR07}
+\textbf{Fully} achieved. The player is able to save and load at any time, which
+preserves the state of the world and NPCs.
+
+\refreq{sec:fr_lefty}{FR08}
+
+\refreq{sec:fr_mocap}{FR09}
+\textbf{Fully} achieved. Motion capture is used in the tutorial to demonstrate
+picking up items and to demonstrate archery.
+
+\subsubsection{Non-Functional Requirements}
+
+\refreq{sec:nfr_performance}{NFR01}
+
+\refreq{sec:nfr_linux}{NFR02}
+
+\refreq{sec:nfr_text}{NFR03}
+
+\refreq{sec:nfr_subtitle}{NFR04}
 
 \subsection{The Bugs}
 
