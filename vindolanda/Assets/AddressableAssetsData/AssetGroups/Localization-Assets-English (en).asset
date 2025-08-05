@@ -27,6 +27,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 082d400294192b24280d78a7307e9431
+    m_Address: DeliverDeny
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 088f3f6ecf648ff4e8b6706fadfe3da8
     m_Address: DialTourPub0
     m_ReadOnly: 1
@@ -83,6 +89,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 37b44975e0992194f99f3435d15355bc
     m_Address: DialTourDenyFollow
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3b4f78b818803d7499e319f80af10423
+    m_Address: DeliverDelivered
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en
@@ -159,6 +171,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5bb98be4ec0887f47ae08bb6d3b9f4e9
+    m_Address: DeliverAccept
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 665f3806be1deea42b3dad23ece797eb
     m_Address: IntroLine3
     m_ReadOnly: 1
@@ -197,6 +215,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 7420569a1bb16ad42b182db9bbf89b75
     m_Address: HitFriendly3
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 767585ff299c280498e0b0158efe3b5d
+    m_Address: PubGetDrinkDeliver
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en
@@ -261,6 +285,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Locale-en
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ab63deeaa20dd31459f48d43aee5a49b
+    m_Address: PubGetDrinkAsk
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b6e3b9b80b10b094791466a1b1ed4269
+    m_Address: DeliverAsk
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b85eff680163952479f14010a5e42678
     m_Address: DialTourMilecastle1
     m_ReadOnly: 1
@@ -293,6 +329,12 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: cfa096542be8f0f48824ebe1e9ba2d88
     m_Address: DialTourHeadquarters2
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cfb71aba85d9f7047a8ac261a0217ab1
+    m_Address: PubGetDrinkOk
     m_ReadOnly: 1
     m_SerializedLabels:
     - Locale-en
