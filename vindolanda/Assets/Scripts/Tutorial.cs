@@ -10,6 +10,7 @@ public class Tutorial : MonoBehaviour, ISpeechListener
     bool active = false;
     public bool PlayerCanSpeakTo(PlayerController _) => active;
     public bool ForceSpeak => true;
+    public float SpeechPriority => float.PositiveInfinity;
 
     public void Speak(PlayerController player)
     {

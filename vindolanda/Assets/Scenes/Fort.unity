@@ -12474,6 +12474,10 @@ PrefabInstance:
       propertyPath: speakEvent
       value: 
       objectReference: {fileID: 11400000, guid: 16399ed39ed91184ca5eec28b4c20a38, type: 2}
+    - target: {fileID: 7582328036716764679, guid: 08abba29a0549d84ab9ed0d181fa3a47, type: 3}
+      propertyPath: speechPriority
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

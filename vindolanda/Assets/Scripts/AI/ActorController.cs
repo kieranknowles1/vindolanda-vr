@@ -43,6 +43,8 @@ public class ActorController : Saveable, IHitTarget, ISpeechListener
     public bool PlayerCanSpeakTo(PlayerController player) => (speakEvent || speakGraph) && player.transform.GetDistance(transform) < 10.0f;
     public bool ForceSpeak => false;
     public float MaxSpeechDistance => 10.0f;
+    [SerializeField] float speechPriority = 1.0f;
+    public float SpeechPriority => speechPriority;
 
     BehaviorGraph defaultGraph;
     BehaviorGraph overrideGraph;

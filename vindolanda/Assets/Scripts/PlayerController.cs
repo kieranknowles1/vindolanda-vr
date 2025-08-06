@@ -23,6 +23,12 @@ public interface ISpeechListener
     [SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "Unity builtin")]
     Transform transform { get; }
 
+    /// <summary>
+    /// Priority multiplier for speech. Higher means this actor will take precedence over a closer one
+    /// Acts as a divisor for distance calculations. Can be infinite
+    /// </summary>
+    float SpeechPriority { get; }
+
     void Speak(PlayerController player);
 }
 
@@ -169,8 +175,8 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
-                var bestDistance = Vector3.Distance(transform.position, best.transform.position);
-                var thisDistance = Vector3.Distance(transform.position, target.transform.position);
+                var bestDistance = Vector3.Distance(transform.position, best.transform.position) / best.SpeechPriority;
+                var thisDistance = Vector3.Distance(transform.position, target.transform.position) / target.SpeechPriority;
                 if (thisDistance < bestDistance)
                 {
                     best = target;
