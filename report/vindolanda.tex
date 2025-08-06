@@ -77,11 +77,11 @@
 
 \section*{Links}
 % TODO: Links
-\noindent YouTube:
+\noindent YouTube: \url{https://youtu.be/CaM-xLr3iG0}
 
 \noindent GitHub: \url{https://github.com/kieranknowles1/vindolanda-vr/}
 
-\noindent itch.io:
+\noindent itch.io: \url{https://kieranknowles.itch.io/vindolanda-vr}
 
 \section{Introduction}
 
@@ -446,6 +446,12 @@ kinematics positioned the elbow in front of the face rather than behind it as sh
   appearing in front of their face rather than behind it.}
 \end{figure}
 
+One area of motion capture that is not possible with VR alone is facial animation
+such as expressions and lip sync. While professional solutions such as FaceFX are
+able to produce lip sync from audio alone, they are prohibitavly expensive for
+this project. Instead, a simplistic animation of characters moving their mouth
+is used with no attempt made at synchronising with speech.
+
 \subsection{Mechanics}
 % TODO: Mechanics
 
@@ -504,8 +510,8 @@ characters in conjunction with \hyperref[sec:fr_lefty]{FR08}
 \subsubsection{Non-functional requirements}
 
 \paragraph{\label{sec:nfr_performance}NFR01 Performance}
-The game \textbf{must} maintain 90FPS during typical gameplay. This is essential
-to avoid causing motion sickness.
+The game \textbf{must} maintain $90FPS$ during typical gameplay, giving a frame
+budget of $11.1ms$. This is essential to avoid causing motion sickness.
 
 \paragraph{\label{sec:nfr_linux}NFR02 Linux Support}
 The game \textbf{could} include native Linux support. This is a nice to have as
@@ -585,8 +591,11 @@ can be used to perform any action.
 picking up items and to demonstrate archery.
 
 \subsubsection{Non-Functional Requirements}
-% TODO: Success of requirements
+
 \refreq{sec:nfr_performance}{NFR01}
+\textbf{Fully} achieved. Frame times remain close to the $11.1ms$ budget required
+for the $90FPS$ while running with $400\%$ resolution scaling. This suggests that
+performance will be sufficient on lower-end hardware.
 
 \refreq{sec:nfr_linux}{NFR02}
 \textbf{Not} achieved. While Unity can be compiled for Linux, this could not be
