@@ -2005,6 +2005,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50393429a3c31544dae9040c96ca6a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  opts: {fileID: 11400000, guid: 91a5ed89fa299c044b243bd3b26b53a6, type: 2}
   reference: {fileID: 7638652003705628793}
   joints:
   - joint: 3
@@ -2080,6 +2081,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50393429a3c31544dae9040c96ca6a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  opts: {fileID: 11400000, guid: 91a5ed89fa299c044b243bd3b26b53a6, type: 2}
   reference: {fileID: 1051652549416077334}
   joints:
   - joint: 3
