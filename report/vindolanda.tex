@@ -10,6 +10,7 @@
 %TC:envir comment 0 0
 \documentclass[sigconf,authordraft]{acmart}
 
+\usepackage{svg}
 \usepackage{listings}
 \lstset{
   basicstyle=\ttfamily\small
@@ -76,7 +77,6 @@
 \maketitle
 
 \section*{Links}
-% TODO: Links
 \noindent YouTube: \url{https://youtu.be/CaM-xLr3iG0}
 
 \noindent GitHub: \url{https://github.com/kieranknowles1/vindolanda-vr/}
@@ -235,7 +235,7 @@ which is impractical due to their high cost. Therefore, only the Valve Index
 controllers are fully supported with Unity and SteamVR's remapping used to
 handle other controller types.
 
-\subsubsection{\label{sec:vr_refs}Reference Material}
+\subsubsection{\label{sec:vr_refs}VR In Other Games}
 % TODO: Which other games were referenced as inspiration?}
 
 Implementations of VR in other games, especially with how they handle
@@ -258,11 +258,21 @@ primary methods were identified that would be practical here:
 
 Given the variety of preferences among users, locomotion types should be
 configurable such that allow each user may select what they are most comfortable
-with, as well as to add vignette based on their needs. While some games include
+with, as well as to add vignette based on their needs. A sketch of the locomotion
+settings UI is showin in Figure \ref{fig:locomotion_settings}. While some games include
 more advanced movement such as climbing or jumping, these were not deemed
 necessary here.
 
-% TODO: Figure on UI sketch
+\begin{figure}
+  \includesvg[width=\linewidth]{locomotion-ui-sketch.svg}
+  \caption{\label{fig:locomotion_settings}Sketch for the locomotion settings UI.}
+  \Description{
+    An interface sketch showing options to move via teleporting or smootly,
+    with a vignette slider that is only enabled when using smooth movement and
+    a warning that it may cause motion sickness.
+  }
+\end{figure}
+
 % TODO: VR inspiration. Mostly in how certain mechanics are implemented}
 
 % TODO: Handling VR: Locomotion}
