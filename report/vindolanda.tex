@@ -330,10 +330,23 @@ accuracy. An overhead map of the fort is shown in Figure \ref{fig:osm_map}.
 
 \subsubsection{The Wall}
 
-In addition to the fort, it was also decided to represent Hadrian's wall through
+In addition to the fort, Hadrian's wall through
 milecastle 39, frequently referred to as ``Castle Nick'' although it is unclear
-where this nickname originated, situated just over a kilometre north-north-west
-where the famous Sycamore Gap tree once stood.
+where this nickname originated. This site is also notable as being where the famous
+Sycamore Gap tree once stood.
+
+Milecastle 39 is situated approximately 1.5 kilometres north-north-west of the fort,
+making it impractical to have users manually walk this distance in VR. Instead,
+both Vindolanda and Castle Nick feature triggers, shown in Figure \ref{fig:teleport_trigger}
+that directly teleport users between the sites to save them from making the trip themselves.
+
+\begin{figure}
+  \includegraphics[width=\linewidth]{teleport-trigger.png}
+  \caption{\label{fig:teleport_trigger}A trigger that teleports the user to a linked
+  destination when entered.}
+  \Description{A cubic green bounding box wireframe representing the trigger area
+  with the floating text ``To Vindolanda'' inside it.}
+\end{figure}
 
 \subsection{VR Considerations}
 Virtual reality introduces a unique set of challenges to game development. One
@@ -466,14 +479,23 @@ kinematics positioned the elbow in front of the face rather than behind it as sh
   appearing in front of their face rather than behind it.}
 \end{figure}
 
+\subsection{Mechanics}
+% TODO: Mechanics
+
+\subsubsection{Footsteps}
+% TODO: Footstep sounds - explain how a script listens to animation events and uses a MaterialData system to determine which step of sounds to play.
+
+\subsubsection{Dialogue}
+% TODO: Audio - explain why TTS was used
+% Archery - Using vertex animations to allow for the body to bend, more realistic
+% than most depictions. The quiver is in fact a trigger that spawns an arrow when
+% grabbed, and a nocked arrow is part of the bow rather than attached to the hand.
+
 One area of motion capture that is not possible with VR alone is facial animation
 such as expressions and lip sync. While professional solutions such as FaceFX are
 able to produce lip sync from audio alone, they are prohibitavly expensive for
 this project. Instead, a simplistic animation of characters moving their mouth
 is used with no attempt made at synchronising with speech.
-
-\subsection{Mechanics}
-% TODO: Mechanics
 
 \subsubsection{Archery}
 % TODO: Archery, explain how the "quiver" is actually a trigger that spawns an arrow
