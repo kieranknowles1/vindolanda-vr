@@ -530,8 +530,12 @@ characters in conjunction with \hyperref[sec:fr_lefty]{FR08}
 \subsubsection{Non-functional requirements}
 
 \paragraph{\label{sec:nfr_performance}NFR01 Performance}
-The game \textbf{must} maintain $90FPS$ during typical gameplay, giving a frame
-budget of $11.1ms$. This is essential to avoid causing motion sickness.
+The game \textbf{must} maintain a minimum of $45FPS$, $22.2ms$ per frame, at all
+times, including during heavy load, to avoid motion sickness.
+
+The game \textbf{should} target $90FPS$, $11.1ms$ per frame, during typical
+gameplay to match the HTC Vive's native refresh rate without the need for
+reprojection.
 
 \paragraph{\label{sec:nfr_linux}NFR02 Linux Support}
 The game \textbf{could} include native Linux support. This is a nice to have as
@@ -566,6 +570,8 @@ Godot, the second engine considered, as its asset library already includes
 needed systems such as quests, dialogue, and more flexible behaviour trees that
 could be used outside of AI.
 
+% TODO: Remove this section and expand to describe in detail instead, focusing
+% on challenges
 \subsection{Implementation of Requirements}
 \subsubsection{Functional Requirements}
 
@@ -612,11 +618,6 @@ picking up items and to demonstrate archery.
 
 \subsubsection{Non-Functional Requirements}
 
-\refreq{sec:nfr_performance}{NFR01}
-\textbf{Fully} achieved. Frame times remain close to the $11.1ms$ budget required
-for the $90FPS$ while running with $400\%$ resolution scaling. This suggests that
-performance will be sufficient on lower-end hardware.
-
 \refreq{sec:nfr_linux}{NFR02}
 \textbf{Not} achieved. While Unity can be compiled for Linux, this could not be
 tested due to difficulties running SteamVR on the platform.
@@ -647,6 +648,45 @@ the appearance of it running away from the camera.
 \end{figure}
 
 \subsection{Performance}
+
+Benchmarking performance for \hyperref[sec:nfr_performance]{NFR01} on desktop PCs
+is inherently challenging due to the wide variety of user hardware compared to consoles
+and handhelds, such as the PSVR and Meta Quest, which have a limited set of configurations.
+Benchmarks were conducted on the developer's system equipped with a high-end GeForce RTX 3070
+graphics card.
+
+To approximate performance on lower-end GPUs, these benchmarks were run with a
+resolution scaling factor of 400\% (four times as many pixels as normal),
+significantly increasing GPU load. It should be noted that resolution scaling
+is expected to have minimal CPU impact, and thus will not detect any CPU-bound
+issues.
+
+SteamVR's built-in performance graph, shown in Figure \ref{fig:vr_profile} and
+the demo video (\url{https://youtu.be/CaM-xLr3iG0}) was used to display frame
+times during gameplay. This data can be recorded for later review and correlated
+with gameplay to identify areas with performance issues. It should be noted however,
+that recording video adds a non-negligible GPU overhead that could affect results
+in GPU-bound scenarios, a condition that appears to apply for most of the game.
+
+Unexpectedly, the area with the highest frame times was Hadrian's Wall and Castle Nick
+where frame times reached up to $21ms$, despite this region seemingly having
+significantly less visible geometry than the fort. Further investigation suggested
+two contributing factors. First, although the fort was fully culled by Unity's
+occlusion system, it still incurred some overhead, though profiling proved inconclusive.
+Second, the grass, used much more extensively around the wall, caused substantial
+overdraw, straining VRAM bandwidth with a potentially exaggerated impact due to the 
+aforementioned 400\% resolution scaling.
+
+\begin{figure}
+  \includegraphics{vr-profile.png}
+  \caption{
+    \label{fig:vr_profile}SteamVR's performance profiler showing frame times
+    over the past 2 seconds.}
+  \Description{
+    A screenshot of SteamVR's performance profiler showing an average
+    frame time of 9ms and most frames completed below the 11ms target.}
+\end{figure}
+
 % TODO: Benchmark and discuss results
 
 \section{Conclusion \& Future Work}
