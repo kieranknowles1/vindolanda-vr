@@ -133,7 +133,7 @@ would be built every Roman mile ($\sim{}1.5$km) \cite[p.1027]{smith_new_1851} sh
 Figure \ref{fig:milecastle}. These gave inspiration from which their in-game
 depictions could be based on.
 
-\begin{figure}[h]
+\begin{figure}
   \includegraphics[width=0.8\linewidth]{armour.jpg}
   \caption{\label{fig:armour} A replica of an auxiliary cavalryman's armour
     (left), 2nd century AD. And a Roman legionary's (right), late 1st
@@ -142,7 +142,7 @@ depictions could be based on.
   \Description{Models Roman auxiliary and legionary with shields and spears.}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}
   \includegraphics[width=0.8\linewidth]{milecastle.jpg}
   \caption{\label{fig:milecastle}A model of a milecastle from Hadrian's Wall.
   Via Hancock Museum}
@@ -201,7 +201,7 @@ will not be detected as shown in Figure \ref{fig:godot_false_negative}. Despite
 these limitations, this methodology was considered good enough to get a
 high-level overview.
 
-\begin{figure}[h]
+\begin{figure}
   \begin{lstlisting}
     $ ./kicksalot --help
     Godot Engine v4.4 - https://godotengine.org
@@ -289,7 +289,7 @@ game during Emperor Hadrian's visit in 122 AD.
 This setting gives the opportunity to teach about the rule of Hadrian himself
 and the history leading to the construction of Hadrian's Wall, as well as other
 events such as the disappearance/defeat of the ninth legion circa 120 AD.
-\cite{rocha_romes_2021}, \cite{hodgson_end_2021}
+\cite{rocha_romes_2021, hodgson_end_2021}
 
 The DEM.Net elevation API was used to produce a height map of the fort and
 surrounding area including satellite imagery. While the resolution was too low
@@ -314,9 +314,9 @@ fort and as much as a third would have been unfit for service, likely due to
 poor hygiene, as documented in a strength report from circa AD 90.
 \cite{bowman_military_1991}
 
-\begin{figure}[h]
+\begin{figure}
   \includegraphics[width=\linewidth]{osm-vindolandra.png}
-  \caption{Map of Vindolanda. Via OpenStreetMap [ODbL License]}
+  \caption{\label{fig:osm_map}Map of Vindolanda. Via OpenStreetMap [ODbL License]}
   \Description{A map of the Vindolanda excavations showing the layout of the
   ninth fort}
 \end{figure}
@@ -326,7 +326,7 @@ a nearly a century after Hadrian's reign and the setting of this game, it is the
 best documented. As such, it and the adjacent town was chosen as the basis for
 this depiction, with stone materials being replaced with the more
 period-appropriate wood to compromise between ease of development and historical
-accuracy.
+accuracy. An overhead map of the fort is shown in Figure \ref{fig:osm_map}.
 
 \subsubsection{The Wall}
 
@@ -359,13 +359,23 @@ other games, \hyperref[sec:fr_save]{FR07} was derived to allow for users to take
 breaks as required, which they are instructed to do often and to take things
 slow to reduce sickness.
 
+Finally, there is the safety aspect to consider, namely real world boundaries and
+obstacles which users may lose awareness of while in VR. Existing boundary systems
+which overlay a grid when players get too close to an obstacle, remain the industry
+standard and are provided automatically by platforms such as Valve's SteamVR.
+\cite{valve_software_steam_nodate} and Meta's Quest \cite{meta_set_nodate}. While
+these are less immersive \cite{george_invisible_2020, sanchez-vives_presence_2005}
+and increase cognitive load \cite{wickens_multiple_2008} they remain effective
+enough to allow safe usage of VR even in fairly small spaces. The tutorial will
+be designed to inform users of this to account for players who have not used
+their platform's native tutorials.
+
 Testing was complicated by the developer's prior experience which caused
 movement options and interactions to appear more intuitive than they may be and
 for these systems to cause less motion sickness. This also introduced bias:
 while smooth rotation may be acceptable for some users, it was not considered
 here due to causing the developer significant disorientation.
 
-% TODO: Safety - inform user about SteamVR's room bounds system
 
 \subsection{Educational Value}
 Educational games are a subcategory of ``Serious Games'', which aim to use the
@@ -449,7 +459,7 @@ sacrifices precision, making it less effective than a professional system. \cite
 This is especially visible in motions such as pulling a hand to the chin to draw a bow, where inverse
 kinematics positioned the elbow in front of the face rather than behind it as shown in Figure \ref{fig:hand_wrong}
 
-\begin{figure}[h]
+\begin{figure}
   \includegraphics[width=0.5\linewidth]{mocap-hand-wrong.png}
   \caption{\label{fig:hand_wrong}An incorrectly positioned elbow from motion capture.}
   \Description{A screenshot showing a soldier using a bow with their draw arm's elbow
@@ -628,7 +638,7 @@ Figure \ref{fig:oops_camera}. The player's animator initially had root motion en
 move relative to the camera when walking, which was magnified when turning giving
 the appearance of it running away from the camera.
 
-\begin{figure}[h]
+\begin{figure}
   \includegraphics[width=0.5\linewidth]{out-of-body.png}
   \caption{
     \label{fig:oops_camera}The player model running away from the camera.
