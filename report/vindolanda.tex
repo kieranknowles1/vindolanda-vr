@@ -477,7 +477,21 @@ as using a bow requires the multi-step process of taking an arrow, nocking it, d
 aiming, and releasing. As with to the basic tutorial, a motion-captured NPC is shown using a bow to
 demonstrate this motion.
 
-\subsection{Motion Capture}
+\subsection{Inverse Kinematics and Motion Capture}
+
+To enhance immersion, the player's head, hand, and finger movements are mapped
+onto a virtual body using Unity's inverse kinematics (IK) and VR finger tracking.
+While controller positions could be directly mapped into IK, finger tracking required
+manually adjusting finger bones between rigging and skinning to replace their
+animation-driven positions with controller-derived ones.
+
+Unity's hand tracking uses a different and incompatible skeleton to humanoid animations which
+required a set of fine-tuned transformations to convert between. These were defined
+as part of a scriptable object rather than hard-coded allowing they could be tweaked
+at runtime for quicker iteration; this was essential as even a milimeter of error could be
+noticeable by users as deformation in their hand meshes.
+
+% TODO: Figure on hand tracking, including error state
 
 Motion capture is heavily used in the film and games industries to cheaply produce
 realistic animations. While this traditionally requires expensive equipment to produce, including
@@ -486,11 +500,11 @@ this as it provides three highly accurate tracking points: the player's head and
 The Index controllers used by the developer additionally track individual finger states that
 further enhance precision.
 
-When combined with inverse kinematics, which was already implemented to position the player's body,
+When combined with IK, which was already implemented to position the player's body,
 this results in a rudimentary yet reasonably effective motion capture system, though as expected it
 sacrifices precision, making it less effective than a professional system. \cite{vox_evaluation_2021}
-This is especially visible in motions such as pulling a hand to the chin to draw a bow, where inverse
-kinematics positioned the elbow in front of the face rather than behind it as shown in Figure~\ref{fig:hand_wrong}
+This is especially visible in motions such as pulling a hand to the chin to draw a bow, where IK
+positioned the elbow in front of the face rather than behind it as shown in Figure~\ref{fig:hand_wrong}
 
 \begin{figure}
   \includegraphics[width=0.5\linewidth]{mocap-hand-wrong.png}
@@ -508,11 +522,11 @@ kinematics positioned the elbow in front of the face rather than behind it as sh
 \subsubsection{Dialogue}
 % TODO: Audio - explain why TTS was used
 
-One area of motion capture that is not possible with VR alone is facial animation
-such as expressions and lip sync. While professional solutions such as FaceFX are
-able to produce lip sync from audio alone, they are prohibitavly expensive for
-this project. Instead, a simplistic animation of characters moving their mouth
-is used with no attempt made at synchronising with speech.
+While VR motion capture was used for body animations, it is unable to help with
+facial animation such as expressions and lip sync. While professional solutions
+such as FaceFX are able to produce this from audio alone, they are prohibitavly
+expensive for this project. Instead, a simplistic animation of characters moving
+their mouth is used with no attempt made at synchronising with speech.
 
 \subsubsection{Archery}
 % TODO: Archery, explain how the "quiver" is actually a trigger that spawns an arrow
@@ -646,20 +660,11 @@ preserves the state of the world and NPCs.
 \textbf{Fully} achieved. Interactions are mirrored such that either controller
 can be used to perform any action.
 
-\refreq{sec:fr_mocap}{FR09}
-\textbf{Fully} achieved. Motion capture is used in the tutorial to demonstrate
-picking up items and to demonstrate archery.
-
 \subsubsection{Non-Functional Requirements}
 
 \refreq{sec:nfr_linux}{NFR02}
 \textbf{Not} achieved. While Unity can be compiled for Linux, this could not be
 tested due to difficulties running SteamVR on the platform.
-
-\refreq{sec:nfr_text}{NFR03}
-\textbf{Fully} achieved. Text is displayed using large font sizes, which
-includes using popups to increase available space on small objects such as
-writing tablets.
 
 \refreq{sec:nfr_subtitle}{NFR04}
 \textbf{Fully} achieved. All dialogue includes subtitles which can be disabled
