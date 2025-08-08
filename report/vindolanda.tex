@@ -63,7 +63,6 @@
 \ccsdesc[500]{Applied computing~Computer games}
 \ccsdesc[100]{Software and its engineering~Designing software}
 
-% TODO: Keywords
 \keywords{Virtual reality, History, Education, Serious games}
 
 \begin{teaserfigure}
@@ -259,9 +258,11 @@ primary methods were identified that would be practical here:
 Given the variety of preferences among users, locomotion types should be
 configurable such that allow each user may select what they are most comfortable
 with, as well as to add vignette based on their needs. A sketch of the locomotion
-settings UI is showin in Figure~\ref{fig:locomotion_settings}. While some games include
+settings UI is shown in Figure~\ref{fig:locomotion_settings}. While some games include
 more advanced movement such as climbing or jumping, these were not deemed
-necessary here.
+necessary here. Both smooth movement and teleportation are supported by Unity's VR
+system, and therefore were trivial to implement as specified in \hyperref[sec:fr_teleport]{FR04}
+and \hyperref[sec:fr_smooth]{FR05}.
 
 \begin{figure}[ht]
   \includesvg[width=\linewidth]{locomotion-ui-sketch.svg}
@@ -487,6 +488,18 @@ While controller positions could be directly mapped into IK, finger tracking req
 manually adjusting finger bones between rigging and skinning to replace their
 animation-driven positions with controller-derived ones.
 
+Initially, the player's animator had root motion enabled, causing it to move independently
+of the camera - giving it the appearance of running away. Disabling root motion
+solved this issue, shown in Figure~\ref{fig:oops_camera}.
+
+\begin{figure}[ht]
+  \includegraphics[width=0.5\linewidth]{out-of-body.png}
+  \caption{
+    \label{fig:oops_camera}The player model running away from the camera.
+    \url{https://www.youtube.com/watch?v=W9Mfbanlegs}}
+  \Description{A screenshot depicting the player model leaving the camera behind.}
+\end{figure}
+
 Unity's hand tracking uses a different and incompatible skeleton to humanoid animations which
 required a set of fine-tuned transformations to convert between. These were defined
 as part of a scriptable object rather than hard-coded allowing they could be tweaked
@@ -673,17 +686,6 @@ could be used outside of AI.
 \textbf{Fully} achieved. There are several photos of the ruins of the fort
 showing its ruins in the present day.
 
-\refreq{sec:fr_teleport}{FR04}
-\textbf{Fully} achieved. Players are able to move around the fort using
-teleportation, although most testing was performed using smooth movement
-(\hyperref[sec:fr_smooth]{FR05}).
-
-\refreq{sec:fr_smooth}{FR05}
-\textbf{Fully} achieved. Players can move smoothly using the controller's
-joystick and either the controller or head direction used as a forward vector.
-This is limited to walking, there is no implementation of climbing or jumping
-for the reasons discussed in Section \ref{sec:vr_refs}.
-
 \refreq{sec:fr_tutorial}{FR06}
 \textbf{Fully} achieved. A tutorial can be started from the menu at any time
 which teaches movement, interaction, and menu usage.
@@ -701,22 +703,6 @@ can be used to perform any action.
 \refreq{sec:nfr_linux}{NFR02}
 \textbf{Not} achieved. While Unity can be compiled for Linux, this could not be
 tested due to difficulties running SteamVR on the platform.
-
-\subsection{The Bugs}
-
-No good game development is complete without a few bugs, featured here.
-
-Figure~\ref{fig:oops_camera}. The player's animator initially had root motion enabled, this caused it to
-move relative to the camera when walking, which was magnified when turning giving
-the appearance of it running away from the camera.
-
-\begin{figure}[ht]
-  \includegraphics[width=0.5\linewidth]{out-of-body.png}
-  \caption{
-    \label{fig:oops_camera}The player model running away from the camera.
-    \url{https://www.youtube.com/watch?v=W9Mfbanlegs}}
-  \Description{A screenshot depicting the player model leaving the camera behind.}
-\end{figure}
 
 \subsection{Performance}
 
