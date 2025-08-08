@@ -128,9 +128,9 @@ and thus had fewer references to work from.
 
 In addition to the fort itself, a visit was made to the Roman exhibits at the
 Hancock Museum to gather reference material for the wall and the Roman soldiers.
-This included the armour shown in Figure \ref{fig:armour} and a milecastle that
+This included the armour shown in Figure~\ref{fig:armour} and a milecastle that
 would be built every Roman mile ($\sim{}1.5$km) \cite[p.1027]{smith_new_1851} shown in
-Figure \ref{fig:milecastle}. These gave inspiration from which their in-game
+Figure~\ref{fig:milecastle}. These gave inspiration from which their in-game
 depictions could be based on.
 
 \begin{figure}
@@ -197,7 +197,7 @@ This methodology has its limitations: by only using SteamDB as a source,
 selection bias is introduced as non-steam releases such as itch.io and the Meta
 Store are excluded. Additionally, SteamDB's engine detection can produce false
 negatives, for example, Godot games can be packaged as a single executable which
-will not be detected as shown in Figure \ref{fig:godot_false_negative}. Despite
+will not be detected as shown in Figure~\ref{fig:godot_false_negative}. Despite
 these limitations, this methodology was considered good enough to get a
 high-level overview.
 
@@ -259,7 +259,7 @@ primary methods were identified that would be practical here:
 Given the variety of preferences among users, locomotion types should be
 configurable such that allow each user may select what they are most comfortable
 with, as well as to add vignette based on their needs. A sketch of the locomotion
-settings UI is showin in Figure \ref{fig:locomotion_settings}. While some games include
+settings UI is showin in Figure~\ref{fig:locomotion_settings}. While some games include
 more advanced movement such as climbing or jumping, these were not deemed
 necessary here.
 
@@ -325,10 +325,30 @@ The ninth fort was constructed from stone and, although it didn't exist until
 a nearly a century after Hadrian's reign and the setting of this game, it is the
 best documented. As such, it and the adjacent town was chosen as the basis for
 this depiction, with stone materials being replaced with the more
-period-appropriate wood to compromise between ease of development and historical
-accuracy. An overhead map of the fort is shown in Figure \ref{fig:osm_map}.
+period-appropriate wood walls and thatch roofs to compromise between ease of
+development and historical accuracy. An overhead map of the fort is shown in
+Figure~\ref{fig:osm_map}.
 
-\subsubsection{The Wall}
+The fort's implementation made heavy use of Loafbrr's public domain castle wall
+kit with wooden and thatch textures from OpenGameArt, also in the public domain.
+These were used to create a reusable set of prefab templates for common areas
+such as walls and rooms, that were then combined to form larger structures such
+as the outer wall or a barracks. This resulted in fairly detailed, but very
+similar looking, structures that were quick to lay out. A small amount of variety
+was introduced using scripts to randomly select and position decorative objects
+such as items on tables.
+
+% TODO: Integrate these points
+% \refreq{sec:fr_recreate}{FR01}
+% \textbf{Mostly} achieved. The depiction of the fort includes most buildings, but
+% leaves out some in order to save on development time.
+
+% \refreq{sec:fr_wall}{FR02}
+% \textbf{Fully} achieved, although the depiction of the milecastle is fairly
+% basic and is much less content-dense than the rest of the fort.
+
+
+\subsubsection{The Wall and Milecastle}
 
 In addition to the fort, Hadrian's wall through
 milecastle 39, frequently referred to as ``Castle Nick'' although it is unclear
@@ -337,7 +357,7 @@ Sycamore Gap tree once stood.
 
 Milecastle 39 is situated approximately 1.5 kilometres north-north-west of the fort,
 making it impractical to have users manually walk this distance in VR. Instead,
-both Vindolanda and Castle Nick feature triggers, shown in Figure \ref{fig:teleport_trigger}
+both Vindolanda and Castle Nick feature triggers, shown in Figure~\ref{fig:teleport_trigger}
 that directly teleport users between the sites to save them from making the trip themselves.
 
 \begin{figure}
@@ -470,7 +490,7 @@ When combined with inverse kinematics, which was already implemented to position
 this results in a rudimentary yet reasonably effective motion capture system, though as expected it
 sacrifices precision, making it less effective than a professional system. \cite{vox_evaluation_2021}
 This is especially visible in motions such as pulling a hand to the chin to draw a bow, where inverse
-kinematics positioned the elbow in front of the face rather than behind it as shown in Figure \ref{fig:hand_wrong}
+kinematics positioned the elbow in front of the face rather than behind it as shown in Figure~\ref{fig:hand_wrong}
 
 \begin{figure}
   \includegraphics[width=0.5\linewidth]{mocap-hand-wrong.png}
@@ -487,9 +507,6 @@ kinematics positioned the elbow in front of the face rather than behind it as sh
 
 \subsubsection{Dialogue}
 % TODO: Audio - explain why TTS was used
-% Archery - Using vertex animations to allow for the body to bend, more realistic
-% than most depictions. The quiver is in fact a trigger that spawns an arrow when
-% grabbed, and a nocked arrow is part of the bow rather than attached to the hand.
 
 One area of motion capture that is not possible with VR alone is facial animation
 such as expressions and lip sync. While professional solutions such as FaceFX are
@@ -499,6 +516,9 @@ is used with no attempt made at synchronising with speech.
 
 \subsubsection{Archery}
 % TODO: Archery, explain how the "quiver" is actually a trigger that spawns an arrow
+% Using vertex animations to allow for the body to bend, more realistic
+% than most depictions. The quiver is in fact a trigger that spawns an arrow when
+% grabbed, and a nocked arrow is part of the bow rather than attached to the hand.
 
 \subsection{Requirement Analysis}
 
@@ -599,14 +619,6 @@ could be used outside of AI.
 
 \newcommand{\refreq}[2]{\paragraph{\hyperref[#1]{#2}}}
 
-\refreq{sec:fr_recreate}{FR01}
-\textbf{Mostly} achieved. The depiction of the fort includes most buildings, but
-leaves out some in order to save on development time.
-
-\refreq{sec:fr_wall}{FR02}
-\textbf{Fully} achieved, although the depiction of the milecastle is fairly
-basic and is much less content-dense than the rest of the fort.
-
 \refreq{sec:fr_beforeafter}{FR03}
 \textbf{Fully} achieved. There are several photos of the ruins of the fort
 showing its ruins in the present day.
@@ -657,7 +669,7 @@ by users.
 
 No good game development is complete without a few bugs, featured here.
 
-Figure \ref{fig:oops_camera}. The player's animator initially had root motion enabled, this caused it to
+Figure~\ref{fig:oops_camera}. The player's animator initially had root motion enabled, this caused it to
 move relative to the camera when walking, which was magnified when turning giving
 the appearance of it running away from the camera.
 
@@ -671,6 +683,12 @@ the appearance of it running away from the camera.
 
 \subsection{Performance}
 
+Unity's occlusion culling system, which disables rendering objects blocked by others,
+was the main technique used for optimising performance as geometry used fairly low-poly
+assets that would not benefit from level of detail. However, historical accuracy
+to the layout of the fort remained a priority which limited opportunities to close
+sight lines for more efficient culling.
+
 Benchmarking performance for \hyperref[sec:nfr_performance]{NFR01} on desktop PCs
 is inherently challenging due to the wide variety of user hardware compared to consoles
 and handhelds, such as the PSVR and Meta Quest, which have a limited set of configurations.
@@ -683,8 +701,8 @@ significantly increasing GPU load. It should be noted that resolution scaling
 is expected to have minimal CPU impact, and thus will not detect any CPU-bound
 issues.
 
-SteamVR's built-in performance graph, shown in Figure \ref{fig:vr_profile} and
-the demo video (\url{https://youtu.be/CaM-xLr3iG0}) was used to display frame
+SteamVR's built-in performance graph, shown in Figure~\ref{fig:vr_profile} and
+throughout the demo video (\url{https://youtu.be/CaM-xLr3iG0}) was used to display frame
 times during gameplay. This data can be recorded for later review and correlated
 with gameplay to identify areas with performance issues. It should be noted however,
 that recording video adds a non-negligible GPU overhead that could affect results
@@ -696,8 +714,9 @@ significantly less visible geometry than the fort. Further investigation suggest
 two contributing factors. First, although the fort was fully culled by Unity's
 occlusion system, it still incurred some overhead, though profiling proved inconclusive.
 Second, the grass, used much more extensively around the wall, caused substantial
-overdraw, straining VRAM bandwidth with a potentially exaggerated impact due to the 
-aforementioned 400\% resolution scaling.
+overdraw, straining VRAM bandwidth with a potentially exaggerated impact due to the
+aforementioned 400\% resolution scaling. Other than this, frame times hovered at
+an average of $10-12ms$, close to the target of $11ms$.
 
 \begin{figure}
   \includegraphics{vr-profile.png}
@@ -708,8 +727,6 @@ aforementioned 400\% resolution scaling.
     A screenshot of SteamVR's performance profiler showing an average
     frame time of 9ms and most frames completed below the 11ms target.}
 \end{figure}
-
-% TODO: Benchmark and discuss results
 
 \section{Conclusion \& Future Work}
 % TODO: Conclusion and future work
