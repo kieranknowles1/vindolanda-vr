@@ -133,7 +133,7 @@ would be built every Roman mile ($\sim{}1.5$km) \cite[p.1027]{smith_new_1851} sh
 Figure~\ref{fig:milecastle}. These gave inspiration from which their in-game
 depictions could be based on.
 
-\begin{figure}
+\begin{figure}[ht]
   \includegraphics[width=0.8\linewidth]{armour.jpg}
   \caption{\label{fig:armour} A replica of an auxiliary cavalryman's armour
     (left), 2nd century AD. And a Roman legionary's (right), late 1st
@@ -142,7 +142,7 @@ depictions could be based on.
   \Description{Models Roman auxiliary and legionary with shields and spears.}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[ht]
   \includegraphics[width=0.8\linewidth]{milecastle.jpg}
   \caption{\label{fig:milecastle}A model of a milecastle from Hadrian's Wall.
   Via Hancock Museum}
@@ -201,7 +201,7 @@ will not be detected as shown in Figure~\ref{fig:godot_false_negative}. Despite
 these limitations, this methodology was considered good enough to get a
 high-level overview.
 
-\begin{figure}
+\begin{figure}[ht]
   \begin{lstlisting}
     $ ./kicksalot --help
     Godot Engine v4.4 - https://godotengine.org
@@ -263,7 +263,7 @@ settings UI is showin in Figure~\ref{fig:locomotion_settings}. While some games 
 more advanced movement such as climbing or jumping, these were not deemed
 necessary here.
 
-\begin{figure}
+\begin{figure}[ht]
   \includesvg[width=\linewidth]{locomotion-ui-sketch.svg}
   \caption{\label{fig:locomotion_settings}Sketch for the locomotion settings UI.}
   \Description{
@@ -314,7 +314,7 @@ fort and as much as a third would have been unfit for service, likely due to
 poor hygiene, as documented in a strength report from circa AD 90.
 \cite{bowman_military_1991}
 
-\begin{figure}
+\begin{figure}[ht]
   \includegraphics[width=\linewidth]{osm-vindolandra.png}
   \caption{\label{fig:osm_map}Map of Vindolanda. Via OpenStreetMap [ODbL License]}
   \Description{A map of the Vindolanda excavations showing the layout of the
@@ -338,6 +338,8 @@ similar looking, structures that were quick to lay out. A small amount of variet
 was introduced using scripts to randomly select and position decorative objects
 such as items on tables.
 
+% TODO: Figure for prefabs
+
 % TODO: Integrate these points
 % \refreq{sec:fr_recreate}{FR01}
 % \textbf{Mostly} achieved. The depiction of the fort includes most buildings, but
@@ -360,7 +362,7 @@ making it impractical to have users manually walk this distance in VR. Instead,
 both Vindolanda and Castle Nick feature triggers, shown in Figure~\ref{fig:teleport_trigger}
 that directly teleport users between the sites to save them from making the trip themselves.
 
-\begin{figure}
+\begin{figure}[ht]
   \includegraphics[width=\linewidth]{teleport-trigger.png}
   \caption{\label{fig:teleport_trigger}A trigger that teleports the user to a linked
   destination when entered.}
@@ -506,7 +508,7 @@ sacrifices precision, making it less effective than a professional system. \cite
 This is especially visible in motions such as pulling a hand to the chin to draw a bow, where IK
 positioned the elbow in front of the face rather than behind it as shown in Figure~\ref{fig:hand_wrong}
 
-\begin{figure}
+\begin{figure}[ht]
   \includegraphics[width=0.5\linewidth]{mocap-hand-wrong.png}
   \caption{\label{fig:hand_wrong}An incorrectly positioned elbow from motion capture.}
   \Description{A screenshot showing a soldier using a bow with their draw arm's elbow
@@ -520,7 +522,41 @@ positioned the elbow in front of the face rather than behind it as shown in Figu
 % TODO: Footstep sounds - explain how a script listens to animation events and uses a MaterialData system to determine which step of sounds to play.
 
 \subsubsection{Dialogue}
-% TODO: Audio - explain why TTS was used
+
+The fort tour required a significant amount of dialogue to implement. While in
+a flatscreen game this could be performed using text only, too much reading could
+cause eye strain in VR. While human-voiced dialogue would be higher quality, recording
+and editing it would be impractical due to time constraints. Instead, text to
+speech (TTS) was used for the vast majority of dialogue. This is largely automated
+in a three step process:
+
+\begin{enumerate}
+  \item Use a menu item to export dialogue text, ID's, and whether it has a recording to CSV.
+  \item Run a Python script that generates TTS using the Google Cloud API.
+        An alternative, but more expensive, API for this would have been ElevenLabs.
+  \item Use another menu item, import the generated MP3s and link them to dialogue.
+\end{enumerate}
+
+This system has two limitations: first is that dialogue does not indicate its speaker,
+requiring that all characters use the same voice. This was deemed acceptable as
+most lines are spoken by the tour guide, but could be resolved by taggin entries
+with a speaker. Second, there is no automatic detection of outdated audio
+meaning subtitles and speech could differ if text was edited after audio generation.
+This was also acceptable as lines were unlikely to be edited after written, but
+could be resolved by storing timestamps, then regenerating
+if text is newer than audio.
+
+Storing dialogue text in-engine made adding subtitles trivial. Speakers request
+for a subtitle panel to be displayed when they begin a line hide it when finished.
+The panel, shown in Figure~\ref{fig:subtitles} displays this text alongside the speaker's name in front of the user,
+unless subtitles are disabled in which case the request is ignored.
+
+\begin{figure}[ht]
+  \includegraphics[width=\linewidth]{subtitles.png}
+  \caption{\label{fig:subtitles}The subtitle panel displayed during the tutorial.}
+  \Description{A floating subtitle panel displaying the text ``Tutorial: Use the
+  right stick to move to the glowing red marker.''}
+\end{figure}
 
 While VR motion capture was used for body animations, it is unable to help with
 facial animation such as expressions and lip sync. While professional solutions
@@ -666,10 +702,6 @@ can be used to perform any action.
 \textbf{Not} achieved. While Unity can be compiled for Linux, this could not be
 tested due to difficulties running SteamVR on the platform.
 
-\refreq{sec:nfr_subtitle}{NFR04}
-\textbf{Fully} achieved. All dialogue includes subtitles which can be disabled
-by users.
-
 \subsection{The Bugs}
 
 No good game development is complete without a few bugs, featured here.
@@ -678,7 +710,7 @@ Figure~\ref{fig:oops_camera}. The player's animator initially had root motion en
 move relative to the camera when walking, which was magnified when turning giving
 the appearance of it running away from the camera.
 
-\begin{figure}
+\begin{figure}[ht]
   \includegraphics[width=0.5\linewidth]{out-of-body.png}
   \caption{
     \label{fig:oops_camera}The player model running away from the camera.
@@ -723,7 +755,7 @@ overdraw, straining VRAM bandwidth with a potentially exaggerated impact due to 
 aforementioned 400\% resolution scaling. Other than this, frame times hovered at
 an average of $10-12ms$, close to the target of $11ms$.
 
-\begin{figure}
+\begin{figure}[ht]
   \includegraphics{vr-profile.png}
   \caption{
     \label{fig:vr_profile}SteamVR's performance profiler showing frame times
