@@ -620,7 +620,42 @@ depict the bowstring stretching.
 \end{figure}
 
 \subsubsection{Save and Load}
-% TODO: Save/load system
+
+\begin{figure}[ht]
+  % Inkscape can't render Mermaid SVGs :(
+  \includegraphics[width=\linewidth]{saveload.png}
+  \caption{\label{fig:saveload}Class diagram for the save and load system.}
+  \Description{
+    A UML class diagram for the save and load system. Saveable inherits from IdOwner,
+    IdManager depends on IdOwner, and SaveLoad depends on both Saveable and IdManager.
+  }
+\end{figure}
+
+Unity, like most general-purpose game engines, does not natively provide a
+save/load system required by \hyperref[sec:fr_save]{FR07} , meaning that it had
+to be implemented separately. In the editor, any object that to be either saved
+or referenced in a save, such as NPCs and patrol points, is automatically assigned
+a unique ID that can be safely referenced in a save. During startup, these IDs are
+collected for quick mapping during loading of a save.
+
+Any object to be included in a save has a component deriving from the
+\texttt{Saveable} class allowing it to inherit and extend base behaviour such
+as position and rotation tracking. It also defines two functions to save to an
+intermediate \texttt{SaveData} class and restore values from it.
+
+When saving, all saveable objects are gathered and have their save functions invoked.
+The results of these operations are serialised as a JSON array containing object
+IDs and data for later use. To load a save, the JSON data is decoded and passed
+to all serialised objects' load functions to restore their states and resolve
+references using the ID map.
+
+This system is limited in that it has no support for tracking dynamically allocated
+objects such as fired arrows. Adding support for this would require tracking the
+prefab from which the object was instantiated. This would require a distinct system
+because Unity's file system does not include paths at runtime. Dynamically created
+objects could be identified by the usage of a template prefab but would require
+additional work to track and clean up after loading. This was not considered
+necessary for \hyperref[sec:fr_save]{FR07} as no significant use cases were found.
 
 \subsection{Requirement Analysis}
 
@@ -724,10 +759,6 @@ could be used outside of AI.
 \refreq{sec:fr_beforeafter}{FR03}
 \textbf{Fully} achieved. There are several photos of the ruins of the fort
 showing its ruins in the present day.
-
-\refreq{sec:fr_save}{FR07}
-\textbf{Fully} achieved. The player is able to save and load at any time, which
-preserves the state of the world and NPCs.
 
 \refreq{sec:fr_lefty}{FR08}
 \textbf{Fully} achieved. Interactions are mirrored such that either controller
