@@ -532,7 +532,7 @@ positioned the elbow in front of the face rather than behind it as shown in Figu
 \subsection{Mechanics}
 % TODO: Mechanics
 
-\subsubsection{Footsteps}
+\subsubsection{\label{sec:footsteps}Footsteps}
 
 The implementation of footstep sounds uses a combination of systems. First,
 movement animations send events when a foot touches the ground. These are listened
@@ -588,10 +588,34 @@ expensive for this project. Instead, a simplistic animation of characters moving
 their mouth is used with no attempt made at synchronising with speech.
 
 \subsubsection{Archery}
-% TODO: Archery, explain how the "quiver" is actually a trigger that spawns an arrow
-% Using vertex animations to allow for the body to bend, more realistic
-% than most depictions. The quiver is in fact a trigger that spawns an arrow when
-% grabbed, and a nocked arrow is part of the bow rather than attached to the hand.
+
+While it was not standard equipment, Roman legions could include archers
+\cite{ureche_bow_2013,mcallister_formidable_1993} with recent findings confirming
+their existence at the nearby Housesteads fort \cite{collins_soldiers_2013}. This
+made it an attractive addition to the game. Implementing this involved several
+techniques to both ease development and increase realism.
+
+After picking up a bow, the user's next step is of course to take an arrow from
+the ``quiver'', which is in fact a trigger behind the user's back that spawns an
+arrow when grabbed. When nocking the arrow, the held item is hidden and replaced
+with a separate script-controlled mesh attached to the bow to allow greater control
+over its position as the user draws. Upon release, the held arrow is deleted and
+replaced with a newly created projectile at a speed determined by draw level.
+
+Each frame, launched projectiles check for colliders in front of them and, if found,
+sends an \texttt{OnHit} event to any target components found. After this the projectile
+stops checking for more targets and freezes itself in position if the hit material
+allows for it using the \texttt{MaterialData} system described in Section~\ref{sec:footsteps}
+
+The bow itself is animated using a vertex animation texture to create a more
+realistic effect where the body of the bow bends when drawn. This is more physically
+accurate than what is seen in many games which typically depict the bow's string
+stretching.
+
+% TODO: Figure on vertex animation
+
+\subsubsection{Save and Load}
+% TODO: Save/load system
 
 \subsection{Requirement Analysis}
 
