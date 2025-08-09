@@ -493,6 +493,7 @@ of the camera - giving it the appearance of running away. Disabling root motion
 solved this issue, shown in Figure~\ref{fig:oops_camera}.
 
 \begin{figure}[ht]
+  % TODO: Figure of this working
   \includegraphics[width=0.5\linewidth]{out-of-body.png}
   \caption{
     \label{fig:oops_camera}The player model running away from the camera.
@@ -532,7 +533,16 @@ positioned the elbow in front of the face rather than behind it as shown in Figu
 % TODO: Mechanics
 
 \subsubsection{Footsteps}
-% TODO: Footstep sounds - explain how a script listens to animation events and uses a MaterialData system to determine which step of sounds to play.
+
+The implementation of footstep sounds uses a combination of systems. First,
+movement animations send events when a foot touches the ground. These are listened
+to by a script attached to each NPC which performs a raycast from the
+foot, specified in the event, to determine which physics material it landed on.
+Normally, Unity's physics materials only define friction and bounciness; these were
+extended with a \texttt{MaterialData} system that maps materials to extra data
+holding a set of footstep sounds. The event listener script uses this data along
+with the NPC's current speed to select whether to play a walking or running sound,
+and play a randomly selected sound based on material and speed.
 
 \subsubsection{Dialogue}
 
@@ -685,10 +695,6 @@ could be used outside of AI.
 \refreq{sec:fr_beforeafter}{FR03}
 \textbf{Fully} achieved. There are several photos of the ruins of the fort
 showing its ruins in the present day.
-
-\refreq{sec:fr_tutorial}{FR06}
-\textbf{Fully} achieved. A tutorial can be started from the menu at any time
-which teaches movement, interaction, and menu usage.
 
 \refreq{sec:fr_save}{FR07}
 \textbf{Fully} achieved. The player is able to save and load at any time, which
