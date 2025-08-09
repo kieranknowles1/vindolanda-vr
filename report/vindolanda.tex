@@ -608,11 +608,16 @@ stops checking for more targets and freezes itself in position if the hit materi
 allows for it using the \texttt{MaterialData} system described in Section~\ref{sec:footsteps}
 
 The bow itself is animated using a vertex animation texture to create a more
-realistic effect where the body of the bow bends when drawn. This is more physically
-accurate than what is seen in many games which typically depict the bow's string
-stretching.
+realistic effect where the body of the bow bends when drawn, shown in Figure~\ref{fig:vat}.
+This is more physically accurate than what is seen in many games which typically
+depict the bowstring stretching.
 
-% TODO: Figure on vertex animation
+\begin{figure}[ht]
+  \includegraphics[width=\linewidth]{bow-loose.png}
+  \includegraphics[width=\linewidth]{bow-drawn.png}
+  \caption{\label{fig:vat}Top: A bow in its default state. Bottom: A fully drawn bow.}
+  \Description{A composite bow, undrawn on top and fully drawn on bottom.}
+\end{figure}
 
 \subsubsection{Save and Load}
 % TODO: Save/load system
