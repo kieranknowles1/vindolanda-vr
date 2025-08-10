@@ -16,6 +16,8 @@
   basicstyle=\ttfamily\small
 }
 
+\usepackage{subfig}
+
 \author{Kieran John Knowles}
 \affiliation{%
   \institution{Newcastle University}
@@ -76,7 +78,11 @@
 \maketitle
 
 \section*{Links}
-\noindent YouTube: \url{https://youtu.be/CaM-xLr3iG0}
+\noindent Demo Video: \url{https://youtu.be/CaM-xLr3iG0}
+
+\noindent \hangindent=2em The Bugs: \href{https://www.youtube.com/playlist?list=PL1UYxx9QvwZrJnvfPb9MwA13YsFu4lFUf}{
+  https://www.youtube.com/playlist?list=\\PL1UYxx9QvwZrJnvfPb9MwA13YsFu4lFUf
+}
 
 \noindent GitHub: \url{https://github.com/kieranknowles1/vindolanda-vr/}
 
@@ -113,7 +119,10 @@ these are for new users.
 % TODO: Background Research}
 
 \subsection{Historical Research}
-% TODO: Historical Research}
+
+To accurately recreate a Roman fort, it was essential to first gain an understanding
+of Roman Britain. However, this was not a focus of this paper and as such most
+research was focused on the technology to be used.
 
 \subsubsection{Site Visits}
 
@@ -276,7 +285,6 @@ and \hyperref[sec:fr_smooth]{FR05}.
 
 % TODO: VR inspiration. Mostly in how certain mechanics are implemented}
 
-% TODO: Handling VR: Locomotion}
 % TODO: Handling VR: Text}
 
 \section{Design \& Implementation}
@@ -505,9 +513,16 @@ Unity's hand tracking uses a different and incompatible skeleton to humanoid ani
 required a set of fine-tuned transformations to convert between. These were defined
 as part of a scriptable object rather than hard-coded allowing they could be tweaked
 at runtime for quicker iteration; this was essential as even a milimeter of error could be
-noticeable by users as deformation in their hand meshes.
+noticeable by users as deformation in their hand meshes. The final hand tracking
+system, and the flawed initial version, is shown in Figure~\ref{fig:finger_tracking}
 
-% TODO: Figure on hand tracking, including error state
+\begin{figure}[ht]
+  \subfloat[\centering Incorrectly Positioned Fingers]{\includegraphics[width=0.5\linewidth]{finger-bad.png}}
+  \subfloat[\centering Finger Tracking]{\includegraphics[width=0.5\linewidth]{finger-good.png}}
+  \caption{\label{fig:finger_tracking}Left: Hand deformation caused by incorrect finger transformations. Right: Accurately tracked fingers mapped onto the user's hand mesh.}
+  \Description{Screenshots of the user's hand mesh, the left showing fingers deformed to the left
+  while the right shows them correctly positioned.}
+\end{figure}
 
 Motion capture is heavily used in the film and games industries to cheaply produce
 realistic animations. While this traditionally requires expensive equipment to produce, including
@@ -530,7 +545,6 @@ positioned the elbow in front of the face rather than behind it as shown in Figu
 \end{figure}
 
 \subsection{Mechanics}
-% TODO: Mechanics
 
 \subsubsection{\label{sec:footsteps}Footsteps}
 
