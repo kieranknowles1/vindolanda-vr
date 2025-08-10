@@ -497,16 +497,22 @@ manually adjusting finger bones between rigging and skinning to replace their
 animation-driven positions with controller-derived ones.
 
 Initially, the player's animator had root motion enabled, causing it to move independently
-of the camera - giving it the appearance of running away. Disabling root motion
-solved this issue, shown in Figure~\ref{fig:oops_camera}.
+of the camera - giving it the appearance of running away as shown in
+Figure~\ref{fig:oops_camera}. Disabling root motion solved this issue and resulted
+in IK working as expected, shown in Figure~\ref{fig:ik_good}.
 
 \begin{figure}[ht]
-  % TODO: Figure of this working
   \includegraphics[width=0.5\linewidth]{out-of-body.png}
   \caption{
     \label{fig:oops_camera}The player model running away from the camera.
     \url{https://www.youtube.com/watch?v=W9Mfbanlegs}}
   \Description{A screenshot depicting the player model leaving the camera behind.}
+\end{figure}
+
+\begin{figure}[ht]
+  \includegraphics[width=\linewidth]{arm-ik.png}
+  \caption{\label{fig:ik_good}The player's hands and arms correctly postioned by inverse kinematics.}
+  \Description{A screenshot depecting the player's hands being tracked by IK.}
 \end{figure}
 
 Unity's hand tracking uses a different and incompatible skeleton to humanoid animations which
