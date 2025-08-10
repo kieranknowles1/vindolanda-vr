@@ -25,12 +25,6 @@
   \country{United Kingdom}
 }
 
-%% Rights management information.  This information is sent to you
-%% when you complete the rights form.  These commands have SAMPLE
-%% values in them; it is your responsibility as an author to replace
-%% the commands and values with those provided to you when you
-%% complete the rights form.
-% TODO: Copyright
 \setcopyright{none}
 \copyrightyear{2025}
 \begin{document}
@@ -241,13 +235,11 @@ controllers are fully supported with Unity and SteamVR's remapping used to
 handle other controller types.
 
 \subsubsection{\label{sec:vr_refs}VR In Other Games}
-% TODO: Which other games were referenced as inspiration?}
 
 Implementations of VR in other games, especially with how they handle
 locomotion was analysed as inspiration for how it could be handled here. Two
 primary methods were identified that would be practical here:
 
-% TODO: Screenshot of options menus in a couple games
 \begin{itemize}
   \item Teleport - Player uses the joystick to select a location, then releases
     to teleport. Suggested to inexperienced users.
@@ -280,10 +272,21 @@ and \hyperref[sec:fr_smooth]{FR05}.
   }
 \end{figure}
 
-% TODO: Handling VR: Text}
+Text rendering in other games was identified as a common weak point, with some,
+such as Blade and Sorcery (Figure~\ref{fig:bns_text})
+using fonts that are both small and difficult to read. This was a clear area for
+improvement here defined as \hyperref[sec:nfr_text]{NFR03} and further detailed
+in Section~\ref{sec:text_scale}.
+
+\begin{figure}[ht]
+  \includegraphics[width=\linewidth]{text_bns.png}
+  \caption{\label{fig:bns_text}Text from Blade and Sorcery that uses a small
+  serif font that makes it difficult to read in VR.}
+  \Description{A screenshot of an in-game journal showing small print text
+  that is difficult to read.}
+\end{figure}
 
 \section{Design \& Implementation}
-% TODO: Implementation}
 
 \subsection{The Setting}
 
@@ -336,12 +339,20 @@ Figure~\ref{fig:osm_map}.
 The fort's implementation made heavy use of Loafbrr's public domain castle wall
 kit with wooden and thatch textures from OpenGameArt, also in the public domain.
 These were used to create a reusable set of prefab templates for common areas
-such as walls and rooms, that were then combined to form larger structures such
-as the outer wall or a barracks. This resulted in fairly detailed, but very
-similar looking, structures that were quick to lay out. A small amount of variety
-was introduced using scripts to randomly select and position decorative objects
-such as items on tables. An overhead view of the final fort is shown in
-Figure~\ref{fig:teaser}.
+such as walls and rooms shown in Figure~\ref{fig:lego_fort}, that were then combined
+to form larger structures such as the outer wall or a barracks. This resulted in
+fairly detailed, but very similar looking, structures that were quick to lay out.
+A small amount of variety was introduced using scripts to randomly select and
+position decorative objects such as items on tables. An overhead view of the
+final fort is shown in Figure~\ref{fig:teaser}.
+
+\begin{figure}[ht]
+  \includegraphics[width=\linewidth]{lego_fort.png}
+  \caption{\label{fig:lego_fort}A collection of prefabs used for the fort's
+  exterior wall. Top: Gate with watchtowers, bottom left: watchtower, bottom right:
+  straight wall.}
+  \Description{A set of wall part prefabs for use in the fort.}
+\end{figure}
 
 OpenStreetMap's data on the fort and town's layout was used as a reference throughout
 with a script that display an editor overlay on the fort scene to base geometry
@@ -350,10 +361,14 @@ This factor that is especially limiting in the north-east corner of the site vis
 by the lack of detail in Figure~\ref{fig:osm_map}.
 
 To showcase how the fort appears in the present day, partially fufilling
-\hyperref[sec:fr_beforeafter]{FR03}, several displays are included showing photos
-taken during at the fort (Section~\ref{sec:site_visit}).
+\hyperref[sec:fr_beforeafter]{FR03}, several displays (Figure~\ref{fig:barracks_today})
+are included showing photos taken during at the fort visit (Section~\ref{sec:site_visit}).
 
-% TODO: Figure for prefabs and fort layouts
+\begin{figure}[ht]
+  \includegraphics[width=\linewidth]{barracks_today.png}
+  \caption{\label{fig:barracks_today}A photo panel showing the present-day ruins of the barracks.}
+  \Description{A screenshot showing a floating panel that shows the ruins of the barracks at Vindolanda.}
+\end{figure}
 
 \subsubsection{The Wall and Milecastle}
 
@@ -366,6 +381,8 @@ Milecastle 39 is situated approximately 1.5 kilometres north-north-west of the f
 making it impractical to have users manually walk this distance in VR. Instead,
 both Vindolanda and Castle Nick feature triggers, shown in Figure~\ref{fig:teleport_trigger}
 that directly teleport users between the sites to save them from making the trip themselves.
+A birds-eye view of the milecastle and a section of Hadrian's wall is shown in
+Figure~\ref{fig:milecastle_over}.
 
 \begin{figure}[ht]
   \includegraphics[width=\linewidth]{teleport-trigger.png}
@@ -373,6 +390,12 @@ that directly teleport users between the sites to save them from making the trip
   destination when entered.}
   \Description{A cubic green bounding box wireframe representing the trigger area
   with the floating text ``To Vindolanda'' inside it.}
+\end{figure}
+
+\begin{figure}[ht]
+  \includegraphics[width=\linewidth]{milecastle_over.png}
+  \caption{\label{fig:milecastle_over}Birds-eye view of Castle Nick and the connected wall.}
+  \Description{The depiction of Castle Nick and Hadrian's Wall as viewed from overhead.}
 \end{figure}
 
 \subsection{VR Considerations}
@@ -431,10 +454,7 @@ also gives the opportunity to improve understanding about areas that
 learners would physically be unable to reach such as the solar system, which
 would likely be applicable to history. \cite{detlefsen_cosmic_2014}
 
-% TODO: Educational Value. What makes a good educational game?
-
 \subsubsection{Fort Tour}
-% TODO: Fort tour
 
 A tour is used to teach users about the fort's layout, the function of each building,
 and other information about Roman Britain. This is provided by an in-game tour guide who
@@ -452,8 +472,16 @@ unsuitable for inclusion due to having incomplete translations.
 
 To improve readability of these tablets, only a summary of their text is rendered
 on the tablet itself, with the full text being displayed in a larger box above
-to allow larger font sizes as required by \hyperref[sec:nfr_text]{NFR03}.
-% TODO: Figure of writing tablet
+to allow larger font sizes as required by \hyperref[sec:nfr_text]{NFR03} and depicted
+in Figure~\ref{fig:tablet}.
+
+\begin{figure}[ht]
+  \includegraphics[width=\linewidth]{tablet.png}
+  \caption{\label{fig:tablet}A writing tablet displaying a title on the tablet itself
+  and its full context above.}
+  \Description{A square wooden writing tablet containing the text ``Letter'', above
+  is the contents of the letter in a larger black box.}
+\end{figure}
 
 The final delivery system is a simplistic proof of concept: users can speak to
 a generic NPC to receive a random tablet, and are given directions on a second
@@ -758,7 +786,6 @@ These \textbf{could} be toggleable for the end-user, but should be enabled by de
 and opt-out for players who do not want them.
 
 \section{Results \& Evaluation}
-% TODO: Results and eval
 
 \subsection{Unity's Suitability}
 Despite being the de facto standard for VR, Unity's implementation of it and
@@ -849,6 +876,8 @@ an average of $10-12ms$, close to the target of $11ms$.
   \url{https://www.openstreetmap.org/export}
 }
 
+% Enable if "You have called \balance in second column" appears
+% \balance
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{vindolanda}
 
