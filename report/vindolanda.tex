@@ -113,10 +113,7 @@ base level of knowledge in VR interactions such as picking up and using items,
 as well as in movement types, but also limited measurement of how intuitive
 these are for new users.
 
-% TODO: Introduction
-
 \section{Background \& Related Work}
-% TODO: Background Research}
 
 \subsection{Historical Research}
 
@@ -126,7 +123,7 @@ research was focused on the technology to be used.
 
 \subsubsection{Site Visits}
 
-\paragraph{Vindolanda}
+\paragraph{\label{sec:site_visit}Vindolanda}
 A visit to the Vindolanda Museum was made in order to gather reference
 material. This gave valuable insight into the layout of the fort and its
 composition. Due to time and weather constraints, Castle Nick and Hadrian's Wall were not visited
@@ -283,8 +280,6 @@ and \hyperref[sec:fr_smooth]{FR05}.
   }
 \end{figure}
 
-% TODO: VR inspiration. Mostly in how certain mechanics are implemented}
-
 % TODO: Handling VR: Text}
 
 \section{Design \& Implementation}
@@ -345,19 +340,20 @@ such as walls and rooms, that were then combined to form larger structures such
 as the outer wall or a barracks. This resulted in fairly detailed, but very
 similar looking, structures that were quick to lay out. A small amount of variety
 was introduced using scripts to randomly select and position decorative objects
-such as items on tables.
+such as items on tables. An overhead view of the final fort is shown in
+Figure~\ref{fig:teaser}.
 
-% TODO: Figure for prefabs
+OpenStreetMap's data on the fort and town's layout was used as a reference throughout
+with a script that display an editor overlay on the fort scene to base geometry
+on. This proved a useful guide, with the limitation of only covering excavated areas.
+This factor that is especially limiting in the north-east corner of the site visible
+by the lack of detail in Figure~\ref{fig:osm_map}.
 
-% TODO: Integrate these points
-% \refreq{sec:fr_recreate}{FR01}
-% \textbf{Mostly} achieved. The depiction of the fort includes most buildings, but
-% leaves out some in order to save on development time.
+To showcase how the fort appears in the present day, partially fufilling
+\hyperref[sec:fr_beforeafter]{FR03}, several displays are included showing photos
+taken during at the fort (Section~\ref{sec:site_visit}).
 
-% \refreq{sec:fr_wall}{FR02}
-% \textbf{Fully} achieved, although the depiction of the milecastle is fairly
-% basic and is much less content-dense than the rest of the fort.
-
+% TODO: Figure for prefabs and fort layouts
 
 \subsubsection{The Wall and Milecastle}
 
@@ -446,14 +442,23 @@ follows the player and gives information about their current location on request
 is the main educational source of the game.
 
 \subsubsection{Deliveries}
-% TODO: Deliveries
 
 Vindolanda is famous for the hundreds of writing tablets recovered from the site
-which give valuable insight into life in the fort \cite{adams_new_2003},
-\cite{coles_vindolanda_1985}. The inclusion of a subset of these was a natural
-avenue for education by making the player act as a courier delivering them and
-able to read the documents. This was complicated, however, by the poor condition
-of many tablets which made many unsuitable for inclusion.
+which give valuable insight into life in the fort \cite{adams_new_2003,coles_vindolanda_1985}.
+The inclusion of a subset of these was a natural avenue for education by making
+the player act as a courier delivering them and able to read the documents. This
+was complicated, however, by the poor condition of many tablets which made many
+unsuitable for inclusion due to having incomplete translations.
+
+To improve readability of these tablets, only a summary of their text is rendered
+on the tablet itself, with the full text being displayed in a larger box above
+to allow larger font sizes as required by \hyperref[sec:nfr_text]{NFR03}.
+% TODO: Figure of writing tablet
+
+The final delivery system is a simplistic proof of concept: users can speak to
+a generic NPC to receive a random tablet, and are given directions on a second
+tablet acting as a journal on who to deliver it to. This uses the same quest
+system used by the tutorial which allows for future expansion.
 
 \subsection{Tutorial}
 Initial user demos were performed by users with no VR experience and no built-in
@@ -768,27 +773,6 @@ Considering these limitations, the game may have benefited from instead using
 Godot, the second engine considered, as its asset library already includes
 needed systems such as quests, dialogue, and more flexible behaviour trees that
 could be used outside of AI.
-
-% TODO: Remove this section and expand to describe in detail instead, focusing
-% on challenges
-\subsection{Implementation of Requirements}
-\subsubsection{Functional Requirements}
-
-\newcommand{\refreq}[2]{\paragraph{\hyperref[#1]{#2}}}
-
-\refreq{sec:fr_beforeafter}{FR03}
-\textbf{Fully} achieved. There are several photos of the ruins of the fort
-showing its ruins in the present day.
-
-\refreq{sec:fr_lefty}{FR08}
-\textbf{Fully} achieved. Interactions are mirrored such that either controller
-can be used to perform any action.
-
-\subsubsection{Non-Functional Requirements}
-
-\refreq{sec:nfr_linux}{NFR02}
-\textbf{Not} achieved. While Unity can be compiled for Linux, this could not be
-tested due to difficulties running SteamVR on the platform.
 
 \subsection{Performance}
 
