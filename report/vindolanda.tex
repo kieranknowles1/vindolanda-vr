@@ -8,12 +8,15 @@
 %TC:envir displaymath 0 word
 %TC:envir math 0 word
 %TC:envir comment 0 0
-\documentclass[sigconf,authordraft]{acmart}
+\documentclass[sigconf]{acmart}
 
+\usepackage{svg}
 \usepackage{listings}
 \lstset{
   basicstyle=\ttfamily\small
 }
+
+\usepackage{subfig}
 
 \author{Kieran John Knowles}
 \affiliation{%
@@ -22,20 +25,17 @@
   \country{United Kingdom}
 }
 
-%% Rights management information.  This information is sent to you
-%% when you complete the rights form.  These commands have SAMPLE
-%% values in them; it is your responsibility as an author to replace
-%% the commands and values with those provided to you when you
-%% complete the rights form.
-% TODO: Copyright
 \setcopyright{none}
 \copyrightyear{2025}
 \begin{document}
 
 \title{Vindolanda VR}
 
-% TODO: Abstract
 \begin{abstract}
+  Virtual reality is an exciting emerging field with many potential applications,
+  from games to immersive experiences. This paper explores the potential of VR
+  in teaching the history of Roman Britain at Vindolanda through the creation of
+  a virtual tour designed to work for both first-time and experienced VR users.
 \end{abstract}
 
 \begin{CCSXML}
@@ -62,7 +62,6 @@
 \ccsdesc[500]{Applied computing~Computer games}
 \ccsdesc[100]{Software and its engineering~Designing software}
 
-% TODO: Keywords
 \keywords{Virtual reality, History, Education, Serious games}
 
 \begin{teaserfigure}
@@ -76,18 +75,21 @@
 \maketitle
 
 \section*{Links}
-% TODO: Links
-\noindent YouTube:
+\noindent Demo Video: \url{https://youtu.be/CaM-xLr3iG0}
+
+\noindent \hangindent=2em The Bugs: \href{https://www.youtube.com/playlist?list=PL1UYxx9QvwZrJnvfPb9MwA13YsFu4lFUf}{
+  https://www.youtube.com/playlist?list=\\PL1UYxx9QvwZrJnvfPb9MwA13YsFu4lFUf
+}
 
 \noindent GitHub: \url{https://github.com/kieranknowles1/vindolanda-vr/}
 
-\noindent itch.io:
+\noindent itch.io: \url{https://kieranknowles.itch.io/vindolanda-vr}
 
 \section{Introduction}
 
 Roman occupation of Britain and Hadrian's wall plays a key part in the history
 of Britain, particularly in the North-East of England. This seemed a natural
-area to create a game to both educate children on their history and introduce
+area to create a game to both educate children on history and introduce
 them to the world of virtual reality (VR). The decision to use VR over a
 traditional display (flatscreen) raises a number of unique challenges in
 managing motion sickness, safety due to spatial awareness, and the requirement
@@ -108,17 +110,17 @@ base level of knowledge in VR interactions such as picking up and using items,
 as well as in movement types, but also limited measurement of how intuitive
 these are for new users.
 
-% TODO: Introduction
-
 \section{Background \& Related Work}
-% TODO: Background Research}
 
 \subsection{Historical Research}
-% TODO: Historical Research}
+
+To accurately recreate a Roman fort, it was essential to first gain an understanding
+of Roman Britain. However, this was not a focus of this paper and as such most
+research was focused on the technology to be used.
 
 \subsubsection{Site Visits}
 
-\paragraph{Vindolanda}
+\paragraph{\label{sec:site_visit}Vindolanda}
 A visit to the Vindolanda Museum was made in order to gather reference
 material. This gave valuable insight into the layout of the fort and its
 composition. Due to time and weather constraints, Castle Nick and Hadrian's Wall were not visited
@@ -128,12 +130,12 @@ and thus had fewer references to work from.
 
 In addition to the fort itself, a visit was made to the Roman exhibits at the
 Hancock Museum to gather reference material for the wall and the Roman soldiers.
-This included the armour shown in Figure \ref{fig:armour} and a milecastle that
+This included the armour shown in Figure~\ref{fig:armour} and a milecastle that
 would be built every Roman mile ($\sim{}1.5$km) \cite[p.1027]{smith_new_1851} shown in
-Figure \ref{fig:milecastle}. These gave inspiration from which their in-game
+Figure~\ref{fig:milecastle}. These gave inspiration from which their in-game
 depictions could be based on.
 
-\begin{figure}[h]
+\begin{figure}[ht]
   \includegraphics[width=0.8\linewidth]{armour.jpg}
   \caption{\label{fig:armour} A replica of an auxiliary cavalryman's armour
     (left), 2nd century AD. And a Roman legionary's (right), late 1st
@@ -142,7 +144,7 @@ depictions could be based on.
   \Description{Models Roman auxiliary and legionary with shields and spears.}
 \end{figure}
 
-\begin{figure}[h]
+\begin{figure}[ht]
   \includegraphics[width=0.8\linewidth]{milecastle.jpg}
   \caption{\label{fig:milecastle}A model of a milecastle from Hadrian's Wall.
   Via Hancock Museum}
@@ -197,11 +199,11 @@ This methodology has its limitations: by only using SteamDB as a source,
 selection bias is introduced as non-steam releases such as itch.io and the Meta
 Store are excluded. Additionally, SteamDB's engine detection can produce false
 negatives, for example, Godot games can be packaged as a single executable which
-will not be detected as shown in Figure \ref{fig:godot_false_negative}. Despite
+will not be detected as shown in Figure~\ref{fig:godot_false_negative}. Despite
 these limitations, this methodology was considered good enough to get a
 high-level overview.
 
-\begin{figure}[h]
+\begin{figure}[ht]
   \begin{lstlisting}
     $ ./kicksalot --help
     Godot Engine v4.4 - https://godotengine.org
@@ -235,14 +237,12 @@ which is impractical due to their high cost. Therefore, only the Valve Index
 controllers are fully supported with Unity and SteamVR's remapping used to
 handle other controller types.
 
-\subsubsection{\label{sec:vr_refs}Reference Material}
-% TODO: Which other games were referenced as inspiration?}
+\subsubsection{\label{sec:vr_refs}VR In Other Games}
 
 Implementations of VR in other games, especially with how they handle
 locomotion was analysed as inspiration for how it could be handled here. Two
 primary methods were identified that would be practical here:
 
-% TODO: Screenshot of options menus in a couple games
 \begin{itemize}
   \item Teleport - Player uses the joystick to select a location, then releases
     to teleport. Suggested to inexperienced users.
@@ -258,18 +258,38 @@ primary methods were identified that would be practical here:
 
 Given the variety of preferences among users, locomotion types should be
 configurable such that allow each user may select what they are most comfortable
-with, as well as to add vignette based on their needs. While some games include
+with, as well as to add vignette based on their needs. A sketch of the locomotion
+settings UI is shown in Figure~\ref{fig:locomotion_settings}. While some games include
 more advanced movement such as climbing or jumping, these were not deemed
-necessary here.
+necessary here. Both smooth movement and teleportation are supported by Unity's VR
+system, and therefore were trivial to implement as specified in \hyperref[sec:fr_teleport]{FR04}
+and \hyperref[sec:fr_smooth]{FR05}.
 
-% TODO: Figure on UI sketch
-% TODO: VR inspiration. Mostly in how certain mechanics are implemented}
+\begin{figure}[ht]
+  \includesvg[width=\linewidth]{locomotion-ui-sketch.svg}
+  \caption{\label{fig:locomotion_settings}Sketch for the locomotion settings UI.}
+  \Description{
+    An interface sketch showing options to move via teleporting or smootly,
+    with a vignette slider that is only enabled when using smooth movement and
+    a warning that it may cause motion sickness.
+  }
+\end{figure}
 
-% TODO: Handling VR: Locomotion}
-% TODO: Handling VR: Text}
+Text rendering in other games was identified as a common weak point, with some,
+such as Blade and Sorcery (Figure~\ref{fig:bns_text})
+using fonts that are both small and difficult to read. This was a clear area for
+improvement here defined as \hyperref[sec:nfr_text]{NFR03} and further detailed
+in Section~\ref{sec:text_scale}.
+
+\begin{figure}[ht]
+  \includegraphics[width=\linewidth]{text_bns.png}
+  \caption{\label{fig:bns_text}Text from Blade and Sorcery that uses a small
+  serif font that makes it difficult to read in VR.}
+  \Description{A screenshot of an in-game journal showing small print text
+  that is difficult to read.}
+\end{figure}
 
 \section{Design \& Implementation}
-% TODO: Implementation}
 
 \subsection{The Setting}
 
@@ -279,7 +299,7 @@ game during Emperor Hadrian's visit in 122 AD.
 This setting gives the opportunity to teach about the rule of Hadrian himself
 and the history leading to the construction of Hadrian's Wall, as well as other
 events such as the disappearance/defeat of the ninth legion circa 120 AD.
-\cite{rocha_romes_2021}, \cite{hodgson_end_2021}
+\cite{rocha_romes_2021, hodgson_end_2021}
 
 The DEM.Net elevation API was used to produce a height map of the fort and
 surrounding area including satellite imagery. While the resolution was too low
@@ -304,9 +324,9 @@ fort and as much as a third would have been unfit for service, likely due to
 poor hygiene, as documented in a strength report from circa AD 90.
 \cite{bowman_military_1991}
 
-\begin{figure}[h]
+\begin{figure}[ht]
   \includegraphics[width=\linewidth]{osm-vindolandra.png}
-  \caption{Map of Vindolanda. Via OpenStreetMap [ODbL License]}
+  \caption{\label{fig:osm_map}Map of Vindolanda. Via OpenStreetMap [ODbL License]}
   \Description{A map of the Vindolanda excavations showing the layout of the
   ninth fort}
 \end{figure}
@@ -315,15 +335,71 @@ The ninth fort was constructed from stone and, although it didn't exist until
 a nearly a century after Hadrian's reign and the setting of this game, it is the
 best documented. As such, it and the adjacent town was chosen as the basis for
 this depiction, with stone materials being replaced with the more
-period-appropriate wood to compromise between ease of development and historical
-accuracy.
+period-appropriate wood walls and thatch roofs to compromise between ease of
+development and historical accuracy. An overhead map of the fort is shown in
+Figure~\ref{fig:osm_map}.
 
-\subsubsection{The Wall}
+The fort's implementation made heavy use of Loafbrr's public domain castle wall
+kit with wooden and thatch textures from OpenGameArt, also in the public domain.
+These were used to create a reusable set of prefab templates for common areas
+such as walls and rooms shown in Figure~\ref{fig:lego_fort}, that were then combined
+to form larger structures such as the outer wall or a barracks. This resulted in
+fairly detailed, but very similar looking, structures that were quick to lay out.
+A small amount of variety was introduced using scripts to randomly select and
+position decorative objects such as items on tables. An overhead view of the
+final fort is shown in Figure~\ref{fig:teaser}.
 
-In addition to the fort, it was also decided to represent Hadrian's wall through
-milecastle 39, frequently referred to as ``Castle Nick'' although it is unclear
-where this nickname originated, situated just over a kilometre north-north-west
-where the famous Sycamore Gap tree once stood.
+\begin{figure}[ht]
+  \includegraphics[width=\linewidth]{lego_fort.png}
+  \caption{\label{fig:lego_fort}A collection of prefabs used for the fort's
+  exterior wall. Top: Gate with watchtowers, bottom left: watchtower, bottom right:
+  straight wall.}
+  \Description{A set of wall part prefabs for use in the fort.}
+\end{figure}
+
+OpenStreetMap's data on the fort and town's layout was used as a reference throughout
+with a script that display an editor overlay on the fort scene to base geometry
+on. This proved a useful guide, with the limitation of only covering excavated areas.
+This factor that is especially limiting in the north-east corner of the site visible
+by the lack of detail in Figure~\ref{fig:osm_map}.
+
+To showcase how the fort appears in the present day, partially fufilling
+\hyperref[sec:fr_beforeafter]{FR03}, several displays (Figure~\ref{fig:barracks_today})
+are included showing photos taken during the fort visit (Section~\ref{sec:site_visit}).
+
+\begin{figure}[ht]
+  \includegraphics[width=\linewidth]{barracks_today.png}
+  \caption{\label{fig:barracks_today}A photo panel showing the present-day ruins of the barracks.}
+  \Description{A screenshot showing a floating panel that shows the ruins of the barracks at Vindolanda.}
+\end{figure}
+
+\subsubsection{The Wall and Milecastle}
+
+In addition to the fort, Hadrian's wall through
+milecastle 39, frequently referred to as ``Castle Nick'', although it is unclear
+where this nickname originated. This site is also notable as being where the famous
+Sycamore Gap tree once stood.
+
+Milecastle 39 is situated approximately 1.5 kilometres north-north-west of the fort,
+making it impractical to have users manually walk this distance in VR. Instead,
+both Vindolanda and Castle Nick feature triggers, shown in Figure~\ref{fig:teleport_trigger}
+that directly teleport users between the sites to save them from making the trip themselves.
+A birds-eye view of the milecastle and a section of Hadrian's wall is shown in
+Figure~\ref{fig:milecastle_over}.
+
+\begin{figure}[ht]
+  \includegraphics[width=\linewidth]{teleport-trigger.png}
+  \caption{\label{fig:teleport_trigger}A trigger that teleports the user to a linked
+  destination when entered.}
+  \Description{A cubic green bounding box wireframe representing the trigger area
+  with the floating text ``To Vindolanda'' inside it.}
+\end{figure}
+
+\begin{figure}[ht]
+  \includegraphics[width=\linewidth]{milecastle_over.png}
+  \caption{\label{fig:milecastle_over}Birds-eye view of Castle Nick and the connected wall.}
+  \Description{The depiction of Castle Nick and Hadrian's Wall as viewed from overhead.}
+\end{figure}
 
 \subsection{VR Considerations}
 Virtual reality introduces a unique set of challenges to game development. One
@@ -349,13 +425,23 @@ other games, \hyperref[sec:fr_save]{FR07} was derived to allow for users to take
 breaks as required, which they are instructed to do often and to take things
 slow to reduce sickness.
 
+Finally, there is the safety aspect to consider, namely real world boundaries and
+obstacles which users may lose awareness of while in VR. Existing boundary systems
+which overlay a grid when players get too close to an obstacle, remain the industry
+standard and are provided automatically by platforms such as Valve's SteamVR.
+\cite{valve_software_steam_nodate} and Meta's Quest \cite{meta_set_nodate}. While
+these are less immersive \cite{george_invisible_2020, sanchez-vives_presence_2005}
+and increase cognitive load \cite{wickens_multiple_2008} they remain effective
+enough to allow safe usage of VR even in fairly small spaces. The tutorial will
+be designed to inform users of this to account for players who have not used
+their platform's native tutorials.
+
 Testing was complicated by the developer's prior experience which caused
 movement options and interactions to appear more intuitive than they may be and
 for these systems to cause less motion sickness. This also introduced bias:
 while smooth rotation may be acceptable for some users, it was not considered
 here due to causing the developer significant disorientation.
 
-% TODO: Safety - inform user about SteamVR's room bounds system
 
 \subsection{Educational Value}
 Educational games are a subcategory of ``Serious Games'', which aim to use the
@@ -371,10 +457,7 @@ also gives the opportunity to improve understanding about areas that
 learners would physically be unable to reach such as the solar system, which
 would likely be applicable to history. \cite{detlefsen_cosmic_2014}
 
-% TODO: Educational Value. What makes a good educational game?
-
 \subsubsection{Fort Tour}
-% TODO: Fort tour
 
 A tour is used to teach users about the fort's layout, the function of each building,
 and other information about Roman Britain. This is provided by an in-game tour guide who
@@ -382,14 +465,31 @@ follows the player and gives information about their current location on request
 is the main educational source of the game.
 
 \subsubsection{Deliveries}
-% TODO: Deliveries
 
 Vindolanda is famous for the hundreds of writing tablets recovered from the site
-which give valuable insight into life in the fort \cite{adams_new_2003},
-\cite{coles_vindolanda_1985}. The inclusion of a subset of these was a natural
-avenue for education by making the player act as a courier delivering them and
-able to read the documents. This was complicated, however, by the poor condition
-of many tablets which made many unsuitable for inclusion.
+which give valuable insight into life in the fort \cite{adams_new_2003,coles_vindolanda_1985}.
+The inclusion of a subset of these was a natural avenue for education by making
+the player act as a courier delivering them and able to read the documents. This
+was complicated, however, by the poor condition of many tablets which made many
+unsuitable for inclusion due to having incomplete translations.
+
+To improve readability of these tablets, only a summary of their text is rendered
+on the tablet itself, with the full text being displayed in a larger box above
+to allow larger font sizes as required by \hyperref[sec:nfr_text]{NFR03} and depicted
+in Figure~\ref{fig:tablet}.
+
+\begin{figure}[ht]
+  \includegraphics[width=\linewidth]{tablet.png}
+  \caption{\label{fig:tablet}A writing tablet displaying a title on the tablet itself
+  and its full context above.}
+  \Description{A square wooden writing tablet containing the text ``Letter'', above
+  is the contents of the letter in a larger black box.}
+\end{figure}
+
+The final delivery system is a simplistic proof of concept: users can speak to
+a generic NPC to receive a random tablet, and are given directions on a second
+tablet acting as a journal on who to deliver it to. This uses the same quest
+system used by the tutorial which allows for future expansion.
 
 \subsection{Tutorial}
 Initial user demos were performed by users with no VR experience and no built-in
@@ -424,22 +524,62 @@ as using a bow requires the multi-step process of taking an arrow, nocking it, d
 aiming, and releasing. As with to the basic tutorial, a motion-captured NPC is shown using a bow to
 demonstrate this motion.
 
-\subsection{Motion Capture}
+\subsection{Inverse Kinematics and Motion Capture}
+
+To enhance immersion, the player's head, hand, and finger movements are mapped
+onto a virtual body using Unity's inverse kinematics (IK) and VR finger tracking.
+While controller positions could be directly mapped into IK, finger tracking required
+manually adjusting finger bones between rigging and skinning to replace their
+animation-driven positions with controller-derived ones.
+
+Initially, the player's animator had root motion enabled, causing it to move independently
+of the camera - giving it the appearance of running away as shown in
+Figure~\ref{fig:oops_camera}. Disabling root motion solved this issue and resulted
+in IK working as expected, shown in Figure~\ref{fig:ik_good}.
+
+\begin{figure}[ht]
+  \includegraphics[width=0.5\linewidth]{out-of-body.png}
+  \caption{
+    \label{fig:oops_camera}The player model running away from the camera.
+    \url{https://www.youtube.com/watch?v=W9Mfbanlegs}}
+  \Description{A screenshot depicting the player model leaving the camera behind.}
+\end{figure}
+
+\begin{figure}[ht]
+  \includegraphics[width=\linewidth]{arm-ik.png}
+  \caption{\label{fig:ik_good}The player's hands and arms correctly postioned by inverse kinematics.}
+  \Description{A screenshot depecting the player's hands being tracked by IK.}
+\end{figure}
+
+Unity's hand tracking uses a different and incompatible skeleton to humanoid animations which
+required a set of fine-tuned transformations to convert between. These were defined
+as part of a scriptable object rather than hard-coded allowing they could be tweaked
+at runtime for quicker iteration; this was essential as even a milimeter of error could be
+noticeable by users as deformation in their hand meshes. The final hand tracking
+system, and the flawed initial version, is shown in Figure~\ref{fig:finger_tracking}
+
+\begin{figure}[ht]
+  \subfloat[\centering Incorrectly Positioned Fingers]{\includegraphics[width=0.5\linewidth]{finger-bad.png}}
+  \subfloat[\centering Finger Tracking]{\includegraphics[width=0.5\linewidth]{finger-good.png}}
+  \caption{\label{fig:finger_tracking}Left: Hand deformation caused by incorrect finger transformations. Right: Accurately tracked fingers mapped onto the user's hand mesh.}
+  \Description{Screenshots of the user's hand mesh, the left showing fingers deformed to the left
+  while the right shows them correctly positioned.}
+\end{figure}
 
 Motion capture is heavily used in the film and games industries to cheaply produce
 realistic animations. While this traditionally requires expensive equipment to produce, including
 specialised suits or multiple cameras \cite{nogueira_motion_2011}, virtual reality can imitate
 this as it provides three highly accurate tracking points: the player's head and their hands.
 The Index controllers used by the developer additionally track individual finger states that
-further enhance precision.
+further enhance detail.
 
-When combined with inverse kinematics, which was already implemented to position the player's body,
+When combined with IK, which was already implemented to position the player's body,
 this results in a rudimentary yet reasonably effective motion capture system, though as expected it
 sacrifices precision, making it less effective than a professional system. \cite{vox_evaluation_2021}
-This is especially visible in motions such as pulling a hand to the chin to draw a bow, where inverse
-kinematics positioned the elbow in front of the face rather than behind it as shown in Figure \ref{fig:hand_wrong}
+This is especially visible in motions such as pulling a hand to the chin to draw a bow, where IK
+positioned the elbow in front of the face rather than behind it as shown in Figure~\ref{fig:hand_wrong}
 
-\begin{figure}[h]
+\begin{figure}[ht]
   \includegraphics[width=0.5\linewidth]{mocap-hand-wrong.png}
   \caption{\label{fig:hand_wrong}An incorrectly positioned elbow from motion capture.}
   \Description{A screenshot showing a soldier using a bow with their draw arm's elbow
@@ -447,10 +587,131 @@ kinematics positioned the elbow in front of the face rather than behind it as sh
 \end{figure}
 
 \subsection{Mechanics}
-% TODO: Mechanics
+
+\subsubsection{\label{sec:footsteps}Footsteps}
+
+The implementation of footstep sounds uses a combination of systems. First,
+movement animations send events when a foot touches the ground. These are listened
+to by a script attached to each NPC which performs a raycast from the
+foot, specified in the event, to determine which physics material it landed on.
+Normally, Unity's physics materials only define friction and bounciness; these were
+extended with a \texttt{MaterialData} system that maps materials to extra data
+holding a set of footstep sounds. The event listener script uses this data along
+with the NPC's current speed to select whether to play a walking or running sound,
+and play a randomly selected sound based on material and speed.
+
+\subsubsection{Dialogue}
+
+The fort tour required a significant amount of dialogue to implement. While in
+a flatscreen game this could be performed using text only, too much reading could
+cause eye strain in VR. While human-voiced dialogue would be higher quality, recording
+and editing it would be impractical due to time constraints. Instead, text to
+speech (TTS) was used for the vast majority of dialogue. This is largely automated
+in a three step process:
+
+\begin{enumerate}
+  \item Use a menu item to export dialogue text, ID's, and whether it has a recording to CSV.
+  \item Run a Python script that generates TTS using the Google Cloud API.
+        An alternative, but more expensive, API for this would have been ElevenLabs.
+  \item Using another menu item, import the generated MP3s and link them to dialogue.
+\end{enumerate}
+
+This system has two limitations: first is that dialogue does not indicate its speaker,
+requiring that all characters use the same voice. This was deemed acceptable as
+most lines are spoken by the tour guide, but could be resolved by tagging entries
+with a speaker. Second, there is no automatic detection of outdated audio
+meaning subtitles and speech could differ if text was edited after audio generation.
+This was also acceptable as lines were unlikely to be edited after being written, but
+could be resolved by storing timestamps, then regenerating
+if text is newer than audio.
+
+Storing dialogue text in-engine made adding subtitles trivial. Speakers request
+for a subtitle panel to be displayed when they begin a line and hide it when finished.
+The panel, shown in Figure~\ref{fig:subtitles} displays this text alongside the speaker's name in front of the user,
+unless subtitles are disabled in which case the request is ignored.
+
+\begin{figure}[ht]
+  \includegraphics[width=\linewidth]{subtitles.png}
+  \caption{\label{fig:subtitles}The subtitle panel displayed during the tutorial.}
+  \Description{A floating subtitle panel displaying the text ``Tutorial: Use the
+  right stick to move to the glowing red marker.''}
+\end{figure}
+
+While VR motion capture was used for body animations, it is unable to help with
+facial animation such as expressions and lip sync. While professional solutions
+such as FaceFX are able to produce this from audio alone, they are prohibitavly
+expensive for this project. Instead, a simplistic animation of characters moving
+their mouth is used with no attempt made at synchronising with speech.
 
 \subsubsection{Archery}
-% TODO: Archery, explain how the "quiver" is actually a trigger that spawns an arrow
+
+While it was not standard equipment, Roman legions could include archers
+\cite{ureche_bow_2013,mcallister_formidable_1993} with recent findings confirming
+their existence at the nearby Housesteads fort \cite{collins_soldiers_2013}. This
+made it an attractive addition to the game. Implementing this involved several
+techniques to both ease development and increase realism.
+
+After picking up a bow, the user's next step is of course to take an arrow from
+the ``quiver'', which is in fact a trigger behind the user's back that spawns an
+arrow when grabbed. When nocking the arrow, the held item is hidden and replaced
+with a separate script-controlled mesh attached to the bow to allow greater control
+over its position as the user draws. Upon release, the held arrow is deleted and
+replaced with a newly created projectile at a speed determined by draw level.
+
+Each frame, launched projectiles check for colliders in front of them and, if found,
+sends an \texttt{OnHit} event to any target components found. After this the projectile
+stops checking for more targets and freezes itself in position if the hit material
+allows for it to embed using the \texttt{MaterialData} system described in Section~\ref{sec:footsteps}
+
+The bow itself is animated using a vertex animation texture to create a more
+realistic effect where the body of the bow bends when drawn, shown in Figure~\ref{fig:vat}.
+This is more physically accurate than what is seen in many games which typically
+depict the bowstring stretching.
+
+\begin{figure}[ht]
+  \includegraphics[width=\linewidth]{bow-loose.png}
+  \includegraphics[width=\linewidth]{bow-drawn.png}
+  \caption{\label{fig:vat}Top: A bow in its default state. Bottom: A fully drawn bow.}
+  \Description{A composite bow, undrawn on top and fully drawn on bottom.}
+\end{figure}
+
+\subsubsection{Save and Load}
+
+\begin{figure}[ht]
+  % Inkscape can't render Mermaid SVGs :(
+  \includegraphics[width=\linewidth]{saveload.png}
+  \caption{\label{fig:saveload}Class diagram for the save and load system.}
+  \Description{
+    A UML class diagram for the save and load system. Saveable inherits from IdOwner,
+    IdManager depends on IdOwner, and SaveLoad depends on both Saveable and IdManager.
+  }
+\end{figure}
+
+Unity, like most general-purpose game engines, does not natively provide a
+save/load system required by \hyperref[sec:fr_save]{FR07} , meaning that it had
+to be implemented separately. In the editor, any object that to be either saved
+or referenced in a save, such as NPCs and patrol points, is automatically assigned
+a unique ID that can be safely referenced in a save. During startup, these IDs are
+collected for quick mapping during loading of a save.
+
+Any object to be included in a save has a component deriving from the
+\texttt{Saveable} class allowing it to inherit and extend base behaviour such
+as position and rotation tracking. It also defines two functions to save to an
+intermediate \texttt{SaveData} class and restore values from it.
+
+When saving, all saveable objects are gathered and have their save functions invoked.
+The results of these operations are serialised as a JSON array containing object
+IDs and data for later use. To load a save, the JSON data is decoded and passed
+to all serialised objects' load functions to restore their states and resolve
+references using the ID map.
+
+This system is limited in that it has no support for tracking dynamically allocated
+objects such as fired arrows. Adding support for this would require tracking the
+prefab from which the object was instantiated. This would require a distinct system
+because Unity's file system does not include paths at runtime. Dynamically created
+objects could be identified by the usage of a template prefab but would require
+additional work to track and clean up after loading. This was not considered
+necessary for \hyperref[sec:fr_save]{FR07} as no significant use cases were found.
 
 \subsection{Requirement Analysis}
 
@@ -491,9 +752,9 @@ breaks, there \textbf{should} be a system to save the user's progress and return
 later.
 
 \paragraph{\label{sec:fr_lefty}FR08 Left Handed Support}
-As I am left handed myself, the game \textbf{must} support both left and
-right-handed interaction in order to allow comfortable use by all users and to
-ease testing.
+The game \textbf{must} support both left and right-handed interaction in order
+to allow comfortable use by all users. As I am left-handed myself, this priority
+is elevated from should-have to must-have.
 
 \paragraph{\label{sec:fr_mocap}FR09 Motion Capture}
 The game \textbf{could} use VR input, combined with inverse kinematics, to
@@ -504,8 +765,12 @@ characters in conjunction with \hyperref[sec:fr_lefty]{FR08}
 \subsubsection{Non-functional requirements}
 
 \paragraph{\label{sec:nfr_performance}NFR01 Performance}
-The game \textbf{must} maintain 90FPS during typical gameplay. This is essential
-to avoid causing motion sickness.
+The game \textbf{must} maintain a minimum of $45FPS$, $22.2ms$ per frame, at all
+times, including during heavy load, to avoid motion sickness.
+
+The game \textbf{should} target $90FPS$, $11.1ms$ per frame, during typical
+gameplay to match the HTC Vive's native refresh rate without the need for
+reprojection.
 
 \paragraph{\label{sec:nfr_linux}NFR02 Linux Support}
 The game \textbf{could} include native Linux support. This is a nice to have as
@@ -524,7 +789,6 @@ These \textbf{could} be toggleable for the end-user, but should be enabled by de
 and opt-out for players who do not want them.
 
 \section{Results \& Evaluation}
-% TODO: Results and eval
 
 \subsection{Unity's Suitability}
 Despite being the de facto standard for VR, Unity's implementation of it and
@@ -540,92 +804,71 @@ Godot, the second engine considered, as its asset library already includes
 needed systems such as quests, dialogue, and more flexible behaviour trees that
 could be used outside of AI.
 
-\subsection{Implementation of Requirements}
-\subsubsection{Functional Requirements}
+\subsection{Performance}
 
-\newcommand{\refreq}[2]{\paragraph{\hyperref[#1]{#2}}}
+Unity's occlusion culling system, which disables rendering objects blocked by others,
+was the main technique used for optimising performance as geometry used fairly low-poly
+assets that would not benefit from level of detail. However, historical accuracy
+to the layout of the fort remained a priority which limited opportunities to close
+sight lines for more efficient culling.
 
-\refreq{sec:fr_recreate}{FR01}
-\textbf{Mostly} achieved. The depiction of the fort includes most buildings, but
-leaves out some in order to save on development time.
+Benchmarking performance for \hyperref[sec:nfr_performance]{NFR01} on desktop PCs
+is inherently challenging due to the wide variety of user hardware compared to consoles
+and handhelds, such as the PSVR and Meta Quest, which have a limited set of configurations.
+Benchmarks were conducted on the developer's system equipped with a high-end GeForce RTX 3070
+graphics card.
 
-\refreq{sec:fr_wall}{FR02}
-\textbf{Fully} achieved, although the depiction of the milecastle is fairly
-basic and is much less content-dense than the rest of the fort.
+To approximate performance on lower-end GPUs, these benchmarks were run with a
+resolution scaling factor of 400\% (four times as many pixels as normal),
+significantly increasing GPU load. It should be noted that resolution scaling
+is expected to have minimal CPU impact, and thus will not detect any CPU-bound
+issues.
 
-\refreq{sec:fr_beforeafter}{FR03}
-\textbf{Fully} achieved. There are several photos of the ruins of the fort
-showing its ruins in the present day.
+SteamVR's built-in performance graph, shown in Figure~\ref{fig:vr_profile} and
+throughout the demo video (\url{https://youtu.be/CaM-xLr3iG0}) was used to display frame
+times during gameplay. This data can be recorded for later review and correlated
+with gameplay to identify areas with performance issues. It should be noted however,
+that recording video adds a non-negligible GPU overhead that could affect results
+in GPU-bound scenarios, a condition that appears to apply for most of the game.
 
-\refreq{sec:fr_teleport}{FR04}
-\textbf{Fully} achieved. Players are able to move around the fort using
-teleportation, although most testing was performed using smooth movement
-(\hyperref[sec:fr_smooth]{FR05}).
+Unexpectedly, the area with the highest frame times was Hadrian's Wall and Castle Nick
+where frame times reached up to $21ms$, despite this region seemingly having
+significantly less visible geometry than the fort. Further investigation suggested
+two contributing factors. First, although the fort was fully culled by Unity's
+occlusion system, it still incurred some overhead, though profiling proved inconclusive.
+Second, the grass, used much more extensively around the wall, caused substantial
+overdraw, straining VRAM bandwidth with a potentially exaggerated impact due to the
+aforementioned 400\% resolution scaling. Other than this, frame times hovered at
+an average of $10-12ms$, close to the target of $11ms$.
 
-\refreq{sec:fr_smooth}{FR05}
-\textbf{Fully} achieved. Players can move smoothly using the controller's
-joystick and either the controller or head direction used as a forward vector.
-This is limited to walking, there is no implementation of climbing or jumping
-for the reasons discussed in Section \ref{sec:vr_refs}.
-
-\refreq{sec:fr_tutorial}{FR06}
-\textbf{Fully} achieved. A tutorial can be started from the menu at any time
-which teaches movement, interaction, and menu usage.
-
-\refreq{sec:fr_save}{FR07}
-\textbf{Fully} achieved. The player is able to save and load at any time, which
-preserves the state of the world and NPCs.
-
-\refreq{sec:fr_lefty}{FR08}
-\textbf{Fully} achieved. Interactions are mirrored such that either controller
-can be used to perform any action.
-
-\refreq{sec:fr_mocap}{FR09}
-\textbf{Fully} achieved. Motion capture is used in the tutorial to demonstrate
-picking up items and to demonstrate archery.
-
-\subsubsection{Non-Functional Requirements}
-% TODO: Success of requirements
-\refreq{sec:nfr_performance}{NFR01}
-
-\refreq{sec:nfr_linux}{NFR02}
-\textbf{Not} achieved. While Unity can be compiled for Linux, this could not be
-tested due to difficulties running SteamVR on the platform.
-
-\refreq{sec:nfr_text}{NFR03}
-\textbf{Fully} achieved. Text is displayed using large font sizes, which
-includes using popups to increase available space on small objects such as
-writing tablets.
-
-\refreq{sec:nfr_subtitle}{NFR04}
-\textbf{Fully} achieved. All dialogue includes subtitles which can be disabled
-by users.
-
-\subsection{The Bugs}
-
-No good game development is complete without a few bugs, featured here.
-
-Figure \ref{fig:oops_camera}. The player's animator initially had root motion enabled, this caused it to
-move relative to the camera when walking, which was magnified when turning giving
-the appearance of it running away from the camera.
-
-\begin{figure}[h]
-  \includegraphics[width=0.5\linewidth]{out-of-body.png}
+\begin{figure}[ht]
+  \includegraphics{vr-profile.png}
   \caption{
-    \label{fig:oops_camera}The player model running away from the camera.
-    \url{https://www.youtube.com/watch?v=W9Mfbanlegs}}
-  \Description{A screenshot depicting the player model leaving the camera behind.}
+    \label{fig:vr_profile}SteamVR's performance profiler showing frame times
+    over the past 2 seconds.}
+  \Description{
+    A screenshot of SteamVR's performance profiler showing an average
+    frame time of 9ms and most frames completed below the 11ms target.}
 \end{figure}
 
-\subsection{Performance}
-% TODO: Benchmark and discuss results
-
 \section{Conclusion \& Future Work}
-% TODO: Conclusion and future work
+Through creation of a VR fort, tour, and basic delivery system, this paper establishes
+a baseline for further study into the applications of virtual reality for education,
+particularly in relation to the Vindolanda fort. While VR is an inherently demanding
+platform, the game would be capable of running on more modest hardware than what
+the developer had access to. Key limitations of this study include limited
+user testing, especially with the final tutorial, and quest system that, while
+sufficient, lacks flexibility. Future work would focus on upgrading the quest
+system to support more varied content and deepen its educational value, and
+expanding the fort to include more detailed areas and characters for use in such
+quests.
 
-% TODO: Acknowledgments
 \begin{acks}
-
+  I would like to thank my lecturers, Graham Morgan, Rich Davison, and Gary
+  Ushaw, for their assistance throughout this project as well as my parents for
+  their support. Finally, I would like to express gratitude for all the staff
+  and volunteers involved in the Vindolanda excavations, which made this whole
+  project possible.
 \end{acks}
 
 \section*{Datasets}
@@ -648,6 +891,8 @@ the appearance of it running away from the camera.
   \url{https://www.openstreetmap.org/export}
 }
 
+% Enable if "You have called \balance in second column" appears
+% \balance
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{vindolanda}
 
