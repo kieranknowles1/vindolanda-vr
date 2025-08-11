@@ -365,7 +365,7 @@ by the lack of detail in Figure~\ref{fig:osm_map}.
 
 To showcase how the fort appears in the present day, partially fufilling
 \hyperref[sec:fr_beforeafter]{FR03}, several displays (Figure~\ref{fig:barracks_today})
-are included showing photos taken during at the fort visit (Section~\ref{sec:site_visit}).
+are included showing photos taken during the fort visit (Section~\ref{sec:site_visit}).
 
 \begin{figure}[ht]
   \includegraphics[width=\linewidth]{barracks_today.png}
@@ -376,7 +376,7 @@ are included showing photos taken during at the fort visit (Section~\ref{sec:sit
 \subsubsection{The Wall and Milecastle}
 
 In addition to the fort, Hadrian's wall through
-milecastle 39, frequently referred to as ``Castle Nick'' although it is unclear
+milecastle 39, frequently referred to as ``Castle Nick'', although it is unclear
 where this nickname originated. This site is also notable as being where the famous
 Sycamore Gap tree once stood.
 
@@ -571,7 +571,7 @@ realistic animations. While this traditionally requires expensive equipment to p
 specialised suits or multiple cameras \cite{nogueira_motion_2011}, virtual reality can imitate
 this as it provides three highly accurate tracking points: the player's head and their hands.
 The Index controllers used by the developer additionally track individual finger states that
-further enhance precision.
+further enhance detail.
 
 When combined with IK, which was already implemented to position the player's body,
 this results in a rudimentary yet reasonably effective motion capture system, though as expected it
@@ -613,20 +613,20 @@ in a three step process:
   \item Use a menu item to export dialogue text, ID's, and whether it has a recording to CSV.
   \item Run a Python script that generates TTS using the Google Cloud API.
         An alternative, but more expensive, API for this would have been ElevenLabs.
-  \item Use another menu item, import the generated MP3s and link them to dialogue.
+  \item Using another menu item, import the generated MP3s and link them to dialogue.
 \end{enumerate}
 
 This system has two limitations: first is that dialogue does not indicate its speaker,
 requiring that all characters use the same voice. This was deemed acceptable as
-most lines are spoken by the tour guide, but could be resolved by taggin entries
+most lines are spoken by the tour guide, but could be resolved by tagging entries
 with a speaker. Second, there is no automatic detection of outdated audio
 meaning subtitles and speech could differ if text was edited after audio generation.
-This was also acceptable as lines were unlikely to be edited after written, but
+This was also acceptable as lines were unlikely to be edited after being written, but
 could be resolved by storing timestamps, then regenerating
 if text is newer than audio.
 
 Storing dialogue text in-engine made adding subtitles trivial. Speakers request
-for a subtitle panel to be displayed when they begin a line hide it when finished.
+for a subtitle panel to be displayed when they begin a line and hide it when finished.
 The panel, shown in Figure~\ref{fig:subtitles} displays this text alongside the speaker's name in front of the user,
 unless subtitles are disabled in which case the request is ignored.
 
@@ -661,7 +661,7 @@ replaced with a newly created projectile at a speed determined by draw level.
 Each frame, launched projectiles check for colliders in front of them and, if found,
 sends an \texttt{OnHit} event to any target components found. After this the projectile
 stops checking for more targets and freezes itself in position if the hit material
-allows for it using the \texttt{MaterialData} system described in Section~\ref{sec:footsteps}
+allows for it to embed using the \texttt{MaterialData} system described in Section~\ref{sec:footsteps}
 
 The bow itself is animated using a vertex animation texture to create a more
 realistic effect where the body of the bow bends when drawn, shown in Figure~\ref{fig:vat}.
@@ -752,9 +752,9 @@ breaks, there \textbf{should} be a system to save the user's progress and return
 later.
 
 \paragraph{\label{sec:fr_lefty}FR08 Left Handed Support}
-As I am left handed myself, the game \textbf{must} support both left and
-right-handed interaction in order to allow comfortable use by all users and to
-ease testing.
+The game \textbf{must} support both left and right-handed interaction in order
+to allow comfortable use by all users. As I am left-handed myself, this priority
+is elevated from should-have to must-have.
 
 \paragraph{\label{sec:fr_mocap}FR09 Motion Capture}
 The game \textbf{could} use VR input, combined with inverse kinematics, to
